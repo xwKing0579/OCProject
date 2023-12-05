@@ -1,0 +1,30 @@
+//
+//  PrefixHeader.pch
+//  OCProject
+//
+//  Created by 王祥伟 on 2023/12/4.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "TPMediator.h"
+#import "TPRouterModel+Class.h"
+
+#import "UIColor+Category.h"
+#import "UIFont+Category.h"
+#import "UIImage+Category.h"
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(@"\nfunc = %s\nline = %d\nresult = %@\n",__func__,__LINE__, [NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
+#else
+#define NSLog(...)
+
+#endif
+
+
+
+#endif /* PrefixHeader_pch */

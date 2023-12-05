@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TPTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,9 +16,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if (@available(iOS 13.0, *)) {
+        
+    } else {
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [self.window setBackgroundColor:[UIColor whiteColor]];
+        TPTabBarController *tabbarController = [[TPTabBarController alloc] init];
+        [self.window setRootViewController:tabbarController];
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
-
 
 #pragma mark - UISceneSession lifecycle
 
