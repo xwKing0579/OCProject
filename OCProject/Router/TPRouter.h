@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)jumpUrl:(NSString *)url withModel:(TPRouterModel * _Nullable )model;
 
 + (void)back;
-+ (void)backUrl:(NSString * _Nullable)url;
-+ (void)backUrl:(NSString * _Nullable)url withModel:(TPRouterModel * _Nullable )model;
++ (void)backUrl:(NSString * _Nullable)url; //native=home&animation=1
+
 @end
 
 

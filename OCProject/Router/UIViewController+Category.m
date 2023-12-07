@@ -21,7 +21,6 @@
     }
 }
 
-
 + (__kindof UIViewController *)topViewController:(UIViewController *)vc{
     if (vc.presentedViewController) {
         return [self topViewController:vc.presentedViewController];

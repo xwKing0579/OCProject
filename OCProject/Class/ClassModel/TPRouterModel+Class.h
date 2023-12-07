@@ -15,14 +15,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)routerClass;
 + (NSString *)routerJumpUrl;
 + (NSString *)routerJumpUrlWithModel;
++ (NSString *)back;
++ (NSString *)backUrl;
+
++ (NSString *)home;
++ (NSString *)homeKey;
+
++ (NSString *)web;
++ (NSString *)webKey;
 
 + (NSString *)test;
 + (NSString *)testTableViewCell;
 + (NSString *)testTableViewCellClass;
 + (NSString *)testTableViewCellAlloc;
-
-+ (NSString *)home;
-+ (NSString *)homeKey;
 @end
 
 NS_ASSUME_NONNULL_END

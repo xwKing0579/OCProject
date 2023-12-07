@@ -13,13 +13,14 @@
 
 #import "TPMediator.h"
 #import "TPRouterModel+Class.h"
+#import "TPNetworkManager.h"
 
 #import "UIColor+Category.h"
 #import "UIFont+Category.h"
 #import "UIImage+Category.h"
 
 #ifdef DEBUG
-#define NSLog(...) NSLog(@"\nfunc = %s\nline = %d\nresult = %@\n",__func__,__LINE__, [NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
+#define NSLog(...) NSLog(@"\n%s,%d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
 #else
 #define NSLog(...)
 

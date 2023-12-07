@@ -17,7 +17,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (self.navigationController.childViewControllers.count > 1) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStyleDone) target:self action:@selector(backViewController)];
+        self.navigationItem.leftBarButtonItem.tintColor = UIColor.c000000;
+    }
+    
+    self.fd_prefersNavigationBarHidden = [self hideNavigationBar];
 }
 
+///back
+- (void)backViewController{
+    [TPMediator performTarget:TPRouterModel.routerClass action:TPRouterModel.back];
+}
+
+///hidden navbar
+- (BOOL)hideNavigationBar{
+    return NO;
+}
 
 @end

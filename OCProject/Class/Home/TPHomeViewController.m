@@ -6,7 +6,7 @@
 //
 
 #import "TPHomeViewController.h"
-#import "TPNetworkManager.h"
+
 @interface TPHomeViewController ()
 
 @end
@@ -25,7 +25,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [TPMediator performTarget:TPRouterModel.routerClass action:TPRouterModel.routerJumpUrl object:@"url=test"];
+    [TPMediator performTarget:TPRouterModel.routerClass action:TPRouterModel.routerJumpUrl object:@"native/web?url=https://juejin.cn"];
 }
 
 @end

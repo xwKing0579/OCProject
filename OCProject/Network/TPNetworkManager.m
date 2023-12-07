@@ -8,7 +8,6 @@
 #import "TPNetworkManager.h"
 #import <AFNetworking.h>
 
-static NSString *baseUrl;
 static AFHTTPSessionManager *manager;
 
 @implementation TPNetworkManager
@@ -24,7 +23,7 @@ static AFHTTPSessionManager *manager;
 }
 
 + (NSString *)baseUrl{
-    return @"https://ecloudsit.tppension.cntaiping.com";
+    return @"";
 }
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url

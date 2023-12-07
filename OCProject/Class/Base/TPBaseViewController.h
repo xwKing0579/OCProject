@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPBaseViewController : UIViewController
 
+///hidden navbar
+- (BOOL)hideNavigationBar;
+
+///back
+- (void)backViewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

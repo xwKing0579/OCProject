@@ -28,6 +28,11 @@
 		F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95622B1F04D2003059CB /* TPNetworkCache.m */; };
 		F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95652B1F053F003059CB /* TPNetworkManager.m */; };
 		F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95692B1F1D07003059CB /* TPMineViewController.m */; };
+		F8AF956E2B1F3BFF003059CB /* TPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF956D2B1F3BFF003059CB /* TPWebViewController.m */; };
+		F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343172B201E94004AEE48 /* TPBaseSettings.m */; };
+		F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D3431A2B203ED0004AEE48 /* TPSettingLocation.m */; };
+		F8D343242B20682D004AEE48 /* TPNetworkManager+Envi.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343232B20682D004AEE48 /* TPNetworkManager+Envi.m */; };
+		F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343262B20686C004AEE48 /* TPEnviConfig.m */; };
 		F8EAC7EC2B173504005522DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC7EB2B173504005522DE /* AppDelegate.m */; };
 		F8EAC7EF2B173504005522DE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC7EE2B173504005522DE /* SceneDelegate.m */; };
 		F8EAC7F52B173504005522DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC7F32B173504005522DE /* Main.storyboard */; };
@@ -101,6 +106,16 @@
 		F8AF95652B1F053F003059CB /* TPNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNetworkManager.m; sourceTree = "<group>"; };
 		F8AF95682B1F1D07003059CB /* TPMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMineViewController.h; sourceTree = "<group>"; };
 		F8AF95692B1F1D07003059CB /* TPMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMineViewController.m; sourceTree = "<group>"; };
+		F8AF956C2B1F3BFF003059CB /* TPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPWebViewController.h; sourceTree = "<group>"; };
+		F8AF956D2B1F3BFF003059CB /* TPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPWebViewController.m; sourceTree = "<group>"; };
+		F8D343162B201E94004AEE48 /* TPBaseSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseSettings.h; sourceTree = "<group>"; };
+		F8D343172B201E94004AEE48 /* TPBaseSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseSettings.m; sourceTree = "<group>"; };
+		F8D343192B203ED0004AEE48 /* TPSettingLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingLocation.h; sourceTree = "<group>"; };
+		F8D3431A2B203ED0004AEE48 /* TPSettingLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSettingLocation.m; sourceTree = "<group>"; };
+		F8D343222B20682D004AEE48 /* TPNetworkManager+Envi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPNetworkManager+Envi.h"; sourceTree = "<group>"; };
+		F8D343232B20682D004AEE48 /* TPNetworkManager+Envi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPNetworkManager+Envi.m"; sourceTree = "<group>"; };
+		F8D343252B20686C004AEE48 /* TPEnviConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPEnviConfig.h; sourceTree = "<group>"; };
+		F8D343262B20686C004AEE48 /* TPEnviConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPEnviConfig.m; sourceTree = "<group>"; };
 		F8EAC7E72B173504005522DE /* OCProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EAC7EA2B173504005522DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F8EAC7EB2B173504005522DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -249,6 +264,44 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		F8AF956B2B1F3B8D003059CB /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				F8AF956C2B1F3BFF003059CB /* TPWebViewController.h */,
+				F8AF956D2B1F3BFF003059CB /* TPWebViewController.m */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		F8D343152B201DA8004AEE48 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F8D343162B201E94004AEE48 /* TPBaseSettings.h */,
+				F8D343172B201E94004AEE48 /* TPBaseSettings.m */,
+				F8D343192B203ED0004AEE48 /* TPSettingLocation.h */,
+				F8D3431A2B203ED0004AEE48 /* TPSettingLocation.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F8D3431C2B20616E004AEE48 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		F8D343212B206805004AEE48 /* Envi */ = {
+			isa = PBXGroup;
+			children = (
+				F8D343222B20682D004AEE48 /* TPNetworkManager+Envi.h */,
+				F8D343232B20682D004AEE48 /* TPNetworkManager+Envi.m */,
+				F8D343252B20686C004AEE48 /* TPEnviConfig.h */,
+				F8D343262B20686C004AEE48 /* TPEnviConfig.m */,
+			);
+			path = Envi;
+			sourceTree = "<group>";
+		};
 		F8EAC7DE2B173504005522DE = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +327,9 @@
 		F8EAC7E92B173504005522DE /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
+				F8D343212B206805004AEE48 /* Envi */,
+				F8D3431C2B20616E004AEE48 /* Toast */,
+				F8D343152B201DA8004AEE48 /* Settings */,
 				F8AF955D2B1EFA12003059CB /* Network */,
 				F868720A2B1DE0D8007E747F /* Tools */,
 				F8EAC8242B173539005522DE /* Router */,
@@ -322,6 +378,7 @@
 		F8EAC8232B173528005522DE /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F8AF956B2B1F3B8D003059CB /* Web */,
 				F8AF95672B1F1CEC003059CB /* Mine */,
 				F8AF95592B1EF3F5003059CB /* Home */,
 				F8AF95482B1EB92A003059CB /* Tabbar */,
@@ -535,7 +592,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D343242B20682D004AEE48 /* TPNetworkManager+Envi.m in Sources */,
 				F80804E22B19DF6900CBC705 /* TPRouterModel+Class.m in Sources */,
+				F8AF956E2B1F3BFF003059CB /* TPWebViewController.m in Sources */,
 				F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */,
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
@@ -547,9 +606,12 @@
 				F8AF955C2B1EF40A003059CB /* TPHomeViewController.m in Sources */,
 				F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */,
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
+				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */,
 				F8AF954E2B1EBC68003059CB /* UIFont+Category.m in Sources */,
+				F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */,
 				F8AF95582B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
 				F8EAC8222B173523005522DE /* TPMediator.m in Sources */,
 				F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */,
 				F8AF95602B1EFECE003059CB /* TPNetworkError.m in Sources */,
@@ -740,6 +802,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -769,6 +832,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
