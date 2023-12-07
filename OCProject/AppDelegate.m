@@ -26,6 +26,8 @@
         [self.window setRootViewController:tabbarController];
         [self.window makeKeyAndVisible];
     }
+    
+    [TPMediator performTarget:@"TPDebugTool_Class" action:@"start"];
     return YES;
 }
 

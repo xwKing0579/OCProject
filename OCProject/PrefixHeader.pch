@@ -18,6 +18,7 @@
 #import "UIColor+Category.h"
 #import "UIFont+Category.h"
 #import "UIImage+Category.h"
+#import "UIView+Category.h"
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"\n%s,%d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__

@@ -13,8 +13,6 @@
 		F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FE2B1D798D007E747F /* TPBaseTableViewCell.m */; };
 		F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872012B1D79C5007E747F /* TestTableViewCell.m */; };
 		F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872072B1DA1B2007E747F /* UIViewController+Category.m */; };
-		F868720C2B1DE0E9007E747F /* MLeaksFinder in Resources */ = {isa = PBXBuildFile; fileRef = F868720B2B1DE0E9007E747F /* MLeaksFinder */; };
-		F868720E2B1DE10A007E747F /* UnicodeReadable in Resources */ = {isa = PBXBuildFile; fileRef = F868720D2B1DE10A007E747F /* UnicodeReadable */; };
 		F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95402B1EB3DB003059CB /* TPBaseViewController.m */; };
 		F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95432B1EB407003059CB /* TPBaseNavigationController.m */; };
 		F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95462B1EB457003059CB /* TPBaseTabBarController.m */; };
@@ -44,6 +42,24 @@
 		F8EAC8132B173504005522DE /* OCProjectUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */; };
 		F8EAC8222B173523005522DE /* TPMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8202B173523005522DE /* TPMediator.m */; };
 		F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8272B1735D5005522DE /* TPRouter.m */; };
+		F8F4037D2B21B614008653CB /* TPDebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037C2B21B614008653CB /* TPDebugTool.m */; };
+		F8F403962B21B93D008653CB /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */; };
+		F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403812B21B93C008653CB /* UINavigationController+MemoryLeak.m */; };
+		F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403822B21B93C008653CB /* UIViewController+MemoryLeak.m */; };
+		F8F403992B21B93D008653CB /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403852B21B93C008653CB /* UIPageViewController+MemoryLeak.m */; };
+		F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4038B2B21B93D008653CB /* UIApplication+MemoryLeak.m */; };
+		F8F4039B2B21B93D008653CB /* MLeakedObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4038C2B21B93D008653CB /* MLeakedObjectProxy.m */; };
+		F8F4039C2B21B93D008653CB /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4038E2B21B93D008653CB /* UITabBarController+MemoryLeak.m */; };
+		F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4038F2B21B93D008653CB /* UITouch+MemoryLeak.m */; };
+		F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403902B21B93D008653CB /* NSObject+MemoryLeak.m */; };
+		F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403912B21B93D008653CB /* UISplitViewController+MemoryLeak.m */; };
+		F8F403A02B21B93D008653CB /* MLeaksMessenger.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403922B21B93D008653CB /* MLeaksMessenger.m */; };
+		F8F403A82B21B97A008653CB /* NSSet+UnicodeReadable.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403A22B21B97A008653CB /* NSSet+UnicodeReadable.m */; };
+		F8F403A92B21B97A008653CB /* NSDictionary+UnicodeReadable.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403A32B21B97A008653CB /* NSDictionary+UnicodeReadable.m */; };
+		F8F403AA2B21B97A008653CB /* NSArray+UnicodeReadable.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403A52B21B97A008653CB /* NSArray+UnicodeReadable.m */; };
+		F8F403AF2B21BD39008653CB /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403AE2B21BD39008653CB /* FPSLabel.m */; };
+		F8F403B22B21BE14008653CB /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403B12B21BE14008653CB /* UIView+Category.m */; };
+		F8F403B52B21C1C1008653CB /* TPDebugToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403B42B21C1C1008653CB /* TPDebugToolViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +94,6 @@
 		F86872052B1D7A6B007E747F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F86872062B1DA1B2007E747F /* UIViewController+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
 		F86872072B1DA1B2007E747F /* UIViewController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
-		F868720B2B1DE0E9007E747F /* MLeaksFinder */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MLeaksFinder; sourceTree = "<group>"; };
-		F868720D2B1DE10A007E747F /* UnicodeReadable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UnicodeReadable; sourceTree = "<group>"; };
 		F8AF953F2B1EB3DB003059CB /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
 		F8AF95402B1EB3DB003059CB /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
 		F8AF95422B1EB407003059CB /* TPBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseNavigationController.h; sourceTree = "<group>"; };
@@ -135,6 +149,43 @@
 		F8EAC8212B173523005522DE /* TPMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMediator.h; sourceTree = "<group>"; };
 		F8EAC8262B1735D5005522DE /* TPRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRouter.h; sourceTree = "<group>"; };
 		F8EAC8272B1735D5005522DE /* TPRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRouter.m; sourceTree = "<group>"; };
+		F8F4037B2B21B614008653CB /* TPDebugTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugTool.h; sourceTree = "<group>"; };
+		F8F4037C2B21B614008653CB /* TPDebugTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugTool.m; sourceTree = "<group>"; };
+		F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F403802B21B93C008653CB /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F403812B21B93C008653CB /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F403822B21B93C008653CB /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F403832B21B93C008653CB /* UIApplication+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F403842B21B93C008653CB /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
+		F8F403852B21B93C008653CB /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F403862B21B93C008653CB /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F403872B21B93D008653CB /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F403882B21B93D008653CB /* MLeaksMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksMessenger.h; sourceTree = "<group>"; };
+		F8F403892B21B93D008653CB /* MLeakedObjectProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeakedObjectProxy.h; sourceTree = "<group>"; };
+		F8F4038A2B21B93D008653CB /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F4038B2B21B93D008653CB /* UIApplication+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F4038C2B21B93D008653CB /* MLeakedObjectProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLeakedObjectProxy.m; sourceTree = "<group>"; };
+		F8F4038D2B21B93D008653CB /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F4038E2B21B93D008653CB /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F4038F2B21B93D008653CB /* UITouch+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITouch+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F403902B21B93D008653CB /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F403912B21B93D008653CB /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		F8F403922B21B93D008653CB /* MLeaksMessenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLeaksMessenger.m; sourceTree = "<group>"; };
+		F8F403932B21B93D008653CB /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F403942B21B93D008653CB /* UITouch+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITouch+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F403952B21B93D008653CB /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
+		F8F403A22B21B97A008653CB /* NSSet+UnicodeReadable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+UnicodeReadable.m"; sourceTree = "<group>"; };
+		F8F403A32B21B97A008653CB /* NSDictionary+UnicodeReadable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UnicodeReadable.m"; sourceTree = "<group>"; };
+		F8F403A42B21B97A008653CB /* NSArray+UnicodeReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+UnicodeReadable.h"; sourceTree = "<group>"; };
+		F8F403A52B21B97A008653CB /* NSArray+UnicodeReadable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+UnicodeReadable.m"; sourceTree = "<group>"; };
+		F8F403A62B21B97A008653CB /* NSDictionary+UnicodeReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UnicodeReadable.h"; sourceTree = "<group>"; };
+		F8F403A72B21B97A008653CB /* NSSet+UnicodeReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+UnicodeReadable.h"; sourceTree = "<group>"; };
+		F8F403AD2B21BD39008653CB /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
+		F8F403AE2B21BD39008653CB /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
+		F8F403B02B21BE14008653CB /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
+		F8F403B12B21BE14008653CB /* UIView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
+		F8F403B32B21C1C1008653CB /* TPDebugToolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugToolViewController.h; sourceTree = "<group>"; };
+		F8F403B42B21C1C1008653CB /* TPDebugToolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugToolViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +254,10 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				F868720D2B1DE10A007E747F /* UnicodeReadable */,
-				F868720B2B1DE0E9007E747F /* MLeaksFinder */,
+				F8F403AC2B21BD2E008653CB /* FPS */,
+				F8F403AB2B21B98B008653CB /* Debug */,
+				F8F403A12B21B96A008653CB /* Unicode */,
+				F8F4037E2B21B925008653CB /* MLeaksFinder */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -220,6 +273,8 @@
 				F8AF95502B1EBC73003059CB /* UIImage+Category.m */,
 				F8AF95562B1EF2CF003059CB /* UINavigationController+FDFullscreenPopGesture.h */,
 				F8AF95572B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m */,
+				F8F403B02B21BE14008653CB /* UIView+Category.h */,
+				F8F403B12B21BE14008653CB /* UIView+Category.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -416,6 +471,69 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		F8F4037E2B21B925008653CB /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				F8F403892B21B93D008653CB /* MLeakedObjectProxy.h */,
+				F8F4038C2B21B93D008653CB /* MLeakedObjectProxy.m */,
+				F8F403842B21B93C008653CB /* MLeaksFinder.h */,
+				F8F403882B21B93D008653CB /* MLeaksMessenger.h */,
+				F8F403922B21B93D008653CB /* MLeaksMessenger.m */,
+				F8F403932B21B93D008653CB /* NSObject+MemoryLeak.h */,
+				F8F403902B21B93D008653CB /* NSObject+MemoryLeak.m */,
+				F8F403832B21B93C008653CB /* UIApplication+MemoryLeak.h */,
+				F8F4038B2B21B93D008653CB /* UIApplication+MemoryLeak.m */,
+				F8F403952B21B93D008653CB /* UINavigationController+MemoryLeak.h */,
+				F8F403812B21B93C008653CB /* UINavigationController+MemoryLeak.m */,
+				F8F403862B21B93C008653CB /* UIPageViewController+MemoryLeak.h */,
+				F8F403852B21B93C008653CB /* UIPageViewController+MemoryLeak.m */,
+				F8F4038D2B21B93D008653CB /* UISplitViewController+MemoryLeak.h */,
+				F8F403912B21B93D008653CB /* UISplitViewController+MemoryLeak.m */,
+				F8F4038A2B21B93D008653CB /* UITabBarController+MemoryLeak.h */,
+				F8F4038E2B21B93D008653CB /* UITabBarController+MemoryLeak.m */,
+				F8F403942B21B93D008653CB /* UITouch+MemoryLeak.h */,
+				F8F4038F2B21B93D008653CB /* UITouch+MemoryLeak.m */,
+				F8F403872B21B93D008653CB /* UIView+MemoryLeak.h */,
+				F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */,
+				F8F403802B21B93C008653CB /* UIViewController+MemoryLeak.h */,
+				F8F403822B21B93C008653CB /* UIViewController+MemoryLeak.m */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		F8F403A12B21B96A008653CB /* Unicode */ = {
+			isa = PBXGroup;
+			children = (
+				F8F403A42B21B97A008653CB /* NSArray+UnicodeReadable.h */,
+				F8F403A52B21B97A008653CB /* NSArray+UnicodeReadable.m */,
+				F8F403A62B21B97A008653CB /* NSDictionary+UnicodeReadable.h */,
+				F8F403A32B21B97A008653CB /* NSDictionary+UnicodeReadable.m */,
+				F8F403A72B21B97A008653CB /* NSSet+UnicodeReadable.h */,
+				F8F403A22B21B97A008653CB /* NSSet+UnicodeReadable.m */,
+			);
+			path = Unicode;
+			sourceTree = "<group>";
+		};
+		F8F403AB2B21B98B008653CB /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				F8F4037B2B21B614008653CB /* TPDebugTool.h */,
+				F8F4037C2B21B614008653CB /* TPDebugTool.m */,
+				F8F403B32B21C1C1008653CB /* TPDebugToolViewController.h */,
+				F8F403B42B21C1C1008653CB /* TPDebugToolViewController.m */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		F8F403AC2B21BD2E008653CB /* FPS */ = {
+			isa = PBXGroup;
+			children = (
+				F8F403AD2B21BD39008653CB /* FPSLabel.h */,
+				F8F403AE2B21BD39008653CB /* FPSLabel.m */,
+			);
+			path = FPS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -522,8 +640,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8EAC7FA2B173504005522DE /* LaunchScreen.storyboard in Resources */,
-				F868720E2B1DE10A007E747F /* UnicodeReadable in Resources */,
-				F868720C2B1DE0E9007E747F /* MLeaksFinder in Resources */,
 				F8EAC7F72B173504005522DE /* Assets.xcassets in Resources */,
 				F8EAC7F52B173504005522DE /* Main.storyboard in Resources */,
 			);
@@ -592,13 +708,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */,
+				F8F4039C2B21B93D008653CB /* UITabBarController+MemoryLeak.m in Sources */,
+				F8F403AF2B21BD39008653CB /* FPSLabel.m in Sources */,
+				F8F403A92B21B97A008653CB /* NSDictionary+UnicodeReadable.m in Sources */,
+				F8F403962B21B93D008653CB /* UIView+MemoryLeak.m in Sources */,
 				F8D343242B20682D004AEE48 /* TPNetworkManager+Envi.m in Sources */,
 				F80804E22B19DF6900CBC705 /* TPRouterModel+Class.m in Sources */,
+				F8F403A82B21B97A008653CB /* NSSet+UnicodeReadable.m in Sources */,
 				F8AF956E2B1F3BFF003059CB /* TPWebViewController.m in Sources */,
 				F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */,
+				F8F4037D2B21B614008653CB /* TPDebugTool.m in Sources */,
+				F8F403AA2B21B97A008653CB /* NSArray+UnicodeReadable.m in Sources */,
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
+				F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */,
+				F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */,
+				F8F403992B21B93D008653CB /* UIPageViewController+MemoryLeak.m in Sources */,
 				F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */,
 				F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */,
 				F8EAC7EC2B173504005522DE /* AppDelegate.m in Sources */,
@@ -608,13 +735,20 @@
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */,
+				F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */,
+				F8F403B22B21BE14008653CB /* UIView+Category.m in Sources */,
 				F8AF954E2B1EBC68003059CB /* UIFont+Category.m in Sources */,
 				F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */,
+				F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */,
+				F8F403B52B21C1C1008653CB /* TPDebugToolViewController.m in Sources */,
 				F8AF95582B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */,
 				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
+				F8F4039B2B21B93D008653CB /* MLeakedObjectProxy.m in Sources */,
 				F8EAC8222B173523005522DE /* TPMediator.m in Sources */,
 				F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */,
 				F8AF95602B1EFECE003059CB /* TPNetworkError.m in Sources */,
+				F8F403A02B21B93D008653CB /* MLeaksMessenger.m in Sources */,
 				F8EAC7FD2B173504005522DE /* main.m in Sources */,
 				F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */,
 				F86871FB2B1D6641007E747F /* TestViewController.m in Sources */,
