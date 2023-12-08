@@ -49,8 +49,6 @@
     });
 }
 
-
-
 - (void)tick:(CADisplayLink *)link {
     if (_lastTime == 0) {
         _lastTime = link.timestamp;

@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		90A8DD855F12DDA350AC13E7 /* libPods-OCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD993247E48B3E80D3859B1 /* libPods-OCProject.a */; };
-		F80804E22B19DF6900CBC705 /* TPRouterModel+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F80804E12B19DF6900CBC705 /* TPRouterModel+Class.m */; };
 		F86871FB2B1D6641007E747F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FA2B1D6641007E747F /* TestViewController.m */; };
 		F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FE2B1D798D007E747F /* TPBaseTableViewCell.m */; };
 		F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872012B1D79C5007E747F /* TestTableViewCell.m */; };
 		F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872072B1DA1B2007E747F /* UIViewController+Category.m */; };
+		F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E501D2B22F31B00B00781 /* TPRouter+Class.m */; };
+		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95402B1EB3DB003059CB /* TPBaseViewController.m */; };
 		F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95432B1EB407003059CB /* TPBaseNavigationController.m */; };
 		F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95462B1EB457003059CB /* TPBaseTabBarController.m */; };
@@ -20,7 +21,6 @@
 		F8AF954E2B1EBC68003059CB /* UIFont+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF954D2B1EBC68003059CB /* UIFont+Category.m */; };
 		F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95502B1EBC73003059CB /* UIImage+Category.m */; };
 		F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95532B1EBF7C003059CB /* TPTabBarController.m */; };
-		F8AF95582B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95572B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F8AF955C2B1EF40A003059CB /* TPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF955B2B1EF40A003059CB /* TPHomeViewController.m */; };
 		F8AF95602B1EFECE003059CB /* TPNetworkError.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF955F2B1EFECE003059CB /* TPNetworkError.m */; };
 		F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95622B1F04D2003059CB /* TPNetworkCache.m */; };
@@ -83,8 +83,6 @@
 		26F7B17AF38D01699C8E260F /* Pods-OCProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCProject.debug.xcconfig"; path = "Target Support Files/Pods-OCProject/Pods-OCProject.debug.xcconfig"; sourceTree = "<group>"; };
 		6FD993247E48B3E80D3859B1 /* libPods-OCProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA58B3EEA77B6B800264221C /* Pods-OCProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCProject.release.xcconfig"; path = "Target Support Files/Pods-OCProject/Pods-OCProject.release.xcconfig"; sourceTree = "<group>"; };
-		F80804E02B19DF6900CBC705 /* TPRouterModel+Class.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPRouterModel+Class.h"; sourceTree = "<group>"; };
-		F80804E12B19DF6900CBC705 /* TPRouterModel+Class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPRouterModel+Class.m"; sourceTree = "<group>"; };
 		F86871F92B1D6641007E747F /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F86871FA2B1D6641007E747F /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F86871FD2B1D798D007E747F /* TPBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -94,6 +92,10 @@
 		F86872052B1D7A6B007E747F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F86872062B1DA1B2007E747F /* UIViewController+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
 		F86872072B1DA1B2007E747F /* UIViewController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
+		F86E501C2B22F31B00B00781 /* TPRouter+Class.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPRouter+Class.h"; sourceTree = "<group>"; };
+		F86E501D2B22F31B00B00781 /* TPRouter+Class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPRouter+Class.m"; sourceTree = "<group>"; };
+		F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		F8AF953F2B1EB3DB003059CB /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
 		F8AF95402B1EB3DB003059CB /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
 		F8AF95422B1EB407003059CB /* TPBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseNavigationController.h; sourceTree = "<group>"; };
@@ -108,8 +110,6 @@
 		F8AF95502B1EBC73003059CB /* UIImage+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 		F8AF95522B1EBF7C003059CB /* TPTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTabBarController.h; sourceTree = "<group>"; };
 		F8AF95532B1EBF7C003059CB /* TPTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
-		F8AF95562B1EF2CF003059CB /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
-		F8AF95572B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		F8AF955A2B1EF40A003059CB /* TPHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPHomeViewController.h; sourceTree = "<group>"; };
 		F8AF955B2B1EF40A003059CB /* TPHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPHomeViewController.m; sourceTree = "<group>"; };
 		F8AF955E2B1EFECE003059CB /* TPNetworkError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNetworkError.h; sourceTree = "<group>"; };
@@ -231,15 +231,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F80804DF2B19D8F200CBC705 /* ClassModel */ = {
-			isa = PBXGroup;
-			children = (
-				F80804E02B19DF6900CBC705 /* TPRouterModel+Class.h */,
-				F80804E12B19DF6900CBC705 /* TPRouterModel+Class.m */,
-			);
-			path = ClassModel;
-			sourceTree = "<group>";
-		};
 		F86872032B1D7A37007E747F /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,10 +262,10 @@
 				F8AF954D2B1EBC68003059CB /* UIFont+Category.m */,
 				F8AF954F2B1EBC73003059CB /* UIImage+Category.h */,
 				F8AF95502B1EBC73003059CB /* UIImage+Category.m */,
-				F8AF95562B1EF2CF003059CB /* UINavigationController+FDFullscreenPopGesture.h */,
-				F8AF95572B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m */,
 				F8F403B02B21BE14008653CB /* UIView+Category.h */,
 				F8F403B12B21BE14008653CB /* UIView+Category.m */,
+				F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */,
+				F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -439,7 +430,6 @@
 				F8AF95482B1EB92A003059CB /* Tabbar */,
 				F8AF953E2B1EB250003059CB /* Category */,
 				F86872032B1D7A37007E747F /* Test */,
-				F80804DF2B19D8F200CBC705 /* ClassModel */,
 				F8EAC8252B173572005522DE /* Base */,
 			);
 			path = Class;
@@ -452,6 +442,8 @@
 				F8EAC8272B1735D5005522DE /* TPRouter.m */,
 				F86872062B1DA1B2007E747F /* UIViewController+Category.h */,
 				F86872072B1DA1B2007E747F /* UIViewController+Category.m */,
+				F86E501C2B22F31B00B00781 /* TPRouter+Class.h */,
+				F86E501D2B22F31B00B00781 /* TPRouter+Class.m */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -714,7 +706,6 @@
 				F8F403A92B21B97A008653CB /* NSDictionary+UnicodeReadable.m in Sources */,
 				F8F403962B21B93D008653CB /* UIView+MemoryLeak.m in Sources */,
 				F8D343242B20682D004AEE48 /* TPNetworkManager+Envi.m in Sources */,
-				F80804E22B19DF6900CBC705 /* TPRouterModel+Class.m in Sources */,
 				F8F403A82B21B97A008653CB /* NSSet+UnicodeReadable.m in Sources */,
 				F8AF956E2B1F3BFF003059CB /* TPWebViewController.m in Sources */,
 				F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */,
@@ -741,12 +732,13 @@
 				F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */,
 				F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */,
 				F8F403B52B21C1C1008653CB /* TPDebugToolViewController.m in Sources */,
-				F8AF95582B1EF2D0003059CB /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */,
 				F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */,
 				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
 				F8F4039B2B21B93D008653CB /* MLeakedObjectProxy.m in Sources */,
 				F8EAC8222B173523005522DE /* TPMediator.m in Sources */,
 				F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */,
+				F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				F8AF95602B1EFECE003059CB /* TPNetworkError.m in Sources */,
 				F8F403A02B21B93D008653CB /* MLeaksMessenger.m in Sources */,
 				F8EAC7FD2B173504005522DE /* main.m in Sources */,
@@ -931,9 +923,13 @@
 				GCC_PREFIX_HEADER = /Users/wangxiangwei/Desktop/OCProject/OCProject/PrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OCProject/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = " Location Always and When In Use Usage Description";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location Always Usage Description";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location When In Use Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -961,9 +957,13 @@
 				GCC_PREFIX_HEADER = /Users/wangxiangwei/Desktop/OCProject/OCProject/PrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OCProject/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = " Location Always and When In Use Usage Description";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location Always Usage Description";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location When In Use Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

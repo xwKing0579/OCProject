@@ -25,7 +25,12 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [TPMediator performTarget:TPRouterModel.routerClass action:TPRouterModel.routerJumpUrl object:@"native/web?url=https://juejin.cn"];
+    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/test"];
 }
+
+- (BOOL)hideNavigationBar{
+    return YES;
+}
+
 
 @end

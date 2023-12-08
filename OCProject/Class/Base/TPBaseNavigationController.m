@@ -16,6 +16,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationBar.translucent = NO;
+    self.navigationBar.backgroundColor = [UIColor whiteColor];
+    UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc]init];
+    appearance.backgroundColor = [UIColor whiteColor];
+    self.navigationBar.standardAppearance =  appearance;
+    self.navigationBar.scrollEdgeAppearance = appearance;
 }
 
 @end

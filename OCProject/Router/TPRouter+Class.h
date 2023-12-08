@@ -1,22 +1,21 @@
 //
-//  TPRouterModel+Class.h
+//  TPRouter+Class.h
 //  OCProject
 //
-//  Created by 王祥伟 on 2023/12/1.
+//  Created by 王祥伟 on 2023/12/8.
 //
 
 #import "TPRouter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TPRouterModel (Class)
-
+@interface TPRouter (Class)
 + (NSString *)router;
 + (NSString *)routerClass;
 + (NSString *)routerJumpUrl;
-+ (NSString *)routerJumpUrlWithModel;
-+ (NSString *)back;
-+ (NSString *)backUrl;
++ (NSString *)routerJumpUrlParams;
++ (NSString *)routerBack;
++ (NSString *)routerBackUrl;
 
 + (NSString *)home;
 + (NSString *)homeKey;

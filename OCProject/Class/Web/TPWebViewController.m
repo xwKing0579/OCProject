@@ -20,14 +20,14 @@
     [self setUpSubViews];
 }
 
-- (BOOL)hideNavigationBar{
-    return YES;
-}
+//- (BOOL)hideNavigationBar{
+//    return YES;
+//}
 
 - (void)setUpSubViews{
     [self.view addSubview:self.webView];
     if (self.url) {
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
     }
 }
 

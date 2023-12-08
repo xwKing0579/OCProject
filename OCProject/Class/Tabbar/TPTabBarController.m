@@ -17,7 +17,7 @@
     [super viewDidLoad];
     // Do any additio/var/folders/1t/4dl17tv96w94hzs02x__240c0000gn/T/simulator_screenshot_EEE35BAC-5627-4610-AF68-8F8CA6DFFB4E.pngnal setup after loading the view.
     
-    NSArray *vcs = @[TPRouterModel.homeKey,TPRouterModel.webKey,@"TestViewController",@"TestViewController"];
+    NSArray *vcs = @[TPRouter.home,TPRouter.web,@"TestViewController",@"TestViewController"];
     NSArray *names = @[@"微信",@"通讯录",@"优化",@"我"];
     NSArray *images = @[@"mainframe_normal",@"contacts_normal",@"discover_normal",@"me_normal"];
     for (int i = 0; i < vcs.count; i++) {

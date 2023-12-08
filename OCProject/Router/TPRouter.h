@@ -7,31 +7,25 @@
 
 #import <Foundation/Foundation.h>
 
-@class TPRouterModel;
+@class TPRouter;
 
 NS_ASSUME_NONNULL_BEGIN
+
+FOUNDATION_EXTERN NSString *const kTPRouterPathURLName;
+FOUNDATION_EXTERN NSString *const kTPRouterPathJumpStyle;
+FOUNDATION_EXTERN NSString *const kTPRouterPathNoAnimation;
 
 @interface TPRouter : NSObject
 
 + (id)jumpUrl:(NSString *)url;
-+ (id)jumpUrl:(NSString *)url withModel:(TPRouterModel * _Nullable )model;
++ (id)jumpUrl:(NSString *)url params:(NSDictionary * _Nullable )params;
 
 + (void)back;
-+ (void)backUrl:(NSString * _Nullable)url; //native=home&animation=1
-
-@end
-
-
-
-@interface TPRouterModel : NSObject
-
-@property (nonatomic, assign) BOOL push;
-@property (nonatomic, assign) BOOL animation;
-@property (nonatomic, strong) NSDictionary *params;
++ (void)backUrl:(NSString * _Nullable)url; ///home/noanimation
 
 ///自定义页面参数
 + (NSDictionary *)classValue;
-
 @end
+
 
 NS_ASSUME_NONNULL_END

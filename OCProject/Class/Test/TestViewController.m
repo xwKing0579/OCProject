@@ -30,7 +30,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:TPRouterModel.testTableViewCellClass action:TPRouterModel.testTableViewCellAlloc object:tableView object:[NSString stringWithFormat:@"%ld", indexPath.row]];
+    return [TPMediator performTarget:TPRouter.testTableViewCellClass action:TPRouter.testTableViewCellAlloc object:tableView object:[NSString stringWithFormat:@"%ld", indexPath.row]];
 }
 
 - (UITableView *)tableView{
@@ -45,5 +45,9 @@
     }
     return _tableView;
 }
+
+//- (BOOL)hideNavigationBar{
+//    return YES;
+//}
 
 @end

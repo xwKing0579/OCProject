@@ -7,64 +7,62 @@
 
 #import "TPRouter.h"
 #import <UIKit/UIKit.h>
-#import <objc/runtime.h>
 #import "UIViewController+Category.h"
-
-NSString *const kTPRouterPathURLName = @"native";
-NSString *const kTPRouterPathBackIndex = @"index";
-NSString *const kTPRouterPathBackAnimation = @"animation";
+#import "TPBaseNavigationController.h"
+NSString *const kTPRouterPathURLName = @"native/";
+NSString *const kTPRouterPathJumpStyle = @"present";
+NSString *const kTPRouterPathNoAnimation = @"noanimation";
 
 @implementation TPRouter
 
 + (id)jumpUrl:(NSString *)url{
-    return [self jumpUrl:url withModel:nil];
+    return [self jumpUrl:url params:nil];
 }
 
-+ (id)jumpUrl:(NSString *)url withModel:(TPRouterModel * _Nullable )model{
-    if (!model) {
-        model = [[TPRouterModel alloc] init];
-        model.push = YES;
-        model.animation = YES;
-    }
-    
++ (id)jumpUrl:(NSString *)url params:(NSDictionary * _Nullable )params{
+    if (![url isKindOfClass:[NSString class]]) return nil;
     ///处理一些业务逻辑
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:url];
     NSString *path = urlComponents.path;
     if (![path hasPrefix:kTPRouterPathURLName]) return nil;
     path = [path stringByReplacingOccurrencesOfString:kTPRouterPathURLName withString:@""];
-    path = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
-    NSString *classString = [TPRouterModel classValue][path];
+    NSArray <NSString *>*temp = [path componentsSeparatedByString:@"/"];
+    if (temp.count == 0) return nil;
+    NSString *classString = [self classValue][temp.firstObject];
+    if (!classString) classString = temp.firstObject;
     Class class = NSClassFromString(classString);
     if (!class) return nil;
     
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *propertys = [NSMutableDictionary dictionaryWithDictionary:params];
     [urlComponents.queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.value&&obj.name) {
-            [params setObject:obj.value forKey:obj.name];
+            [propertys setObject:obj.value forKey:obj.name];
         }
     }];
     
-    __kindof UIViewController *vc = [class new];
-    unsigned int outCount = 0;
-    objc_property_t *properties = class_copyPropertyList(class, &outCount);
-    if (properties) {
-        for (int i = 0; i < outCount; i++) {
-            objc_property_t property = properties[i];
-            NSString *key = [NSString stringWithUTF8String:property_getName(property)];
-            NSString *param = params[key];
-            if (param != nil) {
-                [vc setValue:param forKey:key];
-            }
-        }
-        free(properties);
-    }
-    
+    __kindof UIViewController *vc = [class yy_modelWithDictionary:propertys];
+    if (!vc) return nil;
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
-    if (model.push) {
+    if (!currentVC) return nil;
+    
+    BOOL push = ![temp containsObject:kTPRouterPathJumpStyle];
+    BOOL animation = ![temp containsObject:kTPRouterPathNoAnimation];
+    
+    if (push) {
         vc.hidesBottomBarWhenPushed = YES;
-        [currentVC.navigationController pushViewController:vc animated:model.animation];
+        [currentVC.navigationController pushViewController:vc animated:animation];
     }else{
-        [currentVC presentViewController:vc animated:model.animation completion:nil];
+        ///自定义nav
+        Class navClass = NSClassFromString([propertys valueForKey:@"navigationController"]);
+        __kindof UINavigationController *nav = [navClass alloc];
+        if ([nav isKindOfClass:[UINavigationController class]]) {
+            vc = [nav initWithRootViewController:vc];
+        }
+        ///自定义model
+        if (![propertys valueForKey:@"modalPresentationStyle"]) {
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        }
+        [currentVC presentViewController:vc animated:animation completion:nil];
     }
     
     return vc;
@@ -75,50 +73,33 @@ NSString *const kTPRouterPathBackAnimation = @"animation";
 }
 
 + (void)backUrl:(NSString * _Nullable)url{
-    NSArray *keyValues = [url componentsSeparatedByString:@"&"];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    for (NSString *obj in keyValues) {
-        NSArray *temp = [obj componentsSeparatedByString:@"="];
-        if (temp.count == 2) {
-            [params setValue:temp.lastObject forKey:temp.firstObject];
-        }
-    }
+    NSArray <NSString *>*temp = [url componentsSeparatedByString:@"/"];
     
-    BOOL animation = YES;
-    if (params[kTPRouterPathBackAnimation]) animation = params[kTPRouterPathBackAnimation];
-    
+    BOOL animation = ![temp containsObject:kTPRouterPathNoAnimation];
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
+    if (!currentVC) return;
+    
     if (currentVC.presentingViewController){
         [currentVC dismissViewControllerAnimated:animation completion:nil];
     }else{
-        NSString *path = params[kTPRouterPathURLName];
-        NSString *index = params[kTPRouterPathBackIndex];
-        Class class = NSClassFromString([TPRouterModel classValue][path]);
-        
         __kindof UINavigationController *nav = currentVC.navigationController;
-        if (class == nil && index == nil) {
-            [nav popViewControllerAnimated:animation];
-        }else{
-            __kindof UIViewController *toVc;
-            NSInteger indexPath = [index integerValue];
-            if (indexPath < nav.navigationController.viewControllers.count) toVc = nav.viewControllers[indexPath];
-            
-            for (UIViewController *controller in nav.viewControllers) {
-                if ([controller isMemberOfClass:class]) {
-                    toVc = controller;
-                    break;
-                }
-            }
-            
-            toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
+        Class class = NSClassFromString([self classValue][temp.firstObject]);
+        if (!class) {
+            [nav popViewControllerAnimated:YES];
+            return;
         }
+        __kindof UIViewController *toVc;
+        for (UIViewController *controller in nav.viewControllers) {
+            if ([controller isMemberOfClass:class]) {
+                toVc = controller;
+                break;
+            }
+        }
+        
+        toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
     }
 }
 
-@end
-
-
-@implementation TPRouterModel
 
 + (NSDictionary *)classValue {
     return @{};

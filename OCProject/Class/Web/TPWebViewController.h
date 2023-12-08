@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPWebViewController : TPBaseViewController
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSURL *url;
 @end
 
 NS_ASSUME_NONNULL_END

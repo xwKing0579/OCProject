@@ -24,15 +24,20 @@ static __weak UIAlertView *alertView;
                message:(NSString *)message
               delegate:(id<UIAlertViewDelegate>)delegate
  additionalButtonTitle:(NSString *)additionalButtonTitle {
-    [alertView dismissWithClickedButtonIndex:0 animated:NO];
-    UIAlertView *alertViewTemp = [[UIAlertView alloc] initWithTitle:title
-                                                            message:message
-                                                           delegate:delegate
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:additionalButtonTitle, nil];
-    [alertViewTemp show];
-    alertView = alertViewTemp;
+//    [alertView dismissWithClickedButtonIndex:0 animated:NO];
+//    UIAlertView *alertViewTemp = [[UIAlertView alloc] initWithTitle:title
+//                                                            message:message
+//                                                           delegate:delegate
+//                                                  cancelButtonTitle:@"OK"
+//                                                  otherButtonTitles:additionalButtonTitle, nil];
+//    [alertViewTemp show];
+//    alertView = alertViewTemp;
     
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [UIViewController.currentViewController presentViewController:alertVC animated:YES completion:nil];
     NSLog(@"%@: %@", title, message);
 }
 

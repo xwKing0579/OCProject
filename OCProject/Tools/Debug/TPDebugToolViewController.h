@@ -5,11 +5,11 @@
 //  Created by 王祥伟 on 2023/12/7.
 //
 
-#import <UIKit/UIKit.h>
+#import "TPBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TPDebugToolViewController : UIViewController
+@interface TPDebugToolViewController : TPBaseViewController
 
 @end
 

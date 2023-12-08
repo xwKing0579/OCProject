@@ -36,7 +36,7 @@
 }
 
 - (void)didTap:(UITapGestureRecognizer *)tapGesture{
-    [TPMediator performTarget:TPRouterModel.routerClass action:TPRouterModel.routerJumpUrl object:@"native/web?url=https://juejin.cn"];
+    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
 }
 
 - (UIWindow *)debugWindow{

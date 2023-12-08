@@ -12,13 +12,16 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "TPMediator.h"
-#import "TPRouterModel+Class.h"
+#import "TPRouter+Class.h"
 #import "TPNetworkManager.h"
 
 #import "UIColor+Category.h"
 #import "UIFont+Category.h"
 #import "UIImage+Category.h"
 #import "UIView+Category.h"
+#import "UIViewController+Category.h"
+
+#import <YYModel.h>
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"\n%s,%d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
@@ -26,7 +29,6 @@
 #define NSLog(...)
 
 #endif
-
 
 
 #endif /* PrefixHeader_pch */
