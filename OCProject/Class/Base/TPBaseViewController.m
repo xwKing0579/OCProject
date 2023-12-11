@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (self.presentingViewController) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"close"] style:(UIBarButtonItemStyleDone) target:self action:@selector(backViewController)];
-    }else if (self.navigationController.childViewControllers.count > 1) {
+    if (self.navigationController.childViewControllers.count > 1) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStyleDone) target:self action:@selector(backViewController)];
+    }else if (self.presentingViewController){
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"close"] style:(UIBarButtonItemStyleDone) target:self action:@selector(backViewController)];
     }
     self.navigationItem.leftBarButtonItem.tintColor = UIColor.c000000;
     self.fd_prefersNavigationBarHidden = [self hideNavigationBar];
@@ -36,4 +36,7 @@
     return NO;
 }
 
+- (BOOL)controllerRepeat{
+    return NO;
+}
 @end

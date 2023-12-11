@@ -6,6 +6,8 @@
 //
 
 #import "TPDebugTool.h"
+#import "UIDevice+Category.h"
+#import "UIViewController+Category.h"
 
 @interface TPDebugTool ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UIWindow *debugWindow;
@@ -39,6 +41,20 @@
     [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
 }
 
+- (void)dragable:(UIPanGestureRecognizer *)sender{
+    CGPoint transP = [sender translationInView:self.debugWindow];
+    self.debugWindow.transform = CGAffineTransformTranslate(self.debugWindow.transform, transP.x, transP.y);
+    [sender setTranslation:CGPointZero inView:self.debugWindow];
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.2 animations:^{
+            if (self.debugWindow.x < 0) self.debugWindow.x = 0;
+            if (self.debugWindow.x > UIScreen.mainScreen.bounds.size.width-self.debugWindow.width) self.debugWindow.x = UIScreen.mainScreen.bounds.size.width-self.debugWindow.width;
+            if (self.debugWindow.y < UIDevice.statusBarHeight) self.debugWindow.y = UIDevice.statusBarHeight;
+            if (self.debugWindow.y > UIScreen.mainScreen.bounds.size.height-self.debugWindow.height) self.debugWindow.y = UIScreen.mainScreen.bounds.size.height-self.debugWindow.height;
+        }];
+    }
+}
+
 - (UIWindow *)debugWindow{
     if (!_debugWindow){
         _debugWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height/2, 60, 60)];
@@ -46,9 +62,13 @@
         _debugWindow.backgroundColor = [UIColor grayColor];
         _debugWindow.layer.cornerRadius = 30;
         _debugWindow.layer.masksToBounds = YES;
+        _debugWindow.windowLevel = UIWindowLevelAlert+1;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
         tapGesture.delegate = self;
         [_debugWindow addGestureRecognizer:tapGesture];
+        
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(dragable:)];
+        [_debugWindow addGestureRecognizer:pan];
         
         id fps = [TPMediator performTarget:@"FPSLabel_Class" action:@"new"];
         if([fps isKindOfClass:[UILabel class]]) {

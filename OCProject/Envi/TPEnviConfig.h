@@ -13,9 +13,16 @@ typedef NS_ENUM(NSInteger,TPSchemeEnvi){
     TPSchemeEnviPreRelese,
     TPSchemeEnviRelese,
 };
+
 @interface TPEnviConfig : NSObject
 
 + (TPSchemeEnvi)envi;
++ (NSString *)enviToSting;
++ (NSArray <NSString *>*)allEnvi;
+
++ (void)setEnvi:(TPSchemeEnvi)envi;
+
++ (void)enviConfig:(void (^)(void))complation;
 
 @end
 

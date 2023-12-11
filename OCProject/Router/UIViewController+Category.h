@@ -10,7 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Category)
+
++ (UIWindow *)window;
++ (__kindof UIViewController *)rootViewController;
 + (__kindof UIViewController *)currentViewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

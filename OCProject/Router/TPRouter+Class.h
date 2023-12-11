@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)testTableViewCell;
 + (NSString *)testTableViewCellClass;
 + (NSString *)testTableViewCellAlloc;
+
+
++ (void)routerEntry;
 @end
 
 NS_ASSUME_NONNULL_END

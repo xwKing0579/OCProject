@@ -21,7 +21,7 @@ FOUNDATION_EXTERN NSString *const kTPRouterPathNoAnimation;
 + (id)jumpUrl:(NSString *)url params:(NSDictionary * _Nullable )params;
 
 + (void)back;
-+ (void)backUrl:(NSString * _Nullable)url; ///home/noanimation
++ (void)backUrl:(NSString * _Nullable)url; ///home/noanimation/index_1
 
 ///自定义页面参数
 + (NSDictionary *)classValue;

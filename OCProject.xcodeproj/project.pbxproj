@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		90A8DD855F12DDA350AC13E7 /* libPods-OCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD993247E48B3E80D3859B1 /* libPods-OCProject.a */; };
+		F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8430E862B26B43600DBE29F /* UIDevice+Category.m */; };
+		F8430E8C2B26E2AD00DBE29F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8430E8B2B26E2AD00DBE29F /* Assets.xcassets */; };
+		F8430E8F2B26E6E600DBE29F /* UIAlertController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8430E8E2B26E6E600DBE29F /* UIAlertController+Category.m */; };
 		F86871FB2B1D6641007E747F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FA2B1D6641007E747F /* TestViewController.m */; };
 		F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FE2B1D798D007E747F /* TPBaseTableViewCell.m */; };
 		F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872012B1D79C5007E747F /* TestTableViewCell.m */; };
@@ -83,6 +86,11 @@
 		26F7B17AF38D01699C8E260F /* Pods-OCProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCProject.debug.xcconfig"; path = "Target Support Files/Pods-OCProject/Pods-OCProject.debug.xcconfig"; sourceTree = "<group>"; };
 		6FD993247E48B3E80D3859B1 /* libPods-OCProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA58B3EEA77B6B800264221C /* Pods-OCProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCProject.release.xcconfig"; path = "Target Support Files/Pods-OCProject/Pods-OCProject.release.xcconfig"; sourceTree = "<group>"; };
+		F8430E852B26B43600DBE29F /* UIDevice+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Category.h"; sourceTree = "<group>"; };
+		F8430E862B26B43600DBE29F /* UIDevice+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Category.m"; sourceTree = "<group>"; };
+		F8430E8B2B26E2AD00DBE29F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8430E8D2B26E6E600DBE29F /* UIAlertController+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Category.h"; sourceTree = "<group>"; };
+		F8430E8E2B26E6E600DBE29F /* UIAlertController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Category.m"; sourceTree = "<group>"; };
 		F86871F92B1D6641007E747F /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F86871FA2B1D6641007E747F /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F86871FD2B1D798D007E747F /* TPBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -264,6 +272,10 @@
 				F8AF95502B1EBC73003059CB /* UIImage+Category.m */,
 				F8F403B02B21BE14008653CB /* UIView+Category.h */,
 				F8F403B12B21BE14008653CB /* UIView+Category.m */,
+				F8430E852B26B43600DBE29F /* UIDevice+Category.h */,
+				F8430E862B26B43600DBE29F /* UIDevice+Category.m */,
+				F8430E8D2B26E6E600DBE29F /* UIAlertController+Category.h */,
+				F8430E8E2B26E6E600DBE29F /* UIAlertController+Category.m */,
 				F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */,
 				F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */,
 			);
@@ -513,6 +525,7 @@
 				F8F4037C2B21B614008653CB /* TPDebugTool.m */,
 				F8F403B32B21C1C1008653CB /* TPDebugToolViewController.h */,
 				F8F403B42B21C1C1008653CB /* TPDebugToolViewController.m */,
+				F8430E8B2B26E2AD00DBE29F /* Assets.xcassets */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -633,6 +646,7 @@
 			files = (
 				F8EAC7FA2B173504005522DE /* LaunchScreen.storyboard in Resources */,
 				F8EAC7F72B173504005522DE /* Assets.xcassets in Resources */,
+				F8430E8C2B26E2AD00DBE29F /* Assets.xcassets in Resources */,
 				F8EAC7F52B173504005522DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +737,7 @@
 				F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */,
 				F8AF955C2B1EF40A003059CB /* TPHomeViewController.m in Sources */,
 				F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */,
+				F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */,
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */,
@@ -741,6 +756,7 @@
 				F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				F8AF95602B1EFECE003059CB /* TPNetworkError.m in Sources */,
 				F8F403A02B21B93D008653CB /* MLeaksMessenger.m in Sources */,
+				F8430E8F2B26E6E600DBE29F /* UIAlertController+Category.m in Sources */,
 				F8EAC7FD2B173504005522DE /* main.m in Sources */,
 				F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */,
 				F86871FB2B1D6641007E747F /* TestViewController.m in Sources */,

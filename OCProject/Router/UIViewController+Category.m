@@ -10,15 +10,22 @@
 @implementation UIViewController (Category)
 
 + (__kindof UIViewController *)currentViewController{
+    return [self topViewController:[self rootViewController]];
+}
+
++ (UIWindow *)window{
     if (@available(iOS 13.0, *)) {
         NSSet *set = [UIApplication sharedApplication].connectedScenes;
         UIWindowScene *windowScene = [set anyObject];
         UIWindow *window = windowScene.windows.firstObject;
-        return [self topViewController:window.rootViewController];
+        return window;
     }else{
-        UIViewController *viewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-        return [self topViewController:viewController];
+        return [UIApplication sharedApplication].delegate.window;
     }
+}
+
++ (__kindof UIViewController *)rootViewController{
+    return [self window].rootViewController;
 }
 
 + (__kindof UIViewController *)topViewController:(UIViewController *)vc{

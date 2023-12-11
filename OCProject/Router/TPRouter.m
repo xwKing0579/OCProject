@@ -12,6 +12,7 @@
 NSString *const kTPRouterPathURLName = @"native/";
 NSString *const kTPRouterPathJumpStyle = @"present";
 NSString *const kTPRouterPathNoAnimation = @"noanimation";
+NSString *const kTPRouterPathTabbarIndex = @"index_";
 
 @implementation TPRouter
 
@@ -44,6 +45,16 @@ NSString *const kTPRouterPathNoAnimation = @"noanimation";
     if (!vc) return nil;
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return nil;
+    SEL sel = NSSelectorFromString(@"controllerRepeat");
+    if ([currentVC respondsToSelector:sel]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        BOOL repeat = [currentVC performSelector:sel];
+#pragma clang diagnostic pop
+        if (!repeat && [currentVC.class isEqual:vc.class]) {
+            return nil;
+        }
+    };
     
     BOOL push = ![temp containsObject:kTPRouterPathJumpStyle];
     BOOL animation = ![temp containsObject:kTPRouterPathNoAnimation];
@@ -79,12 +90,11 @@ NSString *const kTPRouterPathNoAnimation = @"noanimation";
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return;
     
-    if (currentVC.presentingViewController){
-        [currentVC dismissViewControllerAnimated:animation completion:nil];
-    }else{
+    if (currentVC.navigationController.viewControllers.count > 1) {
         __kindof UINavigationController *nav = currentVC.navigationController;
         Class class = NSClassFromString([self classValue][temp.firstObject]);
         if (!class) {
+            [self selectTabbarIndex:temp.lastObject];
             [nav popViewControllerAnimated:YES];
             return;
         }
@@ -96,10 +106,24 @@ NSString *const kTPRouterPathNoAnimation = @"noanimation";
             }
         }
         
+        [self selectTabbarIndex:temp.lastObject];
         toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
+    }else if (currentVC.presentingViewController) {
+        [currentVC dismissViewControllerAnimated:animation completion:^{
+            [self selectTabbarIndex:temp.lastObject];
+        }];
     }
 }
 
++ (void)selectTabbarIndex:(NSString *)lastString{
+    if ([lastString hasPrefix:kTPRouterPathTabbarIndex]) {
+        NSUInteger index = [lastString stringByReplacingOccurrencesOfString:kTPRouterPathTabbarIndex withString:@""].integerValue;
+        if ([UIViewController.rootViewController isKindOfClass:[UITabBarController class]]) {
+            __kindof UITabBarController *tabbarController = (UITabBarController *)UIViewController.rootViewController;
+            if (index < tabbarController.viewControllers.count) tabbarController.selectedIndex = index;
+        }
+    }
+}
 
 + (NSDictionary *)classValue {
     return @{};

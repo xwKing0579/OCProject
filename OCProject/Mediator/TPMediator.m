@@ -99,7 +99,10 @@ NSString *const kTPMediatorActionObjectName = @"object";
         NSUInteger result = 0;
         [invocation getReturnValue:&result];
         return @(result);
+    }else if (strcmp(retType, @encode(void)) == 0){
+        return nil;
     }
+    TPLog(@"++++++++++++++++++++未知类型，如果需要后面可以添加上去++++++++++++++++++++");
     return nil;
 }
 

@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///back
 - (void)backViewController;
 
+///允许重复出现
+- (BOOL)controllerRepeat;
+
 @end
 
 NS_ASSUME_NONNULL_END
