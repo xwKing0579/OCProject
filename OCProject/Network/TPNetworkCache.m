@@ -8,13 +8,13 @@
 #import "TPNetworkCache.h"
 #import "YYCache.h"
 
-static NSString *const kPPNetworkResponseCache = @"kPPNetworkResponseCache";
+static NSString *const kTPNetworkResponseCache = @"kTPNetworkResponseCache";
 
 @implementation TPNetworkCache
 static YYCache *_dataCache;
 
 + (void)initialize {
-    _dataCache = [YYCache cacheWithName:kPPNetworkResponseCache];
+    _dataCache = [YYCache cacheWithName:kTPNetworkResponseCache];
 }
 
 + (void)setHttpCache:(id)httpData URL:(NSString *)URL params:(NSDictionary *)params {
@@ -41,4 +41,5 @@ static YYCache *_dataCache;
     NSString *paraString = [[NSString alloc] initWithData:stringData encoding:NSUTF8StringEncoding];
     return [NSString stringWithFormat:@"%@%@",URL,paraString];
 }
+
 @end

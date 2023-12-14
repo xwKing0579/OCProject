@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGPoint origin;
 @property (nonatomic, assign) CGSize  size;
 
+- (void)addSubviews:(NSArray *)views;
 @end
 
 NS_ASSUME_NONNULL_END

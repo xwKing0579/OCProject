@@ -38,7 +38,15 @@
 }
 
 - (void)didTap:(UITapGestureRecognizer *)tapGesture{
-    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
+    NSString *vcString = @"TPDebugToolViewController";
+    BOOL jump = YES;
+    for (UIViewController *vc in UIViewController.currentViewController.navigationController.viewControllers) {
+        if ([vc isKindOfClass:NSClassFromString(vcString)]){
+            jump = NO;
+            break;
+        }
+    }
+    if (jump) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
 }
 
 - (void)dragable:(UIPanGestureRecognizer *)sender{
@@ -79,7 +87,9 @@
                   
         if (@available(iOS 13.0, *)) {
             [[NSNotificationCenter defaultCenter] addObserverForName:UISceneWillConnectNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-                self->_debugWindow.windowScene = note.object;
+                if ([[note.object class] isEqual:[UIWindowScene class]]){
+                    self->_debugWindow.windowScene = note.object;
+                }
             }];
             for (UIWindowScene *windowScene in [UIApplication sharedApplication].connectedScenes) {
                 if (windowScene.activationState == UISceneActivationStateForegroundActive) {

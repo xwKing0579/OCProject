@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)backViewController;
 
 ///允许重复出现
-- (BOOL)controllerRepeat;
+- (BOOL)controllerOverlap;
 
 @end
 

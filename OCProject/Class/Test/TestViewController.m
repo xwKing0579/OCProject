@@ -16,7 +16,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     [self setUpSubViews];
 }
 
@@ -30,7 +29,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:TPRouter.testTableViewCellClass action:TPRouter.testTableViewCellAlloc object:tableView object:[NSString stringWithFormat:@"%ld", indexPath.row]];
+    return [TPMediator performTarget:TPRouter.testTableViewCellClass action:TPRouter.testTableViewCellAlloc object:tableView object:[NSString stringWithFormat:@"%ld", indexPath.row]] ?: [UITableViewCell new];
 }
 
 - (UITableView *)tableView{
@@ -49,5 +48,6 @@
 //- (BOOL)hideNavigationBar{
 //    return YES;
 //}
+
 
 @end

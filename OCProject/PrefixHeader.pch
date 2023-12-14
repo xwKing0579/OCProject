@@ -19,6 +19,7 @@
 #import "UIFont+Category.h"
 #import "UIImage+Category.h"
 #import "UIView+Category.h"
+#import "NSDate+Category.h"
 #import "UIAlertController+Category.h"
 #import "UIViewController+Category.h"
 
@@ -27,7 +28,7 @@
 #import <Masonry.h>
 
 #ifdef DEBUG
-#define NSLog(...) NSLog(@"\n%s,%d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
+#define NSLog(...) NSLog(@"\n%s ==> %d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
 #else
 #define NSLog(...)
 

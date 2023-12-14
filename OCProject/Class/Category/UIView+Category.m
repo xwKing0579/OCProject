@@ -69,4 +69,10 @@
 - (CGSize)size{
     return self.frame.size;
 }
+
+- (void)addSubviews:(NSArray *)views{
+    for (UIView *subview in views) {
+        [self addSubview:subview];
+    }
+}
 @end

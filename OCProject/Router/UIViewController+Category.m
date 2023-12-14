@@ -29,7 +29,7 @@
 }
 
 + (__kindof UIViewController *)topViewController:(UIViewController *)vc{
-    if (vc.presentedViewController) {
+    if (vc.presentedViewController && ![vc.presentedViewController isKindOfClass:[UIAlertController class]]) {
         return [self topViewController:vc.presentedViewController];
     }else if ([vc isKindOfClass:[UISplitViewController class]]){
         UISplitViewController *tmp = (UISplitViewController *)vc;

@@ -6,6 +6,7 @@
 //
 
 #import "TPDebugToolViewController.h"
+#import "TPDebugTool.h"
 
 static NSString *identifier = @"TPDebugToolViewCell";
 @interface TPDebugToolViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -23,7 +24,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
 }
 
 - (void)setUpSubViews{
-    self.data = [NSArray yy_modelArrayWithClass:[TPDebugToolModel class] json:[TPDebugToolModel data]];
+    self.data = [TPDebugToolModel data];
     [self.collectionView reloadData];
 }
 
@@ -46,7 +47,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         };
         [TPMediator performTarget:model.target action:model.action object:block];
     }else{
-        [TPMediator performTarget:model.target action:model.action];
+        [TPMediator performTarget:model.target action:model.action object:model.url];
     }
 }
 
@@ -135,10 +136,13 @@ static NSString *identifier = @"TPDebugToolViewCell";
 
 + (NSArray *)data{
     NSString *envi = [NSString stringWithFormat:@"环境：%@",[TPMediator performTarget:@"TPEnviConfig_Class" action:@"enviToSting"]];
-    return @[
-        @{@"title":envi,@"image":@"tool_setting",@"target":@"TPEnviConfig_Class",@"action":@"enviConfig:"},
-        @{ @"title":@"路由",@"image":@"tool_router",@"target":@"TPRouter_Class",@"action":@"routerEntry"},
+    NSArray *data = @[
+        @{@"title":envi,@"image":@"setting",@"target":@"TPEnviConfig_Class",@"action":@"enviConfig:"},
+        @{@"title":@"路由",@"image":@"router",@"target":@"TPRouter_Class",@"action":@"routerEntry"},
+        @{@"title":@"app信息",@"image":@"appInfo",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPAppInfoViewController"},
+        @{@"title":@"crash信息",@"image":@"crash",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPCrashViewController"},
     ];
+    return [NSArray yy_modelArrayWithClass:[self class] json:data];
 }
 
 @end

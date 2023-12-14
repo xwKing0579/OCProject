@@ -21,8 +21,24 @@
 + (UIFont *)font19{return [self fontSize:19];}
 + (UIFont *)font20{return [self fontSize:20];}
 
++ (UIFont *)fontBold10{return [self fontBoldSize:10];}
++ (UIFont *)fontBold11{return [self fontBoldSize:11];}
++ (UIFont *)fontBold12{return [self fontBoldSize:12];}
++ (UIFont *)fontBold13{return [self fontBoldSize:13];}
++ (UIFont *)fontBold14{return [self fontBoldSize:14];}
++ (UIFont *)fontBold15{return [self fontBoldSize:15];}
++ (UIFont *)fontBold16{return [self fontBoldSize:16];}
++ (UIFont *)fontBold17{return [self fontBoldSize:17];}
++ (UIFont *)fontBold18{return [self fontBoldSize:18];}
++ (UIFont *)fontBold19{return [self fontBoldSize:19];}
++ (UIFont *)fontBold20{return [self fontBoldSize:20];}
+
 + (UIFont *)fontSize:(CGFloat)size{
     return [UIFont fontWithName:@"PingFangSC-Regular" size:size];
+}
+
++ (UIFont *)fontBoldSize:(CGFloat)size{
+    return [UIFont fontWithName:@"PingFangSC-Semibold" size:size];
 }
 
 @end

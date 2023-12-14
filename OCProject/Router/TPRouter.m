@@ -7,8 +7,7 @@
 
 #import "TPRouter.h"
 #import <UIKit/UIKit.h>
-#import "UIViewController+Category.h"
-#import "TPBaseNavigationController.h"
+
 NSString *const kTPRouterPathURLName = @"native/";
 NSString *const kTPRouterPathJumpStyle = @"present";
 NSString *const kTPRouterPathNoAnimation = @"noanimation";
@@ -45,7 +44,9 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
     if (!vc) return nil;
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return nil;
-    SEL sel = NSSelectorFromString(@"controllerRepeat");
+    
+    ///处理页面重复出现问题
+    SEL sel = NSSelectorFromString(@"controllerOverlap");
     if ([currentVC respondsToSelector:sel]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -66,7 +67,7 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
         ///自定义nav
         Class navClass = NSClassFromString([propertys valueForKey:@"navigationController"]);
         __kindof UINavigationController *nav = [navClass alloc];
-        if ([nav isKindOfClass:[UINavigationController class]]) {
+        if (nav && [nav isKindOfClass:[UINavigationController class]]) {
             vc = [nav initWithRootViewController:vc];
         }
         ///自定义model

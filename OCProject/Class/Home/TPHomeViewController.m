@@ -26,6 +26,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/test"];
+    [self performSelector:NSSelectorFromString(@"sdsa")];
 }
 
 - (BOOL)hideNavigationBar{

@@ -24,6 +24,7 @@
     }
     self.navigationItem.leftBarButtonItem.tintColor = UIColor.c000000;
     self.fd_prefersNavigationBarHidden = [self hideNavigationBar];
+    self.view.backgroundColor = UIColor.cFFFFFF;
 }
 
 ///back
@@ -36,7 +37,7 @@
     return NO;
 }
 
-- (BOOL)controllerRepeat{
+- (BOOL)controllerOverlap{
     return NO;
 }
 @end
