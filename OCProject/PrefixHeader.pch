@@ -20,12 +20,14 @@
 #import "UIImage+Category.h"
 #import "UIView+Category.h"
 #import "NSDate+Category.h"
+#import "NSString+Category.h"
 #import "UIAlertController+Category.h"
 #import "UIViewController+Category.h"
 
 
 #import <YYModel.h>
 #import <Masonry.h>
+#import <SDWebImage.h>
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"\n%s ==> %d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__

@@ -20,7 +20,6 @@
     // Do any additional setup after loading the view.
     self.title = @"app信息";
     self.data = [TPAppInfoModel data];
-    [self.view addSubview:self.tableView];
     [self.tableView reloadData];
 }
 
@@ -62,6 +61,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.rowHeight = 50;
+        [self.view addSubview:_tableView];
     }
     return _tableView;
 }

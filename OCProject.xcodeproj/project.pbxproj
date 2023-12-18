@@ -30,6 +30,14 @@
 		F86DA50B2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86DA50A2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m */; };
 		F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E501D2B22F31B00B00781 /* TPRouter+Class.m */; };
 		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
+		F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */; };
+		F8AE19672B2C3E7F009C12E2 /* TPFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19662B2C3E7F009C12E2 /* TPFileModel.m */; };
+		F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE196A2B2C51D8009C12E2 /* TPFileViewController.m */; };
+		F8AE196E2B2C52AD009C12E2 /* TPFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE196D2B2C52AD009C12E2 /* TPFileTableViewCell.m */; };
+		F8AE19712B2C67FB009C12E2 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19702B2C67FB009C12E2 /* NSString+Category.m */; };
+		F8AE19772B2C7FB7009C12E2 /* TPFileDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19762B2C7FB7009C12E2 /* TPFileDataViewController.m */; };
+		F8AE197A2B2C80F2009C12E2 /* TPFileDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19792B2C80F2009C12E2 /* TPFileDataTableViewCell.m */; };
 		F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95402B1EB3DB003059CB /* TPBaseViewController.m */; };
 		F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95432B1EB407003059CB /* TPBaseNavigationController.m */; };
 		F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95462B1EB457003059CB /* TPBaseTabBarController.m */; };
@@ -143,6 +151,22 @@
 		F86E501D2B22F31B00B00781 /* TPRouter+Class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPRouter+Class.m"; sourceTree = "<group>"; };
 		F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
+		F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
+		F8AE19622B2C2DC6009C12E2 /* TPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileManager.h; sourceTree = "<group>"; };
+		F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileManager.m; sourceTree = "<group>"; };
+		F8AE19652B2C3E7F009C12E2 /* TPFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileModel.h; sourceTree = "<group>"; };
+		F8AE19662B2C3E7F009C12E2 /* TPFileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileModel.m; sourceTree = "<group>"; };
+		F8AE19692B2C51D8009C12E2 /* TPFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileViewController.h; sourceTree = "<group>"; };
+		F8AE196A2B2C51D8009C12E2 /* TPFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileViewController.m; sourceTree = "<group>"; };
+		F8AE196C2B2C52AD009C12E2 /* TPFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileTableViewCell.h; sourceTree = "<group>"; };
+		F8AE196D2B2C52AD009C12E2 /* TPFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileTableViewCell.m; sourceTree = "<group>"; };
+		F8AE196F2B2C67FB009C12E2 /* NSString+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Category.h"; sourceTree = "<group>"; };
+		F8AE19702B2C67FB009C12E2 /* NSString+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Category.m"; sourceTree = "<group>"; };
+		F8AE19752B2C7FB7009C12E2 /* TPFileDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileDataViewController.h; sourceTree = "<group>"; };
+		F8AE19762B2C7FB7009C12E2 /* TPFileDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileDataViewController.m; sourceTree = "<group>"; };
+		F8AE19782B2C80F2009C12E2 /* TPFileDataTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileDataTableViewCell.h; sourceTree = "<group>"; };
+		F8AE19792B2C80F2009C12E2 /* TPFileDataTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileDataTableViewCell.m; sourceTree = "<group>"; };
 		F8AF953F2B1EB3DB003059CB /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
 		F8AF95402B1EB3DB003059CB /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
 		F8AF95422B1EB407003059CB /* TPBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseNavigationController.h; sourceTree = "<group>"; };
@@ -351,6 +375,7 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F8AE19612B2C2D13009C12E2 /* File */,
 				F81BEC912B28581800DAA26F /* AppInfo */,
 				F81BEC8A2B28523100DAA26F /* Crash */,
 				F81BEC862B2835CD00DAA26F /* NetCapture */,
@@ -360,6 +385,40 @@
 				F8F4037E2B21B925008653CB /* MLeaksFinder */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		F8AE195B2B2BF709009C12E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F8AE19612B2C2D13009C12E2 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				F8AE19622B2C2DC6009C12E2 /* TPFileManager.h */,
+				F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */,
+				F8AE19652B2C3E7F009C12E2 /* TPFileModel.h */,
+				F8AE19662B2C3E7F009C12E2 /* TPFileModel.m */,
+				F8AE19682B2C517D009C12E2 /* UI */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		F8AE19682B2C517D009C12E2 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F8AE19692B2C51D8009C12E2 /* TPFileViewController.h */,
+				F8AE196A2B2C51D8009C12E2 /* TPFileViewController.m */,
+				F8AE196C2B2C52AD009C12E2 /* TPFileTableViewCell.h */,
+				F8AE196D2B2C52AD009C12E2 /* TPFileTableViewCell.m */,
+				F8AE19752B2C7FB7009C12E2 /* TPFileDataViewController.h */,
+				F8AE19762B2C7FB7009C12E2 /* TPFileDataViewController.m */,
+				F8AE19782B2C80F2009C12E2 /* TPFileDataTableViewCell.h */,
+				F8AE19792B2C80F2009C12E2 /* TPFileDataTableViewCell.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		F8AF953E2B1EB250003059CB /* Category */ = {
@@ -379,6 +438,10 @@
 				F8430E862B26B43600DBE29F /* UIDevice+Category.m */,
 				F81BEC872B284D5600DAA26F /* NSObject+Category.h */,
 				F81BEC882B284D5600DAA26F /* NSObject+Category.m */,
+				F8AE196F2B2C67FB009C12E2 /* NSString+Category.h */,
+				F8AE19702B2C67FB009C12E2 /* NSString+Category.m */,
+				F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */,
+				F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */,
 				F8430E8D2B26E6E600DBE29F /* UIAlertController+Category.h */,
 				F8430E8E2B26E6E600DBE29F /* UIAlertController+Category.m */,
 				F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */,
@@ -490,6 +553,7 @@
 		F8EAC7E92B173504005522DE /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
+				F8AE195B2B2BF709009C12E2 /* Pods */,
 				F8D343212B206805004AEE48 /* Envi */,
 				F8D3431C2B20616E004AEE48 /* Toast */,
 				F8D343152B201DA8004AEE48 /* Settings */,
@@ -820,6 +884,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */,
+				F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */,
 				F8F4039C2B21B93D008653CB /* UITabBarController+MemoryLeak.m in Sources */,
 				F80C53EB2B29404300C7FB38 /* TPCrashCache.m in Sources */,
 				F8F403AF2B21BD39008653CB /* FPSLabel.m in Sources */,
@@ -829,6 +894,7 @@
 				F80C53E82B293E9600C7FB38 /* TPCrashViewController.m in Sources */,
 				F8F403A82B21B97A008653CB /* NSSet+UnicodeReadable.m in Sources */,
 				F8AF956E2B1F3BFF003059CB /* TPWebViewController.m in Sources */,
+				F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */,
 				F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */,
 				F8F4037D2B21B614008653CB /* TPDebugTool.m in Sources */,
 				F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */,
@@ -837,7 +903,9 @@
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
 				F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */,
+				F8AE19712B2C67FB009C12E2 /* NSString+Category.m in Sources */,
 				F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */,
+				F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */,
 				F81BEC892B284D5600DAA26F /* NSObject+Category.m in Sources */,
 				F8F403992B21B93D008653CB /* UIPageViewController+MemoryLeak.m in Sources */,
 				F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */,
@@ -864,8 +932,10 @@
 				F81BEC9C2B2860F800DAA26F /* TPAppInfoViewController.m in Sources */,
 				F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */,
 				F86DA5082B2A9F0500EB642D /* TPCrashDetailViewController.m in Sources */,
+				F8AE196E2B2C52AD009C12E2 /* TPFileTableViewCell.m in Sources */,
 				F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */,
 				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
+				F8AE19772B2C7FB7009C12E2 /* TPFileDataViewController.m in Sources */,
 				F8F4039B2B21B93D008653CB /* MLeakedObjectProxy.m in Sources */,
 				F8EAC8222B173523005522DE /* TPMediator.m in Sources */,
 				F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */,
@@ -878,6 +948,8 @@
 				F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */,
 				F86871FB2B1D6641007E747F /* TestViewController.m in Sources */,
 				F8EAC7EF2B173504005522DE /* SceneDelegate.m in Sources */,
+				F8AE19672B2C3E7F009C12E2 /* TPFileModel.m in Sources */,
+				F8AE197A2B2C80F2009C12E2 /* TPFileDataTableViewCell.m in Sources */,
 				F80C53EE2B297A9E00C7FB38 /* NSDate+Category.m in Sources */,
 				F8AF954B2B1EBA3C003059CB /* UIColor+Category.m in Sources */,
 			);
@@ -1057,6 +1129,7 @@
 				GCC_PREFIX_HEADER = /Users/wangxiangwei/Desktop/OCProject/OCProject/PrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OCProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OC框架";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = " Location Always and When In Use Usage Description";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location Always Usage Description";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location When In Use Usage Description";
@@ -1091,6 +1164,7 @@
 				GCC_PREFIX_HEADER = /Users/wangxiangwei/Desktop/OCProject/OCProject/PrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OCProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OC框架";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = " Location Always and When In Use Usage Description";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location Always Usage Description";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location When In Use Usage Description";

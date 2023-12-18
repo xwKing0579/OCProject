@@ -22,10 +22,6 @@
     self.title = @"崩溃信息";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"delete"] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeCrashData)];
     self.data = [TPCrashCache crashData];
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
     [self.tableView reloadData];
 }
 
@@ -73,6 +69,10 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.rowHeight = UITableViewAutomaticDimension;
+        [self.view addSubview:_tableView];
+        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
     }
     return _tableView;
 }

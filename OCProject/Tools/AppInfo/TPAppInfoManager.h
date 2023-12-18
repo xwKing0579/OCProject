@@ -12,14 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TPAppInfoManager : NSObject
 
 //app信息
++ (NSString *)bundleName;
 + (NSString *)appName;
 + (NSString *)appBundle;
 + (NSString *)appVersion;
++ (NSString *)appMinSystemVersion;
 
 //设备信息
 + (NSString *)deviceName;
 + (NSString *)deviceModel;
 + (NSString *)deviceSize;
++ (NSString *)deviceScale;
 + (NSString *)systemVersion;
 + (NSString *)systemLanguage;
 

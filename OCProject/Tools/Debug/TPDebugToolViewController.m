@@ -141,6 +141,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         @{@"title":@"路由",@"image":@"router",@"target":@"TPRouter_Class",@"action":@"routerEntry"},
         @{@"title":@"app信息",@"image":@"appInfo",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPAppInfoViewController"},
         @{@"title":@"crash信息",@"image":@"crash",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPCrashViewController"},
+        @{@"title":@"文件",@"image":@"file",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPFileViewController"},
     ];
     return [NSArray yy_modelArrayWithClass:[self class] json:data];
 }

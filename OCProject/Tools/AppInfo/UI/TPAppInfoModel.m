@@ -18,14 +18,18 @@
     NSArray *data = @[
         @{@"title":@"app信息",
           @"item":@[
-    @{@"name":@"名称",@"content":[TPAppInfoManager appName]},
-    @{@"name":@"bundle",@"content":[TPAppInfoManager appBundle]},
-    @{@"name":@"版本",@"content":[TPAppInfoManager appVersion]}]},
+              @{@"name":@"bundle name",@"content":[TPAppInfoManager bundleName]},
+              @{@"name":@"名称",@"content":[TPAppInfoManager appName]},
+              @{@"name":@"bundle",@"content":[TPAppInfoManager appBundle]},
+              @{@"name":@"版本",@"content":[TPAppInfoManager appVersion]},
+              @{@"name":@"最低系统版本",@"content":[TPAppInfoManager appMinSystemVersion]},
+          ]},
         @{@"title":@"设备信息",
           @"item":@[
               @{@"name":@"名称",@"content":[TPAppInfoManager deviceName]},
               @{@"name":@"型号",@"content":[TPAppInfoManager deviceModel]},
               @{@"name":@"尺寸",@"content":[TPAppInfoManager deviceSize]},
+              @{@"name":@"scale",@"content":[TPAppInfoManager deviceScale]},
               @{@"name":@"版本",@"content":[TPAppInfoManager systemVersion]},
               @{@"name":@"语言",@"content":[TPAppInfoManager systemLanguage]}]}
     ];

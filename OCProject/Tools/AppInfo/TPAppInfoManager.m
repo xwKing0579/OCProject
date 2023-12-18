@@ -14,6 +14,10 @@ NSString *const kTPAppInfoUnknown = @"Unknown";
 @implementation TPAppInfoManager
 
 //app信息
++ (NSString *)bundleName{
+    return [NSBundle mainBundle].infoDictionary[@"CFBundleName"] ?: kTPAppInfoUnknown;
+}
+
 + (NSString *)appName{
     return [NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"] ?: kTPAppInfoUnknown;
 }
@@ -24,6 +28,10 @@ NSString *const kTPAppInfoUnknown = @"Unknown";
 
 + (NSString *)appVersion{
     return [NSString stringWithFormat:@"%@(%@)",[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"] ?: kTPAppInfoUnknown,[NSBundle mainBundle].infoDictionary[@"CFBundleVersion"] ?: kTPAppInfoUnknown];
+}
+
++ (NSString *)appMinSystemVersion{
+    return [NSBundle mainBundle].infoDictionary[@"MinimumOSVersion"] ?: kTPAppInfoUnknown;
 }
 
 //设备信息
@@ -131,6 +139,10 @@ NSString *const kTPAppInfoUnknown = @"Unknown";
 + (NSString *)deviceSize{
     CGSize size = [UIScreen mainScreen].bounds.size;
     return [NSString stringWithFormat:@"%.0lf * %.0lf",size.width,size.height];
+}
+
++ (NSString *)deviceScale{
+    return [NSString stringWithFormat:@"%.0lf",[UIScreen mainScreen].scale];
 }
 
 + (NSString *)systemVersion{
