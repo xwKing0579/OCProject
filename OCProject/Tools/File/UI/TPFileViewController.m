@@ -14,6 +14,7 @@
 @interface TPFileViewController ()<UITableViewDelegate,UITableViewDataSource,UIDocumentInteractionControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray <TPFileModel *>*data;
+@property (nonatomic, strong) UIDocumentInteractionController *doc;
 @end
 
 @implementation TPFileViewController
@@ -25,6 +26,11 @@
     
     self.data = self.path ? [TPFileManager dataForFilePath:self.path] : [TPFileManager defaultFile];
     [self.tableView reloadData];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    self.doc = nil;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
@@ -39,14 +45,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TPFileModel *model = self.data[indexPath.row];
     if (model.isDirectory){
-        [TPMediator performTarget:@"TPRouter_Class" action:@"jumpUrl:" object:[NSString stringWithFormat:@"native/TPFileViewController?name=%@&path=%@",model.fileName,model.filePath]];
+        [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:[NSString stringWithFormat:@"TPFileViewController?name=%@&path=%@",model.fileName,model.filePath]];
     }else{
         
-       if (model.fileType == TPFileTypeJson){
+        if (model.fileType == TPFileTypeJson){
             NSString *jsonString = [NSString stringWithContentsOfFile:model.filePath encoding:NSUTF8StringEncoding error:nil];
             NSData *jaonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
             NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:jaonData options:NSJSONReadingMutableContainers error:nil];
-            if (dic) [TPMediator performTarget:@"TPRouter_Class" action:@"jumpUrl:params:" object:[NSString stringWithFormat:@"native/TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
+            if (dic) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
         }else if (model.fileType == TPFileTypeVideo){
             AVPlayerViewController *player = [[AVPlayerViewController alloc] init];
             player.player = [[AVPlayer alloc] initWithURL:[NSURL fileURLWithPath:model.filePath]];
@@ -54,11 +60,12 @@
         }else{
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:model.filePath];
             if (dic) {
-                [TPMediator performTarget:@"TPRouter_Class" action:@"jumpUrl:params:" object:[NSString stringWithFormat:@"native/TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
+                [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
             }else{
                 UIDocumentInteractionController *doc = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:model.filePath]];
                 doc.delegate = self;
-               BOOL canOpen = [doc presentPreviewAnimated:YES];
+                self.doc = doc;
+                BOOL canOpen = [doc presentPreviewAnimated:YES];
                 if (!canOpen) {
                     [TPMediator performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"该文件还没有添加预览模式"];
                 }

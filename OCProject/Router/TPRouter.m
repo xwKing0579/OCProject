@@ -24,8 +24,11 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
     ///处理一些业务逻辑
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:url];
     NSString *path = urlComponents.path;
-    if (![path hasPrefix:kTPRouterPathURLName]) return nil;
-    path = [path stringByReplacingOccurrencesOfString:kTPRouterPathURLName withString:@""];
+
+    if ([path hasPrefix:kTPRouterPathURLName]) {
+        path = [path stringByReplacingOccurrencesOfString:kTPRouterPathURLName withString:@""];
+    }
+    
     NSArray <NSString *>*temp = [path componentsSeparatedByString:@"/"];
     if (temp.count == 0) return nil;
     NSString *classString = [self classValue][temp.firstObject];

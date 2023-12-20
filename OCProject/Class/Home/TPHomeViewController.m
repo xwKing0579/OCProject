@@ -18,9 +18,9 @@
     // Do any additional setup after loading the view.
     
     [TPNetworkManager post:@"fxtpplatform/information/app/live/anonymous/queryDailyLiveStatus" params:nil success:^(id  _Nonnull responseObject) {
-        
+        NSLog(@"%@",responseObject);
     } failure:^(TPNetworkError * _Nonnull error) {
-        
+        NSLog(@"%@",error);
     }];
 
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
@@ -29,12 +29,14 @@
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:url] completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
         [btn setImage:image forState:UIControlStateNormal];
     }];
+    
+   
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/ViewController"];
+    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"ViewController"];
     //制造崩溃
-    //[self performSelector:NSSelectorFromString(@"sdsa")];
+//    [self performSelector:NSSelectorFromString(@"sdsa")];
 }
 
 - (BOOL)hideNavigationBar{

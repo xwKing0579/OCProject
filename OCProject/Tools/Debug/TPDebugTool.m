@@ -46,7 +46,7 @@
             break;
         }
     }
-    if (jump) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"native/TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
+    if (jump) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
 }
 
 - (void)dragable:(UIPanGestureRecognizer *)sender{

@@ -16,6 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //usleep(1 * 1000 * 1000); // 卡顿测试 1秒
     [self setUpSubViews];
 }
 

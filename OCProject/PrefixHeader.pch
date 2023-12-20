@@ -10,7 +10,7 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-
+#ifdef __OBJC__
 #import "TPMediator.h"
 #import "TPRouter+Class.h"
 #import "TPNetworkManager.h"
@@ -29,15 +29,14 @@
 #import <Masonry.h>
 #import <SDWebImage.h>
 
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"\n%s ==> %d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
 #else
 #define NSLog(...)
-
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-
 #endif
 
-
+#endif
 #endif /* PrefixHeader_pch */

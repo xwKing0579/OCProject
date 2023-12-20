@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *reason;
 @property (nonatomic, copy) NSString *date;
 @property (nonatomic, copy) NSString *thread;
+@property (nonatomic, copy) NSString *page;
 @property (nonatomic, strong) NSDictionary <NSString *,id>*userInfo;
 @property (nonatomic, copy) NSArray <NSString *>*stackSymbols;
 @end

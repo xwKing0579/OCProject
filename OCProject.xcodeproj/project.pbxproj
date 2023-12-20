@@ -21,6 +21,15 @@
 		F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8430E862B26B43600DBE29F /* UIDevice+Category.m */; };
 		F8430E8C2B26E2AD00DBE29F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8430E8B2B26E2AD00DBE29F /* Assets.xcassets */; };
 		F8430E8F2B26E6E600DBE29F /* UIAlertController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8430E8E2B26E6E600DBE29F /* UIAlertController+Category.m */; };
+		F84368C02B327DA80055444B /* TPFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368BF2B327DA80055444B /* TPFontViewController.m */; };
+		F84368C32B327E3D0055444B /* TPFontTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368C22B327E3D0055444B /* TPFontTableViewCell.m */; };
+		F84368C72B3288AF0055444B /* TPFluencyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368C62B3288AF0055444B /* TPFluencyMonitor.m */; };
+		F84368CA2B3289B60055444B /* TPThreadTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368C92B3289B60055444B /* TPThreadTrace.m */; };
+		F84368CD2B328B750055444B /* TPMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368CC2B328B750055444B /* TPMonitorViewController.m */; };
+		F84368D02B328D9D0055444B /* TPMonitorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368CF2B328D9D0055444B /* TPMonitorTableViewCell.m */; };
+		F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368D72B32BD050055444B /* TPMonitorModel.m */; };
+		F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368DA2B32BE050055444B /* TPMonitorCache.m */; };
+		F84368DE2B32C1CD0055444B /* TPMonitorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */; };
 		F86871FB2B1D6641007E747F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FA2B1D6641007E747F /* TestViewController.m */; };
 		F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FE2B1D798D007E747F /* TPBaseTableViewCell.m */; };
 		F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872012B1D79C5007E747F /* TestTableViewCell.m */; };
@@ -55,6 +64,14 @@
 		F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D3431A2B203ED0004AEE48 /* TPSettingLocation.m */; };
 		F8D343242B20682D004AEE48 /* TPNetworkManager+Envi.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343232B20682D004AEE48 /* TPNetworkManager+Envi.m */; };
 		F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343262B20686C004AEE48 /* TPEnviConfig.m */; };
+		F8E1B16F2B312F8B0036928F /* TPUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B16E2B312F8B0036928F /* TPUserDefaultsController.m */; };
+		F8E1B1722B3132C10036928F /* TPUserDefaultsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B1712B3132C10036928F /* TPUserDefaultsTableViewCell.m */; };
+		F8E1B17D2B316FED0036928F /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B17C2B316FED0036928F /* fishhook.c */; };
+		F8E1B1802B3170E10036928F /* TPLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B17F2B3170E10036928F /* TPLogManager.m */; };
+		F8E1B1842B3172810036928F /* TPLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B1832B3172810036928F /* TPLogViewController.m */; };
+		F8E1B1872B3176C80036928F /* TPLogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B1862B3176C80036928F /* TPLogModel.m */; };
+		F8E1B18A2B317E100036928F /* TPLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B1892B317E100036928F /* TPLogTableViewCell.m */; };
+		F8E1B18E2B318EE60036928F /* TPLogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E1B18D2B318EE60036928F /* TPLogDetailViewController.m */; };
 		F8EAC7EC2B173504005522DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC7EB2B173504005522DE /* AppDelegate.m */; };
 		F8EAC7EF2B173504005522DE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC7EE2B173504005522DE /* SceneDelegate.m */; };
 		F8EAC7F52B173504005522DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EAC7F32B173504005522DE /* Main.storyboard */; };
@@ -132,6 +149,24 @@
 		F8430E8B2B26E2AD00DBE29F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8430E8D2B26E6E600DBE29F /* UIAlertController+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Category.h"; sourceTree = "<group>"; };
 		F8430E8E2B26E6E600DBE29F /* UIAlertController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Category.m"; sourceTree = "<group>"; };
+		F84368BE2B327DA80055444B /* TPFontViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFontViewController.h; sourceTree = "<group>"; };
+		F84368BF2B327DA80055444B /* TPFontViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFontViewController.m; sourceTree = "<group>"; };
+		F84368C12B327E3D0055444B /* TPFontTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFontTableViewCell.h; sourceTree = "<group>"; };
+		F84368C22B327E3D0055444B /* TPFontTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFontTableViewCell.m; sourceTree = "<group>"; };
+		F84368C52B3288AF0055444B /* TPFluencyMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFluencyMonitor.h; sourceTree = "<group>"; };
+		F84368C62B3288AF0055444B /* TPFluencyMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFluencyMonitor.m; sourceTree = "<group>"; };
+		F84368C82B3289B60055444B /* TPThreadTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPThreadTrace.h; sourceTree = "<group>"; };
+		F84368C92B3289B60055444B /* TPThreadTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPThreadTrace.m; sourceTree = "<group>"; };
+		F84368CB2B328B750055444B /* TPMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorViewController.h; sourceTree = "<group>"; };
+		F84368CC2B328B750055444B /* TPMonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorViewController.m; sourceTree = "<group>"; };
+		F84368CE2B328D9D0055444B /* TPMonitorTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorTableViewCell.h; sourceTree = "<group>"; };
+		F84368CF2B328D9D0055444B /* TPMonitorTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorTableViewCell.m; sourceTree = "<group>"; };
+		F84368D62B32BD050055444B /* TPMonitorModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorModel.h; sourceTree = "<group>"; };
+		F84368D72B32BD050055444B /* TPMonitorModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorModel.m; sourceTree = "<group>"; };
+		F84368D92B32BE050055444B /* TPMonitorCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorCache.h; sourceTree = "<group>"; };
+		F84368DA2B32BE050055444B /* TPMonitorCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorCache.m; sourceTree = "<group>"; };
+		F84368DC2B32C1CD0055444B /* TPMonitorDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorDetailViewController.h; sourceTree = "<group>"; };
+		F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorDetailViewController.m; sourceTree = "<group>"; };
 		F86871F92B1D6641007E747F /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F86871FA2B1D6641007E747F /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F86871FD2B1D798D007E747F /* TPBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -201,6 +236,22 @@
 		F8D343232B20682D004AEE48 /* TPNetworkManager+Envi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPNetworkManager+Envi.m"; sourceTree = "<group>"; };
 		F8D343252B20686C004AEE48 /* TPEnviConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPEnviConfig.h; sourceTree = "<group>"; };
 		F8D343262B20686C004AEE48 /* TPEnviConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPEnviConfig.m; sourceTree = "<group>"; };
+		F8E1B16D2B312F8B0036928F /* TPUserDefaultsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDefaultsController.h; sourceTree = "<group>"; };
+		F8E1B16E2B312F8B0036928F /* TPUserDefaultsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDefaultsController.m; sourceTree = "<group>"; };
+		F8E1B1702B3132C10036928F /* TPUserDefaultsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDefaultsTableViewCell.h; sourceTree = "<group>"; };
+		F8E1B1712B3132C10036928F /* TPUserDefaultsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDefaultsTableViewCell.m; sourceTree = "<group>"; };
+		F8E1B17B2B316FED0036928F /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		F8E1B17C2B316FED0036928F /* fishhook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		F8E1B17E2B3170E10036928F /* TPLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLogManager.h; sourceTree = "<group>"; };
+		F8E1B17F2B3170E10036928F /* TPLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLogManager.m; sourceTree = "<group>"; };
+		F8E1B1822B3172810036928F /* TPLogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLogViewController.h; sourceTree = "<group>"; };
+		F8E1B1832B3172810036928F /* TPLogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLogViewController.m; sourceTree = "<group>"; };
+		F8E1B1852B3176C80036928F /* TPLogModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLogModel.h; sourceTree = "<group>"; };
+		F8E1B1862B3176C80036928F /* TPLogModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLogModel.m; sourceTree = "<group>"; };
+		F8E1B1882B317E100036928F /* TPLogTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLogTableViewCell.h; sourceTree = "<group>"; };
+		F8E1B1892B317E100036928F /* TPLogTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLogTableViewCell.m; sourceTree = "<group>"; };
+		F8E1B18C2B318EE60036928F /* TPLogDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLogDetailViewController.h; sourceTree = "<group>"; };
+		F8E1B18D2B318EE60036928F /* TPLogDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLogDetailViewController.m; sourceTree = "<group>"; };
 		F8EAC7E72B173504005522DE /* OCProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EAC7EA2B173504005522DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F8EAC7EB2B173504005522DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -361,6 +412,46 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		F84368BD2B327D980055444B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F84368BE2B327DA80055444B /* TPFontViewController.h */,
+				F84368BF2B327DA80055444B /* TPFontViewController.m */,
+				F84368C12B327E3D0055444B /* TPFontTableViewCell.h */,
+				F84368C22B327E3D0055444B /* TPFontTableViewCell.m */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		F84368C42B3287F90055444B /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				F84368C52B3288AF0055444B /* TPFluencyMonitor.h */,
+				F84368C62B3288AF0055444B /* TPFluencyMonitor.m */,
+				F84368C82B3289B60055444B /* TPThreadTrace.h */,
+				F84368C92B3289B60055444B /* TPThreadTrace.m */,
+				F84368D62B32BD050055444B /* TPMonitorModel.h */,
+				F84368D72B32BD050055444B /* TPMonitorModel.m */,
+				F84368D92B32BE050055444B /* TPMonitorCache.h */,
+				F84368DA2B32BE050055444B /* TPMonitorCache.m */,
+				F84368D12B32BACA0055444B /* UI */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
+		F84368D12B32BACA0055444B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F84368CB2B328B750055444B /* TPMonitorViewController.h */,
+				F84368CC2B328B750055444B /* TPMonitorViewController.m */,
+				F84368CE2B328D9D0055444B /* TPMonitorTableViewCell.h */,
+				F84368CF2B328D9D0055444B /* TPMonitorTableViewCell.m */,
+				F84368DC2B32C1CD0055444B /* TPMonitorDetailViewController.h */,
+				F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		F86872032B1D7A37007E747F /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +466,10 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F84368C42B3287F90055444B /* Monitor */,
+				F84368BD2B327D980055444B /* Font */,
+				F8E1B1732B316CC60036928F /* Log */,
+				F8E1B16C2B312F560036928F /* UserDefaults */,
 				F8AE19612B2C2D13009C12E2 /* File */,
 				F81BEC912B28581800DAA26F /* AppInfo */,
 				F81BEC8A2B28523100DAA26F /* Crash */,
@@ -526,6 +621,44 @@
 				F8D343262B20686C004AEE48 /* TPEnviConfig.m */,
 			);
 			path = Envi;
+			sourceTree = "<group>";
+		};
+		F8E1B16C2B312F560036928F /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				F8E1B16D2B312F8B0036928F /* TPUserDefaultsController.h */,
+				F8E1B16E2B312F8B0036928F /* TPUserDefaultsController.m */,
+				F8E1B1702B3132C10036928F /* TPUserDefaultsTableViewCell.h */,
+				F8E1B1712B3132C10036928F /* TPUserDefaultsTableViewCell.m */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		F8E1B1732B316CC60036928F /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				F8E1B17B2B316FED0036928F /* fishhook.h */,
+				F8E1B17C2B316FED0036928F /* fishhook.c */,
+				F8E1B17E2B3170E10036928F /* TPLogManager.h */,
+				F8E1B17F2B3170E10036928F /* TPLogManager.m */,
+				F8E1B1852B3176C80036928F /* TPLogModel.h */,
+				F8E1B1862B3176C80036928F /* TPLogModel.m */,
+				F8E1B1812B3172680036928F /* UI */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		F8E1B1812B3172680036928F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F8E1B1822B3172810036928F /* TPLogViewController.h */,
+				F8E1B1832B3172810036928F /* TPLogViewController.m */,
+				F8E1B1882B317E100036928F /* TPLogTableViewCell.h */,
+				F8E1B1892B317E100036928F /* TPLogTableViewCell.m */,
+				F8E1B18C2B318EE60036928F /* TPLogDetailViewController.h */,
+				F8E1B18D2B318EE60036928F /* TPLogDetailViewController.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		F8EAC7DE2B173504005522DE = {
@@ -883,8 +1016,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E1B18A2B317E100036928F /* TPLogTableViewCell.m in Sources */,
 				F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */,
 				F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */,
+				F8E1B1802B3170E10036928F /* TPLogManager.m in Sources */,
 				F8F4039C2B21B93D008653CB /* UITabBarController+MemoryLeak.m in Sources */,
 				F80C53EB2B29404300C7FB38 /* TPCrashCache.m in Sources */,
 				F8F403AF2B21BD39008653CB /* FPSLabel.m in Sources */,
@@ -900,14 +1035,21 @@
 				F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */,
 				F8F403AA2B21B97A008653CB /* NSArray+UnicodeReadable.m in Sources */,
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
+				F84368CA2B3289B60055444B /* TPThreadTrace.m in Sources */,
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
 				F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */,
 				F8AE19712B2C67FB009C12E2 /* NSString+Category.m in Sources */,
 				F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */,
+				F8E1B17D2B316FED0036928F /* fishhook.c in Sources */,
+				F84368C02B327DA80055444B /* TPFontViewController.m in Sources */,
+				F8E1B18E2B318EE60036928F /* TPLogDetailViewController.m in Sources */,
 				F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */,
 				F81BEC892B284D5600DAA26F /* NSObject+Category.m in Sources */,
 				F8F403992B21B93D008653CB /* UIPageViewController+MemoryLeak.m in Sources */,
+				F8E1B1842B3172810036928F /* TPLogViewController.m in Sources */,
+				F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */,
+				F84368C72B3288AF0055444B /* TPFluencyMonitor.m in Sources */,
 				F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */,
 				F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */,
 				F8EAC7EC2B173504005522DE /* AppDelegate.m in Sources */,
@@ -915,9 +1057,12 @@
 				F86DA50B2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m in Sources */,
 				F8AF955C2B1EF40A003059CB /* TPHomeViewController.m in Sources */,
 				F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */,
+				F84368D02B328D9D0055444B /* TPMonitorTableViewCell.m in Sources */,
 				F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */,
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
+				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
+				F84368DE2B32C1CD0055444B /* TPMonitorDetailViewController.m in Sources */,
 				F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */,
 				F81BEC902B28537400DAA26F /* TPCrashManager.m in Sources */,
 				F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */,
@@ -931,7 +1076,9 @@
 				F8F403B52B21C1C1008653CB /* TPDebugToolViewController.m in Sources */,
 				F81BEC9C2B2860F800DAA26F /* TPAppInfoViewController.m in Sources */,
 				F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */,
+				F8E1B16F2B312F8B0036928F /* TPUserDefaultsController.m in Sources */,
 				F86DA5082B2A9F0500EB642D /* TPCrashDetailViewController.m in Sources */,
+				F8E1B1872B3176C80036928F /* TPLogModel.m in Sources */,
 				F8AE196E2B2C52AD009C12E2 /* TPFileTableViewCell.m in Sources */,
 				F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */,
 				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
@@ -944,8 +1091,11 @@
 				F8AF95602B1EFECE003059CB /* TPNetworkError.m in Sources */,
 				F8F403A02B21B93D008653CB /* MLeaksMessenger.m in Sources */,
 				F8430E8F2B26E6E600DBE29F /* UIAlertController+Category.m in Sources */,
+				F8E1B1722B3132C10036928F /* TPUserDefaultsTableViewCell.m in Sources */,
 				F8EAC7FD2B173504005522DE /* main.m in Sources */,
 				F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */,
+				F84368C32B327E3D0055444B /* TPFontTableViewCell.m in Sources */,
+				F84368CD2B328B750055444B /* TPMonitorViewController.m in Sources */,
 				F86871FB2B1D6641007E747F /* TestViewController.m in Sources */,
 				F8EAC7EF2B173504005522DE /* SceneDelegate.m in Sources */,
 				F8AE19672B2C3E7F009C12E2 /* TPFileModel.m in Sources */,

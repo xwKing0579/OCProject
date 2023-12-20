@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
 
     self.title = @"崩溃信息";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"delete"] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeCrashData)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"delete"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeCrashData)];
     self.data = [TPCrashCache crashData];
     [self.tableView reloadData];
 }
@@ -42,7 +42,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [TPRouter jumpUrl:@"native/TPCrashDetailViewController" params:@{@"model":self.data[indexPath.row]}];
+    [TPRouter jumpUrl:@"TPCrashDetailViewController" params:@{@"model":self.data[indexPath.row]}];
 }
 
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath*)indexPath{

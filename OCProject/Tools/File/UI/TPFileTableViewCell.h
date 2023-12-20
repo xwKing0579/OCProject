@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPFileTableViewCell : TPBaseTableViewCell
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPFileModel *)model;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -73,6 +73,7 @@ void HandleException(NSException *exception){
     model.stackSymbols = exception.callStackSymbols;
     model.date = [NSDate currentTime];
     model.thread = [NSThread currentThread].description;
+    model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
     
     id obj = [TPCrashCache crashData];
     NSMutableArray *data = [NSMutableArray array];
@@ -231,6 +232,7 @@ void SignalHandler(int sig){
     model.stackSymbols = [NSThread callStackSymbols];
     model.date = [NSDate currentTime];
     model.thread = [NSThread currentThread].description;
+    model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
     id obj = [TPCrashCache crashData];
     
     NSMutableArray *data = [NSMutableArray array];

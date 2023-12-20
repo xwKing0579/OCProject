@@ -11,7 +11,9 @@
 
 + (UIColor *)cFFFFFF{return [self RGB:0xFFFFFF];}
 + (UIColor *)cCCCCCC{return [self RGB:0xCCCCCC];}
++ (UIColor *)c1E1E1E{return [self RGB:0x1E1E1E];}
 + (UIColor *)c333333{return [self RGB:0x333333];}
++ (UIColor *)c505050{return [self RGB:0x505050];}
 + (UIColor *)c000000{return [self RGB:0x000000];}
 + (UIColor *)c1EB65F{return [self RGB:0x1EB65F];}
 

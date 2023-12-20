@@ -40,4 +40,8 @@
 - (BOOL)controllerOverlap{
     return NO;
 }
+
+- (void)dealloc{
+    NSLog(@"%@----%s",self,__func__);
+}
 @end

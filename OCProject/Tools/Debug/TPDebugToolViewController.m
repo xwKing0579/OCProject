@@ -47,7 +47,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         };
         [TPMediator performTarget:model.target action:model.action object:block];
     }else{
-        [TPMediator performTarget:model.target action:model.action object:model.url];
+        [TPMediator performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:model.url];
     }
 }
 
@@ -138,10 +138,14 @@ static NSString *identifier = @"TPDebugToolViewCell";
     NSString *envi = [NSString stringWithFormat:@"环境：%@",[TPMediator performTarget:@"TPEnviConfig_Class" action:@"enviToSting"]];
     NSArray *data = @[
         @{@"title":envi,@"image":@"setting",@"target":@"TPEnviConfig_Class",@"action":@"enviConfig:"},
-        @{@"title":@"路由",@"image":@"router",@"target":@"TPRouter_Class",@"action":@"routerEntry"},
-        @{@"title":@"app信息",@"image":@"appInfo",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPAppInfoViewController"},
-        @{@"title":@"crash信息",@"image":@"crash",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPCrashViewController"},
-        @{@"title":@"文件",@"image":@"file",@"target":@"TPRouter_Class",@"action":@"jumpUrl:",@"url":@"native/TPFileViewController"},
+        @{@"title":@"路由",@"image":@"router",@"action":@"routerEntry"},
+        @{@"title":@"app信息",@"image":@"appInfo",@"url":@"TPAppInfoViewController"},
+        @{@"title":@"crash信息",@"image":@"crash",@"url":@"TPCrashViewController"},
+        @{@"title":@"app文件",@"image":@"file",@"url":@"TPFileViewController"},
+        @{@"title":@"UserDefaults",@"image":@"data",@"url":@"TPUserDefaultsController"},
+        @{@"title":@"打印日志",@"image":@"log",@"url":@"TPLogViewController"},
+        @{@"title":@"可用字体",@"image":@"font",@"url":@"TPFontViewController"},
+        @{@"title":@"卡顿检测",@"image":@"caton",@"url":@"TPMonitorViewController"},
     ];
     return [NSArray yy_modelArrayWithClass:[self class] json:data];
 }

@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPAppInfoTableViewCell : TPBaseTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPAppInfoListModel *)model;
-
 @end
 
 NS_ASSUME_NONNULL_END
