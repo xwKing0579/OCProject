@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
 @interface TPDebugToolModel : NSObject
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *image;

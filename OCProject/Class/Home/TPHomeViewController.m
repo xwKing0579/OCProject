@@ -29,12 +29,11 @@
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:url] completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
         [btn setImage:image forState:UIControlStateNormal];
     }];
-    
-   
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"ViewController"];
+    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"test"];
     //制造崩溃
 //    [self performSelector:NSSelectorFromString(@"sdsa")];
 }

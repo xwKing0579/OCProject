@@ -7,7 +7,7 @@
 
 #import "TPAppInfoModel.h"
 #import "TPAppInfoManager.h"
-
+#import "TPRAMUsage.h"
 @implementation TPAppInfoModel
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
@@ -23,6 +23,7 @@
               @{@"name":@"bundle",@"content":[TPAppInfoManager appBundle]},
               @{@"name":@"版本",@"content":[TPAppInfoManager appVersion]},
               @{@"name":@"最低系统版本",@"content":[TPAppInfoManager appMinSystemVersion]},
+              @{@"name":@"内存使用",@"content":[NSString sizeString:[TPRAMUsage getAppRAMUsage]]},
           ]},
         @{@"title":@"设备信息",
           @"item":@[
@@ -31,7 +32,11 @@
               @{@"name":@"尺寸",@"content":[TPAppInfoManager deviceSize]},
               @{@"name":@"scale",@"content":[TPAppInfoManager deviceScale]},
               @{@"name":@"版本",@"content":[TPAppInfoManager systemVersion]},
-              @{@"name":@"语言",@"content":[TPAppInfoManager systemLanguage]}]}
+              @{@"name":@"语言",@"content":[TPAppInfoManager systemLanguage]},
+              @{@"name":@"内存使用",@"content":[NSString sizeString:[TPRAMUsage getSystemRAMUsage]]},
+              @{@"name":@"内存剩余",@"content":[NSString sizeString:[TPRAMUsage getSystemRAMAvailable]]},
+              @{@"name":@"内存总量",@"content":[NSString sizeString:[TPRAMUsage getSystemRAMTotal]]},
+          ]}
     ];
     return [NSArray yy_modelArrayWithClass:[self class] json:data];
 }

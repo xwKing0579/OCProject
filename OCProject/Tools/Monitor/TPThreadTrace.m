@@ -146,7 +146,9 @@ static inline dispatch_queue_t log_IO_queue(void) {
 @implementation TPThreadTrace
 
 + (void)load {
+#ifdef DEBUG
     main_thread_id = mach_thread_self();
+#endif
 }
 
 #pragma mark - Public

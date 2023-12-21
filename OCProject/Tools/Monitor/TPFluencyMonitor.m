@@ -10,7 +10,7 @@
 #import "TPMonitorCache.h"
 #import <execinfo.h>
 
-NSInteger const kFluencyMonitorCount = 5;
+NSInteger const kFluencyMonitor_count = 5;
 NSInteger const kFluencyMonitorMillisecond = 50;
 NSString *const kTPMonitorConfigKey = @"kTPMonitorConfigKey";
 
@@ -18,7 +18,8 @@ NSString *const kTPMonitorConfigKey = @"kTPMonitorConfigKey";
     CFRunLoopObserverRef _observer;  // 观察者
     dispatch_semaphore_t _semaphore; // 信号量
     CFRunLoopActivity _activity;     // 状态
-    NSUInteger count;                //次数
+    NSUInteger _count;               //次数
+    BOOL isMonitoring;
 }
 @end
 
@@ -35,9 +36,7 @@ static inline dispatch_queue_t fluency_monitor_queue(void) {
 
 + (void)load{
 #ifdef DEBUG
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if ([self isOn])[self start];
-    });
+    if ([self isOn])[self start];
 #endif
 }
 
@@ -51,6 +50,9 @@ static inline dispatch_queue_t fluency_monitor_queue(void) {
 }
 
 + (void)start{
+    TPFluencyMonitor *manager = [TPFluencyMonitor sharedManager];
+    if (manager->isMonitoring) return;
+    
     [[NSUserDefaults standardUserDefaults] setValue:@(YES) forKey:kTPMonitorConfigKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
@@ -64,36 +66,34 @@ static inline dispatch_queue_t fluency_monitor_queue(void) {
     CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
-    TPFluencyMonitor *manager = [TPFluencyMonitor sharedManager];
+    manager->isMonitoring = YES;
     manager->_observer = observer;
     manager->_semaphore = semaphore;
     dispatch_async(fluency_monitor_queue(),^{
         while (1) {
-            if (![self isOn]) return;
+            if (!manager->isMonitoring) return;
             
             long dsw = dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, kFluencyMonitorMillisecond * NSEC_PER_MSEC));
             if (dsw != 0) {
                 if (manager->_activity == kCFRunLoopBeforeSources || manager->_activity == kCFRunLoopAfterWaiting) {
-                    if (++manager->count < kFluencyMonitorCount){
+                    if (++manager->_count < kFluencyMonitor_count){
                         continue;
                     }
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        TPMonitorModel *model = [TPMonitorModel new];
-                        model.date = [NSDate currentTime];
-                        model.thread = [NSThread mainThread].description;
-                        model.stackSymbols = [NSThread callStackSymbols];
-                        model.backtrace = [TPThreadTrace backtraceOfMainThread];
-                        model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
-                        
-                        id obj = [TPMonitorCache monitorData];
-                        NSMutableArray *data = [NSMutableArray array];
-                        if (obj) [data addObjectsFromArray:obj];
-                        [data addObject:model];
-                        [TPMonitorCache cacheMonitorData:data];
-                    });
+                    TPMonitorModel *model = [TPMonitorModel new];
+                    model.date = [NSDate currentTime];
+                    model.thread = [NSThread mainThread].description;
+                    model.stackSymbols = [NSThread callStackSymbols];
+                    model.backtrace = [TPThreadTrace backtraceOfMainThread];
+                    model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
+                    
+                    id obj = [TPMonitorCache monitorData];
+                    NSMutableArray *data = [NSMutableArray array];
+                    if (obj) [data addObjectsFromArray:obj];
+                    [data addObject:model];
+                    [TPMonitorCache cacheMonitorData:data];
                 }
             }
-            manager->count = 0;
+            manager->_count = 0;
         }
     });
 }
@@ -106,10 +106,11 @@ static void runLoopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 }
 
 + (void)stop{
+    TPFluencyMonitor *manager = [TPFluencyMonitor sharedManager];
+    if (!manager->isMonitoring) return;
+    manager->isMonitoring = NO;
     [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:kTPMonitorConfigKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    TPFluencyMonitor *manager = [TPFluencyMonitor sharedManager];
     if(!manager->_observer) return;
     CFRunLoopRemoveObserver(CFRunLoopGetMain(),manager->_observer, kCFRunLoopCommonModes);
     CFRelease(manager->_observer);

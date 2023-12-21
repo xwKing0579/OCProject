@@ -41,14 +41,14 @@ static NSString *identifier = @"TPDebugToolViewCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     TPDebugToolModel *model = self.data[indexPath.row];
-    if (indexPath.row == 0) {
-        void(^block)(void) = ^{
+    id obj = model.url;
+    if ([model.action isEqualToString:@"enviConfig:"]) {
+        void (^block)(void) = ^{
             [self setUpSubViews];
         };
-        [TPMediator performTarget:model.target action:model.action object:block];
-    }else{
-        [TPMediator performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:model.url];
+        obj = block;
     }
+    [TPMediator performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
 }
 
 - (UICollectionView *)collectionView{
@@ -102,7 +102,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
     }];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(0);
-        make.top.equalTo(self.imageView.mas_bottom).offset(4);
+        make.top.equalTo(self.imageView.mas_bottom).offset(6);
     }];
 }
 
@@ -135,10 +135,17 @@ static NSString *identifier = @"TPDebugToolViewCell";
 @implementation TPDebugToolModel
 
 + (NSArray *)data{
-    NSString *envi = [NSString stringWithFormat:@"环境：%@",[TPMediator performTarget:@"TPEnviConfig_Class" action:@"enviToSting"]];
+    NSString *envi = [NSString stringWithFormat:@"环境:%@",[TPMediator performTarget:@"TPEnviConfig_Class" action:@"enviToSting"]];
+
+    NSMutableString *startTime = [NSMutableString stringWithString:@"启动时间:"];
+    id value = [[NSUserDefaults standardUserDefaults] valueForKey:@"kTPStartupTimeKey"];
+    if (value)[startTime appendString:[NSString stringWithFormat:@"%.3f",[value doubleValue]]];
+   
     NSArray *data = @[
-        @{@"title":envi,@"image":@"setting",@"target":@"TPEnviConfig_Class",@"action":@"enviConfig:"},
+        @{@"title":startTime,@"image":@"startup"},
         @{@"title":@"路由",@"image":@"router",@"action":@"routerEntry"},
+        @{@"title":envi,@"image":@"setting",@"target":@"TPEnviConfig_Class",@"action":@"enviConfig:"},
+        
         @{@"title":@"app信息",@"image":@"appInfo",@"url":@"TPAppInfoViewController"},
         @{@"title":@"crash信息",@"image":@"crash",@"url":@"TPCrashViewController"},
         @{@"title":@"app文件",@"image":@"file",@"url":@"TPFileViewController"},

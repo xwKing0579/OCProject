@@ -30,6 +30,8 @@
 		F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368D72B32BD050055444B /* TPMonitorModel.m */; };
 		F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368DA2B32BE050055444B /* TPMonitorCache.m */; };
 		F84368DE2B32C1CD0055444B /* TPMonitorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */; };
+		F84368E52B32E78B0055444B /* TPStartupTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368E42B32E78B0055444B /* TPStartupTime.m */; };
+		F84368E82B3302FB0055444B /* TPRAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368E72B3302FB0055444B /* TPRAMUsage.m */; };
 		F86871FB2B1D6641007E747F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FA2B1D6641007E747F /* TestViewController.m */; };
 		F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FE2B1D798D007E747F /* TPBaseTableViewCell.m */; };
 		F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872012B1D79C5007E747F /* TestTableViewCell.m */; };
@@ -167,6 +169,10 @@
 		F84368DA2B32BE050055444B /* TPMonitorCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorCache.m; sourceTree = "<group>"; };
 		F84368DC2B32C1CD0055444B /* TPMonitorDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorDetailViewController.h; sourceTree = "<group>"; };
 		F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorDetailViewController.m; sourceTree = "<group>"; };
+		F84368E32B32E78B0055444B /* TPStartupTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPStartupTime.h; sourceTree = "<group>"; };
+		F84368E42B32E78B0055444B /* TPStartupTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPStartupTime.m; sourceTree = "<group>"; };
+		F84368E62B3302FB0055444B /* TPRAMUsage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRAMUsage.h; sourceTree = "<group>"; };
+		F84368E72B3302FB0055444B /* TPRAMUsage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRAMUsage.m; sourceTree = "<group>"; };
 		F86871F92B1D6641007E747F /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F86871FA2B1D6641007E747F /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F86871FD2B1D798D007E747F /* TPBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -394,6 +400,8 @@
 			children = (
 				F81BEC922B285AB200DAA26F /* TPAppInfoManager.h */,
 				F81BEC932B285AB200DAA26F /* TPAppInfoManager.m */,
+				F84368E62B3302FB0055444B /* TPRAMUsage.h */,
+				F84368E72B3302FB0055444B /* TPRAMUsage.m */,
 				F81BEC992B2860D200DAA26F /* UI */,
 			);
 			path = AppInfo;
@@ -452,6 +460,15 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		F84368E22B32E7570055444B /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				F84368E32B32E78B0055444B /* TPStartupTime.h */,
+				F84368E42B32E78B0055444B /* TPStartupTime.m */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
 		F86872032B1D7A37007E747F /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +483,7 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F84368E22B32E7570055444B /* Startup */,
 				F84368C42B3287F90055444B /* Monitor */,
 				F84368BD2B327D980055444B /* Font */,
 				F8E1B1732B316CC60036928F /* Log */,
@@ -1056,6 +1074,7 @@
 				F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */,
 				F86DA50B2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m in Sources */,
 				F8AF955C2B1EF40A003059CB /* TPHomeViewController.m in Sources */,
+				F84368E82B3302FB0055444B /* TPRAMUsage.m in Sources */,
 				F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */,
 				F84368D02B328D9D0055444B /* TPMonitorTableViewCell.m in Sources */,
 				F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */,
@@ -1095,6 +1114,7 @@
 				F8EAC7FD2B173504005522DE /* main.m in Sources */,
 				F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */,
 				F84368C32B327E3D0055444B /* TPFontTableViewCell.m in Sources */,
+				F84368E52B32E78B0055444B /* TPStartupTime.m in Sources */,
 				F84368CD2B328B750055444B /* TPMonitorViewController.m in Sources */,
 				F86871FB2B1D6641007E747F /* TestViewController.m in Sources */,
 				F8EAC7EF2B173504005522DE /* SceneDelegate.m in Sources */,

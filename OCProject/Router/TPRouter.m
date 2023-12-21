@@ -24,13 +24,23 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
     ///处理一些业务逻辑
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:url];
     NSString *path = urlComponents.path;
-
+    
+    if ([path hasPrefix:@"/"]){
+        path = [path stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@""];
+    }
+    
     if ([path hasPrefix:kTPRouterPathURLName]) {
         path = [path stringByReplacingOccurrencesOfString:kTPRouterPathURLName withString:@""];
     }
     
+    if ([path hasPrefix:kTPRouterPathTabbarIndex]){
+        [self backUrl:path];
+        return nil;
+    }
+    
     NSArray <NSString *>*temp = [path componentsSeparatedByString:@"/"];
     if (temp.count == 0) return nil;
+    
     NSString *classString = [self classValue][temp.firstObject];
     if (!classString) classString = temp.firstObject;
     Class class = NSClassFromString(classString);
@@ -94,28 +104,32 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return;
     
-    if (currentVC.navigationController.viewControllers.count > 1) {
-        __kindof UINavigationController *nav = currentVC.navigationController;
-        Class class = NSClassFromString([self classValue][temp.firstObject]);
-        if (!class) {
-            [self selectTabbarIndex:temp.lastObject];
-            [nav popViewControllerAnimated:YES];
-            return;
-        }
-        __kindof UIViewController *toVc;
-        for (UIViewController *controller in nav.viewControllers) {
-            if ([controller isMemberOfClass:class]) {
-                toVc = controller;
-                break;
-            }
-        }
-        
-        [self selectTabbarIndex:temp.lastObject];
-        toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
-    }else if (currentVC.presentingViewController) {
+    if (currentVC.presentingViewController) {
         [currentVC dismissViewControllerAnimated:animation completion:^{
-            [self selectTabbarIndex:temp.lastObject];
+            [self backUrl:url];
         }];
+    }else if (currentVC.navigationController.viewControllers.count){
+        if (currentVC.navigationController.viewControllers.count == 1){
+            [self selectTabbarIndex:temp.lastObject];
+        }else{
+            __kindof UINavigationController *nav = currentVC.navigationController;
+            Class class = NSClassFromString([self classValue][temp.firstObject]);
+            if (!class) {
+                [self selectTabbarIndex:temp.lastObject];
+                [nav popViewControllerAnimated:YES];
+                return;
+            }
+            __kindof UIViewController *toVc;
+            for (UIViewController *controller in nav.viewControllers) {
+                if ([controller isMemberOfClass:class]) {
+                    toVc = controller;
+                    break;
+                }
+            }
+            
+            [self selectTabbarIndex:temp.lastObject];
+            toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
+        }
     }
 }
 

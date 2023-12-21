@@ -67,21 +67,19 @@
 }
 
 void HandleException(NSException *exception){
-    dispatch_async(dispatch_get_main_queue(), ^{
-        TPCrashModel *model = [TPCrashModel new];
-        model.name = exception.name;
-        model.reason = exception.reason;
-        model.stackSymbols = exception.callStackSymbols;
-        model.date = [NSDate currentTime];
-        model.thread = [NSThread currentThread].description;
-        model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
-        
-        id obj = [TPCrashCache crashData];
-        NSMutableArray *data = [NSMutableArray array];
-        if (obj) [data addObjectsFromArray:obj];
-        [data addObject:model];
-        [TPCrashCache cacheCrashData:data];
-    });
+    TPCrashModel *model = [TPCrashModel new];
+    model.name = exception.name;
+    model.reason = exception.reason;
+    model.stackSymbols = exception.callStackSymbols;
+    model.date = [NSDate currentTime];
+    model.thread = [NSThread currentThread].description;
+    model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
+    
+    id obj = [TPCrashCache crashData];
+    NSMutableArray *data = [NSMutableArray array];
+    if (obj) [data addObjectsFromArray:obj];
+    [data addObject:model];
+    [TPCrashCache cacheCrashData:data];
     
     [exception raise];
 }
@@ -228,21 +226,19 @@ void SignalHandler(int sig){
             break;
     }
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        TPCrashModel *model = [TPCrashModel new];
-        model.name = name;
-        model.reason = [NSString stringWithFormat:@"%@ Signal",name];
-        model.stackSymbols = [NSThread callStackSymbols];
-        model.date = [NSDate currentTime];
-        model.thread = [NSThread currentThread].description;
-        model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
-        id obj = [TPCrashCache crashData];
-        
-        NSMutableArray *data = [NSMutableArray array];
-        if (obj) [data addObjectsFromArray:obj];
-        [data addObject:model];
-        [TPCrashCache cacheCrashData:data];
-    });
+    TPCrashModel *model = [TPCrashModel new];
+    model.name = name;
+    model.reason = [NSString stringWithFormat:@"%@ Signal",name];
+    model.stackSymbols = [NSThread callStackSymbols];
+    model.date = [NSDate currentTime];
+    model.thread = [NSThread currentThread].description;
+    model.page = [NSString stringWithFormat:@"%@",UIViewController.currentViewController ?: UIViewController.window];
+    id obj = [TPCrashCache crashData];
+    
+    NSMutableArray *data = [NSMutableArray array];
+    if (obj) [data addObjectsFromArray:obj];
+    [data addObject:model];
+    [TPCrashCache cacheCrashData:data];
   
     kill(getpid(), SIGKILL);
 }

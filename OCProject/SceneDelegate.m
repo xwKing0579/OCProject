@@ -31,6 +31,9 @@
     }
 }
 
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts{
+    [TPRouter jumpUrl:URLContexts.allObjects.firstObject.URL.absoluteString];
+}
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
     // Called as the scene is being released by the system.

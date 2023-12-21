@@ -12,8 +12,6 @@
 
 #import "MLeaksMessenger.h"
 
-static __weak UIAlertView *alertView;
-
 @implementation MLeaksMessenger
 
 + (void)alertWithTitle:(NSString *)title message:(NSString *)message {

@@ -14,14 +14,18 @@
 }
 
 + (UIWindow *)window{
-    if (@available(iOS 13.0, *)) {
-        NSSet *set = [UIApplication sharedApplication].connectedScenes;
-        UIWindowScene *windowScene = [set anyObject];
-        UIWindow *window = windowScene.windows.firstObject;
-        return window;
-    }else{
-        return [UIApplication sharedApplication].delegate.window;
-    }
+    __block UIWindow *window = nil;
+    void (^block)(void) = ^{
+        if (@available(iOS 13.0, *)) {
+            NSSet *set = [UIApplication sharedApplication].connectedScenes;
+            UIWindowScene *windowScene = [set anyObject];
+            window = windowScene.windows.firstObject;
+        }else{
+            window = [UIApplication sharedApplication].delegate.window;
+        }
+    };
+    NSThread.isMainThread ? block() : dispatch_sync(dispatch_get_main_queue(), block);
+    return window;
 }
 
 + (__kindof UIViewController *)rootViewController{
