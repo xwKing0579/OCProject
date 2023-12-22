@@ -17,4 +17,5 @@
 + (BOOL)isAnyObjectLeakedAtPtrs:(NSSet *)ptrs;
 + (void)addLeakedObject:(id)object;
 
++ (NSMutableSet *)leakObjects;
 @end

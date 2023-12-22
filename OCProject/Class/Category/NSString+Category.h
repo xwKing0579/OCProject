@@ -10,6 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Category)
+
+///10进制转16进制
++ (NSString *)toHex:(long long int)tmpid;
+
+///文件大小转换K
 + (NSString *)sizeString:(unsigned long long)fileSize;
 @end
 

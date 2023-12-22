@@ -60,7 +60,6 @@ static NSMutableSet *leakedObjectPtrs;
     objc_setAssociatedObject(object, kLeakedObjectProxyKey, proxy, OBJC_ASSOCIATION_RETAIN);
     
     [leakedObjectPtrs addObject:proxy.objectPtr];
-    
 #if _INTERNAL_MLF_RC_ENABLED
     [MLeaksMessenger alertWithTitle:@"Memory Leak"
                             message:[NSString stringWithFormat:@"%@", proxy.viewStack]
@@ -82,6 +81,9 @@ static NSMutableSet *leakedObjectPtrs;
     });
 }
 
++ (NSMutableSet *)leakObjects{
+    return leakedObjectPtrs;
+}
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

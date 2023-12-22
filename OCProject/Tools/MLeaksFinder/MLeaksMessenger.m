@@ -11,32 +11,31 @@
  */
 
 #import "MLeaksMessenger.h"
+#import "MLeakedObjectProxy.h"
 
 @implementation MLeaksMessenger
 
-+ (void)alertWithTitle:(NSString *)title message:(NSString *)message {
-    [self alertWithTitle:title message:message delegate:nil additionalButtonTitle:nil];
++ (instancetype)sharedManager {
+    static MLeaksMessenger *sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [self new];
+    });
+    return sharedManager;
 }
 
-+ (void)alertWithTitle:(NSString *)title
-               message:(NSString *)message
-              delegate:(id<UIAlertViewDelegate>)delegate
- additionalButtonTitle:(NSString *)additionalButtonTitle {
-//    [alertView dismissWithClickedButtonIndex:0 animated:NO];
-//    UIAlertView *alertViewTemp = [[UIAlertView alloc] initWithTitle:title
-//                                                            message:message
-//                                                           delegate:delegate
-//                                                  cancelButtonTitle:@"OK"
-//                                                  otherButtonTitles:additionalButtonTitle, nil];
-//    [alertViewTemp show];
-//    alertView = alertViewTemp;
++ (NSArray *)leaks{
+    return [MLeakedObjectProxy leakObjects].allObjects;
+}
+
++ (void)alertWithTitle:(NSString *)title message:(NSString *)message {
+    if (![self sharedManager].isAlert) return;
     
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }]];
     [UIViewController.currentViewController presentViewController:alertVC animated:YES completion:nil];
-    NSLog(@"%@: %@", title, message);
 }
 
 @end

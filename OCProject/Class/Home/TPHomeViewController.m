@@ -33,7 +33,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"test"];
+//    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"test"];
     //制造崩溃
 //    [self performSelector:NSSelectorFromString(@"sdsa")];
 }

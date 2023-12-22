@@ -15,10 +15,9 @@
 
 @interface MLeaksMessenger : NSObject
 
+@property (nonatomic, assign) BOOL isAlert;
+
++ (NSArray *)leaks;
 + (void)alertWithTitle:(NSString *)title message:(NSString *)message;
-+ (void)alertWithTitle:(NSString *)title
-               message:(NSString *)message
-              delegate:(id<UIAlertViewDelegate>)delegate
- additionalButtonTitle:(NSString *)additionalButtonTitle;
 
 @end

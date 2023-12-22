@@ -12,6 +12,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
 @interface TPDebugToolViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray <TPDebugToolModel *>*data;
+@property (nonatomic, strong) id block;
 @end
 
 @implementation TPDebugToolViewController
@@ -47,6 +48,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
             [self setUpSubViews];
         };
         obj = block;
+        self.block = block;
     }
     [TPMediator performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
 }
@@ -153,7 +155,10 @@ static NSString *identifier = @"TPDebugToolViewCell";
         @{@"title":@"打印日志",@"image":@"log",@"url":@"TPLogViewController"},
         @{@"title":@"可用字体",@"image":@"font",@"url":@"TPFontViewController"},
         @{@"title":@"卡顿检测",@"image":@"caton",@"url":@"TPMonitorViewController"},
+        @{@"title":@"内存泄漏",@"image":@"leaks",@"url":@"TPLeaksViewController"},
+        @{@"title":@"本机app",@"image":@"app",@"url":@"TPAppKindViewController"},
     ];
+    
     return [NSArray yy_modelArrayWithClass:[self class] json:data];
 }
 

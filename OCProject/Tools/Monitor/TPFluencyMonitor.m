@@ -11,7 +11,7 @@
 #import <execinfo.h>
 
 NSInteger const kFluencyMonitor_count = 5;
-NSInteger const kFluencyMonitorMillisecond = 50;
+NSInteger const kFluencyMonitorMillisecond = 80;
 NSString *const kTPMonitorConfigKey = @"kTPMonitorConfigKey";
 
 @interface TPFluencyMonitor (){
