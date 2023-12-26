@@ -11,6 +11,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UIButton *copyBtn;
 @end
 
 @implementation TPPoObjectTableViewCell
@@ -43,22 +44,35 @@
 }
 
 - (void)setUpSubViews{
-    [self.contentView addSubviews:@[self.titleLabel,self.contentLabel,self.lineView]];
+    [self.contentView addSubviews:@[self.titleLabel,self.contentLabel,self.lineView,self.copyBtn]];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
         make.top.mas_equalTo(10);
-        make.right.mas_equalTo(-15);
+        make.right.mas_equalTo(-45);
     }];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
+        make.left.equalTo(self.titleLabel);
         make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(4);
-        make.right.mas_equalTo(-15);
+        make.right.equalTo(self.titleLabel);
         make.bottom.mas_equalTo(-10);
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
         make.height.mas_equalTo(0.5);
     }];
+    [self.copyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(0);
+        make.right.mas_equalTo(-10);
+        make.width.mas_equalTo(30);
+        make.height.mas_equalTo(30);
+    }];
+}
+
+- (void)clickCopyAction{
+    UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
+    [pastboard setString:self.contentLabel.text];
+    
+    [TPMediator performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"复制成功"];
 }
 
 - (UILabel *)titleLabel{
@@ -87,5 +101,14 @@
         _lineView.backgroundColor = UIColor.cCCCCCC;
     }
     return _lineView;
+}
+
+- (UIButton *)copyBtn{
+    if (!_copyBtn){
+        _copyBtn = [[UIButton alloc] init];
+        [_copyBtn setImage:[UIImage imageNamed:@"copy"] forState:UIControlStateNormal];
+        [_copyBtn addTarget:self action:@selector(clickCopyAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _copyBtn;
 }
 @end

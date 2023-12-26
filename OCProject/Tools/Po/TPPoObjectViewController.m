@@ -18,8 +18,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"po对象";
- 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"custom" style:(UIBarButtonItemStyleDone) target:self action:@selector(customPropertyList)];
     self.data = self.object.propertyList;
+    [self.tableView reloadData];
+}
+
+- (void)customPropertyList{
+    if (!self.object) return;
+    
+    NSMutableArray *propertyList = [NSMutableArray array];
+    if ([self.object isKindOfClass:[UILabel class]]){
+        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"text",@"font",@"textColor",@"textAlignment",@"numberOfLines",@"lineBreakMode"]]];
+    }
+    if ([self.object isKindOfClass:[UIImageView class]]){
+        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"image",@"sd_currentImageURL"]]];
+    }
+    if ([self.object isKindOfClass:[UIButton class]]){
+        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"sd_currentImageURL"]]];
+    }
+    if ([self.object isKindOfClass:[UIView class]]){
+        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"frame",@"bounds",@"backgroundColor",@"contentMode"]]];
+    }
+    [propertyList addObject:@{@"类":NSStringFromClass(self.object.class)}];
+    [propertyList addObject:@{@"内存地址":[NSString stringWithFormat:@"%p",self.object]}];
+    [propertyList addObject:@{@"指针地址":[NSString stringWithFormat:@"0x%lu",(uintptr_t)self.object]}];
+    self.data = propertyList;
     [self.tableView reloadData];
 }
 

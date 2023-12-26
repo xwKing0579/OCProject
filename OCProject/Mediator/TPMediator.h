@@ -38,7 +38,7 @@ FOUNDATION_EXTERN NSString *const kTPMediatorActionObjectName;
                    .......}
  */
 + (id)performTarget:(NSString *)target action:(NSString *)action objects:(NSDictionary *)objects;
-
++ (id)safePerformTarget:(id)target selector:(SEL)selector objects:(NSDictionary *)objects;
 @end
 
 NS_ASSUME_NONNULL_END
