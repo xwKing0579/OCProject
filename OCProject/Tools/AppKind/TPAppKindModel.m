@@ -33,7 +33,7 @@
                 if (bundle) {
                     TPAppKindModel *model = [TPAppKindModel new];
                     unsigned int outCount = 0;
-                    objc_property_t * properties = class_copyPropertyList(TPAppKindModel.class , &outCount);
+                    objc_property_t *properties = class_copyPropertyList(TPAppKindModel.class , &outCount);
                     for (int i = 0; i < outCount; i++) {
                         objc_property_t property = properties[i];
                         NSString *key = [NSString stringWithUTF8String:property_getName(property)];

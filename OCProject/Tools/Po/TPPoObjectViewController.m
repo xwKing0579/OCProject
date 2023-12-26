@@ -1,36 +1,25 @@
 //
-//  TPCrashDetailViewController.m
+//  TPPoObjectViewController.m
 //  OCProject
 //
-//  Created by 王祥伟 on 2023/12/14.
+//  Created by 王祥伟 on 2023/12/26.
 //
 
-#import "TPCrashDetailViewController.h"
+#import "TPPoObjectViewController.h"
 
-@interface TPCrashDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface TPPoObjectViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *data;
 @end
 
-@implementation TPCrashDetailViewController
+@implementation TPPoObjectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"崩溃信息详情";
-    NSMutableArray *data = [NSMutableArray array];
-    
-    unsigned int outCount = 0;
-    objc_property_t * properties = class_copyPropertyList(self.model.class , &outCount);
-    for (int i = 0; i < outCount; i++) {
-        objc_property_t property = properties[i];
-        NSString *key = [NSString stringWithUTF8String:property_getName(property)];
-        id value = [self.model valueForKey:key];
-        if (value) [data addObject:@{key:value}];
-    }
-    free(properties);
-    
-    self.data = data;
+    self.title = @"po对象";
+ 
+    self.data = self.object.propertyList;
     [self.tableView reloadData];
 }
 
@@ -40,7 +29,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:@"TPCrashDetailTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [TPMediator performTarget:@"TPPoObjectTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 #pragma mark -- setter
@@ -62,5 +51,6 @@
     }
     return _tableView;
 }
+
 
 @end

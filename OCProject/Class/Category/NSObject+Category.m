@@ -80,5 +80,19 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
     }
 }
 
-
+- (NSArray <NSDictionary *>*)propertyList{
+    NSMutableArray *propertyArray = [NSMutableArray array];
+    unsigned int outCount = 0;
+    objc_property_t *properties = class_copyPropertyList(self.class , &outCount);
+    for (int i = 0; i < outCount; i++) {
+        objc_property_t property = properties[i];
+        NSString *key = [NSString stringWithUTF8String:property_getName(property)];
+        if ([self respondsToSelector:NSSelectorFromString(key)]){
+            id value = [self valueForKey:key];
+            if (value) [propertyArray addObject:@{key:value}];
+        }
+    }
+    free(properties);
+    return propertyArray;
+}
 @end

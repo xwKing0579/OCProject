@@ -71,6 +71,7 @@
 }
 
 - (void)updateUIHierarchy{
+    if (!self.model) return;
     [self.data removeAllObjects];
     [self.data addObject:self.model];
     [self getUIHierarchy:self.model];

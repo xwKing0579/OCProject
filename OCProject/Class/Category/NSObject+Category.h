@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)swizzleClassMethod:(SEL)originSelector withSwizzleMethod:(SEL)swizzleSelector;
 - (void)swizzleInstanceMethod:(SEL)originSelector withSwizzleMethod:(SEL)swizzleSelector;
 
+- (NSArray <NSDictionary *>*)propertyList;
+
 @end
 
 NS_ASSUME_NONNULL_END

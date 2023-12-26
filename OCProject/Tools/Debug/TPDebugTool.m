@@ -85,7 +85,7 @@
 
 - (UIWindow *)debugWindow{
     if (!_debugWindow){
-        _debugWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height*0.7, 60, 60)];
+        _debugWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height*0.66, 60, 60)];
         _debugWindow.hidden = NO;
         _debugWindow.backgroundColor = [UIColor clearColor];
         

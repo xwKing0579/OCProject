@@ -27,7 +27,7 @@
 
 - (void)setUpSubViews{
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"delete"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeMonitorData)];
-    self.data = [TPMonitorCache monitorData];
+    self.data = ((NSArray *)[TPMonitorCache monitorData]).reverseObjectEnumerator.allObjects;
     [self.tableView reloadData];
     
     UIButton *customView = [[UIButton alloc] init];
@@ -66,7 +66,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPMonitorDetailViewController" object:@{@"model":self.data[indexPath.row]}];
+    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":self.data[indexPath.row]}];
 }
 
 #pragma mark -- setter

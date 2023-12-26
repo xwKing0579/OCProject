@@ -20,7 +20,8 @@
     
     self.title = @"对象闪照";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"color" style:(UIBarButtonItemStyleDone) target:self action:@selector(changeLeakObjectColor)];
-    [self leakObjectShotImage];
+    self.view.backgroundColor = UIColor.cCCCCCC;
+    if (self.object) [self leakObjectShotImage];
 }
 
 - (void)changeLeakObjectColor{
@@ -59,11 +60,14 @@
     if (shotImage) [self.shotView setImage:shotImage forState:UIControlStateNormal];
 }
 
+- (void)clickShotAction{
+   if (self.object) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":self.object}];
+}
+
 - (UIButton *)shotView{
     if (!_shotView){
         _shotView = [[UIButton alloc] init];
-        _shotView.layer.borderWidth = 2;
-        _shotView.layer.borderColor = UIColor.redColor.CGColor;
+        [_shotView addTarget:self action:@selector(clickShotAction) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_shotView];
         [_shotView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self.view);

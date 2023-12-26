@@ -20,18 +20,7 @@
     self.title = @"app信息详情";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"openUrl" style:(UIBarButtonItemStyleDone) target:self action:@selector(openURL)];
     
-    NSMutableArray *data = [NSMutableArray array];
-    unsigned int outCount = 0;
-    objc_property_t * properties = class_copyPropertyList(self.model.class , &outCount);
-    for (int i = 0; i < outCount; i++) {
-        objc_property_t property = properties[i];
-        NSString *key = [NSString stringWithUTF8String:property_getName(property)];
-        id value = [self.model valueForKey:key];
-        if (value) [data addObject:@{key:value}];
-    }
-    free(properties);
-    
-    self.data = data;
+    self.data = self.model.propertyList;
     [self.tableView reloadData];
 }
 

@@ -1,21 +1,21 @@
 //
-//  TPCrashDetailTableViewCell.m
+//  TPPoObjectTableViewCell.m
 //  OCProject
 //
-//  Created by 王祥伟 on 2023/12/14.
+//  Created by 王祥伟 on 2023/12/26.
 //
 
-#import "TPCrashDetailTableViewCell.h"
+#import "TPPoObjectTableViewCell.h"
 
-@interface TPCrashDetailTableViewCell ()
+@interface TPPoObjectTableViewCell ()
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UIView *lineView;
 @end
 
-@implementation TPCrashDetailTableViewCell
+@implementation TPPoObjectTableViewCell
 + (instancetype)initWithTableView:(UITableView *)tableView withDic:(NSDictionary *)dic{
-    TPCrashDetailTableViewCell *cell = [self initWithTableView:tableView];
+    TPPoObjectTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = dic.allKeys.firstObject;
     
     id value = dic.allValues.firstObject;
@@ -32,6 +32,10 @@
         [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [text appendString:[NSString stringWithFormat:@"%@\n",obj]];
         }];
+    }else if ([value isKindOfClass:[NSObject class]]){
+        [text appendString:[value description]];
+    }else {
+        [text appendString:[NSString stringWithFormat:@"%@",value]];
     }
     cell.contentLabel.text = text;
     

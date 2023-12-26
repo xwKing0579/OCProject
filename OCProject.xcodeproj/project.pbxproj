@@ -18,6 +18,8 @@
 		F81BEC9C2B2860F800DAA26F /* TPAppInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F81BEC9B2B2860F800DAA26F /* TPAppInfoViewController.m */; };
 		F81BEC9F2B286E3A00DAA26F /* TPAppInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F81BEC9E2B286E3A00DAA26F /* TPAppInfoModel.m */; };
 		F81BECA22B2878F300DAA26F /* TPAppInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F81BECA12B2878F300DAA26F /* TPAppInfoTableViewCell.m */; };
+		F822A10C2B3ACDFF00A3330C /* TPPoObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F822A10B2B3ACDFF00A3330C /* TPPoObjectViewController.m */; };
+		F822A10F2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F822A10E2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m */; };
 		F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF32B351B3100496557 /* TPAppKindModel.m */; };
 		F83AAFF72B351DC100496557 /* TPAppKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF62B351DC100496557 /* TPAppKindViewController.m */; };
 		F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF92B351E2C00496557 /* TPAppKindTableViewCell.m */; };
@@ -36,7 +38,6 @@
 		F84368D02B328D9D0055444B /* TPMonitorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368CF2B328D9D0055444B /* TPMonitorTableViewCell.m */; };
 		F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368D72B32BD050055444B /* TPMonitorModel.m */; };
 		F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368DA2B32BE050055444B /* TPMonitorCache.m */; };
-		F84368DE2B32C1CD0055444B /* TPMonitorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */; };
 		F84368E52B32E78B0055444B /* TPStartupTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368E42B32E78B0055444B /* TPStartupTime.m */; };
 		F84368E82B3302FB0055444B /* TPRAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368E72B3302FB0055444B /* TPRAMUsage.m */; };
 		F86871FB2B1D6641007E747F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FA2B1D6641007E747F /* TestViewController.m */; };
@@ -44,8 +45,6 @@
 		F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872012B1D79C5007E747F /* TestTableViewCell.m */; };
 		F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872072B1DA1B2007E747F /* UIViewController+Category.m */; };
 		F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */; };
-		F86DA5082B2A9F0500EB642D /* TPCrashDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86DA5072B2A9F0500EB642D /* TPCrashDetailViewController.m */; };
-		F86DA50B2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86DA50A2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m */; };
 		F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E501D2B22F31B00B00781 /* TPRouter+Class.m */; };
 		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
@@ -157,6 +156,10 @@
 		F81BEC9E2B286E3A00DAA26F /* TPAppInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppInfoModel.m; sourceTree = "<group>"; };
 		F81BECA02B2878F300DAA26F /* TPAppInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppInfoTableViewCell.h; sourceTree = "<group>"; };
 		F81BECA12B2878F300DAA26F /* TPAppInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppInfoTableViewCell.m; sourceTree = "<group>"; };
+		F822A10A2B3ACDFF00A3330C /* TPPoObjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPPoObjectViewController.h; sourceTree = "<group>"; };
+		F822A10B2B3ACDFF00A3330C /* TPPoObjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPoObjectViewController.m; sourceTree = "<group>"; };
+		F822A10D2B3ADE2E00A3330C /* TPPoObjectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPPoObjectTableViewCell.h; sourceTree = "<group>"; };
+		F822A10E2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPoObjectTableViewCell.m; sourceTree = "<group>"; };
 		F83AAFF22B351B3100496557 /* TPAppKindModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppKindModel.h; sourceTree = "<group>"; };
 		F83AAFF32B351B3100496557 /* TPAppKindModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppKindModel.m; sourceTree = "<group>"; };
 		F83AAFF52B351DC100496557 /* TPAppKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppKindViewController.h; sourceTree = "<group>"; };
@@ -192,8 +195,6 @@
 		F84368D72B32BD050055444B /* TPMonitorModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorModel.m; sourceTree = "<group>"; };
 		F84368D92B32BE050055444B /* TPMonitorCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorCache.h; sourceTree = "<group>"; };
 		F84368DA2B32BE050055444B /* TPMonitorCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorCache.m; sourceTree = "<group>"; };
-		F84368DC2B32C1CD0055444B /* TPMonitorDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMonitorDetailViewController.h; sourceTree = "<group>"; };
-		F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMonitorDetailViewController.m; sourceTree = "<group>"; };
 		F84368E32B32E78B0055444B /* TPStartupTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPStartupTime.h; sourceTree = "<group>"; };
 		F84368E42B32E78B0055444B /* TPStartupTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPStartupTime.m; sourceTree = "<group>"; };
 		F84368E62B3302FB0055444B /* TPRAMUsage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRAMUsage.h; sourceTree = "<group>"; };
@@ -209,10 +210,6 @@
 		F86872072B1DA1B2007E747F /* UIViewController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
 		F86DA5032B2A92A800EB642D /* TPCrashTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrashTableViewCell.h; sourceTree = "<group>"; };
 		F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrashTableViewCell.m; sourceTree = "<group>"; };
-		F86DA5062B2A9F0500EB642D /* TPCrashDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrashDetailViewController.h; sourceTree = "<group>"; };
-		F86DA5072B2A9F0500EB642D /* TPCrashDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrashDetailViewController.m; sourceTree = "<group>"; };
-		F86DA5092B2A9F4300EB642D /* TPCrashDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrashDetailTableViewCell.h; sourceTree = "<group>"; };
-		F86DA50A2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrashDetailTableViewCell.m; sourceTree = "<group>"; };
 		F86E501C2B22F31B00B00781 /* TPRouter+Class.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPRouter+Class.h"; sourceTree = "<group>"; };
 		F86E501D2B22F31B00B00781 /* TPRouter+Class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPRouter+Class.m"; sourceTree = "<group>"; };
 		F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
@@ -399,12 +396,8 @@
 				F81BEC8C2B28525D00DAA26F /* TPCrashModel.m */,
 				F80C53E62B293E9600C7FB38 /* TPCrashViewController.h */,
 				F80C53E72B293E9600C7FB38 /* TPCrashViewController.m */,
-				F86DA5062B2A9F0500EB642D /* TPCrashDetailViewController.h */,
-				F86DA5072B2A9F0500EB642D /* TPCrashDetailViewController.m */,
 				F86DA5032B2A92A800EB642D /* TPCrashTableViewCell.h */,
 				F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */,
-				F86DA5092B2A9F4300EB642D /* TPCrashDetailTableViewCell.h */,
-				F86DA50A2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -451,6 +444,17 @@
 				F81BECA12B2878F300DAA26F /* TPAppInfoTableViewCell.m */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		F822A1092B3ACC0900A3330C /* Po */ = {
+			isa = PBXGroup;
+			children = (
+				F822A10A2B3ACDFF00A3330C /* TPPoObjectViewController.h */,
+				F822A10B2B3ACDFF00A3330C /* TPPoObjectViewController.m */,
+				F822A10D2B3ADE2E00A3330C /* TPPoObjectTableViewCell.h */,
+				F822A10E2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m */,
+			);
+			path = Po;
 			sourceTree = "<group>";
 		};
 		F83AAFF12B351AF100496557 /* AppKind */ = {
@@ -515,8 +519,6 @@
 				F84368CC2B328B750055444B /* TPMonitorViewController.m */,
 				F84368CE2B328D9D0055444B /* TPMonitorTableViewCell.h */,
 				F84368CF2B328D9D0055444B /* TPMonitorTableViewCell.m */,
-				F84368DC2B32C1CD0055444B /* TPMonitorDetailViewController.h */,
-				F84368DD2B32C1CD0055444B /* TPMonitorDetailViewController.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -544,6 +546,7 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F822A1092B3ACC0900A3330C /* Po */,
 				F89767352B39163700B9F845 /* UIHierarchy */,
 				F83AB0012B35629200496557 /* Leaks */,
 				F83AAFF12B351AF100496557 /* AppKind */,
@@ -1131,6 +1134,7 @@
 				F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */,
 				F8AE19712B2C67FB009C12E2 /* NSString+Category.m in Sources */,
 				F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */,
+				F822A10C2B3ACDFF00A3330C /* TPPoObjectViewController.m in Sources */,
 				F8E1B17D2B316FED0036928F /* fishhook.c in Sources */,
 				F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */,
 				F84368C02B327DA80055444B /* TPFontViewController.m in Sources */,
@@ -1147,7 +1151,6 @@
 				F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */,
 				F8EAC7EC2B173504005522DE /* AppDelegate.m in Sources */,
 				F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */,
-				F86DA50B2B2A9F4300EB642D /* TPCrashDetailTableViewCell.m in Sources */,
 				F8AF955C2B1EF40A003059CB /* TPHomeViewController.m in Sources */,
 				F84368E82B3302FB0055444B /* TPRAMUsage.m in Sources */,
 				F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */,
@@ -1158,7 +1161,6 @@
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
 				F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */,
-				F84368DE2B32C1CD0055444B /* TPMonitorDetailViewController.m in Sources */,
 				F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */,
 				F81BEC902B28537400DAA26F /* TPCrashManager.m in Sources */,
 				F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */,
@@ -1171,12 +1173,12 @@
 				F81BEC942B285AB200DAA26F /* TPAppInfoManager.m in Sources */,
 				F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */,
 				F81BEC8D2B28525D00DAA26F /* TPCrashModel.m in Sources */,
+				F822A10F2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m in Sources */,
 				F8F403B52B21C1C1008653CB /* TPDebugToolViewController.m in Sources */,
 				F81BEC9C2B2860F800DAA26F /* TPAppInfoViewController.m in Sources */,
 				F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */,
 				F8E1B16F2B312F8B0036928F /* TPUserDefaultsController.m in Sources */,
 				F83AB02A2B356AAA00496557 /* TPLeaksTableViewCell.m in Sources */,
-				F86DA5082B2A9F0500EB642D /* TPCrashDetailViewController.m in Sources */,
 				F8E1B1872B3176C80036928F /* TPLogModel.m in Sources */,
 				F8AE196E2B2C52AD009C12E2 /* TPFileTableViewCell.m in Sources */,
 				F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */,
