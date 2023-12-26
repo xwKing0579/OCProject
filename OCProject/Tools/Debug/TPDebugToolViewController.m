@@ -12,7 +12,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
 @interface TPDebugToolViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray <TPDebugToolModel *>*data;
-@property (nonatomic, strong) id block;
+@property (nonatomic, copy) id block;
 @end
 
 @implementation TPDebugToolViewController
@@ -48,7 +48,8 @@ static NSString *identifier = @"TPDebugToolViewCell";
             [self setUpSubViews];
         };
         obj = block;
-        self.block = block;
+        
+        //self.block = block; 内存泄漏测试
     }
     [TPMediator performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
 }
@@ -157,6 +158,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         @{@"title":@"卡顿检测",@"image":@"caton",@"url":@"TPMonitorViewController"},
         @{@"title":@"内存泄漏",@"image":@"leaks",@"url":@"TPLeaksViewController"},
         @{@"title":@"本机app",@"image":@"app",@"url":@"TPAppKindViewController"},
+        @{@"title":@"UI层级",@"image":@"ui",@"url":@"TPUIHierarchyViewController"},
     ];
     
     return [NSArray yy_modelArrayWithClass:[self class] json:data];

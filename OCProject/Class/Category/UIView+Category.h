@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGSize  size;
 
 - (void)addSubviews:(NSArray *)views;
+
+- (UIImage *)toImage;
+
 @end
 
 NS_ASSUME_NONNULL_END

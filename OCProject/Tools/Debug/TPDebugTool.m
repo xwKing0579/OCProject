@@ -8,9 +8,11 @@
 #import "TPDebugTool.h"
 #import "UIDevice+Category.h"
 #import "UIViewController+Category.h"
+#import "TPUIHierarchyManager.h"
 
 @interface TPDebugTool ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UIWindow *debugWindow;
+@property (nonatomic, strong) UILabel *UILabel;
 @end
 
 @implementation TPDebugTool
@@ -28,6 +30,7 @@
 + (void)start{
 #ifdef DEBUG
     [self sharedManager].debugWindow.hidden = NO;
+    [self didChangeUIHierarchy];
 #endif
 }
 
@@ -37,7 +40,24 @@
 #endif
 }
 
-- (void)didTap:(UITapGestureRecognizer *)tapGesture{
++ (void)didChangeUIHierarchy{
+    TPDebugTool *manager = [self sharedManager];
+    if ([TPUIHierarchyManager isOn]) {
+        [manager.debugWindow addSubview:manager.UILabel];
+        manager.debugWindow.width = 60*2;
+        manager.UILabel.frame = CGRectMake(60, 0, 60, 60);
+    }else{
+        [manager.UILabel removeFromSuperview];
+        manager.debugWindow.width = 60;
+    }
+}
+
+- (void)didTapUI:(UITapGestureRecognizer *)tapGesture{
+    id obj = [TPMediator performTarget:@"TPUIHierarchyManager_Class" action:@"currentUIHierarchy:" object:UIViewController.window];
+    if (obj) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"model":obj}];
+}
+
+- (void)didTapFPS:(UITapGestureRecognizer *)tapGesture{
     NSString *vcString = @"TPDebugToolViewController";
     BOOL jump = YES;
     for (UIViewController *vc in UIViewController.currentViewController.navigationController.viewControllers) {
@@ -65,15 +85,9 @@
 
 - (UIWindow *)debugWindow{
     if (!_debugWindow){
-        _debugWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height/2, 60, 60)];
+        _debugWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height*0.7, 60, 60)];
         _debugWindow.hidden = NO;
-        _debugWindow.backgroundColor = [UIColor grayColor];
-        _debugWindow.layer.cornerRadius = 30;
-        _debugWindow.layer.masksToBounds = YES;
-        _debugWindow.windowLevel = UIWindowLevelAlert+1;
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-        tapGesture.delegate = self;
-        [_debugWindow addGestureRecognizer:tapGesture];
+        _debugWindow.backgroundColor = [UIColor clearColor];
         
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(dragable:)];
         [_debugWindow addGestureRecognizer:pan];
@@ -82,7 +96,14 @@
         if([fps isKindOfClass:[UILabel class]]) {
             UILabel *fpsLabel = (UILabel *)fps;
             fpsLabel.frame = _debugWindow.bounds;
+            fpsLabel.layer.cornerRadius = 30;
+            fpsLabel.layer.masksToBounds = YES;
+            fpsLabel.backgroundColor = [UIColor grayColor];
             [_debugWindow addSubview:fps];
+            
+            UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapFPS:)];
+            tapGesture.delegate = self;
+            [fpsLabel addGestureRecognizer:tapGesture];
         }
                   
         if (@available(iOS 13.0, *)) {
@@ -100,5 +121,23 @@
         }
     }
     return _debugWindow;
+}
+
+- (UILabel *)UILabel{
+    if (!_UILabel){
+        _UILabel = [[UILabel alloc] init];
+        _UILabel.textColor = UIColor.cFFFFFF;
+        _UILabel.backgroundColor = UIColor.redColor;
+        _UILabel.text = @"UI";
+        _UILabel.font = UIFont.fontBold16;
+        _UILabel.layer.cornerRadius = 30;
+        _UILabel.layer.masksToBounds = YES;
+        _UILabel.textAlignment = NSTextAlignmentCenter;
+        _UILabel.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapUI:)];
+        tapGesture.delegate = self;
+        [_UILabel addGestureRecognizer:tapGesture];
+    }
+    return _UILabel;
 }
 @end

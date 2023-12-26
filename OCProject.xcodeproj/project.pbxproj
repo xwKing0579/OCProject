@@ -49,6 +49,10 @@
 		F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E501D2B22F31B00B00781 /* TPRouter+Class.m */; };
 		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
+		F89767382B39169900B9F845 /* TPUIHierarchyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89767372B39169900B9F845 /* TPUIHierarchyViewController.m */; };
+		F897673B2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F897673A2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m */; };
+		F897673E2B39236C00B9F845 /* TPUIHierarchyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F897673D2B39236C00B9F845 /* TPUIHierarchyModel.m */; };
+		F89767412B39691400B9F845 /* TPUIHierarchyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F89767402B39691400B9F845 /* TPUIHierarchyManager.m */; };
 		F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */; };
 		F8AE19672B2C3E7F009C12E2 /* TPFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19662B2C3E7F009C12E2 /* TPFileModel.m */; };
 		F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE196A2B2C51D8009C12E2 /* TPFileViewController.m */; };
@@ -215,6 +219,14 @@
 		F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
 		F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
+		F89767362B39169900B9F845 /* TPUIHierarchyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUIHierarchyViewController.h; sourceTree = "<group>"; };
+		F89767372B39169900B9F845 /* TPUIHierarchyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUIHierarchyViewController.m; sourceTree = "<group>"; };
+		F89767392B391DBF00B9F845 /* TPUIHierarchyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUIHierarchyTableViewCell.h; sourceTree = "<group>"; };
+		F897673A2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUIHierarchyTableViewCell.m; sourceTree = "<group>"; };
+		F897673C2B39236C00B9F845 /* TPUIHierarchyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUIHierarchyModel.h; sourceTree = "<group>"; };
+		F897673D2B39236C00B9F845 /* TPUIHierarchyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUIHierarchyModel.m; sourceTree = "<group>"; };
+		F897673F2B39691400B9F845 /* TPUIHierarchyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUIHierarchyManager.h; sourceTree = "<group>"; };
+		F89767402B39691400B9F845 /* TPUIHierarchyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUIHierarchyManager.m; sourceTree = "<group>"; };
 		F8AE19622B2C2DC6009C12E2 /* TPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileManager.h; sourceTree = "<group>"; };
 		F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileManager.m; sourceTree = "<group>"; };
 		F8AE19652B2C3E7F009C12E2 /* TPFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileModel.h; sourceTree = "<group>"; };
@@ -532,6 +544,7 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F89767352B39163700B9F845 /* UIHierarchy */,
 				F83AB0012B35629200496557 /* Leaks */,
 				F83AAFF12B351AF100496557 /* AppKind */,
 				F84368E22B32E7570055444B /* Startup */,
@@ -551,11 +564,19 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		F8AE195B2B2BF709009C12E2 /* Pods */ = {
+		F89767352B39163700B9F845 /* UIHierarchy */ = {
 			isa = PBXGroup;
 			children = (
+				F89767362B39169900B9F845 /* TPUIHierarchyViewController.h */,
+				F89767372B39169900B9F845 /* TPUIHierarchyViewController.m */,
+				F89767392B391DBF00B9F845 /* TPUIHierarchyTableViewCell.h */,
+				F897673A2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m */,
+				F897673C2B39236C00B9F845 /* TPUIHierarchyModel.h */,
+				F897673D2B39236C00B9F845 /* TPUIHierarchyModel.m */,
+				F897673F2B39691400B9F845 /* TPUIHierarchyManager.h */,
+				F89767402B39691400B9F845 /* TPUIHierarchyManager.m */,
 			);
-			path = Pods;
+			path = UIHierarchy;
 			sourceTree = "<group>";
 		};
 		F8AE19612B2C2D13009C12E2 /* File */ = {
@@ -755,7 +776,6 @@
 		F8EAC7E92B173504005522DE /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
-				F8AE195B2B2BF709009C12E2 /* Pods */,
 				F8D343212B206805004AEE48 /* Envi */,
 				F8D3431C2B20616E004AEE48 /* Toast */,
 				F8D343152B201DA8004AEE48 /* Settings */,
@@ -1122,6 +1142,7 @@
 				F8E1B1842B3172810036928F /* TPLogViewController.m in Sources */,
 				F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */,
 				F84368C72B3288AF0055444B /* TPFluencyMonitor.m in Sources */,
+				F897673E2B39236C00B9F845 /* TPUIHierarchyModel.m in Sources */,
 				F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */,
 				F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */,
 				F8EAC7EC2B173504005522DE /* AppDelegate.m in Sources */,
@@ -1133,6 +1154,7 @@
 				F84368D02B328D9D0055444B /* TPMonitorTableViewCell.m in Sources */,
 				F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */,
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
+				F897673B2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
 				F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */,
@@ -1141,6 +1163,7 @@
 				F81BEC902B28537400DAA26F /* TPCrashManager.m in Sources */,
 				F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */,
 				F8F403B22B21BE14008653CB /* UIView+Category.m in Sources */,
+				F89767382B39169900B9F845 /* TPUIHierarchyViewController.m in Sources */,
 				F8AF954E2B1EBC68003059CB /* UIFont+Category.m in Sources */,
 				F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */,
 				F81BEC9F2B286E3A00DAA26F /* TPAppInfoModel.m in Sources */,
@@ -1165,6 +1188,7 @@
 				F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				F81BECA22B2878F300DAA26F /* TPAppInfoTableViewCell.m in Sources */,
 				F8AF95602B1EFECE003059CB /* TPNetworkError.m in Sources */,
+				F89767412B39691400B9F845 /* TPUIHierarchyManager.m in Sources */,
 				F8F403A02B21B93D008653CB /* MLeaksMessenger.m in Sources */,
 				F8430E8F2B26E6E600DBE29F /* UIAlertController+Category.m in Sources */,
 				F8E1B1722B3132C10036928F /* TPUserDefaultsTableViewCell.m in Sources */,
