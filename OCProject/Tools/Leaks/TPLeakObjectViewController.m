@@ -61,7 +61,7 @@
 }
 
 - (void)clickShotAction{
-   if (self.object) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":self.object}];
+   if (self.object) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":self.object}];
 }
 
 - (UIButton *)shotView{

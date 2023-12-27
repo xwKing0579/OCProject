@@ -49,7 +49,7 @@
        alertController = nil;
     } confirm:@"跳转" confirmBlock:^(NSUInteger index) {
         UITextField *textField = alertController.textFields.firstObject;
-        [TPMediator performTarget:[self routerClass] action:[self routerJumpUrl] object:textField.text];
+        [NSObject performTarget:[self routerClass] action:[self routerJumpUrl] object:textField.text];
         alertController = nil;
     }];
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {

@@ -64,14 +64,14 @@
 - (void)clickNumAction{
     id obj = (__bridge id)(void *)self.model.objectPtr;
     if (obj) {
-        id model = [TPMediator performTarget:@"TPUIHierarchyManager_Class" action:@"currentUIHierarchy:" object:obj];
-        [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"model":model}];
+        id model = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"currentUIHierarchy:" object:obj];
+        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"model":model}];
     }
 }
 
 - (void)didTapLabel:(UITapGestureRecognizer *)tapGesture{
     id obj = (__bridge id)(void *)self.model.objectPtr;
-    if (obj) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPLeakObjectViewController" object:@{@"object":obj}];
+    if (obj) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPLeakObjectViewController" object:@{@"object":obj}];
 }
 
 - (UIButton *)numBtn{

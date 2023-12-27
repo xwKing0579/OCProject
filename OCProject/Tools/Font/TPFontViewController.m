@@ -31,7 +31,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:@"TPFontTableViewCell_Class" action:@"initWithTableView:withString:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPFontTableViewCell_Class" action:@"initWithTableView:withString:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 #pragma mark -- setter

@@ -36,7 +36,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:@"TPUserDefaultsTableViewCell_Class" action:@"initWithTableView:withKey:withValue:" objects:@{@"object1":tableView,@"object2":self.data.allKeys[indexPath.row],@"object3":self.data[self.data.allKeys[indexPath.row]]}] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPUserDefaultsTableViewCell_Class" action:@"initWithTableView:withKey:withValue:" objects:@{@"object1":tableView,@"object2":self.data.allKeys[indexPath.row],@"object3":self.data[self.data.allKeys[indexPath.row]]}] ?: [UITableViewCell new];
 }
 
 #pragma mark -- setter

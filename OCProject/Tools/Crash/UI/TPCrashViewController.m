@@ -38,7 +38,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TPCrashModel *model = self.data[indexPath.row];
-    return [TPMediator performTarget:@"TPCrashTableViewCell_Class" action:@"initWithTableView:withModel:" object:tableView object:model] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPCrashTableViewCell_Class" action:@"initWithTableView:withModel:" object:tableView object:model] ?: [UITableViewCell new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

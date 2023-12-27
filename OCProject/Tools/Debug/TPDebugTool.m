@@ -53,8 +53,17 @@
 }
 
 - (void)didTapUI:(UITapGestureRecognizer *)tapGesture{
-    id obj = [TPMediator performTarget:@"TPUIHierarchyManager_Class" action:@"currentUIHierarchy:" object:UIViewController.window];
-    if (obj) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"model":obj}];
+    id obj = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"currentUIHierarchy:" object:UIViewController.window];
+    if (!obj) return;
+        
+    NSString *vcString = @"TPUIHierarchyViewController";
+    BOOL showing = NO;
+    for (UIViewController *vc in UIViewController.currentViewController.navigationController.childViewControllers){
+        if ([vc isKindOfClass:NSClassFromString(vcString)]){
+            showing = YES;
+        }
+    }
+    if (!showing) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:vcString object:@{@"model":obj}];
 }
 
 - (void)didTapFPS:(UITapGestureRecognizer *)tapGesture{
@@ -66,7 +75,7 @@
             break;
         }
     }
-    if (jump) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
+    if (jump) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
 }
 
 - (void)dragable:(UIPanGestureRecognizer *)sender{
@@ -92,7 +101,7 @@
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(dragable:)];
         [_debugWindow addGestureRecognizer:pan];
         
-        id fps = [TPMediator performTarget:@"FPSLabel_Class" action:@"new"];
+        id fps = [NSObject performTarget:@"FPSLabel_Class" action:@"new"];
         if([fps isKindOfClass:[UILabel class]]) {
             UILabel *fpsLabel = (UILabel *)fps;
             fpsLabel.frame = _debugWindow.bounds;

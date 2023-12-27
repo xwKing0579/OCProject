@@ -72,7 +72,7 @@
     UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
     [pastboard setString:self.contentLabel.text];
     
-    [TPMediator performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"复制成功"];
+    [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"复制成功"];
 }
 
 - (UILabel *)titleLabel{

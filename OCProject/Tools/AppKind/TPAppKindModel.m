@@ -14,7 +14,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
         NSMutableArray *appList = [NSMutableArray array];
         
-        id space = [TPMediator performTarget:@"LSApplicationWorkspace_Class" action:@"defaultWorkspace"];
+        id space = [NSObject performTarget:@"LSApplicationWorkspace_Class" action:@"defaultWorkspace"];
         SEL sel = NSSelectorFromString(@"installedPlugins");
         if (![space respondsToSelector:sel]) {
             dispatch_async(dispatch_get_main_queue(), ^{

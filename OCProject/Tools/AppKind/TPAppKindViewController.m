@@ -23,7 +23,7 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"sort" style:(UIBarButtonItemStyleDone) target:self action:@selector(sortUserData)];
     
-    [TPMediator performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"数据加载中..."];
+    [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"数据加载中..."];
     
 #ifdef DEBUG
     [TPAppKindModel sysetmAppList:^(NSArray<TPAppKindModel *> * _Nonnull appList) {
@@ -57,11 +57,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:@"TPAppKindTableViewCell_Class" action:@"initWithTableView:withModel:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPAppKindTableViewCell_Class" action:@"initWithTableView:withModel:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPAppDetailViewController" object:@{@"model":self.data[indexPath.row]}];
+    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPAppDetailViewController" object:@{@"model":self.data[indexPath.row]}];
 }
 
 #pragma mark -- setter

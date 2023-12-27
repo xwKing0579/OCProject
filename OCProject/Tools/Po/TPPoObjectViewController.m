@@ -32,16 +32,29 @@
     }
     if ([self.object isKindOfClass:[UIImageView class]]){
         [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"image",@"sd_currentImageURL"]]];
+
+        UIImageView *imageView = (UIImageView *)self.object;
+        if (imageView.image) [propertyList addObjectsFromArray:[imageView.image.imageAsset customPropertyList:@[@"assetName",@"containingBundle"]]];
     }
     if ([self.object isKindOfClass:[UIButton class]]){
         [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"sd_currentImageURL"]]];
     }
+    if ([self.object isKindOfClass:[UITextView class]]){
+        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"text",@"font",@"textColor",@"textAlignment"]]];
+    }
+    if ([self.object isKindOfClass:[UITextField class]]){
+        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"text",@"font",@"textColor",@"textAlignment",@"placeholder",@"attributedText"]]];
+    }
     if ([self.object isKindOfClass:[UIView class]]){
         [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"frame",@"bounds",@"backgroundColor",@"contentMode"]]];
+        UIView *view = (UIView *)self.object;
+        [propertyList addObjectsFromArray:[view.layer customPropertyList:@[@"cornerRadius",@"borderWidth",@"borderColor"]]];
     }
+    
     [propertyList addObject:@{@"类":NSStringFromClass(self.object.class)}];
     [propertyList addObject:@{@"内存地址":[NSString stringWithFormat:@"%p",self.object]}];
-    [propertyList addObject:@{@"指针地址":[NSString stringWithFormat:@"0x%lu",(uintptr_t)self.object]}];
+    [propertyList addObject:@{@"指针地址":[NSString stringWithFormat:@"%lu",(uintptr_t)self.object]}];
+    [propertyList addObject:@{@"描述":self.object.description}];
     self.data = propertyList;
     [self.tableView reloadData];
 }
@@ -52,7 +65,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:@"TPPoObjectTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPPoObjectTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 #pragma mark -- setter
@@ -74,6 +87,5 @@
     }
     return _tableView;
 }
-
 
 @end

@@ -93,7 +93,6 @@
 		F8EAC8072B173504005522DE /* OCProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8062B173504005522DE /* OCProjectTests.m */; };
 		F8EAC8112B173504005522DE /* OCProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8102B173504005522DE /* OCProjectUITests.m */; };
 		F8EAC8132B173504005522DE /* OCProjectUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */; };
-		F8EAC8222B173523005522DE /* TPMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8202B173523005522DE /* TPMediator.m */; };
 		F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8272B1735D5005522DE /* TPRouter.m */; };
 		F8F4037D2B21B614008653CB /* TPDebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037C2B21B614008653CB /* TPDebugTool.m */; };
 		F8F403962B21B93D008653CB /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */; };
@@ -303,8 +302,6 @@
 		F8EAC80C2B173504005522DE /* OCProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EAC8102B173504005522DE /* OCProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCProjectUITests.m; sourceTree = "<group>"; };
 		F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCProjectUITestsLaunchTests.m; sourceTree = "<group>"; };
-		F8EAC8202B173523005522DE /* TPMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMediator.m; sourceTree = "<group>"; };
-		F8EAC8212B173523005522DE /* TPMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMediator.h; sourceTree = "<group>"; };
 		F8EAC8262B1735D5005522DE /* TPRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRouter.h; sourceTree = "<group>"; };
 		F8EAC8272B1735D5005522DE /* TPRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRouter.m; sourceTree = "<group>"; };
 		F8F4037B2B21B614008653CB /* TPDebugTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugTool.h; sourceTree = "<group>"; };
@@ -785,7 +782,6 @@
 				F8AF955D2B1EFA12003059CB /* Network */,
 				F868720A2B1DE0D8007E747F /* Tools */,
 				F8EAC8242B173539005522DE /* Router */,
-				F8EAC81F2B173514005522DE /* Mediator */,
 				F8EAC8232B173528005522DE /* Class */,
 				F8EAC7EA2B173504005522DE /* AppDelegate.h */,
 				F8EAC7EB2B173504005522DE /* AppDelegate.m */,
@@ -816,15 +812,6 @@
 				F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */,
 			);
 			path = OCProjectUITests;
-			sourceTree = "<group>";
-		};
-		F8EAC81F2B173514005522DE /* Mediator */ = {
-			isa = PBXGroup;
-			children = (
-				F8EAC8212B173523005522DE /* TPMediator.h */,
-				F8EAC8202B173523005522DE /* TPMediator.m */,
-			);
-			path = Mediator;
 			sourceTree = "<group>";
 		};
 		F8EAC8232B173528005522DE /* Class */ = {
@@ -1185,7 +1172,6 @@
 				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
 				F8AE19772B2C7FB7009C12E2 /* TPFileDataViewController.m in Sources */,
 				F8F4039B2B21B93D008653CB /* MLeakedObjectProxy.m in Sources */,
-				F8EAC8222B173523005522DE /* TPMediator.m in Sources */,
 				F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */,
 				F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				F81BECA22B2878F300DAA26F /* TPAppInfoTableViewCell.m in Sources */,

@@ -39,20 +39,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:@"TPFileTableViewCell_Class" action:@"initWithTableView:withModel:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPFileTableViewCell_Class" action:@"initWithTableView:withModel:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TPFileModel *model = self.data[indexPath.row];
     if (model.isDirectory){
-        [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:[NSString stringWithFormat:@"TPFileViewController?name=%@&path=%@",model.fileName,model.filePath]];
+        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:[NSString stringWithFormat:@"TPFileViewController?name=%@&path=%@",model.fileName,model.filePath]];
     }else{
         
         if (model.fileType == TPFileTypeJson){
             NSString *jsonString = [NSString stringWithContentsOfFile:model.filePath encoding:NSUTF8StringEncoding error:nil];
             NSData *jaonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
             NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:jaonData options:NSJSONReadingMutableContainers error:nil];
-            if (dic) [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
+            if (dic) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
         }else if (model.fileType == TPFileTypeVideo){
             AVPlayerViewController *player = [[AVPlayerViewController alloc] init];
             player.player = [[AVPlayer alloc] initWithURL:[NSURL fileURLWithPath:model.filePath]];
@@ -60,14 +60,14 @@
         }else{
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:model.filePath];
             if (dic) {
-                [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
+                [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
             }else{
                 UIDocumentInteractionController *doc = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:model.filePath]];
                 doc.delegate = self;
                 self.doc = doc;
                 BOOL canOpen = [doc presentPreviewAnimated:YES];
                 if (!canOpen) {
-                    [TPMediator performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"该文件还没有添加预览模式"];
+                    [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"该文件还没有添加预览模式"];
                 }
             }
         }

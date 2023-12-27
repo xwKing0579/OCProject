@@ -51,7 +51,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         
         //self.block = block; 内存泄漏测试
     }
-    [TPMediator performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
+    [NSObject performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
 }
 
 - (UICollectionView *)collectionView{
@@ -138,7 +138,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
 @implementation TPDebugToolModel
 
 + (NSArray *)data{
-    NSString *envi = [NSString stringWithFormat:@"环境:%@",[TPMediator performTarget:@"TPEnviConfig_Class" action:@"enviToSting"]];
+    NSString *envi = [NSString stringWithFormat:@"环境:%@",[NSObject performTarget:@"TPEnviConfig_Class" action:@"enviToSting"]];
 
     NSMutableString *startTime = [NSMutableString stringWithString:@"启动时间:"];
     id value = [[NSUserDefaults standardUserDefaults] valueForKey:@"kTPStartupTimeKey"];

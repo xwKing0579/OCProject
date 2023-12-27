@@ -27,7 +27,7 @@
         [self.window makeKeyAndVisible];
     }
     
-    [TPMediator performTarget:@"TPDebugTool_Class" action:@"start"];
+    [NSObject performTarget:@"TPDebugTool_Class" action:@"start"];
     return YES;
 }
 

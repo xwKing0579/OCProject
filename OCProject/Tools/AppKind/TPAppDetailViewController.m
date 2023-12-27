@@ -26,7 +26,7 @@
 
 - (void)openURL{
 #ifdef DEBUG
-    NSObject *workspace = [TPMediator performTarget:@"LSApplicationWorkspace_Class" action:@"defaultWorkspace"];
+    NSObject *workspace = [NSObject performTarget:@"LSApplicationWorkspace_Class" action:@"defaultWorkspace"];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [workspace performSelector:NSSelectorFromString(@"openApplicationWithBundleID:") withObject:self.model.bundleIdentifier];
@@ -40,7 +40,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [TPMediator performTarget:@"TPCrashDetailTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPCrashDetailTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 #pragma mark -- setter

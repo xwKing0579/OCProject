@@ -13,13 +13,13 @@ NSString *const kTPUIHierarchyNotification = @"kTPUIHierarchyNotification";
 + (void)start{
     [[NSUserDefaults standardUserDefaults] setValue:@(YES) forKey:kTPUIHierarchyConfigKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [TPMediator performTarget:@"TPDebugTool_Class" action:@"didChangeUIHierarchy"];
+    [NSObject performTarget:@"TPDebugTool_Class" action:@"didChangeUIHierarchy"];
 }
 
 + (void)stop{
     [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:kTPUIHierarchyConfigKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [TPMediator performTarget:@"TPDebugTool_Class" action:@"didChangeUIHierarchy"];
+    [NSObject performTarget:@"TPDebugTool_Class" action:@"didChangeUIHierarchy"];
 }
 
 + (BOOL)isOn{

@@ -29,7 +29,7 @@
 
 ///back
 - (void)backViewController{
-    [TPMediator performTarget:TPRouter.routerClass action:TPRouter.routerBack];
+    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerBack];
 }
 
 ///hidden navbar
