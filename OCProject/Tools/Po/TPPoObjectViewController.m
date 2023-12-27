@@ -28,7 +28,7 @@
     
     NSMutableArray *propertyList = [NSMutableArray array];
     if ([self.object isKindOfClass:[UILabel class]]){
-        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"text",@"font",@"textColor",@"textAlignment",@"numberOfLines",@"lineBreakMode"]]];
+        [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"text",@"attributedText",@"font",@"textColor",@"textAlignment",@"numberOfLines",@"lineBreakMode"]]];
     }
     if ([self.object isKindOfClass:[UIImageView class]]){
         [propertyList addObjectsFromArray:[self.object customPropertyList:@[@"image",@"sd_currentImageURL"]]];
@@ -50,7 +50,7 @@
         UIView *view = (UIView *)self.object;
         [propertyList addObjectsFromArray:[view.layer customPropertyList:@[@"cornerRadius",@"borderWidth",@"borderColor"]]];
     }
-    
+
     [propertyList addObject:@{@"类":NSStringFromClass(self.object.class)}];
     [propertyList addObject:@{@"内存地址":[NSString stringWithFormat:@"%p",self.object]}];
     [propertyList addObject:@{@"指针地址":[NSString stringWithFormat:@"%lu",(uintptr_t)self.object]}];

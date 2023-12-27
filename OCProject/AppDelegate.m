@@ -17,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [NSObject performTarget:@"TPDebugTool_Class" action:@"start"];
+    
+    [NSThread sleepForTimeInterval:1];
     if (@available(iOS 13.0, *)) {
         
     } else {
@@ -26,8 +29,6 @@
         [self.window setRootViewController:tabbarController];
         [self.window makeKeyAndVisible];
     }
-    
-    [NSObject performTarget:@"TPDebugTool_Class" action:@"start"];
     return YES;
 }
 

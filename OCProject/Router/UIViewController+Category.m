@@ -10,7 +10,12 @@
 @implementation UIViewController (Category)
 
 + (__kindof UIViewController *)currentViewController{
-    return [self topViewController:[self rootViewController]];
+    __block UIViewController *controller = nil;
+    void (^block)(void) = ^{
+        controller = [self topViewController:[self rootViewController]];
+    };
+    NSThread.isMainThread ? block() : dispatch_sync(dispatch_get_main_queue(), block);
+    return controller;
 }
 
 + (UIWindow *)window{
@@ -29,7 +34,12 @@
 }
 
 + (__kindof UIViewController *)rootViewController{
-    return [self window].rootViewController;
+    __block UIViewController *controller = nil;
+    void (^block)(void) = ^{
+        controller = [self window].rootViewController;
+    };
+    NSThread.isMainThread ? block() : dispatch_sync(dispatch_get_main_queue(), block);
+    return controller;
 }
 
 + (__kindof UIViewController *)topViewController:(UIViewController *)vc{

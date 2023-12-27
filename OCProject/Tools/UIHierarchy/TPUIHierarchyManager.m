@@ -44,8 +44,9 @@ NSString *const kTPUIHierarchyNotification = @"kTPUIHierarchyNotification";
     for (UIView *subview in views.reverseObjectEnumerator) {
         TPUIHierarchyModel *model = [TPUIHierarchyModel new];
         model.deepLevel = deepLevel+1;
-        if (!next && [subview.nextResponder isKindOfClass:[UIViewController class]]){
-            model.objectClass = NSStringFromClass([subview.nextResponder class]);
+        UIResponder *responder = subview.nextResponder;
+        if (!next && [responder isKindOfClass:[UIViewController class]]){
+            model.objectClass = NSStringFromClass([responder class]);
             model.haveSubviews = YES;
             model.isController = YES;
             model.objectPtr = (uintptr_t)subview.nextResponder;

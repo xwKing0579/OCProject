@@ -24,18 +24,13 @@
         NSLog(@"%@",error);
     }];
 
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    imageView.layer.cornerRadius = 20;
-    imageView.layer.borderColor = UIColor.redColor.CGColor;
-    imageView.layer.borderWidth = 2;
-    [self.view addSubview:imageView];
-    NSString *url = @"https://img1.baidu.com/it/u=2825014562,3166058568&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800";
-//    [imageView sd_setImageWithURL:[NSURL URLWithString:url]];
-    imageView.image = [UIImage imageNamed:@"back"];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
+    [self.view addSubview:label];
+    NSMutableAttributedString *mutableAttribuedString = [[NSMutableAttributedString alloc]initWithString:@"Jack keep forward! You are the best! Cheer up! Man!"];
+    label.attributedText = mutableAttribuedString;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"test"];
     //制造崩溃
 //    [self performSelector:NSSelectorFromString(@"sdsa")];
     

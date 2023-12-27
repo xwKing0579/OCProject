@@ -1,18 +1,18 @@
 //
-//  TPLeakObjectViewController.m
+//  TPShotObjectViewController.m
 //  OCProject
 //
-//  Created by 王祥伟 on 2023/12/22.
+//  Created by 王祥伟 on 2023/12/27.
 //
 
-#import "TPLeakObjectViewController.h"
+#import "TPShotObjectViewController.h"
 
-@interface TPLeakObjectViewController ()
+@interface TPShotObjectViewController ()
 @property (nonatomic, strong) UIColor *bgColor;
 @property (nonatomic, strong) UIButton *shotView;
 @end
 
-@implementation TPLeakObjectViewController
+@implementation TPShotObjectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,6 +60,10 @@
     if (shotImage) [self.shotView setImage:shotImage forState:UIControlStateNormal];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self clickShotAction];
+}
+
 - (void)clickShotAction{
    if (self.object) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":self.object}];
 }
@@ -77,5 +81,6 @@
     }
     return _shotView;
 }
+
 
 @end

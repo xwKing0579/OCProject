@@ -40,7 +40,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [NSObject performTarget:@"TPCrashDetailTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPPoObjectTableViewCell_Class" action:@"initWithTableView:withDic:" object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 #pragma mark -- setter

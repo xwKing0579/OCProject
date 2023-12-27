@@ -87,7 +87,7 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
     NSMutableArray *propertyArray = [NSMutableArray array];
     NSMutableArray *keys = [NSMutableArray array];
     unsigned int outCount = 0;
-    objc_property_t *properties = class_copyPropertyList(self.class , &outCount);
+    objc_property_t *properties = class_copyPropertyList(self.class, &outCount);
     for (int i = 0; i < outCount; i++) {
         objc_property_t property = properties[i];
         NSString *key = [NSString stringWithUTF8String:property_getName(property)];
@@ -227,7 +227,9 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
     [invocation invoke];
     
     const char *retType = [methodSig methodReturnType];
-    if (strcmp(methodSig.methodReturnType, "@") == 0) {
+    if (strcmp(methodSig.methodReturnType, "@") == 0 || 
+        strcmp(methodSig.methodReturnType, "#") == 0 ||
+        strcmp(methodSig.methodReturnType, "I") == 0 ) {
         void *result = NULL;
         [invocation getReturnValue:&result];
         return (__bridge id)(result);
@@ -247,10 +249,26 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
         NSUInteger result = 0;
         [invocation getReturnValue:&result];
         return @(result);
+    }else if (strcmp(retType, @encode(UIEdgeInsets)) == 0){
+        UIEdgeInsets result = UIEdgeInsetsZero;
+        [invocation getReturnValue:&result];
+        return @(result);
+    }else if (strcmp(retType, @encode(CGRect)) == 0){
+        CGRect result = CGRectZero;
+        [invocation getReturnValue:&result];
+        return @(result);
+    }else if (strcmp(retType, @encode(CGSize)) == 0){
+        CGSize result = CGSizeZero;
+        [invocation getReturnValue:&result];
+        return @(result);
+    }else if (strcmp(retType, @encode(CGColorRef)) == 0){
+        CGColorRef result;
+        [invocation getReturnValue:&result];
+        return (__bridge id)(result);
     }else if (strcmp(retType, @encode(void)) == 0){
         return nil;
     }
-    NSLog(@"++++++++++++++++++++未知类型，如果需要后面可以添加上去++++++++++++++++++++");
+    NSLog(@"++++++++++++++++++++未知类型(%s)，如果需要后面可以添加上去++++++++++++++++++++",retType);
     return nil;
 }
 

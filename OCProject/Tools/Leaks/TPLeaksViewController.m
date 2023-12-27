@@ -40,7 +40,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPLeakObjectViewController" object:@{@"object":self.data[indexPath.row]}];
+    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPShotObjectViewController" object:@{@"object":self.data[indexPath.row]}];
 }
 
 #pragma mark -- setter

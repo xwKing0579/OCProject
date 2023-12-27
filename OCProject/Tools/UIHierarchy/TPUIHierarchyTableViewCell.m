@@ -71,7 +71,7 @@
 
 - (void)didTapLabel:(UITapGestureRecognizer *)tapGesture{
     id obj = (__bridge id)(void *)self.model.objectPtr;
-    if (obj) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPLeakObjectViewController" object:@{@"object":obj}];
+    if (obj) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPShotObjectViewController" object:@{@"object":obj}];
 }
 
 - (UIButton *)numBtn{
