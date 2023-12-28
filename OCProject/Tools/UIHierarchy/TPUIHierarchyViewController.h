@@ -10,7 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPUIHierarchyViewController : TPBaseViewController
-@property (nonatomic, strong) TPUIHierarchyModel *model;
+
+@property (nonatomic, strong) TPUIHierarchyModel *views;
+@property (nonatomic, strong) TPUIHierarchyModel *vcs;
 @end
 
 NS_ASSUME_NONNULL_END

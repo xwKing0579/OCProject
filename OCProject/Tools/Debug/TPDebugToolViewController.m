@@ -25,8 +25,13 @@ static NSString *identifier = @"TPDebugToolViewCell";
 }
 
 - (void)setUpSubViews{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"switch"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(clickSwitchAction)];
     self.data = [TPDebugToolModel data];
     [self.collectionView reloadData];
+}
+
+- (void)clickSwitchAction{
+    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPDebugSwitchViewController"];
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
@@ -49,7 +54,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         };
         obj = block;
         
-        //self.block = block; 内存泄漏测试
+        //self.block = block; //内存泄漏测试
     }
     [NSObject performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
 }
@@ -150,15 +155,16 @@ static NSString *identifier = @"TPDebugToolViewCell";
         @{@"title":envi,@"image":@"setting",@"target":@"TPEnviConfig_Class",@"action":@"enviConfig:"},
         
         @{@"title":@"app信息",@"image":@"appInfo",@"url":@"TPAppInfoViewController"},
-        @{@"title":@"crash信息",@"image":@"crash",@"url":@"TPCrashViewController"},
         @{@"title":@"app文件",@"image":@"file",@"url":@"TPFileViewController"},
         @{@"title":@"UserDefaults",@"image":@"data",@"url":@"TPUserDefaultsController"},
-        @{@"title":@"打印日志",@"image":@"log",@"url":@"TPLogViewController"},
         @{@"title":@"可用字体",@"image":@"font",@"url":@"TPFontViewController"},
-        @{@"title":@"卡顿检测",@"image":@"caton",@"url":@"TPMonitorViewController"},
         @{@"title":@"内存泄漏",@"image":@"leaks",@"url":@"TPLeaksViewController"},
         @{@"title":@"本机app",@"image":@"app",@"url":@"TPAppKindViewController"},
-        @{@"title":@"UI层级",@"image":@"ui",@"url":@"TPUIHierarchyViewController"},
+        
+        @{@"title":@"打印日志",@"image":@"log",@"url":@"TPLogViewController"},
+        @{@"title":@"崩溃信息",@"image":@"crash",@"url":@"TPCrashViewController"},
+        @{@"title":@"卡顿检测",@"image":@"caton",@"url":@"TPMonitorViewController"},
+        @{@"title":@"视图层级",@"image":@"ui",@"url":@"TPUIHierarchyViewController"},
     ];
     
     return [NSArray yy_modelArrayWithClass:[self class] json:data];

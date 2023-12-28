@@ -227,12 +227,8 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
     [invocation invoke];
     
     const char *retType = [methodSig methodReturnType];
-    if (strcmp(methodSig.methodReturnType, "@") == 0 || 
-        strcmp(methodSig.methodReturnType, "#") == 0 ||
-        strcmp(methodSig.methodReturnType, "I") == 0 ) {
-        void *result = NULL;
-        [invocation getReturnValue:&result];
-        return (__bridge id)(result);
+    if (strcmp(retType, @encode(void)) == 0){
+        return nil;
     }else if (strcmp(retType, @encode(NSInteger)) == 0) {
         NSInteger result = 0;
         [invocation getReturnValue:&result];
@@ -265,8 +261,10 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
         CGColorRef result;
         [invocation getReturnValue:&result];
         return (__bridge id)(result);
-    }else if (strcmp(retType, @encode(void)) == 0){
-        return nil;
+    }else if ([target isKindOfClass:[NSObject class]]) {
+        void *result = NULL;
+        [invocation getReturnValue:&result];
+        return (__bridge id)(result);
     }
     NSLog(@"++++++++++++++++++++未知类型(%s)，如果需要后面可以添加上去++++++++++++++++++++",retType);
     return nil;

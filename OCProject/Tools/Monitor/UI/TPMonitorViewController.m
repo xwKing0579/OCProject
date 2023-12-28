@@ -29,25 +29,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"delete"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeMonitorData)];
     self.data = ((NSArray *)[TPMonitorCache monitorData]).reverseObjectEnumerator.allObjects;
     [self.tableView reloadData];
-    
-    UIButton *customView = [[UIButton alloc] init];
-    customView.backgroundColor = UIColor.redColor;
-    customView.layer.cornerRadius = 20;
-    [customView setTitle:[TPFluencyMonitor isOn] ? @"关" : @"开" forState:UIControlStateNormal];
-    [customView setTitleColor:UIColor.cFFFFFF forState:UIControlStateNormal];
-    [customView addTarget:self action:@selector(clickOn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:customView];
-    [customView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-30);
-        make.width.height.mas_equalTo(40);
-        make.bottom.mas_equalTo(-50);
-    }];
-}
-
-- (void)clickOn:(UIButton *)sender{
-    [TPFluencyMonitor isOn] ? [TPFluencyMonitor stop] : [TPFluencyMonitor start];
-    [sender setTitle:[TPFluencyMonitor isOn] ? @"关" : @"开" forState:UIControlStateNormal];
-    self.title = [NSString stringWithFormat:@"卡顿检测(%@)",[TPFluencyMonitor isOn] ? @"开" : @"关"];
 }
 
 - (void)removeMonitorData{

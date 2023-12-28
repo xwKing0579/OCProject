@@ -27,7 +27,7 @@
     cell.arrowImageView.hidden = !model.haveSubviews;
     cell.arrowImageView.transform = CGAffineTransformMakeRotation(model.isOpen ? M_PI_2 : 0);
     cell.numBtn.backgroundColor = model.isController ? UIColor.redColor : UIColor.grayColor;
-    CGFloat left = 20+model.deepLevel*10;
+    CGFloat left = 20+model.deepLevel*15;
     [cell.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(left);
         make.width.mas_lessThanOrEqualTo(cell.contentView.width-left-30);
@@ -64,14 +64,14 @@
 - (void)clickNumAction{
     id obj = (__bridge id)(void *)self.model.objectPtr;
     if (obj) {
-        id model = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"currentUIHierarchy:" object:obj];
+        id model = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewUIHierarchy:" object:obj];
         [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"model":model}];
     }
 }
 
 - (void)didTapLabel:(UITapGestureRecognizer *)tapGesture{
     id obj = (__bridge id)(void *)self.model.objectPtr;
-    if (obj) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPShotObjectViewController" object:@{@"object":obj}];
+    if (obj) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":obj}];
 }
 
 - (UIButton *)numBtn{

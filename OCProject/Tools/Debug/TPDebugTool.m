@@ -53,8 +53,8 @@
 }
 
 - (void)didTapUI:(UITapGestureRecognizer *)tapGesture{
-    id obj = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"currentUIHierarchy:" object:UIViewController.window];
-    if (!obj) return;
+    id views = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewUIHierarchy:" object:UIViewController.window];
+    id vcs = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewControllers"];
         
     NSString *vcString = @"TPUIHierarchyViewController";
     BOOL showing = NO;
@@ -63,7 +63,7 @@
             showing = YES;
         }
     }
-    if (!showing) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:vcString object:@{@"model":obj}];
+    if (!showing && views && vcs) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:vcString object:@{@"views":views,@"vcs":vcs}];
 }
 
 - (void)didTapFPS:(UITapGestureRecognizer *)tapGesture{
@@ -75,7 +75,7 @@
             break;
         }
     }
-    if (jump) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationController=UINavigationController"];
+    if (jump) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
 }
 
 - (void)dragable:(UIPanGestureRecognizer *)sender{

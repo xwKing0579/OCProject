@@ -16,7 +16,8 @@ FOUNDATION_EXTERN NSString *const kTPUIHierarchyNotification;
 
 + (BOOL)isOn;
 
-+ (TPUIHierarchyModel *)currentUIHierarchy:(id)obj;
++ (TPUIHierarchyModel *)viewUIHierarchy:(id)obj;
++ (TPUIHierarchyModel *)viewControllers;
 
 @end
 

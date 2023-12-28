@@ -36,53 +36,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F56B4A36-F589-4044-B00C-E5729FD5C91B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OCProject/Class/Category/NSObject+Category.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "+safePerformTarget:selector:objects:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F56B4A36-F589-4044-B00C-E5729FD5C91B - 76587804211f9900"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[NSObject(Category) safePerformTarget:selector:objects:]"
-                  moduleName = "OCProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangxiangwei/Desktop/OCProject/OCProject/Class/Category/NSObject+Category.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "271"
-                  endingLineNumber = "271"
-                  offsetFromSymbolStart = "2300">
-               </Location>
-               <Location
-                  uuid = "F56B4A36-F589-4044-B00C-E5729FD5C91B - 76587804211f9900"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[NSObject(Category) safePerformTarget:selector:objects:]"
-                  moduleName = "OCProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangxiangwei/Desktop/OCProject/OCProject/Class/Category/NSObject+Category.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "271"
-                  endingLineNumber = "271"
-                  offsetFromSymbolStart = "2264">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

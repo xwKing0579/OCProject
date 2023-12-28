@@ -23,10 +23,10 @@ NSString *const kTPUIHierarchyNotification = @"kTPUIHierarchyNotification";
 }
 
 + (BOOL)isOn{
-    return [[[NSUserDefaults standardUserDefaults] valueForKey:kTPUIHierarchyConfigKey] boolValue] ?: NO;
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kTPUIHierarchyConfigKey] boolValue];
 }
 
-+ (TPUIHierarchyModel *)currentUIHierarchy:(id)obj{
++ (TPUIHierarchyModel *)viewUIHierarchy:(id)obj{
     if (!obj) return nil;
     UIView *view = nil;
     if ([obj isKindOfClass:[UIViewController class]]) {
@@ -57,6 +57,25 @@ NSString *const kTPUIHierarchyNotification = @"kTPUIHierarchyNotification";
             model.objectPtr = (uintptr_t)subview;
             model.subviews = [self getSubviewsFromViews:subview.subviews withViewDeepLevel:model.deepLevel next:NO];
         }
+        [array addObject:model];
+    }
+    return array;
+}
+
++ (TPUIHierarchyModel *)viewControllers{
+    return [self getViewControllers:@[UIViewController.rootViewController] withViewDeepLevel:0].firstObject;
+}
+
++ (NSArray <TPUIHierarchyModel *>*)getViewControllers:(NSArray <__kindof UIViewController *>*)vcs withViewDeepLevel:(int)deepLevel{
+    NSMutableArray *array = [NSMutableArray array];
+    for (UIViewController *vc in vcs) {
+        TPUIHierarchyModel *model = [TPUIHierarchyModel new];
+        model.deepLevel = deepLevel+1;
+        model.objectClass = NSStringFromClass([vc class]);
+        model.haveSubviews = vc.childViewControllers.count;
+        model.isController = YES;
+        model.objectPtr = (uintptr_t)vc.nextResponder;
+        model.subviews = [self getViewControllers:vc.childViewControllers withViewDeepLevel:model.deepLevel];
         [array addObject:model];
     }
     return array;

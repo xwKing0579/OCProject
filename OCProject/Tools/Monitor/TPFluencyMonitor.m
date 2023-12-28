@@ -36,7 +36,7 @@ static inline dispatch_queue_t fluency_monitor_queue(void) {
 
 + (void)load{
 #ifdef DEBUG
-    if ([self isOn])[self start];
+    if ([self isOn]) [self start];
 #endif
 }
 
@@ -50,12 +50,11 @@ static inline dispatch_queue_t fluency_monitor_queue(void) {
 }
 
 + (void)start{
-    TPFluencyMonitor *manager = [TPFluencyMonitor sharedManager];
-    if (manager->isMonitoring) return;
-    
     [[NSUserDefaults standardUserDefaults] setValue:@(YES) forKey:kTPMonitorConfigKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    TPFluencyMonitor *manager = [TPFluencyMonitor sharedManager];
+    if (manager->isMonitoring) return;
     CFRunLoopObserverContext context = {0, (__bridge void *)self, NULL, NULL};
     CFRunLoopObserverRef observer = CFRunLoopObserverCreate(kCFAllocatorDefault,
                                         kCFRunLoopAllActivities,
@@ -106,11 +105,12 @@ static void runLoopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 }
 
 + (void)stop{
+    [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:kTPMonitorConfigKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     TPFluencyMonitor *manager = [TPFluencyMonitor sharedManager];
     if (!manager->isMonitoring) return;
     manager->isMonitoring = NO;
-    [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:kTPMonitorConfigKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     if(!manager->_observer) return;
     CFRunLoopRemoveObserver(CFRunLoopGetMain(),manager->_observer, kCFRunLoopCommonModes);
     CFRelease(manager->_observer);
@@ -118,7 +118,7 @@ static void runLoopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 }
 
 + (BOOL)isOn{
-    return [[[NSUserDefaults standardUserDefaults] valueForKey:kTPMonitorConfigKey] boolValue] ?: NO;
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kTPMonitorConfigKey] boolValue];
 }
 
 @end

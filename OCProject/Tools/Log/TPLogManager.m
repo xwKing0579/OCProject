@@ -62,7 +62,7 @@ void newLog(NSString *format, ...){
 }
 
 + (BOOL)isOn{
-    return [[[NSUserDefaults standardUserDefaults] valueForKey:kTPLogConfigKey] boolValue] ?: NO;
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kTPLogConfigKey] boolValue];
 }
 
 - (void)addLog:(NSString *)log{

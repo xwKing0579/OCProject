@@ -9,8 +9,11 @@
 #import "TPUIHierarchyManager.h"
 @interface TPUIHierarchyViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, assign) BOOL isOpen;
+
 @property (nonatomic, strong) NSMutableArray <TPUIHierarchyModel *>*data;//展示数据
+@property (nonatomic, strong) TPUIHierarchyModel *model;
+@property (nonatomic, assign) BOOL isOpen;
+@property (nonatomic, assign) BOOL isVcs;
 @end
 
 @implementation TPUIHierarchyViewController
@@ -19,20 +22,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = [NSString stringWithFormat:@"UI图层(%@)",[TPUIHierarchyManager isOn] ? @"开" : @"关"];
+    self.title = [NSString stringWithFormat:@"视图层级(%@)",[TPUIHierarchyManager isOn] ? @"开" : @"关"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"一键展开" style:(UIBarButtonItemStyleDone) target:self action:@selector(oneKeyExpansion)];
     [self setUpSubViews];
 }
 
 - (void)setUpSubViews{
     self.data  = [NSMutableArray array];
+    self.model = self.views;
     if (self.model) [self.data addObject:self.model];
     [self.tableView reloadData];
     
     UIButton *customView = [[UIButton alloc] init];
     customView.backgroundColor = UIColor.redColor;
     customView.layer.cornerRadius = 20;
-    [customView setTitle:[TPUIHierarchyManager isOn] ? @"关" : @"开" forState:UIControlStateNormal];
+    [customView setTitle:self.isVcs ? @"V" : @"C" forState:UIControlStateNormal];
     [customView setTitleColor:UIColor.cFFFFFF forState:UIControlStateNormal];
     [customView addTarget:self action:@selector(clickOn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:customView];
@@ -49,9 +53,12 @@
 }
 
 - (void)clickOn:(UIButton *)sender{
-    [TPUIHierarchyManager isOn] ? [TPUIHierarchyManager stop] : [TPUIHierarchyManager start];
-    [sender setTitle:[TPUIHierarchyManager isOn] ? @"关" : @"开" forState:UIControlStateNormal];
-    self.title = [NSString stringWithFormat:@"UI图层(%@)",[TPUIHierarchyManager isOn] ? @"开" : @"关"];
+    if (self.views && self.vcs) {
+        self.isVcs = !self.isVcs;
+        [sender setTitle:self.isVcs ? @"V" : @"C" forState:UIControlStateNormal];
+        self.model = self.isVcs ? self.vcs : self.views;
+        [self updateUIHierarchy];
+    }
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

@@ -6,8 +6,7 @@
 //
 
 #import "TPCrashViewController.h"
-#import "TPCrashCache.h"
-#import "TPCrashModel.h"
+#import "TPCrashManager.h"
 @interface TPCrashViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray <TPCrashModel *>*data;
@@ -18,8 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    self.title = @"崩溃信息";
+    self.title = [NSString stringWithFormat:@"崩溃信息(%@)",[TPCrashManager isOn] ? @"开" : @"关"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"delete"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeCrashData)];
     self.data = ((NSArray *)[TPCrashCache crashData]).reverseObjectEnumerator.allObjects;
     [self.tableView reloadData];

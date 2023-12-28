@@ -29,31 +29,12 @@
     
     self.data = ((NSArray *)TPLogManager.data).reverseObjectEnumerator.allObjects;
     [self.tableView reloadData];
-    
-    UIButton *customView = [[UIButton alloc] init];
-    customView.backgroundColor = UIColor.redColor;
-    customView.layer.cornerRadius = 20;
-    [customView setTitle:[TPLogManager isOn] ? @"关" : @"开" forState:UIControlStateNormal];
-    [customView setTitleColor:UIColor.cFFFFFF forState:UIControlStateNormal];
-    [customView addTarget:self action:@selector(clickOn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:customView];
-    [customView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-30);
-        make.width.height.mas_equalTo(40);
-        make.bottom.mas_equalTo(-50);
-    }];
 }
 
 - (void)removeLogData{
     [TPLogManager removeData];
     self.data = TPLogManager.data;
     [self.tableView reloadData];
-}
-
-- (void)clickOn:(UIButton *)sender{
-    [TPLogManager isOn] ? [TPLogManager stop] : [TPLogManager start];
-    [sender setTitle:[TPLogManager isOn] ? @"关" : @"开" forState:UIControlStateNormal];
-    self.title = [NSString stringWithFormat:@"Log(%@)",[TPLogManager isOn] ? @"开" : @"关"];
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

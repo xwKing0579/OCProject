@@ -6,13 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TPCrashModel.h"
+#import "TPCrashCache.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPCrashManager : NSObject
 
-+ (void)registerCatch;
++ (void)start;
++ (void)stop;
 
++ (BOOL)isOn;
 @end
 
 NS_ASSUME_NONNULL_END

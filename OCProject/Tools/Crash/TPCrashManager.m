@@ -8,19 +8,22 @@
 #import "TPCrashManager.h"
 #include <libkern/OSAtomic.h>
 #include <execinfo.h>
-#import "TPCrashModel.h"
-#import "TPCrashCache.h"
+
+NSString *const kTPCrashConfigKey = @"kTPCrashConfigKey";
 
 @implementation TPCrashManager
 
 + (void)load{
 #ifdef DEBUG
-    [self registerCatch];
+    if ([self isOn]) [self start];
 #endif
 }
 
 #pragma mark - Primary
-+ (void)registerCatch {
++ (void)start {
+    [[NSUserDefaults standardUserDefaults] setValue:@(YES) forKey:kTPCrashConfigKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     NSSetUncaughtExceptionHandler(&HandleException);
     signal(SIGHUP, SignalHandler);
     signal(SIGINT, SignalHandler);
@@ -64,6 +67,59 @@
 #endif
     signal(SIGUSR1, SignalHandler);
     signal(SIGUSR2, SignalHandler);
+}
+
++ (void)stop{
+    [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:kTPCrashConfigKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSSetUncaughtExceptionHandler(nil);
+    signal(SIGHUP, SIG_DFL);
+    signal(SIGINT, SIG_DFL);
+    signal(SIGQUIT, SIG_DFL);
+    signal(SIGILL, SIG_DFL);
+    signal(SIGTRAP, SIG_DFL);
+    signal(SIGABRT, SIG_DFL);
+#ifdef SIGPOLL
+    signal(SIGPOLL, SIG_DFL);
+#endif
+#ifdef SIGEMT
+    signal(SIGEMT, SIG_DFL);
+#endif
+    signal(SIGFPE, SIG_DFL);
+    signal(SIGKILL, SIG_DFL);
+    signal(SIGBUS, SIG_DFL);
+    signal(SIGSEGV, SIG_DFL);
+    signal(SIGSYS, SIG_DFL);
+    signal(SIGPIPE, SIG_DFL);
+    signal(SIGALRM, SIG_DFL);
+    signal(SIGTERM, SIG_DFL);
+    signal(SIGURG, SIG_DFL);
+    signal(SIGSTOP, SIG_DFL);
+    signal(SIGTSTP, SIG_DFL);
+    signal(SIGCONT, SIG_DFL);
+    signal(SIGCHLD, SIG_DFL);
+    signal(SIGTTIN, SIG_DFL);
+    signal(SIGTTOU, SIG_DFL);
+#ifdef SIGIO
+    signal(SIGIO, SIG_DFL);
+#endif
+    signal(SIGXCPU, SIG_DFL);
+    signal(SIGXFSZ, SIG_DFL);
+    signal(SIGVTALRM, SIG_DFL);
+    signal(SIGPROF, SIG_DFL);
+#ifdef SIGWINCH
+    signal(SIGWINCH, SIG_DFL);
+#endif
+#ifdef SIGINFO
+    signal(SIGINFO, SIG_DFL);
+#endif
+    signal(SIGUSR1, SIG_DFL);
+    signal(SIGUSR2, SIG_DFL);
+}
+
++ (BOOL)isOn{
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kTPCrashConfigKey] boolValue];
 }
 
 void HandleException(NSException *exception){
