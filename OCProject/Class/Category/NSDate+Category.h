@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)currentTime;
 + (NSString *)timeFromDate:(NSDate *)date;
 
+- (NSString *)toString;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

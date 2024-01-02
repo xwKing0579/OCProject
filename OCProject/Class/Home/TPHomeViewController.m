@@ -18,16 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [TPNetworkManager post:@"fxtpplatform/information/app/live/anonymous/queryDailyLiveStatus" params:nil success:^(id  _Nonnull responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(TPNetworkError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
 
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 30)];
-    [self.view addSubview:label];
-    NSMutableAttributedString *mutableAttribuedString = [[NSMutableAttributedString alloc]initWithString:@"Jack keep forward! You are the best! Cheer up! Man!"];
-    label.attributedText = mutableAttribuedString;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -38,6 +29,12 @@
 //    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:url] completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
 //        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":image}];
 //    }];
+    
+    [TPNetworkManager post:@"fxtpplatform/information/app/live/anonymous/queryDailyLiveStatus" params:nil success:^(id  _Nonnull responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(TPNetworkError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (BOOL)hideNavigationBar{

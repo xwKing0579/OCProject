@@ -23,4 +23,14 @@
     return sizeString;
 }
 
++ (NSString *)convertJsonFromData:(NSData *)data{
+    if (data == nil) return nil;
+    NSError *error = nil;
+    id returnValue = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    if (error || !returnValue || returnValue == [NSNull null]) return nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:returnValue options:NSJSONWritingPrettyPrinted error:nil];
+    return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+
 @end

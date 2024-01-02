@@ -10,6 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Category)
+///数据转字符串
++ (NSString *)convertJsonFromData:(NSData *)data;
 ///文件大小转换K
 + (NSString *)sizeString:(unsigned long long)fileSize;
 @end

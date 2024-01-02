@@ -19,7 +19,8 @@ static AFHTTPSessionManager *manager;
 }
 
 + (NSString *)fullUrl:(NSString *)url{
-    return [[self baseUrl] stringByAppendingPathComponent:url];
+    if ([url hasPrefix:@"/"]) url = [url substringFromIndex:1];
+    return [NSString stringWithFormat:@"%@/%@",[self baseUrl],url];
 }
 
 + (NSString *)baseUrl{

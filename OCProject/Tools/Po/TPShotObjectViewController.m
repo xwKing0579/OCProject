@@ -60,18 +60,9 @@
     if (shotImage) [self.shotView setImage:shotImage forState:UIControlStateNormal];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self clickShotAction];
-}
-
-- (void)clickShotAction{
-   if (self.object) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":self.object}];
-}
-
 - (UIButton *)shotView{
     if (!_shotView){
         _shotView = [[UIButton alloc] init];
-        [_shotView addTarget:self action:@selector(clickShotAction) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_shotView];
         [_shotView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self.view);

@@ -18,7 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"po对象";
-    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithTitle:@"shotImage" style:(UIBarButtonItemStyleDone) target:self action:@selector(shotObjectImage)],[[UIBarButtonItem alloc]initWithTitle:@"custom" style:(UIBarButtonItemStyleDone) target:self action:@selector(customPropertyList)]];
+    if ([self.object isKindOfClass:[UIView class]]){
+        self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithTitle:@"shotImage" style:(UIBarButtonItemStyleDone) target:self action:@selector(shotObjectImage)],[[UIBarButtonItem alloc]initWithTitle:@"custom" style:(UIBarButtonItemStyleDone) target:self action:@selector(customPropertyList)]];
+    }
     self.data = self.object.propertyList;
     [self.tableView reloadData];
 }

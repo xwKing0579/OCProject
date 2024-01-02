@@ -47,6 +47,12 @@
 		F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E501D2B22F31B00B00781 /* TPRouter+Class.m */; };
 		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
+		F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D22B3EA9020081B012 /* TPNetworkModel.m */; };
+		F88495DB2B3EA9030081B012 /* TPNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D42B3EA9020081B012 /* TPNetworkMonitor.m */; };
+		F88495DC2B3EA9030081B012 /* TPURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D72B3EA9020081B012 /* TPURLProtocol.m */; };
+		F88495DD2B3EA9030081B012 /* NSURLSessionConfiguration+FSAPM.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D82B3EA9020081B012 /* NSURLSessionConfiguration+FSAPM.m */; };
+		F88495E12B3EBEEB0081B012 /* TPNetworkMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495E02B3EBEEB0081B012 /* TPNetworkMonitorViewController.m */; };
+		F88495E42B3EC0840081B012 /* TPNetworkMonitorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495E32B3EC0840081B012 /* TPNetworkMonitorTableViewCell.m */; };
 		F89767382B39169900B9F845 /* TPUIHierarchyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89767372B39169900B9F845 /* TPUIHierarchyViewController.m */; };
 		F897673B2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F897673A2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m */; };
 		F897673E2B39236C00B9F845 /* TPUIHierarchyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F897673D2B39236C00B9F845 /* TPUIHierarchyModel.m */; };
@@ -214,6 +220,18 @@
 		F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
 		F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
+		F88495D22B3EA9020081B012 /* TPNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkModel.m; sourceTree = "<group>"; };
+		F88495D32B3EA9020081B012 /* TPNetworkMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNetworkMonitor.h; sourceTree = "<group>"; };
+		F88495D42B3EA9020081B012 /* TPNetworkMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkMonitor.m; sourceTree = "<group>"; };
+		F88495D52B3EA9020081B012 /* NSURLSessionConfiguration+FSAPM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionConfiguration+FSAPM.h"; sourceTree = "<group>"; };
+		F88495D62B3EA9020081B012 /* TPURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPURLProtocol.h; sourceTree = "<group>"; };
+		F88495D72B3EA9020081B012 /* TPURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPURLProtocol.m; sourceTree = "<group>"; };
+		F88495D82B3EA9020081B012 /* NSURLSessionConfiguration+FSAPM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionConfiguration+FSAPM.m"; sourceTree = "<group>"; };
+		F88495D92B3EA9020081B012 /* TPNetworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNetworkModel.h; sourceTree = "<group>"; };
+		F88495DF2B3EBEEB0081B012 /* TPNetworkMonitorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNetworkMonitorViewController.h; sourceTree = "<group>"; };
+		F88495E02B3EBEEB0081B012 /* TPNetworkMonitorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNetworkMonitorViewController.m; sourceTree = "<group>"; };
+		F88495E22B3EC0840081B012 /* TPNetworkMonitorTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNetworkMonitorTableViewCell.h; sourceTree = "<group>"; };
+		F88495E32B3EC0840081B012 /* TPNetworkMonitorTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNetworkMonitorTableViewCell.m; sourceTree = "<group>"; };
 		F89767362B39169900B9F845 /* TPUIHierarchyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUIHierarchyViewController.h; sourceTree = "<group>"; };
 		F89767372B39169900B9F845 /* TPUIHierarchyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUIHierarchyViewController.m; sourceTree = "<group>"; };
 		F89767392B391DBF00B9F845 /* TPUIHierarchyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUIHierarchyTableViewCell.h; sourceTree = "<group>"; };
@@ -539,6 +557,7 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F88495AD2B3E55B40081B012 /* Net */,
 				F822A1092B3ACC0900A3330C /* Po */,
 				F89767352B39163700B9F845 /* UIHierarchy */,
 				F83AB0012B35629200496557 /* Leaks */,
@@ -557,6 +576,33 @@
 				F8F4037E2B21B925008653CB /* MLeaksFinder */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		F88495AD2B3E55B40081B012 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				F88495D92B3EA9020081B012 /* TPNetworkModel.h */,
+				F88495D22B3EA9020081B012 /* TPNetworkModel.m */,
+				F88495D32B3EA9020081B012 /* TPNetworkMonitor.h */,
+				F88495D42B3EA9020081B012 /* TPNetworkMonitor.m */,
+				F88495D62B3EA9020081B012 /* TPURLProtocol.h */,
+				F88495D72B3EA9020081B012 /* TPURLProtocol.m */,
+				F88495D52B3EA9020081B012 /* NSURLSessionConfiguration+FSAPM.h */,
+				F88495D82B3EA9020081B012 /* NSURLSessionConfiguration+FSAPM.m */,
+				F88495DE2B3EBECC0081B012 /* UI */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
+		F88495DE2B3EBECC0081B012 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F88495DF2B3EBEEB0081B012 /* TPNetworkMonitorViewController.h */,
+				F88495E02B3EBEEB0081B012 /* TPNetworkMonitorViewController.m */,
+				F88495E22B3EC0840081B012 /* TPNetworkMonitorTableViewCell.h */,
+				F88495E32B3EC0840081B012 /* TPNetworkMonitorTableViewCell.m */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		F89767352B39163700B9F845 /* UIHierarchy */ = {
@@ -1116,6 +1162,7 @@
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
 				F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */,
+				F88495DD2B3EA9030081B012 /* NSURLSessionConfiguration+FSAPM.m in Sources */,
 				F8AE19712B2C67FB009C12E2 /* NSString+Category.m in Sources */,
 				F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */,
 				F822A10C2B3ACDFF00A3330C /* TPPoObjectViewController.m in Sources */,
@@ -1126,10 +1173,13 @@
 				F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */,
 				F81BEC892B284D5600DAA26F /* NSObject+Category.m in Sources */,
 				F8F403992B21B93D008653CB /* UIPageViewController+MemoryLeak.m in Sources */,
+				F88495DC2B3EA9030081B012 /* TPURLProtocol.m in Sources */,
 				F8E1B1842B3172810036928F /* TPLogViewController.m in Sources */,
 				F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */,
+				F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */,
 				F84368C72B3288AF0055444B /* TPFluencyMonitor.m in Sources */,
 				F897673E2B39236C00B9F845 /* TPUIHierarchyModel.m in Sources */,
+				F88495DB2B3EA9030081B012 /* TPNetworkMonitor.m in Sources */,
 				F8AF95472B1EB457003059CB /* TPBaseTabBarController.m in Sources */,
 				F8AF95412B1EB3DB003059CB /* TPBaseViewController.m in Sources */,
 				F8EAC7EC2B173504005522DE /* AppDelegate.m in Sources */,
@@ -1139,12 +1189,14 @@
 				F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */,
 				F84368D02B328D9D0055444B /* TPMonitorTableViewCell.m in Sources */,
 				F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */,
+				F88495E42B3EC0840081B012 /* TPNetworkMonitorTableViewCell.m in Sources */,
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
 				F897673B2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
 				F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */,
 				F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */,
+				F88495E12B3EBEEB0081B012 /* TPNetworkMonitorViewController.m in Sources */,
 				F81BEC902B28537400DAA26F /* TPCrashManager.m in Sources */,
 				F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */,
 				F8F403B22B21BE14008653CB /* UIView+Category.m in Sources */,
