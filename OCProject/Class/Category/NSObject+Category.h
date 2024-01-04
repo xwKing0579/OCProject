@@ -19,12 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (id)performAction:(NSString *)action;
-- (id)performAction:(NSString *)action object:(NSDictionary * __nullable)object;
+- (id)performAction:(NSString *)action object:(id __nullable)object;
 - (id)performAction:(NSString *)action object:(id __nullable)object1 object:(id __nullable)object2;
 - (id)performAction:(NSString *)action objects:(NSDictionary * __nullable)objects;
 
 + (id)performAction:(NSString *)action;
-+ (id)performAction:(NSString *)action object:(NSDictionary * __nullable)object;
++ (id)performAction:(NSString *)action object:(id __nullable)object;
 + (id)performAction:(NSString *)action object:(id __nullable)object1 object:(id __nullable)object2;
 + (id)performAction:(NSString *)action objects:(NSDictionary * __nullable)objects;
 

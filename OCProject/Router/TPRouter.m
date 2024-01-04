@@ -15,11 +15,11 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
 
 @implementation TPRouter
 
-+ (id)jumpUrl:(NSString *)url{
++ (__kindof UIViewController *)jumpUrl:(NSString *)url{
     return [self jumpUrl:url params:nil];
 }
 
-+ (id)jumpUrl:(NSString *)url params:(NSDictionary * _Nullable )params{
++ (__kindof UIViewController *)jumpUrl:(NSString *)url params:(NSDictionary * _Nullable )params{
     if (![url isKindOfClass:[NSString class]]) return nil;
     ///处理一些业务逻辑
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:url];

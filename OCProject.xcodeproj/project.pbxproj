@@ -308,6 +308,7 @@
 		F8E1B1892B317E100036928F /* TPLogTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLogTableViewCell.m; sourceTree = "<group>"; };
 		F8E1B18C2B318EE60036928F /* TPLogDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLogDetailViewController.h; sourceTree = "<group>"; };
 		F8E1B18D2B318EE60036928F /* TPLogDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLogDetailViewController.m; sourceTree = "<group>"; };
+		F8EA10172B44F05B000B4B69 /* OCProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		F8EAC7E72B173504005522DE /* OCProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EAC7EA2B173504005522DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F8EAC7EB2B173504005522DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -834,6 +835,7 @@
 				F8EAC7F82B173504005522DE /* LaunchScreen.storyboard */,
 				F8EAC7FB2B173504005522DE /* Info.plist */,
 				F8EAC7FC2B173504005522DE /* main.m */,
+				F8EA10172B44F05B000B4B69 /* OCProject-Bridging-Header.h */,
 			);
 			path = OCProject;
 			sourceTree = "<group>";
@@ -1032,6 +1034,7 @@
 				TargetAttributes = {
 					F8EAC7E62B173504005522DE = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1510;
 					};
 					F8EAC8012B173504005522DE = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -1413,10 +1416,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X56LJFQ45H;
-				GCC_PREFIX_HEADER = /Users/wangxiangwei/Desktop/OCProject/OCProject/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/OCProject/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OCProject/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OC框架";
@@ -1438,6 +1442,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.OCProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OCProject/OCProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1448,10 +1455,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X56LJFQ45H;
-				GCC_PREFIX_HEADER = /Users/wangxiangwei/Desktop/OCProject/OCProject/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/OCProject/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OCProject/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OC框架";
@@ -1473,6 +1481,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.OCProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OCProject/OCProject-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

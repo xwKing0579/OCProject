@@ -22,6 +22,10 @@
 
 - (void)setUpSubViews{
     [self.view addSubview:self.tableView];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+       
+    }];
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

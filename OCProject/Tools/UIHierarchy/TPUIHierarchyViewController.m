@@ -33,6 +33,7 @@
     if (self.model) [self.data addObject:self.model];
     [self.tableView reloadData];
     
+    if (!self.vcs) return;
     UIButton *customView = [[UIButton alloc] init];
     customView.backgroundColor = UIColor.redColor;
     customView.layer.cornerRadius = 20;

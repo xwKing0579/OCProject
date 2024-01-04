@@ -64,8 +64,8 @@
 - (void)clickNumAction{
     id obj = (__bridge id)(void *)self.model.objectPtr;
     if (obj) {
-        id model = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewUIHierarchy:" object:obj];
-        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"model":model}];
+        id views = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewUIHierarchy:" object:obj];
+        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"views":views}];
     }
 }
 

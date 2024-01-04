@@ -35,6 +35,8 @@
     } failure:^(TPNetworkError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
+    
+    [TPRouter jumpUrl:@"TestViewController"];
 }
 
 - (BOOL)hideNavigationBar{

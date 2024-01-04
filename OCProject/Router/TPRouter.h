@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class TPRouter;
 
@@ -20,8 +21,8 @@ FOUNDATION_EXTERN NSString *const kTPRouterPathNoAnimation;
 ///ocproject://oc.com/native/TPCrashViewController
 @interface TPRouter : NSObject
 
-+ (id)jumpUrl:(NSString *)url;
-+ (id)jumpUrl:(NSString *)url params:(NSDictionary * _Nullable )params;
++ (__kindof UIViewController *)jumpUrl:(NSString *)url;
++ (__kindof UIViewController *)jumpUrl:(NSString *)url params:(NSDictionary * _Nullable )params;
 
 + (void)back;
 + (void)backUrl:(NSString * _Nullable)url; ///home/noanimation/index_1

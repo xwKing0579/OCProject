@@ -126,7 +126,7 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
     return [self performAction:action object:@{}];
 }
 
-- (id)performAction:(NSString *)action object:(NSDictionary * __nullable)object{
+- (id)performAction:(NSString *)action object:(id __nullable)object{
     return [self performAction:action object:object object:nil];
 }
 
@@ -150,7 +150,7 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
     return [self performAction:action object:nil];
 }
 
-+ (id)performAction:(NSString *)action object:(NSDictionary * __nullable)object{
++ (id)performAction:(NSString *)action object:(id __nullable)object{
     return [self performAction:action object:object object:nil];
 }
 
@@ -207,9 +207,7 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
 
 + (id)safePerformTarget:(id)target selector:(SEL)selector objects:(NSDictionary * __nullable)objects{
     NSMethodSignature *methodSig = [target methodSignatureForSelector:selector];
-    if(methodSig == nil) {
-        return nil;
-    }
+    if (!methodSig) return nil;
     
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
     [invocation setSelector:selector];
