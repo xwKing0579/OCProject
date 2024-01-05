@@ -78,6 +78,7 @@
 		F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95652B1F053F003059CB /* TPNetworkManager.m */; };
 		F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF95692B1F1D07003059CB /* TPMineViewController.m */; };
 		F8AF956E2B1F3BFF003059CB /* TPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AF956D2B1F3BFF003059CB /* TPWebViewController.m */; };
+		F8B8B75F2B47DA8000F2DE66 /* TPDebugTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B8B75E2B47DA8000F2DE66 /* TPDebugTableViewController.m */; };
 		F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BB9CCC2B3D571000FF1418 /* TPDebugSwitchViewController.m */; };
 		F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343172B201E94004AEE48 /* TPBaseSettings.m */; };
 		F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D3431A2B203ED0004AEE48 /* TPSettingLocation.m */; };
@@ -282,6 +283,8 @@
 		F8AF95692B1F1D07003059CB /* TPMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMineViewController.m; sourceTree = "<group>"; };
 		F8AF956C2B1F3BFF003059CB /* TPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPWebViewController.h; sourceTree = "<group>"; };
 		F8AF956D2B1F3BFF003059CB /* TPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPWebViewController.m; sourceTree = "<group>"; };
+		F8B8B75D2B47DA8000F2DE66 /* TPDebugTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugTableViewController.h; sourceTree = "<group>"; };
+		F8B8B75E2B47DA8000F2DE66 /* TPDebugTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugTableViewController.m; sourceTree = "<group>"; };
 		F8BB9CCB2B3D571000FF1418 /* TPDebugSwitchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugSwitchViewController.h; sourceTree = "<group>"; };
 		F8BB9CCC2B3D571000FF1418 /* TPDebugSwitchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugSwitchViewController.m; sourceTree = "<group>"; };
 		F8D343162B201E94004AEE48 /* TPBaseSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseSettings.h; sourceTree = "<group>"; };
@@ -951,6 +954,8 @@
 				F8F403B42B21C1C1008653CB /* TPDebugToolViewController.m */,
 				F8BB9CCB2B3D571000FF1418 /* TPDebugSwitchViewController.h */,
 				F8BB9CCC2B3D571000FF1418 /* TPDebugSwitchViewController.m */,
+				F8B8B75D2B47DA8000F2DE66 /* TPDebugTableViewController.h */,
+				F8B8B75E2B47DA8000F2DE66 /* TPDebugTableViewController.m */,
 				F8430E8B2B26E2AD00DBE29F /* Assets.xcassets */,
 			);
 			path = Debug;
@@ -1197,6 +1202,7 @@
 				F897673B2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
+				F8B8B75F2B47DA8000F2DE66 /* TPDebugTableViewController.m in Sources */,
 				F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */,
 				F8AF95542B1EBF7C003059CB /* TPTabBarController.m in Sources */,
 				F88495E12B3EBEEB0081B012 /* TPNetworkMonitorViewController.m in Sources */,

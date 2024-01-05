@@ -5,11 +5,11 @@
 //  Created by 王祥伟 on 2023/12/28.
 //
 
-#import "TPBaseViewController.h"
+#import "TPDebugTableViewController.h"
 #import "TPBaseTableViewCell.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TPDebugSwitchViewController : TPBaseViewController
+@interface TPDebugSwitchViewController : TPDebugTableViewController
 
 @end
 

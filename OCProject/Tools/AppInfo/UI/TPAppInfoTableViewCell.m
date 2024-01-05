@@ -6,6 +6,7 @@
 //
 
 #import "TPAppInfoTableViewCell.h"
+#import "TPAppInfoModel.h"
 
 @interface TPAppInfoTableViewCell ()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -15,7 +16,7 @@
 
 @implementation TPAppInfoTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPAppInfoListModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPAppInfoListModel *)model{
     TPAppInfoTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = model.name;
     cell.contentLabel.text = model.content;
@@ -25,11 +26,13 @@
 - (void)setUpSubViews{
     [self.contentView addSubviews:@[self.titleLabel,self.contentLabel,self.lineView]];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(15);
+        make.bottom.mas_equalTo(-15);
         make.left.mas_equalTo(15);
     }];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(15);
+        make.bottom.mas_equalTo(-15);
         make.right.mas_equalTo(-15);
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -15,7 +15,7 @@
 @end
 
 @implementation TPPoObjectTableViewCell
-+ (instancetype)initWithTableView:(UITableView *)tableView withDic:(NSDictionary *)dic{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(NSDictionary *)dic{
     TPPoObjectTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = dic.allKeys.firstObject;
     

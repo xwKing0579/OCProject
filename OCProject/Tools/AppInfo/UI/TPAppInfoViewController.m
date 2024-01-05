@@ -8,9 +8,7 @@
 #import "TPAppInfoViewController.h"
 #import "TPAppInfoModel.h"
 
-@interface TPAppInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray <TPAppInfoModel *>*data;
+@interface TPAppInfoViewController ()
 @end
 
 @implementation TPAppInfoViewController
@@ -35,7 +33,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TPAppInfoModel *model = self.data[indexPath.section];
-    return [NSObject performTarget:@"TPAppInfoTableViewCell_Class" action:@"initWithTableView:withModel:" object:tableView object:model.item[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:@"TPAppInfoTableViewCell_Class" action:[self actionString] object:tableView object:model.item[indexPath.row]] ?: [UITableViewCell new];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -45,28 +43,10 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 50)];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, view.width-30, view.height)];
-    titleLabel.text = self.data[section].title;
+    titleLabel.text = ((TPAppInfoModel *)self.data[section]).title;
     titleLabel.font = UIFont.font20;
     [view addSubview:titleLabel];
     return view;
-}
-
-#pragma mark -- setter
-- (UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.showsHorizontalScrollIndicator = NO;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.rowHeight = 50;
-        [self.view addSubview:_tableView];
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
-        }];
-    }
-    return _tableView;
 }
 
 @end

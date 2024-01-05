@@ -14,7 +14,7 @@
 
 @implementation TPLogTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPLogModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPLogModel *)model{
     TPLogTableViewCell *cell = [self initWithTableView:tableView];
     
     //这里特殊处理，用来方便展示

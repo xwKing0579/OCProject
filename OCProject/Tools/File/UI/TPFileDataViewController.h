@@ -6,10 +6,10 @@
 //
 
 #import "TPBaseViewController.h"
-
+#import "TPDebugTableViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TPFileDataViewController : TPBaseViewController
+@interface TPFileDataViewController : TPDebugTableViewController
 @property (nonatomic, strong) NSString *fileName;
 @property (nonatomic, strong) NSDictionary *dic;
 @end

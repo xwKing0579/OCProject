@@ -38,11 +38,11 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
         return nil;
     }
     
-    NSArray <NSString *>*temp = [path componentsSeparatedByString:@"/"];
-    if (temp.count == 0) return nil;
+    NSArray <NSString *>*dataComponent = [path componentsSeparatedByString:@"/"];
+    if (dataComponent.count == 0) return nil;
     
-    NSString *classString = [self classValue][temp.firstObject];
-    if (!classString) classString = temp.firstObject;
+    NSString *classString = [self classValue][dataComponent.firstObject];
+    if (!classString) classString = dataComponent.firstObject;
     Class class = NSClassFromString(classString);
     if (!class) return nil;
     
@@ -70,15 +70,16 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
         }
     };
     
-    BOOL push = ![temp containsObject:kTPRouterPathJumpStyle];
-    BOOL animation = ![temp containsObject:kTPRouterPathNoAnimation];
+    ///设置动画和跳转方式
+    BOOL push = ![dataComponent containsObject:kTPRouterPathJumpStyle];
+    BOOL animation = ![dataComponent containsObject:kTPRouterPathNoAnimation];
     
     if (push) {
         vc.hidesBottomBarWhenPushed = YES;
         [currentVC.navigationController pushViewController:vc animated:animation];
     }else{
         ///自定义nav
-        Class navClass = NSClassFromString([propertys valueForKey:@"navigationController"]);
+        Class navClass = NSClassFromString([propertys valueForKey:@"navigationClass"]);
         __kindof UINavigationController *nav = [navClass alloc];
         if (nav && [nav isKindOfClass:[UINavigationController class]]) {
             vc = [nav initWithRootViewController:vc];
@@ -99,13 +100,13 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
 }
 
 + (void)backUrl:(NSString * _Nullable)url{
-    NSArray <NSString *>*temp = [url componentsSeparatedByString:@"/"];
+    NSArray <NSString *>*dataComponent = [url componentsSeparatedByString:@"/"];
     
-    BOOL animation = ![temp containsObject:kTPRouterPathNoAnimation];
+    BOOL animation = ![dataComponent containsObject:kTPRouterPathNoAnimation];
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return;
     
-    NSString *obj = temp.lastObject;
+    NSString *obj = dataComponent.lastObject;
     if ([obj hasPrefix:kTPRouterPathTabbarIndex]) {
         if (currentVC.presentingViewController) {
             [currentVC dismissViewControllerAnimated:NO completion:nil];
@@ -121,7 +122,7 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
     }else{
         if (currentVC.navigationController.viewControllers.count > 1){
             __kindof UINavigationController *nav = currentVC.navigationController;
-            Class class = NSClassFromString([self classValue][temp.firstObject]);
+            Class class = NSClassFromString([self classValue][dataComponent.firstObject]);
             if (!class) {
                 [nav popViewControllerAnimated:YES];
                 return;

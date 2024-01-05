@@ -17,7 +17,7 @@
 
 @implementation TPNetworkMonitorTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPNetworkModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPNetworkModel *)model{
     TPNetworkMonitorTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = model.url;
     cell.contentLabel.text  = [NSString stringWithFormat:@"%@ > [%ld]",model.httpMethod,(long)model.statusCode];

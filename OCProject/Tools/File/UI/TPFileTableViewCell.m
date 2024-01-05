@@ -17,7 +17,7 @@
 
 @implementation TPFileTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPFileModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPFileModel *)model{
     TPFileTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = model.fileName;
     cell.contentLabel.text = [NSString sizeString:model.fileSize];

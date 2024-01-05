@@ -18,7 +18,7 @@
 
 @implementation TPUIHierarchyTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPUIHierarchyModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPUIHierarchyModel *)model{
     TPUIHierarchyTableViewCell *cell = [self initWithTableView:tableView];
     cell.model = model;
     

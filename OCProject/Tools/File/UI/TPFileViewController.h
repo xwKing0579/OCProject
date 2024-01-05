@@ -5,11 +5,11 @@
 //  Created by 王祥伟 on 2023/12/15.
 //
 
-#import "TPBaseViewController.h"
+#import "TPDebugTableViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TPFileViewController : TPBaseViewController
+@interface TPFileViewController : TPDebugTableViewController
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *path;
 @end

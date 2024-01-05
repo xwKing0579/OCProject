@@ -14,7 +14,7 @@
 
 @implementation TPFontTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withString:(NSString *)string{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(NSString *)string{
     TPFontTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = string;
     return cell;

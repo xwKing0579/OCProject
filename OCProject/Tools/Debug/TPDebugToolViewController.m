@@ -54,7 +54,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         };
         obj = block;
         
-        //self.block = block; //内存泄漏测试
+        self.block = block; //内存泄漏测试
     }
     [NSObject performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
 }

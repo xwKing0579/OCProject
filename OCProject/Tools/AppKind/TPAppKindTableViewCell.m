@@ -15,7 +15,7 @@
 @end
 @implementation TPAppKindTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPAppKindModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPAppKindModel *)model{
     TPAppKindTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = model.bundleIdentifier;
     return cell;

@@ -16,7 +16,7 @@
 
 @implementation TPCrashTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPCrashModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPCrashModel *)model{
     TPCrashTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = model.name;
     cell.contentLabel.text = model.reason;

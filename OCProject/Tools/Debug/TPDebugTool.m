@@ -75,7 +75,7 @@
             break;
         }
     }
-    if (jump) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationController=TPBaseNavigationController"];
+    if (jump) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationClass=TPBaseNavigationController"];
 }
 
 - (void)dragable:(UIPanGestureRecognizer *)sender{

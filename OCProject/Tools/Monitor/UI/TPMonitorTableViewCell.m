@@ -14,7 +14,7 @@
 @end
 
 @implementation TPMonitorTableViewCell
-+ (instancetype)initWithTableView:(UITableView *)tableView withModel:(TPMonitorModel *)model{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPMonitorModel *)model{
     TPMonitorTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = model.page;
     return cell;

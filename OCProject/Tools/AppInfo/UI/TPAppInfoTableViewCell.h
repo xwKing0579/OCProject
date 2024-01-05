@@ -6,7 +6,7 @@
 //
 
 #import "TPBaseTableViewCell.h"
-#import "TPAppInfoModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPAppInfoTableViewCell : TPBaseTableViewCell
