@@ -20,7 +20,7 @@
     
     self.title = @"对象闪照";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"color" style:(UIBarButtonItemStyleDone) target:self action:@selector(changeLeakObjectColor)];
-    self.view.backgroundColor = UIColor.cCCCCCC;
+    self.view.backgroundColor = UIColor.ccccccC;
     if (self.object) [self leakObjectShotImage];
 }
 

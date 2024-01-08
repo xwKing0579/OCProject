@@ -58,4 +58,7 @@
     return vc;
 }
 
++ (CGFloat)statusBarHeight{
+    return [self window].safeAreaInsets.top;
+}
 @end

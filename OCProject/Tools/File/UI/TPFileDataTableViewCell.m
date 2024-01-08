@@ -15,10 +15,10 @@
 
 @implementation TPFileDataTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withKey:(NSString *)key withValue:(id)value{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(NSDictionary *)dict{
     TPFileDataTableViewCell *cell = [self initWithTableView:tableView];
-    cell.titleTextView.text = key;
-    cell.contentTextView.text = [NSString stringWithFormat:@"%@",value];
+    cell.titleTextView.text = dict.allKeys.firstObject;
+    cell.contentTextView.text = [NSString stringWithFormat:@"%@",dict.allValues.firstObject];
     return cell;
 }
 

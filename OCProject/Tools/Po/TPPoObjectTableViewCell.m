@@ -98,7 +98,7 @@
 - (UIView *)lineView{
     if (!_lineView){
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = UIColor.cCCCCCC;
+        _lineView.backgroundColor = UIColor.ccccccC;
     }
     return _lineView;
 }

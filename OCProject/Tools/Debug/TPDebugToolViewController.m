@@ -25,7 +25,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
 }
 
 - (void)setUpSubViews{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"switch"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(clickSwitchAction)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"switch"].original style:(UIBarButtonItemStyleDone) target:self action:@selector(clickSwitchAction)];
     self.data = [TPDebugToolModel data];
     [self.collectionView reloadData];
 }
@@ -54,7 +54,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         };
         obj = block;
         
-        self.block = block; //内存泄漏测试
+        //self.block = block; //内存泄漏测试
     }
     [NSObject performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
 }

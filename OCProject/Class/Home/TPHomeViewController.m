@@ -17,31 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"1233333");
+    self.data = @[@"TPRouterDemoViewController?title=路由演示demo"];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    //制造崩溃
-//    [self performSelector:NSSelectorFromString(@"sdsa")];
-    
-//    NSString *url = @"https://img1.baidu.com/it/u=2825014562,3166058568&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800";
-//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:url] completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
-//        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":image}];
-//    }];
-    
-    [TPNetworkManager post:@"fxtpplatform/information/app/live/anonymous/queryDailyLiveStatus" params:nil success:^(id  _Nonnull responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(TPNetworkError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
-    
-    [TPRouter jumpUrl:@"TestViewController"];
+- (NSString *)cellClass{
+    return @"TPHomeTableViewCell_Class";
+}
+
+#pragma mark -- UITableViewDelegate,UITableViewDataSource
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [TPRouter jumpUrl:self.data[indexPath.row]];
 }
 
 - (BOOL)hideNavigationBar{
     return YES;
 }
-
 
 @end

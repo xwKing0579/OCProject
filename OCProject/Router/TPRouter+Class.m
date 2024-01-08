@@ -11,9 +11,11 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 + (NSDictionary *)classValue{
-    return @{[self testKey]:[self test],
-             [self homeKey]:[self home],
-             [self webKey] :[self web],
+    return @{[self testKey] : [self test],
+             [self homeKey] : [self home],
+             [self webKey]  : [self web],
+             [self mineKey] : [self mine],
+             [self routerParamsKey] :[self routerParams],
     };
 }
 #pragma clang diagnostic pop
@@ -34,6 +36,14 @@
 + (NSString *)webKey{return @"web";}
 + (NSString *)web{return @"TPWebViewController";}
 
+///TPMineViewController
++ (NSString *)mineKey{return @"mine";}
++ (NSString *)mine{return @"TPMineViewController";}
+
+
+///TPRouterParamsViewController
++ (NSString *)routerParamsKey{return @"routerParams";}
++ (NSString *)routerParams{return @"TPRouterParamsViewController";}
 
 ///TestViewController
 + (NSString *)testKey{return @"test";}

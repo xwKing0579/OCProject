@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (Category)
 
-+ (UIImage *)imageOriginal:(UIImage *)image;
+- (UIImage *)original;
 
 + (UIImage *)createImageWithColor:(UIColor *)color;
 + (UIImage *)createImageWithColor:(UIColor *)color size:(CGSize)size;

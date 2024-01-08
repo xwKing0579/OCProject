@@ -8,10 +8,8 @@
 #import "UIImage+Category.h"
 
 @implementation UIImage (Category)
-
-+ (UIImage *)imageOriginal:(UIImage *)image{
-    if (!image) return nil;
-    return [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+- (UIImage *)original{
+    return [self imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
 }
 
 + (UIImage *)createImageWithColor:(UIColor *)color{

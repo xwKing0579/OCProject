@@ -81,7 +81,7 @@
         _numBtn.layer.masksToBounds = YES;
         _numBtn.backgroundColor = [UIColor grayColor];
         _numBtn.titleLabel.font = UIFont.font14;
-        [_numBtn setTitleColor:UIColor.cFFFFFF forState:UIControlStateNormal];
+        [_numBtn setTitleColor:UIColor.cffffff forState:UIControlStateNormal];
         [_numBtn addTarget:self action:@selector(clickNumAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _numBtn;
@@ -91,7 +91,7 @@
     if (!_titleLabel){
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = UIFont.font14;
-        _titleLabel.textColor = UIColor.c1E1E1E;
+        _titleLabel.textColor = UIColor.c1e1e1e;
         _titleLabel.numberOfLines = 0;
         _titleLabel.userInteractionEnabled = YES;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapLabel:)];
@@ -103,7 +103,7 @@
 - (UIView *)lineView{
     if (!_lineView){
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = UIColor.cCCCCCC;
+        _lineView.backgroundColor = UIColor.ccccccC;
     }
     return _lineView;
 }

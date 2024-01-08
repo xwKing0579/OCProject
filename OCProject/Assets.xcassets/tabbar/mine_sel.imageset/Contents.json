@@ -5,12 +5,11 @@
       "scale" : "1x"
     },
     {
-      "filename" : "tabbar_meHL@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tabbar_meHL@3x.png",
+      "filename" : "mine_sel@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

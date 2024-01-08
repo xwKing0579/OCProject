@@ -135,7 +135,7 @@
 - (UILabel *)UILabel{
     if (!_UILabel){
         _UILabel = [[UILabel alloc] init];
-        _UILabel.textColor = UIColor.cFFFFFF;
+        _UILabel.textColor = UIColor.cffffff;
         _UILabel.backgroundColor = UIColor.redColor;
         _UILabel.text = @"UI";
         _UILabel.font = UIFont.fontBold16;

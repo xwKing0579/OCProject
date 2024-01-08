@@ -11,14 +11,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (Category)
 
-+ (UIColor *)cFFFFFF;
-+ (UIColor *)cCCCCCC;
-+ (UIColor *)c1E1E1E;
++ (UIColor *)cffffff;
++ (UIColor *)ccccccC;
++ (UIColor *)c1e1e1e;
 + (UIColor *)c333333;
 + (UIColor *)c505050;
 + (UIColor *)c000000;
++ (UIColor *)c1296db;
++ (UIColor *)cbfbfbf;
++ (UIColor *)c1eb65f;
 
-+ (UIColor *)c1EB65F;
 - (NSString *)hexStringWithAlpha:(BOOL)withAlpha;
 
 @end

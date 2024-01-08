@@ -20,14 +20,14 @@
     
     UIImage *image;
     if (self.navigationController.childViewControllers.count > 1) {
-        image = [UIImage imageNamed:@"back"];
+        image = [UIImage imageNamed:@"back"].original;
     }else if (self.presentingViewController){
-        image = [UIImage imageNamed:@"close"];
+        image = [UIImage imageNamed:@"close"].original;
     }
     if (image) self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:(UIBarButtonItemStyleDone) target:self action:@selector(backViewController)];
     self.navigationItem.leftBarButtonItem.tintColor = UIColor.c000000;
     self.fd_prefersNavigationBarHidden = [self hideNavigationBar];
-    self.view.backgroundColor = UIColor.cFFFFFF;
+    self.view.backgroundColor = UIColor.cffffff;
 }
 
 ///back

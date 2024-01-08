@@ -1,17 +1,17 @@
 //
-//  TPDebugTableViewController.m
+//  TPBaseTableViewController.m
 //  OCProject
 //
 //  Created by 王祥伟 on 2024/1/5.
 //
 
-#import "TPDebugTableViewController.h"
+#import "TPBaseTableViewController.h"
 
-@interface TPDebugTableViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface TPBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation TPDebugTableViewController
+@implementation TPBaseTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,5 +60,4 @@
     }
     return _tableView;
 }
-
 @end

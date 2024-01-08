@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPBaseViewController : UIViewController
 
+///通用回调
+@property (nonatomic, copy) TPRouterBlock block;
+
 ///hidden navbar
 - (BOOL)hideNavigationBar;
 

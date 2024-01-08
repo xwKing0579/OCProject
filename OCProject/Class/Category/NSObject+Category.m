@@ -85,6 +85,11 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
 
 - (NSArray <NSDictionary *>*)propertyList{
     NSMutableArray *propertyArray = [NSMutableArray array];
+    if ([self isKindOfClass:[NSString class]] ||
+        [self isKindOfClass:[NSDate class]] ||
+        [self isKindOfClass:[NSData class]]){
+        return @[@{@"description":self.description}];
+    }
     NSMutableArray *keys = [NSMutableArray array];
     unsigned int outCount = 0;
     objc_property_t *properties = class_copyPropertyList(self.class, &outCount);
@@ -222,6 +227,9 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
             }
         }
     }
+    ///挂在这里！！！检查一下你传的参数值对不对
+    ///挂在这里！！！检查一下你传的参数值对不对
+    ///挂在这里！！！检查一下你传的参数值对不对
     [invocation invoke];
     
     const char *retType = [methodSig methodReturnType];

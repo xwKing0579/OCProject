@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXTERN NSString *const kTPRouterPathURLName;
 FOUNDATION_EXTERN NSString *const kTPRouterPathJumpStyle;
 FOUNDATION_EXTERN NSString *const kTPRouterPathNoAnimation;
-
-///测试路由 
+typedef void(^TPRouterBlock)(id object);
+///测试路由
 ///ocproject://oc.com/native/index_2
 ///ocproject://oc.com/native/TPCrashViewController
 @interface TPRouter : NSObject

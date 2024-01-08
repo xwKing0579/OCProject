@@ -24,7 +24,7 @@
 }
 
 - (void)setUpSubViews{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"delete"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeMonitorData)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"delete"].original style:(UIBarButtonItemStyleDone) target:self action:@selector(removeMonitorData)];
     self.data = ((NSArray *)[TPMonitorCache monitorData]).reverseObjectEnumerator.allObjects;
     [self.tableView reloadData];
 }

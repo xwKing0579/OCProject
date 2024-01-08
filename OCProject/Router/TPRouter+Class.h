@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)web;
 + (NSString *)webKey;
 
++ (NSString *)mine;
++ (NSString *)mineKey;
+
++ (NSString *)routerParams;
++ (NSString *)routerParamsKey;
+
 + (NSString *)test;
 + (NSString *)testTableViewCell;
 + (NSString *)testTableViewCellClass;

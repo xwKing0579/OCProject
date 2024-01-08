@@ -18,7 +18,7 @@
     // Do any additional setup after loading the view.
     self.title = @"UserDefaults";
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"delete"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeUserDefaulesData)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"delete"].original style:(UIBarButtonItemStyleDone) target:self action:@selector(removeUserDefaulesData)];
     self.dict = NSUserDefaults.standardUserDefaults.dictionaryRepresentation;
     [self.tableView reloadData];
 }

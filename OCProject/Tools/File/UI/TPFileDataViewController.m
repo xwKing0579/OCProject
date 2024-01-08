@@ -26,7 +26,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [NSObject performTarget:@"TPFileDataTableViewCell_Class" action:@"initWithTableView:withKey:withValue:" objects:@{@"object1":tableView,@"object2":self.dic.allKeys[indexPath.row],@"object3":self.dic[self.dic.allKeys[indexPath.row]]}] ?: [UITableViewCell new];
+    NSString *key = self.dic.allKeys[indexPath.row];
+    NSDictionary *dict = @{key:self.dic[key]};
+    return [NSObject performTarget:@"TPFileDataTableViewCell_Class" action:[self actionString] object:tableView object:dict] ?: [UITableViewCell new];
 }
 
 @end

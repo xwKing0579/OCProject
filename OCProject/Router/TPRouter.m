@@ -12,6 +12,7 @@ NSString *const kTPRouterPathURLName = @"native/";
 NSString *const kTPRouterPathJumpStyle = @"present";
 NSString *const kTPRouterPathNoAnimation = @"noanimation";
 NSString *const kTPRouterPathTabbarIndex = @"index_";
+NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
 
 @implementation TPRouter
 
@@ -84,11 +85,22 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
         if (nav && [nav isKindOfClass:[UINavigationController class]]) {
             vc = [nav initWithRootViewController:vc];
         }
-        ///自定义model
-        if (![propertys valueForKey:@"modalPresentationStyle"]) {
-            vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        }
         
+        ///自定义model
+        UIModalPresentationStyle modalStyle;
+        switch ([[NSString stringWithFormat:@"%@",propertys[kTPRouterPathPresentStyle]] intValue]) {
+            case 0:  modalStyle = UIModalPresentationFullScreen; break;
+            case 1:  modalStyle = UIModalPresentationPageSheet; break;
+            case 2:  modalStyle = UIModalPresentationFormSheet; break;
+            case 3:  modalStyle = UIModalPresentationCurrentContext; break;
+            case 4:  modalStyle = UIModalPresentationCustom; break;
+            case 5:  modalStyle = UIModalPresentationOverFullScreen; break;
+            case 6:  modalStyle = UIModalPresentationOverCurrentContext; break;
+            case 7:  modalStyle = UIModalPresentationPopover; break;
+            case -2: modalStyle = UIModalPresentationAutomatic; break;
+            default: modalStyle = UIModalPresentationFullScreen; break;
+        }
+        vc.modalPresentationStyle = modalStyle;
         [currentVC presentViewController:vc animated:animation completion:nil];
     }
     
@@ -109,22 +121,26 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
     NSString *obj = dataComponent.lastObject;
     if ([obj hasPrefix:kTPRouterPathTabbarIndex]) {
         if (currentVC.presentingViewController) {
-            [currentVC dismissViewControllerAnimated:NO completion:nil];
+            [currentVC dismissViewControllerAnimated:animation completion:^{
+                [self backUrl:url];
+            }];
+        }else{
+            [[UIViewController currentViewController].navigationController popToRootViewControllerAnimated:animation];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if ([UIViewController.rootViewController isKindOfClass:[UITabBarController class]]) {
+                    __kindof UITabBarController *tabbarController = (UITabBarController *)UIViewController.rootViewController;
+                    NSUInteger selectedIndex = [obj stringByReplacingOccurrencesOfString:kTPRouterPathTabbarIndex withString:@""].integerValue;
+                    if (selectedIndex < tabbarController.viewControllers.count) tabbarController.selectedIndex = selectedIndex;
+                }
+            });
         }
-        if ([obj hasPrefix:kTPRouterPathTabbarIndex]) {
-            NSUInteger index = [obj stringByReplacingOccurrencesOfString:kTPRouterPathTabbarIndex withString:@""].integerValue;
-            if ([UIViewController.rootViewController isKindOfClass:[UITabBarController class]]) {
-                __kindof UITabBarController *tabbarController = (UITabBarController *)UIViewController.rootViewController;
-                if (index < tabbarController.viewControllers.count) tabbarController.selectedIndex = index;
-            }
-        }
-        [currentVC.navigationController popToRootViewControllerAnimated:animation];
     }else{
         if (currentVC.navigationController.viewControllers.count > 1){
             __kindof UINavigationController *nav = currentVC.navigationController;
             Class class = NSClassFromString([self classValue][dataComponent.firstObject]);
-            if (!class) {
-                [nav popViewControllerAnimated:YES];
+            if (!class) class = NSClassFromString(dataComponent.firstObject);
+            if (!class){
+                [nav popViewControllerAnimated:animation];
                 return;
             }
             __kindof UIViewController *toVc;
@@ -137,7 +153,9 @@ NSString *const kTPRouterPathTabbarIndex = @"index_";
             
             toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
          }else if (currentVC.presentingViewController) {
-             [currentVC dismissViewControllerAnimated:animation completion:nil];
+             [currentVC dismissViewControllerAnimated:animation completion:^{
+                 [self backUrl:url];
+             }];
          }
     }
 }

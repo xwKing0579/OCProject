@@ -37,7 +37,7 @@
     customView.backgroundColor = UIColor.redColor;
     customView.layer.cornerRadius = 20;
     [customView setTitle:self.isVcs ? @"V" : @"C" forState:UIControlStateNormal];
-    [customView setTitleColor:UIColor.cFFFFFF forState:UIControlStateNormal];
+    [customView setTitleColor:UIColor.cffffff forState:UIControlStateNormal];
     [customView addTarget:self action:@selector(clickOn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:customView];
     [customView mas_makeConstraints:^(MASConstraintMaker *make) {

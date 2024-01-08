@@ -22,7 +22,7 @@
                              rootClass:(Class)rootClass
                             tabBarName:(NSString *)name
                        tabBarImageName:(NSString *)imageName{
-    [self setUpViewControllersInNavClass:navClass rootClass:rootClass tabBarName:name tabBarImageName:imageName size:[UIFont systemFontOfSize:12] color:[UIColor grayColor] selColor:[UIColor whiteColor]];
+    [self setUpViewControllersInNavClass:navClass rootClass:rootClass tabBarName:name tabBarImageName:imageName size:[UIFont systemFontOfSize:12] color:UIColor.cbfbfbf selColor:UIColor.c1296db];
 }
 
 - (void)setUpViewControllersInNavClass:(Class)navClass
@@ -36,18 +36,24 @@
     
     nav.title = name;//tabbar
     nav.navigationItem.title = name;//nav
-    nav.tabBarItem.image = [UIImage imageNamed:imageName];
+    nav.tabBarItem.image = [UIImage imageNamed:imageName].original;
     NSString *selectedImage = [NSString stringWithFormat:@"%@_sel",imageName];
-    nav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    nav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage].original;
     
-    [nav.tabBarItem setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:color,
-                  NSFontAttributeName:size}
-                             forState:UIControlStateNormal];
-    [nav.tabBarItem setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:selColor,
-                  NSFontAttributeName:size}
-                             forState:UIControlStateSelected];
+    if (@available (iOS 13.0, *)) {
+        self.tabBar.unselectedItemTintColor = color;
+        self.tabBar.tintColor = selColor;
+    }else{
+        [nav.tabBarItem setTitleTextAttributes:
+         @{NSForegroundColorAttributeName:color,
+                      NSFontAttributeName:size}
+                                 forState:UIControlStateNormal];
+        [nav.tabBarItem setTitleTextAttributes:
+         @{NSForegroundColorAttributeName:selColor,
+                      NSFontAttributeName:size}
+                                 forState:UIControlStateSelected];
+    }
+   
     [self addChildViewController:nav];
 }
 

@@ -44,7 +44,7 @@
     if (!_titleLabel){
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = UIFont.font14;
-        _titleLabel.textColor = UIColor.c1E1E1E;
+        _titleLabel.textColor = UIColor.c1e1e1e;
         _titleLabel.numberOfLines = 0;
     }
     return _titleLabel;
@@ -53,7 +53,7 @@
 - (UIView *)lineView{
     if (!_lineView){
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = UIColor.cCCCCCC;
+        _lineView.backgroundColor = UIColor.ccccccC;
     }
     return _lineView;
 }

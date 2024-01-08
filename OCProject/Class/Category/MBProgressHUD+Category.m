@@ -17,7 +17,7 @@
     hud.bezelView.color = [UIColor colorWithWhite:0.f alpha:0.7];
     hud.removeFromSuperViewOnHide = YES;
     hud.detailsLabel.text = text;
-    hud.detailsLabel.textColor = UIColor.cFFFFFF;
+    hud.detailsLabel.textColor = UIColor.cffffff;
     [container addSubview:hud];
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:3];

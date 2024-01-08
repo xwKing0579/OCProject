@@ -16,7 +16,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = [NSString stringWithFormat:@"崩溃信息(%@)",[TPCrashManager isOn] ? @"开" : @"关"];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageOriginal:[UIImage imageNamed:@"delete"]] style:(UIBarButtonItemStyleDone) target:self action:@selector(removeCrashData)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"delete"].original style:(UIBarButtonItemStyleDone) target:self action:@selector(removeCrashData)];
     self.data = ((NSArray *)[TPCrashCache crashData]).reverseObjectEnumerator.allObjects;
     [self.tableView reloadData];
 }
