@@ -26,14 +26,19 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)mine;
 + (NSString *)mineKey;
 
++ (NSString *)ui;
++ (NSString *)uiKey;
+
 + (NSString *)routerParams;
 + (NSString *)routerParamsKey;
 
 + (NSString *)test;
++ (NSString *)testKey;
+
 + (NSString *)testTableViewCell;
 + (NSString *)testTableViewCellClass;
-+ (NSString *)testTableViewCellAlloc;
 
++ (NSString *)TableViewCellInit;
 
 + (void)routerEntry;
 @end

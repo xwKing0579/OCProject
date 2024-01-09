@@ -29,8 +29,4 @@
     [TPRouter jumpUrl:self.data[indexPath.row]];
 }
 
-- (BOOL)hideNavigationBar{
-    return YES;
-}
-
 @end

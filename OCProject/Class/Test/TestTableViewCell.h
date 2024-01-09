@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TestTableViewCell : TPBaseTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView titleString:(NSString *)titleString;
-
 @end
 
 NS_ASSUME_NONNULL_END

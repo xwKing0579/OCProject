@@ -15,6 +15,7 @@
              [self homeKey] : [self home],
              [self webKey]  : [self web],
              [self mineKey] : [self mine],
+             [self uiKey]   : [self ui],
              [self routerParamsKey] :[self routerParams],
     };
 }
@@ -36,6 +37,10 @@
 + (NSString *)webKey{return @"web";}
 + (NSString *)web{return @"TPWebViewController";}
 
+///TPUIViewController
++ (NSString *)uiKey{return @"ui";}
++ (NSString *)ui{return @"TPUIViewController";}
+
 ///TPMineViewController
 + (NSString *)mineKey{return @"mine";}
 + (NSString *)mine{return @"TPMineViewController";}
@@ -48,10 +53,11 @@
 ///TestViewController
 + (NSString *)testKey{return @"test";}
 + (NSString *)test{return @"TestViewController";}
+
 + (NSString *)testTableViewCell{return @"TestTableViewCell";}
 + (NSString *)testTableViewCellClass{return @"TestTableViewCell_Class";}
-+ (NSString *)testTableViewCellAlloc{return @"initWithTableView:titleString:";}
 
++ (NSString *)TableViewCellInit{return @"initWithTableView:withObject:";}
 
 ///路由测试
 + (void)routerEntry{

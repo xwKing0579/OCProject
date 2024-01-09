@@ -36,6 +36,7 @@
     
     nav.title = name;//tabbar
     nav.navigationItem.title = name;//nav
+    nav.topViewController.title = name;
     nav.tabBarItem.image = [UIImage imageNamed:imageName].original;
     NSString *selectedImage = [NSString stringWithFormat:@"%@_sel",imageName];
     nav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage].original;

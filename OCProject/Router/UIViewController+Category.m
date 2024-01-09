@@ -9,6 +9,23 @@
 
 @implementation UIViewController (Category)
 
+- (BOOL)isForbidShot{
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setIsForbidShot:(BOOL)isForbidShot{
+    if ([self.view isKindOfClass:[UITabBarController class]] ||
+        [self.view isKindOfClass:[UISplitViewController class]] ||
+        [self.view isKindOfClass:[UINavigationController class]]) return;
+    if (isForbidShot && [self.view isMemberOfClass:[UIView class]]) {
+        UITextField *textField = [[UITextField alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        textField.secureTextEntry = YES;
+        textField.subviews.firstObject.backgroundColor = self.view.backgroundColor;
+        self.view = textField.subviews.firstObject;
+        objc_setAssociatedObject(self, @selector(isForbidShot), @(isForbidShot), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+
 + (__kindof UIViewController *)currentViewController{
     __block UIViewController *controller = nil;
     void (^block)(void) = ^{

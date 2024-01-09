@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///状态栏高度
 + (CGFloat)statusBarHeight;
 
+///禁止截屏
+@property (nonatomic, assign) BOOL isForbidShot;
+
 @end
 
 NS_ASSUME_NONNULL_END

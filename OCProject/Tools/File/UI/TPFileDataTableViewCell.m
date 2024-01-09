@@ -60,7 +60,7 @@
         _contentTextView.textColor = UIColor.c000000;
         _contentTextView.layer.borderColor = UIColor.c333333.CGColor;
         _contentTextView.layer.borderWidth = 0.5;
-        _contentTextView.textContainerInset = UIEdgeInsetsMake(10, 15, 10, 150);
+        _contentTextView.textContainerInset = UIEdgeInsetsMake(10, 15, 10, 15);
     }
     return _contentTextView;
 }

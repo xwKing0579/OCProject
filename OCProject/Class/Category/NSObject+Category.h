@@ -28,9 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)performAction:(NSString *)action object:(id __nullable)object1 object:(id __nullable)object2;
 + (id)performAction:(NSString *)action objects:(NSDictionary * __nullable)objects;
 
-///注意 不支持返回基础数据类型
-///注意 不支持返回基础数据类型
-///注意 不支持返回基础数据类型
 + (id)performTarget:(NSString *)target action:(NSString *)action;
 + (id)performTarget:(NSString *)target action:(NSString *)action object:(id __nullable)object;
 
@@ -54,6 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
                    .......}
  */
 + (id)performTarget:(NSString *)target action:(NSString *)action objects:(NSDictionary * __nullable)objects;
+
+
 
 @end
 

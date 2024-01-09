@@ -29,7 +29,7 @@
 }
 
 - (NSString *)actionString{
-    return @"initWithTableView:withObject:";
+    return TPRouter.TableViewCellInit;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
@@ -53,6 +53,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.rowHeight = UITableViewAutomaticDimension;
+        _tableView.backgroundColor = UIColor.cffffff;
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);

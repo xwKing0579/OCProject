@@ -12,7 +12,7 @@
 
 @implementation TestTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView titleString:(NSString *)titleString{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(NSString *)titleString{
     TestTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = titleString;
     return cell;

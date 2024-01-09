@@ -6,24 +6,41 @@
 //
 
 #import "UIColor+Category.h"
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation UIColor (Category)
-
-+ (UIColor *)cffffff{return [self RGB:0xffffff];}
-+ (UIColor *)ccccccC{return [self RGB:0xcccccc];}
-+ (UIColor *)c1e1e1e{return [self RGB:0x1e1e1e];}
-+ (UIColor *)c333333{return [self RGB:0x333333];}
-+ (UIColor *)c505050{return [self RGB:0x505050];}
-+ (UIColor *)c000000{return [self RGB:0x000000];}
-+ (UIColor *)c1eb65f{return [self RGB:0x1eb65f];}
-+ (UIColor *)c1296db{return [self RGB:0x1296db];}
-+ (UIColor *)cbfbfbf{return [self RGB:0xbfbfbf];}
+#pragma clang diagnostic pop
 
 
++ (BOOL)resolveClassMethod:(SEL)selector{
+    NSString *string = NSStringFromSelector(selector);
+    if ([string hasPrefix:@"c"] && string.length == 7) {
+        Method method = class_getClassMethod([self class],@selector(colorSelf));
+        Class metacls = objc_getMetaClass(NSStringFromClass([self class]).UTF8String);
+        class_addMethod(metacls,selector,method_getImplementation(method),method_getTypeEncoding(method));
+        return YES;
+    }
+    return [super resolveClassMethod:selector];
+}
 
++ (UIColor *)colorSelf{
+    return [self rgbString:NSStringFromSelector(_cmd)];
+}
 
-+ (UIColor *)RGB:(int)rgb{return [self RGB:rgb A:1.0];}
-+ (UIColor *)RGB:(int)rgb A:(CGFloat)a{
++ (UIColor *)rgbString:(NSString *)cString{
+    cString = [cString substringFromIndex:1];
+    NSString *rString = [cString substringWithRange:NSMakeRange(0, 2)];
+    NSString *gString = [cString substringWithRange:NSMakeRange(2, 2)];
+    NSString *bString = [cString substringWithRange:NSMakeRange(4, 2)];
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
+}
+
++ (UIColor *)RGB:(int)rgb {return [self RGB:rgb A:1.0];}
++ (UIColor *)RGB:(int)rgb A:(CGFloat)a {
     return [UIColor colorWithRed:((float)((rgb & 0xFF0000) >> 16))/255.0 green:((float)((rgb & 0xFF00) >> 8))/255.0 blue:((float)(rgb & 0xFF))/255.0 alpha:a];
 }
 
@@ -54,3 +71,4 @@
 }
 
 @end
+

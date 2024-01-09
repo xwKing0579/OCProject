@@ -6,32 +6,29 @@
 //
 
 #import "UIFont+Category.h"
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation UIFont (Category)
+#pragma clang diagnostic pop
 
-+ (UIFont *)font10{return [self fontSize:10];}
-+ (UIFont *)font11{return [self fontSize:11];}
-+ (UIFont *)font12{return [self fontSize:12];}
-+ (UIFont *)font13{return [self fontSize:13];}
-+ (UIFont *)font14{return [self fontSize:14];}
-+ (UIFont *)font15{return [self fontSize:15];}
-+ (UIFont *)font16{return [self fontSize:16];}
-+ (UIFont *)font17{return [self fontSize:17];}
-+ (UIFont *)font18{return [self fontSize:18];}
-+ (UIFont *)font19{return [self fontSize:19];}
-+ (UIFont *)font20{return [self fontSize:20];}
++ (BOOL)resolveClassMethod:(SEL)selector{
+    NSString *string = NSStringFromSelector(selector);
+    if ([string hasPrefix:@"font"] && [[string substringFromIndex:string.length-2] isNumber]) {
+        Method method = class_getClassMethod([self class],@selector(fontSelf));
+        Class metacls = objc_getMetaClass(NSStringFromClass([self class]).UTF8String);
+        class_addMethod(metacls,selector,method_getImplementation(method),method_getTypeEncoding(method));
+        return YES;
+    }
+    return [super resolveClassMethod:selector];
+}
 
-+ (UIFont *)fontBold10{return [self fontBoldSize:10];}
-+ (UIFont *)fontBold11{return [self fontBoldSize:11];}
-+ (UIFont *)fontBold12{return [self fontBoldSize:12];}
-+ (UIFont *)fontBold13{return [self fontBoldSize:13];}
-+ (UIFont *)fontBold14{return [self fontBoldSize:14];}
-+ (UIFont *)fontBold15{return [self fontBoldSize:15];}
-+ (UIFont *)fontBold16{return [self fontBoldSize:16];}
-+ (UIFont *)fontBold17{return [self fontBoldSize:17];}
-+ (UIFont *)fontBold18{return [self fontBoldSize:18];}
-+ (UIFont *)fontBold19{return [self fontBoldSize:19];}
-+ (UIFont *)fontBold20{return [self fontBoldSize:20];}
++ (UIFont *)fontSelf{
+    NSString *fontString = NSStringFromSelector(_cmd);
+    if ([fontString hasPrefix:@"fontBold"]){
+        return [self fontSize:[[fontString stringByReplacingOccurrencesOfString:@"fontBold" withString:@""] floatValue]];
+    }
+    return [self fontSize:[[fontString stringByReplacingOccurrencesOfString:@"font" withString:@""] floatValue]];
+}
 
 + (UIFont *)fontSize:(CGFloat)size{
     return [UIFont fontWithName:@"PingFangSC-Regular" size:size];

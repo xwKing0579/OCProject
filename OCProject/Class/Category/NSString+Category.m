@@ -8,7 +8,12 @@
 #import "NSString+Category.h"
 
 @implementation NSString (Category)
-
+- (BOOL)isNumber{
+    if (!self) return NO;
+    NSScanner *scan = [NSScanner scannerWithString:self];
+    int val;
+    return [scan scanInt:&val] && [scan isAtEnd];
+}
 + (NSString *)sizeString:(unsigned long long)fileSize{
     NSString *sizeString = @"0";
     if (fileSize >= pow(10, 9)) { // size >= 1GB

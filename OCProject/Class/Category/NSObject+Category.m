@@ -263,10 +263,26 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
         CGSize result = CGSizeZero;
         [invocation getReturnValue:&result];
         return @(result);
+    }else if (strcmp(retType, @encode(CGPoint)) == 0){
+        CGPoint result = CGPointZero;
+        [invocation getReturnValue:&result];
+        return @(result);
+    }else if (strcmp(retType, @encode(CGVector)) == 0){
+        CGVector result = CGVectorMake(0, 0);
+        [invocation getReturnValue:&result];
+        return @(result);
+    }else if (strcmp(retType, @encode(CGAffineTransform)) == 0){
+        CGAffineTransform result = CGAffineTransformIdentity;
+        [invocation getReturnValue:&result];
+        return NSStringFromCGAffineTransform(result);
     }else if (strcmp(retType, @encode(CGColorRef)) == 0){
         CGColorRef result;
         [invocation getReturnValue:&result];
         return (__bridge id)(result);
+    }else if (strcmp(retType, @encode(SEL)) == 0){
+        SEL result;
+        [invocation getReturnValue:&result];
+        return NSStringFromSelector(result);
     }else if ([target isKindOfClass:[NSObject class]]) {
         void *result = NULL;
         [invocation getReturnValue:&result];
@@ -292,4 +308,5 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
         NSLog(@"%@", [NSString stringWithFormat:@"target not found，请检查类<%@>是否存在",target]);
     }
 }
+
 @end

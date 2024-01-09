@@ -34,7 +34,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [NSObject performTarget:TPRouter.testTableViewCellClass action:TPRouter.testTableViewCellAlloc object:tableView object:[NSString stringWithFormat:@"%ld", indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:TPRouter.testTableViewCellClass action:TPRouter.TableViewCellInit object:tableView object:[NSString stringWithFormat:@"%ld", indexPath.row]] ?: [UITableViewCell new];
 }
 
 - (UITableView *)tableView{

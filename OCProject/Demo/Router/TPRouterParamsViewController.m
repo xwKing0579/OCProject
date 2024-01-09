@@ -33,10 +33,6 @@
     [self.tableView reloadData];
 }
 
-- (NSString *)cellClass{
-    return @"TPFileDataTableViewCell_Class";
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *dict = self.data[indexPath.row];
     NSString *key = dict.allKeys.firstObject;
