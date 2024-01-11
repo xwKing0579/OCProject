@@ -16,7 +16,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"po对象";
-    if ([NSStringFromClass([self.object class]) hasPrefix:@"UI"] ||
+    if ([NSStringFromClass([self.object class]) hasPrefix:@"UI"] || 
         [NSStringFromClass([self.object class]) hasPrefix:@"_UI"]){
         self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithTitle:@"shotImage" style:(UIBarButtonItemStyleDone) target:self action:@selector(shotObjectImage)],[[UIBarButtonItem alloc]initWithTitle:@"custom" style:(UIBarButtonItemStyleDone) target:self action:@selector(customPropertyList)]];
     }

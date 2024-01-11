@@ -88,6 +88,7 @@
         _iCarouselA.dataSource = self;
         _iCarouselA.pagingEnabled = YES;
         _iCarouselA.scrollEnabled = 3;
+        _iCarouselA.clipsToBounds = YES;
         _iCarouselA.type = iCarouselTypeCustom;
     }
     return _iCarouselA;
@@ -99,6 +100,7 @@
         _iCarouselB.delegate = self;
         _iCarouselB.dataSource = self;
         _iCarouselB.pagingEnabled = YES;
+        _iCarouselB.clipsToBounds = YES;
         _iCarouselB.type = iCarouselTypeLinear;
     }
     return _iCarouselB;

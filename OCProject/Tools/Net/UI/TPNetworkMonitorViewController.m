@@ -20,6 +20,11 @@
     self.title = @"网络数据";
     self.dataSource = TPNetworkMonitor.data;
     self.data = self.dataSource;
+    
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.textField.mas_bottom);
+        make.left.right.bottom.mas_equalTo(0);
+    }];
     [self.tableView reloadData];
 }
 

@@ -63,15 +63,14 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
     if (class_addMethod(cls,
                         originSelector,
                         method_getImplementation(swizzledMethod),
-                        method_getTypeEncoding(swizzledMethod)) ) {
+                        method_getTypeEncoding(swizzledMethod))) {
         /* replace class instance method, added if selector not exist */
         /* for class cluster , it always add new selector here */
         class_replaceMethod(cls,
                             swizzleSelector,
                             method_getImplementation(originalMethod),
                             method_getTypeEncoding(originalMethod));
-        
-    } else {
+    }else {
         /* swizzleMethod maybe belong to super */
         class_replaceMethod(cls,
                             swizzleSelector,
@@ -227,10 +226,15 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
             }
         }
     }
-    ///挂在这里！！！检查一下你传的参数值对不对
-    ///挂在这里！！！检查一下你传的参数值对不对
-    ///挂在这里！！！检查一下你传的参数值对不对
-    [invocation invoke];
+    
+    @try {
+        ///挂在这里！！！检查一下你传的参数值对不对
+        [invocation invoke];
+    } @catch (NSException *exception) {
+        return nil;
+    } @finally {
+        
+    }
     
     const char *retType = [methodSig methodReturnType];
     if (strcmp(retType, @encode(void)) == 0){
@@ -283,7 +287,13 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
         SEL result;
         [invocation getReturnValue:&result];
         return NSStringFromSelector(result);
+    }else if (strcmp(retType, @encode(void (^)(void))) == 0) {
+        __unsafe_unretained id result = nil;
+        [invocation getReturnValue:&result];
+        return result;
     }else if ([target isKindOfClass:[NSObject class]]) {
+        ///特殊处理UIWindow，未知问题
+        if ([target isKindOfClass:[UIWindow class]]) return nil;
         void *result = NULL;
         [invocation getReturnValue:&result];
         return (__bridge id)(result);

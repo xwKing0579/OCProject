@@ -17,7 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.data = @[@"TPRouterDemoViewController?title=路由演示demo"];
+    self.data = @[@"TPRouterDemoViewController?title=路由演示demo",
+                  @"TPMeditorDemoViewController?title=中间件demo",
+                  @"TPAnalysisDemoViewController?title=无痕埋点demo"];
+//    [TPNetworkManager post:@"fxtpplatform/information/app/live/anonymous/queryDailyLiveStatus" params:nil success:^(id  _Nonnull responseObject) {
+//        NSLog(@"%@",responseObject);
+//    } failure:^(TPNetworkError * _Nonnull error) {
+//        NSLog(@"%@",error);
+//    }];
 }
 
 - (NSString *)cellClass{

@@ -39,6 +39,7 @@
 		F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368DA2B32BE050055444B /* TPMonitorCache.m */; };
 		F84368E52B32E78B0055444B /* TPStartupTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368E42B32E78B0055444B /* TPStartupTime.m */; };
 		F84368E82B3302FB0055444B /* TPRAMUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = F84368E72B3302FB0055444B /* TPRAMUsage.m */; };
+		F8611C9E2B4F8BE100636793 /* NSObject+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = F8611C9D2B4F8BE100636793 /* NSObject+Safe.m */; };
 		F86871FB2B1D6641007E747F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FA2B1D6641007E747F /* TestViewController.m */; };
 		F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FE2B1D798D007E747F /* TPBaseTableViewCell.m */; };
 		F86872022B1D79C5007E747F /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872012B1D79C5007E747F /* TestTableViewCell.m */; };
@@ -46,6 +47,10 @@
 		F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */; };
 		F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E501D2B22F31B00B00781 /* TPRouter+Class.m */; };
 		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		F875EAE82B4E6D2900559A68 /* NSObject+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAE72B4E6D2900559A68 /* NSObject+Analysis.m */; };
+		F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAEA2B4E770C00559A68 /* TPAnalysisClickViewController.m */; };
+		F875EAEE2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */; };
+		F875EAF12B4E81F100559A68 /* TPAnalysisDemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */; };
 		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
 		F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D22B3EA9020081B012 /* TPNetworkModel.m */; };
 		F88495DB2B3EA9030081B012 /* TPNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D42B3EA9020081B012 /* TPNetworkMonitor.m */; };
@@ -59,6 +64,7 @@
 		F89767412B39691400B9F845 /* TPUIHierarchyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F89767402B39691400B9F845 /* TPUIHierarchyManager.m */; };
 		F89C833F2B3BBE7200638E43 /* TPShotObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89C833E2B3BBE7200638E43 /* TPShotObjectViewController.m */; };
 		F89E237D2B4CD85E00D34E24 /* TPiCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E237C2B4CD85E00D34E24 /* TPiCarouselViewController.m */; };
+		F89E23812B4D456A00D34E24 /* TPMeditorDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E23802B4D456A00D34E24 /* TPMeditorDemoViewController.m */; };
 		F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */; };
 		F8AE19672B2C3E7F009C12E2 /* TPFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19662B2C3E7F009C12E2 /* TPFileModel.m */; };
 		F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE196A2B2C51D8009C12E2 /* TPFileViewController.m */; };
@@ -82,6 +88,7 @@
 		F8B8B7622B47EB4600F2DE66 /* TPHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B8B7612B47EB4600F2DE66 /* TPHomeTableViewCell.m */; };
 		F8B8B7672B47ECE400F2DE66 /* TPBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B8B7662B47ECE400F2DE66 /* TPBaseTableViewController.m */; };
 		F8B8B76A2B47ED6A00F2DE66 /* TPRouterDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B8B7692B47ED6A00F2DE66 /* TPRouterDemoViewController.m */; };
+		F8BB82F92B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BB82F82B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m */; };
 		F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BB9CCC2B3D571000FF1418 /* TPDebugSwitchViewController.m */; };
 		F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343172B201E94004AEE48 /* TPBaseSettings.m */; };
 		F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D3431A2B203ED0004AEE48 /* TPSettingLocation.m */; };
@@ -211,6 +218,8 @@
 		F84368E42B32E78B0055444B /* TPStartupTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPStartupTime.m; sourceTree = "<group>"; };
 		F84368E62B3302FB0055444B /* TPRAMUsage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRAMUsage.h; sourceTree = "<group>"; };
 		F84368E72B3302FB0055444B /* TPRAMUsage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRAMUsage.m; sourceTree = "<group>"; };
+		F8611C9C2B4F8BE100636793 /* NSObject+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Safe.h"; sourceTree = "<group>"; };
+		F8611C9D2B4F8BE100636793 /* NSObject+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Safe.m"; sourceTree = "<group>"; };
 		F86871F92B1D6641007E747F /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F86871FA2B1D6641007E747F /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		F86871FD2B1D798D007E747F /* TPBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseTableViewCell.h; sourceTree = "<group>"; };
@@ -226,6 +235,14 @@
 		F86E501D2B22F31B00B00781 /* TPRouter+Class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPRouter+Class.m"; sourceTree = "<group>"; };
 		F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		F875EAE62B4E6D2900559A68 /* NSObject+Analysis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Analysis.h"; sourceTree = "<group>"; };
+		F875EAE72B4E6D2900559A68 /* NSObject+Analysis.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Analysis.m"; sourceTree = "<group>"; };
+		F875EAE92B4E770C00559A68 /* TPAnalysisClickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnalysisClickViewController.h; sourceTree = "<group>"; };
+		F875EAEA2B4E770C00559A68 /* TPAnalysisClickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisClickViewController.m; sourceTree = "<group>"; };
+		F875EAEC2B4E77C300559A68 /* TPAnalysisClickTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnalysisClickTableViewCell.h; sourceTree = "<group>"; };
+		F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisClickTableViewCell.m; sourceTree = "<group>"; };
+		F875EAEF2B4E81F100559A68 /* TPAnalysisDemoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnalysisDemoModel.h; sourceTree = "<group>"; };
+		F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisDemoModel.m; sourceTree = "<group>"; };
 		F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
 		F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
 		F88495D22B3EA9020081B012 /* TPNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkModel.m; sourceTree = "<group>"; };
@@ -252,6 +269,8 @@
 		F89C833E2B3BBE7200638E43 /* TPShotObjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPShotObjectViewController.m; sourceTree = "<group>"; };
 		F89E237B2B4CD85E00D34E24 /* TPiCarouselViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPiCarouselViewController.h; sourceTree = "<group>"; };
 		F89E237C2B4CD85E00D34E24 /* TPiCarouselViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPiCarouselViewController.m; sourceTree = "<group>"; };
+		F89E237F2B4D456A00D34E24 /* TPMeditorDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMeditorDemoViewController.h; sourceTree = "<group>"; };
+		F89E23802B4D456A00D34E24 /* TPMeditorDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMeditorDemoViewController.m; sourceTree = "<group>"; };
 		F8AE19622B2C2DC6009C12E2 /* TPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileManager.h; sourceTree = "<group>"; };
 		F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileManager.m; sourceTree = "<group>"; };
 		F8AE19652B2C3E7F009C12E2 /* TPFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileModel.h; sourceTree = "<group>"; };
@@ -298,6 +317,8 @@
 		F8B8B7662B47ECE400F2DE66 /* TPBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseTableViewController.m; sourceTree = "<group>"; };
 		F8B8B7682B47ED6A00F2DE66 /* TPRouterDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRouterDemoViewController.h; sourceTree = "<group>"; };
 		F8B8B7692B47ED6A00F2DE66 /* TPRouterDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRouterDemoViewController.m; sourceTree = "<group>"; };
+		F8BB82F72B4E34FF0001AEB3 /* TPAnalysisDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnalysisDemoViewController.h; sourceTree = "<group>"; };
+		F8BB82F82B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisDemoViewController.m; sourceTree = "<group>"; };
 		F8BB9CCB2B3D571000FF1418 /* TPDebugSwitchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugSwitchViewController.h; sourceTree = "<group>"; };
 		F8BB9CCC2B3D571000FF1418 /* TPDebugSwitchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugSwitchViewController.m; sourceTree = "<group>"; };
 		F8D343162B201E94004AEE48 /* TPBaseSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseSettings.h; sourceTree = "<group>"; };
@@ -568,6 +589,15 @@
 			path = Startup;
 			sourceTree = "<group>";
 		};
+		F8611C9B2B4F8BC400636793 /* Safe */ = {
+			isa = PBXGroup;
+			children = (
+				F8611C9C2B4F8BE100636793 /* NSObject+Safe.h */,
+				F8611C9D2B4F8BE100636793 /* NSObject+Safe.m */,
+			);
+			path = Safe;
+			sourceTree = "<group>";
+		};
 		F86872032B1D7A37007E747F /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +673,15 @@
 				F89767402B39691400B9F845 /* TPUIHierarchyManager.m */,
 			);
 			path = UIHierarchy;
+			sourceTree = "<group>";
+		};
+		F89E237E2B4D454800D34E24 /* Meditor */ = {
+			isa = PBXGroup;
+			children = (
+				F89E237F2B4D456A00D34E24 /* TPMeditorDemoViewController.h */,
+				F89E23802B4D456A00D34E24 /* TPMeditorDemoViewController.m */,
+			);
+			path = Meditor;
 			sourceTree = "<group>";
 		};
 		F8AE19612B2C2D13009C12E2 /* File */ = {
@@ -755,6 +794,8 @@
 		F8B8B7632B47EC7C00F2DE66 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				F8BB82F32B4E331B0001AEB3 /* Analysis */,
+				F89E237E2B4D454800D34E24 /* Meditor */,
 				F8B8B7642B47EC8600F2DE66 /* Router */,
 			);
 			path = Demo;
@@ -771,6 +812,23 @@
 				F8FCA33C2B4BC10800D110E8 /* TPRouterParamsTableViewCell.m */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F8BB82F32B4E331B0001AEB3 /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				F8BB82F72B4E34FF0001AEB3 /* TPAnalysisDemoViewController.h */,
+				F8BB82F82B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m */,
+				F875EAE62B4E6D2900559A68 /* NSObject+Analysis.h */,
+				F875EAE72B4E6D2900559A68 /* NSObject+Analysis.m */,
+				F875EAE92B4E770C00559A68 /* TPAnalysisClickViewController.h */,
+				F875EAEA2B4E770C00559A68 /* TPAnalysisClickViewController.m */,
+				F875EAEC2B4E77C300559A68 /* TPAnalysisClickTableViewCell.h */,
+				F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */,
+				F875EAEF2B4E81F100559A68 /* TPAnalysisDemoModel.h */,
+				F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */,
+			);
+			path = Analysis;
 			sourceTree = "<group>";
 		};
 		F8D343152B201DA8004AEE48 /* Settings */ = {
@@ -865,6 +923,7 @@
 		F8EAC7E92B173504005522DE /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
+				F8611C9B2B4F8BC400636793 /* Safe */,
 				F8B8B7632B47EC7C00F2DE66 /* Demo */,
 				F8D343212B206805004AEE48 /* Envi */,
 				F8D3431C2B20616E004AEE48 /* Toast */,
@@ -1207,6 +1266,7 @@
 			files = (
 				F89E237D2B4CD85E00D34E24 /* TPiCarouselViewController.m in Sources */,
 				F8E1B18A2B317E100036928F /* TPLogTableViewCell.m in Sources */,
+				F875EAF12B4E81F100559A68 /* TPAnalysisDemoModel.m in Sources */,
 				F8FCA3372B4B83DA00D110E8 /* TPRouterParamsViewController.m in Sources */,
 				F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */,
 				F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */,
@@ -1228,6 +1288,7 @@
 				F8F403AA2B21B97A008653CB /* NSArray+UnicodeReadable.m in Sources */,
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
 				F83AB0002B35356200496557 /* TPAppDetailViewController.m in Sources */,
+				F8611C9E2B4F8BE100636793 /* NSObject+Safe.m in Sources */,
 				F84368CA2B3289B60055444B /* TPThreadTrace.m in Sources */,
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
@@ -1264,7 +1325,9 @@
 				F88495E42B3EC0840081B012 /* TPNetworkMonitorTableViewCell.m in Sources */,
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
 				F8B8B7672B47ECE400F2DE66 /* TPBaseTableViewController.m in Sources */,
+				F8BB82F92B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m in Sources */,
 				F897673B2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m in Sources */,
+				F89E23812B4D456A00D34E24 /* TPMeditorDemoViewController.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
 				F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */,
@@ -1281,6 +1344,7 @@
 				F81BEC942B285AB200DAA26F /* TPAppInfoManager.m in Sources */,
 				F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */,
 				F81BEC8D2B28525D00DAA26F /* TPCrashModel.m in Sources */,
+				F875EAEE2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m in Sources */,
 				F822A10F2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m in Sources */,
 				F8F403B52B21C1C1008653CB /* TPDebugToolViewController.m in Sources */,
 				F81BEC9C2B2860F800DAA26F /* TPAppInfoViewController.m in Sources */,
@@ -1292,6 +1356,7 @@
 				F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */,
 				F8B8B7622B47EB4600F2DE66 /* TPHomeTableViewCell.m in Sources */,
 				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
+				F875EAE82B4E6D2900559A68 /* NSObject+Analysis.m in Sources */,
 				F8AE19772B2C7FB7009C12E2 /* TPFileDataViewController.m in Sources */,
 				F8F4039B2B21B93D008653CB /* MLeakedObjectProxy.m in Sources */,
 				F8AF956A2B1F1D07003059CB /* TPMineViewController.m in Sources */,
@@ -1313,6 +1378,7 @@
 				F89C833F2B3BBE7200638E43 /* TPShotObjectViewController.m in Sources */,
 				F8AE197A2B2C80F2009C12E2 /* TPFileDataTableViewCell.m in Sources */,
 				F83AB0042B3562AA00496557 /* TPLeaksViewController.m in Sources */,
+				F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */,
 				F80C53EE2B297A9E00C7FB38 /* NSDate+Category.m in Sources */,
 				F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */,
 				F8AF954B2B1EBA3C003059CB /* UIColor+Category.m in Sources */,

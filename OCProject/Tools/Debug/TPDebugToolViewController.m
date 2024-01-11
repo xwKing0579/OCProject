@@ -12,7 +12,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
 @interface TPDebugToolViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray <TPDebugToolModel *>*data;
-@property (nonatomic, copy) id block;
+//@property (nonatomic, copy) id block;
 @end
 
 @implementation TPDebugToolViewController

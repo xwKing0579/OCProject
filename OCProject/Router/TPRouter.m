@@ -113,7 +113,6 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
 
 + (void)backUrl:(NSString * _Nullable)url{
     NSArray <NSString *>*dataComponent = [url componentsSeparatedByString:@"/"];
-    
     BOOL animation = ![dataComponent containsObject:kTPRouterPathNoAnimation];
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return;
@@ -137,12 +136,14 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
     }else{
         if (currentVC.navigationController.viewControllers.count > 1){
             __kindof UINavigationController *nav = currentVC.navigationController;
-            Class class = NSClassFromString([self classValue][dataComponent.firstObject]);
-            if (!class) class = NSClassFromString(dataComponent.firstObject);
-            if (!class){
+            if (!url) {
                 [nav popViewControllerAnimated:animation];
                 return;
             }
+            Class class = NSClassFromString([self classValue][dataComponent.firstObject]);
+            if (!class) class = NSClassFromString(dataComponent.firstObject);
+            if (!class) return;
+            
             __kindof UIViewController *toVc;
             for (UIViewController *controller in nav.viewControllers) {
                 if ([controller isMemberOfClass:class]) {
@@ -154,7 +155,7 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
             toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
          }else if (currentVC.presentingViewController) {
              [currentVC dismissViewControllerAnimated:animation completion:^{
-                 [self backUrl:url];
+                 if (url) [self backUrl:url];
              }];
          }
     }

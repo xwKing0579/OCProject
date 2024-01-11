@@ -20,4 +20,9 @@
                   @"TPiCarouselViewController?title=iCarousel演示demo"];
 }
 
+#pragma mark -- UITableViewDelegate,UITableViewDataSource
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [TPRouter jumpUrl:self.data[indexPath.row]];
+}
+
 @end

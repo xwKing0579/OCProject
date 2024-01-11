@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (id)performTarget:(NSString *)target action:(NSString *)action objects:(NSDictionary * __nullable)objects;
 
-
-
 @end
 
 NS_ASSUME_NONNULL_END
