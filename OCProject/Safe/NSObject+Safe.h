@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (Safe)
-
++ (void)safeSwitch;
 @end
 
 NS_ASSUME_NONNULL_END

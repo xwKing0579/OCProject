@@ -10,10 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPNetworkMonitor : NSObject
-+ (void)start;
-+ (void)stop;
 
-+ (BOOL)isOn;
 
 + (NSArray <TPNetworkModel *>*)data;
 

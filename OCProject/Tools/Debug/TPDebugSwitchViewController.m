@@ -16,7 +16,8 @@
     self.data = @[@{@"打印日志":@"TPLogManager"},
                   @{@"崩溃信息":@"TPCrashManager"},
                   @{@"卡顿检测":@"TPFluencyMonitor"},
-                  @{@"视图层级":@"TPUIHierarchyManager"}];
+                  @{@"视图层级":@"TPUIHierarchyManager"},
+                  @{@"开启防护":@"TPSafeObjectManager"}];
     [self.tableView reloadData];
 }
 

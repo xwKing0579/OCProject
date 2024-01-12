@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - DZNEmptyDataSet (1.8.1)
   - iCarousel (1.8.3)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
@@ -26,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - DZNEmptyDataSet
   - iCarousel
   - Masonry
   - MBProgressHUD
@@ -37,6 +39,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - DZNEmptyDataSet
     - iCarousel
     - Masonry
     - MBProgressHUD
@@ -47,6 +50,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 240b77844a3e5caee5d65f9cee4bc8fab5e9d740
+PODFILE CHECKSUM: 1a87abb5445017bfbaf39117dd11be7bc0cb1a86
 
 COCOAPODS: 1.13.0

@@ -17,7 +17,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.data = @[@"TPForbidShotDemoViewController?title=禁止截屏demo",
-                  @"TPiCarouselViewController?title=iCarousel演示demo"];
+                  @"TPiCarouselViewController?title=iCarousel演示demo",
+                  @"TPEmptyDataViewController?title=emptyData演示demo",];
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

@@ -8,4 +8,5 @@ pod 'YYCache'
 pod 'MBProgressHUD'
 pod 'iCarousel'
 pod 'Masonry'
+pod 'DZNEmptyDataSet'
 end

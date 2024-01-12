@@ -51,6 +51,7 @@
 		F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAEA2B4E770C00559A68 /* TPAnalysisClickViewController.m */; };
 		F875EAEE2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */; };
 		F875EAF12B4E81F100559A68 /* TPAnalysisDemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */; };
+		F87C20E42B50D7D400EBC6C6 /* TPSafeObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */; };
 		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
 		F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D22B3EA9020081B012 /* TPNetworkModel.m */; };
 		F88495DB2B3EA9030081B012 /* TPNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D42B3EA9020081B012 /* TPNetworkMonitor.m */; };
@@ -65,6 +66,7 @@
 		F89C833F2B3BBE7200638E43 /* TPShotObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89C833E2B3BBE7200638E43 /* TPShotObjectViewController.m */; };
 		F89E237D2B4CD85E00D34E24 /* TPiCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E237C2B4CD85E00D34E24 /* TPiCarouselViewController.m */; };
 		F89E23812B4D456A00D34E24 /* TPMeditorDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E23802B4D456A00D34E24 /* TPMeditorDemoViewController.m */; };
+		F8A82DCF2B512B4F00E69051 /* TPEmptyDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A82DCE2B512B4F00E69051 /* TPEmptyDataViewController.m */; };
 		F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */; };
 		F8AE19672B2C3E7F009C12E2 /* TPFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE19662B2C3E7F009C12E2 /* TPFileModel.m */; };
 		F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE196A2B2C51D8009C12E2 /* TPFileViewController.m */; };
@@ -243,6 +245,8 @@
 		F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisClickTableViewCell.m; sourceTree = "<group>"; };
 		F875EAEF2B4E81F100559A68 /* TPAnalysisDemoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnalysisDemoModel.h; sourceTree = "<group>"; };
 		F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisDemoModel.m; sourceTree = "<group>"; };
+		F87C20E22B50D7D400EBC6C6 /* TPSafeObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSafeObjectManager.h; sourceTree = "<group>"; };
+		F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSafeObjectManager.m; sourceTree = "<group>"; };
 		F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
 		F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
 		F88495D22B3EA9020081B012 /* TPNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkModel.m; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 		F89E237C2B4CD85E00D34E24 /* TPiCarouselViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPiCarouselViewController.m; sourceTree = "<group>"; };
 		F89E237F2B4D456A00D34E24 /* TPMeditorDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMeditorDemoViewController.h; sourceTree = "<group>"; };
 		F89E23802B4D456A00D34E24 /* TPMeditorDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMeditorDemoViewController.m; sourceTree = "<group>"; };
+		F8A82DCD2B512B4F00E69051 /* TPEmptyDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPEmptyDataViewController.h; sourceTree = "<group>"; };
+		F8A82DCE2B512B4F00E69051 /* TPEmptyDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPEmptyDataViewController.m; sourceTree = "<group>"; };
 		F8AE19622B2C2DC6009C12E2 /* TPFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileManager.h; sourceTree = "<group>"; };
 		F8AE19632B2C2DC6009C12E2 /* TPFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFileManager.m; sourceTree = "<group>"; };
 		F8AE19652B2C3E7F009C12E2 /* TPFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFileModel.h; sourceTree = "<group>"; };
@@ -594,6 +600,8 @@
 			children = (
 				F8611C9C2B4F8BE100636793 /* NSObject+Safe.h */,
 				F8611C9D2B4F8BE100636793 /* NSObject+Safe.m */,
+				F87C20E22B50D7D400EBC6C6 /* TPSafeObjectManager.h */,
+				F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */,
 			);
 			path = Safe;
 			sourceTree = "<group>";
@@ -1078,12 +1086,14 @@
 		F8FCA33E2B4BF38500D110E8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F8FCA33F2B4BF3D200D110E8 /* TPForbidShotDemoViewController.h */,
-				F8FCA3402B4BF3D200D110E8 /* TPForbidShotDemoViewController.m */,
 				F8FCA3422B4BF40C00D110E8 /* TPUIViewController.h */,
 				F8FCA3432B4BF40C00D110E8 /* TPUIViewController.m */,
 				F89E237B2B4CD85E00D34E24 /* TPiCarouselViewController.h */,
 				F89E237C2B4CD85E00D34E24 /* TPiCarouselViewController.m */,
+				F8A82DCD2B512B4F00E69051 /* TPEmptyDataViewController.h */,
+				F8A82DCE2B512B4F00E69051 /* TPEmptyDataViewController.m */,
+				F8FCA33F2B4BF3D200D110E8 /* TPForbidShotDemoViewController.h */,
+				F8FCA3402B4BF3D200D110E8 /* TPForbidShotDemoViewController.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1289,6 +1299,7 @@
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
 				F83AB0002B35356200496557 /* TPAppDetailViewController.m in Sources */,
 				F8611C9E2B4F8BE100636793 /* NSObject+Safe.m in Sources */,
+				F87C20E42B50D7D400EBC6C6 /* TPSafeObjectManager.m in Sources */,
 				F84368CA2B3289B60055444B /* TPThreadTrace.m in Sources */,
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
@@ -1341,6 +1352,7 @@
 				F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */,
 				F81BEC9F2B286E3A00DAA26F /* TPAppInfoModel.m in Sources */,
 				F83AAFF72B351DC100496557 /* TPAppKindViewController.m in Sources */,
+				F8A82DCF2B512B4F00E69051 /* TPEmptyDataViewController.m in Sources */,
 				F81BEC942B285AB200DAA26F /* TPAppInfoManager.m in Sources */,
 				F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */,
 				F81BEC8D2B28525D00DAA26F /* TPCrashModel.m in Sources */,
