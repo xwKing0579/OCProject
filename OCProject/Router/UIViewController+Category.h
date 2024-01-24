@@ -15,9 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (__kindof UIViewController *)rootViewController;
 + (__kindof UIViewController *)currentViewController;
 
-///状态栏高度
-+ (CGFloat)statusBarHeight;
-
 ///禁止截屏
 @property (nonatomic, assign) BOOL isForbidShot;
 

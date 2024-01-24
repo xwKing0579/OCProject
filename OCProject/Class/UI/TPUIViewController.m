@@ -18,7 +18,8 @@
     // Do any additional setup after loading the view.
     self.data = @[@"TPForbidShotDemoViewController?title=禁止截屏demo",
                   @"TPiCarouselViewController?title=iCarousel演示demo",
-                  @"TPEmptyDataViewController?title=emptyData演示demo",];
+                  @"TPEmptyDataViewController?title=emptyData演示demo",
+                  @"TPCryptoViewController?title=加解密演示demo"];
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

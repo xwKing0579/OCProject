@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIDevice (Category)
 
 + (CGFloat)statusBarHeight;
-
++ (CGFloat)bottomBarHeight;
 @end
 
 NS_ASSUME_NONNULL_END

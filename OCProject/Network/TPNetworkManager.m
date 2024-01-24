@@ -7,15 +7,20 @@
 
 #import "TPNetworkManager.h"
 #import <AFNetworking.h>
-
-static AFHTTPSessionManager *manager;
-
+#import "TPCryptoUtils.h"
 @implementation TPNetworkManager
 
-+ (void)initialize {
-    manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer.timeoutInterval = 15.f;
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*",@"multipart/form-data", nil];
++ (void)initialize{
+    [self managerConfig];
+}
+
++ (AFHTTPSessionManager *)manager {
+    static AFHTTPSessionManager *manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [AFHTTPSessionManager manager];
+    });
+    return manager;
 }
 
 + (NSString *)fullUrl:(NSString *)url{
@@ -23,8 +28,9 @@ static AFHTTPSessionManager *manager;
     return [NSString stringWithFormat:@"%@/%@",[self baseUrl],url];
 }
 
-+ (NSString *)baseUrl{
-    return @"";
++ (NSString *)baseUrl{return @"";}
+
++ (void)managerConfig{
 }
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url
@@ -40,11 +46,11 @@ static AFHTTPSessionManager *manager;
                            failure:(TPHTTPRequestFailed)failure
                      responseCache:(TPHTTPRequestCache _Nullable)responseCache{
     responseCache == nil ? nil : responseCache([TPNetworkCache httpCacheForURL:url params:params]);
-    return [manager GET:[self fullUrl:url] parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [self.manager GET:[self fullUrl:url] parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success ? success(responseObject) : nil;
         responseCache == nil ? nil : [TPNetworkCache setHttpCache:responseObject URL:url params:params];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure ? failure([self networkError:error]) : nil;
+        failure ? failure((int)error.code,[self errorMessage:error]) : nil;
     }];
 }
 
@@ -61,11 +67,11 @@ static AFHTTPSessionManager *manager;
                             failure:(TPHTTPRequestFailed)failure
                       responseCache:(TPHTTPRequestCache _Nullable)responseCache{
     responseCache == nil ? nil : responseCache([TPNetworkCache httpCacheForURL:url params:params]);
-    return [manager POST:[self fullUrl:url] parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [self.manager POST:[self fullUrl:url] parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success ? success(responseObject) : nil;
         responseCache == nil ? nil : [TPNetworkCache setHttpCache:responseObject URL:url params:params];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure ? failure([self networkError:error]) : nil;
+        failure ? failure((int)error.code,[self errorMessage:error]) : nil;
     }];
 }
 
@@ -79,7 +85,7 @@ static AFHTTPSessionManager *manager;
                                           progress:(TPHTTPProgress)progress
                                            success:(TPHTTPRequestSuccess)success
                                            failure:(TPHTTPRequestFailed)failure{
-    return [manager POST:[self fullUrl:url] parameters:params headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    return [self.manager POST:[self fullUrl:url] parameters:params headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         for (NSUInteger i = 0; i < images.count; i++) {
             // 图片经过等比压缩后得到的二进制文件
             NSData *imageData = UIImageJPEGRepresentation(images[i], imageScale ?: 1.f);
@@ -102,7 +108,7 @@ static AFHTTPSessionManager *manager;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success ? success(responseObject) : nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure ? failure([self networkError:error]) : nil;
+        failure ? failure((int)error.code,[self errorMessage:error]) : nil;
     }];
 }
 
@@ -112,7 +118,7 @@ static AFHTTPSessionManager *manager;
                                        success:(void(^)(NSString *filePath))success
                                        failure:(TPHTTPRequestFailed)failure{
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self fullUrl:url]]];
-    return [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+    return [self.manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         dispatch_sync(dispatch_get_main_queue(), ^{
             progress ? progress(downloadProgress) : nil;
         });
@@ -124,18 +130,15 @@ static AFHTTPSessionManager *manager;
         return [NSURL fileURLWithPath:filePath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
-            failure ? failure([self networkError:error]) : nil;
+            failure ? failure((int)error.code,[self errorMessage:error]) : nil;
         }else{
             success ? success(filePath.absoluteString) : nil;
         }
     }];
 }
 
-+ (TPNetworkError *)networkError:(NSError *)error{
-    TPNetworkError *networkError = [[TPNetworkError alloc] init];
-    networkError.errorCode = [NSString stringWithFormat:@"%ld",error.code];
-    networkError.errorMessage = @"默认错误";
-    return networkError;
++ (NSString *)errorMessage:(NSError *)error{
+    return [error description];
 }
 
 @end

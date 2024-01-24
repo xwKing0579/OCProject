@@ -20,8 +20,10 @@
 #import "UIImage+Category.h"
 #import "UIView+Category.h"
 #import "NSDate+Category.h"
+#import "UIDevice+Category.h"
 #import "NSObject+Category.h"
 #import "NSString+Category.h"
+#import "UITextView+Category.h"
 #import "UIAlertController+Category.h"
 #import "UIViewController+Category.h"
 

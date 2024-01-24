@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPBaseTableViewController : TPBaseViewController
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, copy) NSArray *data;
 
 - (NSString *)cellClass;
 - (NSString *)actionString;

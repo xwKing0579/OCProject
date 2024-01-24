@@ -293,7 +293,7 @@ static void swizzleInstanceMethod(Class cls, SEL originSelector, SEL swizzleSele
         return result;
     }else if ([target isKindOfClass:[NSObject class]]) {
         ///特殊处理UIWindow，未知问题
-        if ([target isKindOfClass:[UIWindow class]]) return nil;
+        if ([target isKindOfClass:[UIView class]]) return nil;
         void *result = NULL;
         [invocation getReturnValue:&result];
         return (__bridge id)(result);

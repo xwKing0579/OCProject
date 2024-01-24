@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TPNetworkError.h"
 #import "TPNetworkCache.h"
 #import <UIKit/UIKit.h>
 
@@ -14,11 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class AFHTTPSessionManager;
 
 typedef void(^TPHTTPRequestSuccess)(id responseObject);
-typedef void(^TPHTTPRequestFailed)(TPNetworkError *error);
+typedef void(^TPHTTPRequestFailed)(int code, NSString *msg);
 typedef void(^TPHTTPRequestCache)(id responseCache);
 typedef void(^TPHTTPProgress)(NSProgress *progress);
 
 @interface TPNetworkManager : NSObject
+
+@property (nonatomic, strong) AFHTTPSessionManager *managers;
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url
                             params:(id _Nullable)params
@@ -60,7 +61,8 @@ typedef void(^TPHTTPProgress)(NSProgress *progress);
                                        failure:(TPHTTPRequestFailed)failure;
 
 + (NSString *)baseUrl;
-
++ (void)managerConfig;
++ (AFHTTPSessionManager *)manager;
 @end
 
 NS_ASSUME_NONNULL_END

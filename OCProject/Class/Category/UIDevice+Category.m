@@ -10,14 +10,10 @@
 @implementation UIDevice (Category)
 
 + (CGFloat)statusBarHeight{
-    if (@available(iOS 13.0, *)) {
-        NSSet *set = [UIApplication sharedApplication].connectedScenes;
-        UIWindowScene *windowScene = [set anyObject];
-        UIStatusBarManager *statusBarManager = windowScene.statusBarManager;
-        return statusBarManager.statusBarFrame.size.height;
-    }else{
-        return [UIApplication sharedApplication].statusBarFrame.size.height;
-    }
+    return [UIViewController window].safeAreaInsets.top;
 }
 
++ (CGFloat)bottomBarHeight{
+    return [UIViewController window].safeAreaInsets.bottom;
+}
 @end

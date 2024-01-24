@@ -49,13 +49,10 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
     
     NSMutableDictionary *propertys = [NSMutableDictionary dictionaryWithDictionary:params];
     [urlComponents.queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.value&&obj.name) {
-            [propertys setObject:obj.value forKey:obj.name];
-        }
+        if (obj.value) [propertys setObject:obj.value forKey:obj.name];
     }];
     
     __kindof UIViewController *vc = [class yy_modelWithDictionary:propertys];
-    if (!vc) return nil;
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return nil;
     
@@ -114,6 +111,7 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
 + (void)backUrl:(NSString * _Nullable)url{
     NSArray <NSString *>*dataComponent = [url componentsSeparatedByString:@"/"];
     BOOL animation = ![dataComponent containsObject:kTPRouterPathNoAnimation];
+    url = [url stringByReplacingOccurrencesOfString:kTPRouterPathNoAnimation withString:@""];
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return;
     
@@ -136,7 +134,7 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
     }else{
         if (currentVC.navigationController.viewControllers.count > 1){
             __kindof UINavigationController *nav = currentVC.navigationController;
-            if (!url) {
+            if ([self isEmptyData:dataComponent]) {
                 [nav popViewControllerAnimated:animation];
                 return;
             }
@@ -155,10 +153,24 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
             toVc ? [nav popToViewController:toVc animated:animation] : [nav popToRootViewControllerAnimated:animation];
          }else if (currentVC.presentingViewController) {
              [currentVC dismissViewControllerAnimated:animation completion:^{
-                 if (url) [self backUrl:url];
+                 if (![self isEmptyData:dataComponent]) [self backUrl:url];
              }];
          }
     }
+}
+
++ (BOOL)isEmptyData:(NSArray <NSString *>*)dataComponent{
+    __block BOOL isEmpty = NO;
+    NSMutableArray *data = [NSMutableArray arrayWithArray:dataComponent];
+    [data removeObject:kTPRouterPathNoAnimation];
+    if (data.count == 0) isEmpty = YES;
+    [data enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.length == 0) {
+            isEmpty = YES;
+            return;
+        }
+    }];
+    return isEmpty;
 }
 
 + (NSDictionary *)classValue {
