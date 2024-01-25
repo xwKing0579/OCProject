@@ -1,0 +1,6 @@
+framework module Pods_OCProject {
+  umbrella header "Pods-OCProject-umbrella.h"
+
+  export *
+  module * { export * }
+}

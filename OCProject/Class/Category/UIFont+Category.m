@@ -23,19 +23,22 @@
 }
 
 + (UIFont *)fontSelf{
-    NSString *fontString = NSStringFromSelector(_cmd);
-    if ([fontString hasPrefix:@"fontBold"]){
-        return [self fontSize:[[fontString stringByReplacingOccurrencesOfString:@"fontBold" withString:@""] floatValue]];
+    NSString *action = @"fontSize:";
+    NSString *selector = NSStringFromSelector(_cmd);
+    ///这里写死后2位，可以按照实际情况处理
+    NSString *font = [selector substringFromIndex:selector.length-2];
+    if ([selector hasPrefix:@"fontBold"]){
+        action = @"fontBoldSize:";
     }
-    return [self fontSize:[[fontString stringByReplacingOccurrencesOfString:@"font" withString:@""] floatValue]];
+    return [self performAction:action object:font];
 }
 
-+ (UIFont *)fontSize:(CGFloat)size{
-    return [UIFont fontWithName:@"PingFangSC-Regular" size:size];
++ (UIFont *)fontSize:(NSString *)size{
+    return [UIFont fontWithName:@"PingFangSC-Regular" size:size.floatValue];
 }
 
-+ (UIFont *)fontBoldSize:(CGFloat)size{
-    return [UIFont fontWithName:@"PingFangSC-Semibold" size:size];
++ (UIFont *)fontBoldSize:(NSString *)size{
+    return [UIFont fontWithName:@"PingFangSC-Semibold" size:size.floatValue];
 }
 
 @end

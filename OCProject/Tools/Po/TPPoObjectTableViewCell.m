@@ -71,8 +71,8 @@
 - (void)clickCopyAction{
     UIPasteboard *pastboard = [UIPasteboard generalPasteboard];
     [pastboard setString:self.contentLabel.text];
-    
-    [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"复制成功"];
+
+    [TPToastManager showText:@"复制成功"];
 }
 
 - (UILabel *)titleLabel{

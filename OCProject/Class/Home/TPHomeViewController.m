@@ -6,8 +6,8 @@
 //
 
 #import "TPHomeViewController.h"
-#import "TPFileManager.h"
 
+#import "Lottie/Lottie.h"
 @interface TPHomeViewController ()
 
 @end
@@ -20,12 +20,6 @@
     self.data = @[@"TPRouterDemoViewController?title=路由演示demo",
                   @"TPMeditorDemoViewController?title=中间件demo",
                   @"TPAnalysisDemoViewController?title=无痕埋点demo"];
-//    [TPNetworkManager post:@"fxtpplatform/information/app/live/anonymous/queryDailyLiveStatus" params:nil success:^(id  _Nonnull responseObject) {
-//        NSLog(@"%@",responseObject);
-//    } failure:^(TPNetworkError * _Nonnull error) {
-//        NSLog(@"%@",error);
-//    }];
- 
 }
 
 - (NSString *)cellClass{

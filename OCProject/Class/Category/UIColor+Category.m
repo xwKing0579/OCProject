@@ -24,7 +24,7 @@
 }
 
 + (UIColor *)colorSelf{
-    return [self rgbString:NSStringFromSelector(_cmd)];
+    return [self performAction:@"rgbString:" object:NSStringFromSelector(_cmd)];
 }
 
 + (UIColor *)rgbString:(NSString *)cString{

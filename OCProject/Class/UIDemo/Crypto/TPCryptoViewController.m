@@ -57,10 +57,10 @@
     NSString *pubKey = self.pubKeyTextView.text;
     NSString *priKey = self.privteKeyTextView.text;
     if (text.length == 0) {
-        [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"明文不能为空"];
+        [TPToastManager showText:@"明文不能为空"];
         return;
     }
-    CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+
     switch (self.cryptoBtn.tag) {
         case 0:
             self.textView.text = sender.selected ? [TPCryptoUtils base64DecodedString:text] : [TPCryptoUtils base64EncodedString:text];
@@ -80,7 +80,7 @@
         default:
             break;
     }
-    NSLog(@"加解密时间===%f",CFAbsoluteTimeGetCurrent()-start);
+   
     sender.selected = !sender.selected;
     NSString *title = self.cryptoBtn.titleLabel.text;
     if (sender.selected && self.cryptoBtn.tag != 1){

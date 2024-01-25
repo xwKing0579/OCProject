@@ -61,7 +61,7 @@
                 self.doc = doc;
                 BOOL canOpen = [doc presentPreviewAnimated:YES];
                 if (!canOpen) {
-                    [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"该文件还没有添加预览模式"];
+                    [TPToastManager showText:@"该文件还没有添加预览模式"];
                 }
             }
         }

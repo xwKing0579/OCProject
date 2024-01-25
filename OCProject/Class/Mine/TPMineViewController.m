@@ -17,9 +17,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"目录";
-    
-    NSLog(@"%@",self.data);
-    
+
     if (self.data.count == 0) {
         NSMutableArray *data = [NSMutableArray array];
         unsigned int count;
@@ -37,7 +35,6 @@
         }
         self.data = data;
     }
-   
 }
 
 - (NSString *)cellClass{
@@ -48,9 +45,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     id object = self.data[indexPath.row];
     
-
     if ([object isKindOfClass:[NSDictionary class]]){
-        NSString *key = ((NSDictionary *)object).allKeys.firstObject;
         id value = ((NSDictionary *)object).allValues.firstObject;
         if ([value isKindOfClass:[NSString class]]) {
             [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.web,value]];

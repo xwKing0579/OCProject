@@ -160,7 +160,7 @@ static NSMutableArray *_pagePathString;
         [result appendFormat:@"\ndate = %@",NSDate.currentTime];
         [result appendFormat:@"\npage = %@",NSStringFromClass(UIViewController.currentViewController.class)];
         
-        [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:result];
+        [TPToastManager showText:result];
     }
 }
 @end

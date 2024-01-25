@@ -21,7 +21,7 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"sort" style:(UIBarButtonItemStyleDone) target:self action:@selector(sortUserData)];
     
-    [NSObject performTarget:@"MBProgressHUD_Class" action:@"showText:" object:@"数据加载中..."];
+    [TPToastManager showText:@"数据加载中..."];
     
 #ifdef DEBUG
     [TPAppKindModel sysetmAppList:^(NSArray<TPAppKindModel *> * _Nonnull appList) {
