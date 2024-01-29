@@ -22,4 +22,17 @@
              @"https://github.com/Xcoder1011/SKGenerateModelTool"];
 }
 
++ (NSArray *)lottie{
+    return @[@"https://github.com/airbnb/lottie-ios",
+             @"https://lottiefiles.com"];
+}
+
++ (NSArray *)性能优化{
+    return @[@"https://github.com/skyming/iOS-Performance-Optimization"];
+}
+
++ (NSString *)设计模式{
+    return @"https://zhuanlan.zhihu.com/p/271833450";
+}
+
 @end

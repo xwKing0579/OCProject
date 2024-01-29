@@ -7,7 +7,7 @@
 
 #import "MBProgressHUD+Category.h"
 #import "Lottie/Lottie.h"
-
+#import "NSObject+MemoryLeak.h"
 @implementation MBProgressHUD (Category)
 
 + (MBProgressHUD *)manager {
@@ -76,6 +76,10 @@
 + (void)hideLoading{
     MBProgressHUD *hud = [MBProgressHUD manager];
     [hud hideAnimated:YES];
+}
+
+- (BOOL)willDealloc{
+    return YES;
 }
 
 @end

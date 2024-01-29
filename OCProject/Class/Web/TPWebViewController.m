@@ -28,21 +28,46 @@
     [self.view addSubview:self.webView];
     if (self.url) {
         [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
+        
+        [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
+        [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     }
+}
+
+#pragma mark KVO的监听代理
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"title"]){
+        if (object == self.webView){
+            self.title = self.webView.title;
+        }
+    }
+}
+
+- (void)dealloc{
+    [self.webView removeObserver:self forKeyPath:@"title"];
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
 }
 
 #pragma mark - WKNavigationDelegate
 /* 页面开始加载 */
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{}
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+    [TPToastManager showLoading];
+}
 
 /* 开始返回内容 */
-- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{}
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation{
+    [TPToastManager hideLoading];
+}
 
 /* 页面加载完成 */
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{}
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    [TPToastManager hideLoading];
+}
 
 /* 页面加载失败 */
-- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{}
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation{
+    [TPToastManager hideLoading];
+}
 
 /* 在发送请求之前，决定是否跳转 */
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
@@ -51,7 +76,6 @@
 
 /* 在收到响应后，决定是否跳转 */
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
-    NSLog(@"%@",navigationResponse.response.URL.absoluteString);
     decisionHandler(WKNavigationResponsePolicyAllow);
 }
 
@@ -60,14 +84,14 @@
 /// 处理alert弹窗事件
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
     [self alert:@"温馨提示" message:message?:@"" buttonTitles:@[@"确认"] handler:^(int index, NSString *title) {
-       completionHandler();
+        completionHandler();
     }];
 }
 
 /// 处理Confirm弹窗事件
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler{
     [self alert:@"温馨提示" message:message?:@"" buttonTitles:@[@"取消", @"确认"] handler:^(int index, NSString *title) {
-       completionHandler(index != 0);
+        completionHandler(index != 0);
     }];
 }
 

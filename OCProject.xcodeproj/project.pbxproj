@@ -817,8 +817,6 @@
 				F8AE19702B2C67FB009C12E2 /* NSString+Category.m */,
 				F8A706702B54DBC0005BEC68 /* UITextView+Category.h */,
 				F8A706712B54DBC0005BEC68 /* UITextView+Category.m */,
-				F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */,
-				F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */,
 				F8430E8D2B26E6E600DBE29F /* UIAlertController+Category.h */,
 				F8430E8E2B26E6E600DBE29F /* UIAlertController+Category.m */,
 				F86E505C2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.h */,
@@ -937,6 +935,8 @@
 				F86E34A52B60E9D4004B3C2F /* TPToastManager.h */,
 				F86E34A62B60E9D4004B3C2F /* TPToastManager.m */,
 				F86E34C22B610C56004B3C2F /* loading.json */,
+				F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */,
+				F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */,
 			);
 			path = Toast;
 			sourceTree = "<group>";
