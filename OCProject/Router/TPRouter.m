@@ -56,18 +56,6 @@ NSString *const kTPRouterPathPresentStyle = @"modalPresentationStyle";
     __kindof UIViewController *currentVC = UIViewController.currentViewController;
     if (!currentVC) return nil;
     
-    ///处理页面重复出现问题
-    SEL sel = NSSelectorFromString(@"controllerOverlap");
-    if ([currentVC respondsToSelector:sel]) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        BOOL repeat = [currentVC performSelector:sel];
-#pragma clang diagnostic pop
-        if (!repeat && [currentVC.class isEqual:vc.class]) {
-            return nil;
-        }
-    };
-    
     ///设置动画和跳转方式
     BOOL push = ![dataComponent containsObject:kTPRouterPathJumpStyle];
     BOOL animation = ![dataComponent containsObject:kTPRouterPathNoAnimation];

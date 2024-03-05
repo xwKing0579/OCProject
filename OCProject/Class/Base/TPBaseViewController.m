@@ -40,8 +40,4 @@
     return NO;
 }
 
-- (BOOL)controllerOverlap{
-    return NO;
-}
-
 @end

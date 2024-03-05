@@ -8,16 +8,10 @@
 #import "MBProgressHUD+Category.h"
 #import "Lottie/Lottie.h"
 #import "NSObject+MemoryLeak.h"
-@implementation MBProgressHUD (Category)
 
-+ (MBProgressHUD *)manager {
-    static MBProgressHUD *manager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        manager = [MBProgressHUD new];
-    });
-    return manager;
-}
+static MBProgressHUD *_textHud;
+static MBProgressHUD *_loadingHud;
+@implementation MBProgressHUD (Category)
 
 + (void)showText:(NSString *)text{
     [self showText:text inView:UIViewController.currentViewController.view];
@@ -32,7 +26,8 @@
 }
 
 + (void)showText:(NSString *)text inView:(UIView *)view enable:(BOOL)enable afterDelay:(NSTimeInterval)afterDelay{
-    MBProgressHUD *hud = [MBProgressHUD manager];
+    if (!_textHud) _textHud = [MBProgressHUD new];
+    MBProgressHUD *hud = _textHud;
     hud.userInteractionEnabled = enable;
     hud.mode = MBProgressHUDModeText;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
@@ -55,7 +50,8 @@
 }
 
 + (void)showLoadingInView:(UIView *)view enable:(BOOL)enable{
-    MBProgressHUD *hud = [MBProgressHUD manager];
+    if (!_loadingHud) _loadingHud = [MBProgressHUD new];
+    MBProgressHUD *hud = _loadingHud;
     hud.userInteractionEnabled = enable;
     hud.mode = MBProgressHUDModeCustomView;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
@@ -74,8 +70,8 @@
 }
 
 + (void)hideLoading{
-    MBProgressHUD *hud = [MBProgressHUD manager];
-    [hud hideAnimated:YES];
+    [_textHud hideAnimated:YES];
+    [_loadingHud hideAnimated:YES];
 }
 
 - (BOOL)willDealloc{

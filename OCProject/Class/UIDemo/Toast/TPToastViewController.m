@@ -18,7 +18,7 @@
     // Do any additional setup after loading the view.
     
     ///这里只demo演示，如需文本和图片混合使用可以自己实现
-    self.data = @[@"通用文本",@"动画自定义",@"loading2(未定义)",@"视图自定义",@"时间自定义",@"hide"];
+    self.data = @[@"通用文本",@"动画自定义",@"loading2(未定义)",@"视图自定义",@"时间自定义10s",@"hide"];
 }
 
 - (NSString *)cellClass{

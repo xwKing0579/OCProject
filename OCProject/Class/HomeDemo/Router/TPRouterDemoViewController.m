@@ -75,7 +75,7 @@
     // Do any additional setup after loading the view.
     
     self.vc = [TPRouter routerParamsKey];
-    self.data = @[@"push",@"present",@"presentStyle",@"跳转无动画",@"传参",@"自定义参数",@"回调",@"自定义navigation",@"controllerOverlap"];
+    self.data = @[@"push",@"present",@"presentStyle",@"跳转无动画",@"传参",@"自定义参数",@"回调",@"自定义navigation"];
 }
 
 - (NSString *)cellClass{
@@ -144,12 +144,6 @@
             NSString *url = [NSString stringWithFormat:@"%@/present?navigationClass=UINavigationController",self.vc];
             //[customParams setValue:@"UINavigationController" forKey:@"navigationClass"];
             [TPRouter jumpUrl:url params:customParams];
-            break;
-        }
-        case 8:{
-            ///可以自定义任意对象类型
-            [customParams setValue:[NSDate date] forKey:@"customParams"];
-            [TPRouter jumpUrl:self.vc params:customParams];
             break;
         }
         default:

@@ -99,8 +99,4 @@
     return self.view;
 }
 
-- (BOOL)controllerOverlap{
-    return YES;
-}
-
 @end

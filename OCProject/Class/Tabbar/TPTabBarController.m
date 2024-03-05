@@ -7,6 +7,7 @@
 
 #import "TPTabBarController.h"
 #import "TPBaseNavigationController.h"
+#import "TPRouter+Class.h"
 @interface TPTabBarController ()
 
 @end
@@ -15,12 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additio/var/folders/1t/4dl17tv96w94hzs02x__240c0000gn/T/simulator_screenshot_EEE35BAC-5627-4610-AF68-8F8CA6DFFB4E.pngnal setup after loading the view.
-    
-    NSArray *vcs = @[TPRouter.home,TPRouter.ui,TPRouter.mine];
+
+    NSArray *vcs = @[TPRouter.homeKey,TPRouter.uiKey,TPRouter.mineKey];
     NSArray *names = @[@"home",@"ui",@"mine"];
+  
     for (int i = 0; i < vcs.count; i++) {
-        [self setUpViewControllersInNavClass:TPBaseNavigationController.class rootClass:NSClassFromString(vcs[i]) tabBarName:names[i] tabBarImageName:names[i]];
+        [self setUpViewControllersInNavClass:TPBaseNavigationController.class rootClass:NSClassFromString(TPRouter.classValue[vcs[i]]) tabBarName:names[i] tabBarImageName:names[i]];
     }
     
     if (@available (iOS 15.0, *)) {

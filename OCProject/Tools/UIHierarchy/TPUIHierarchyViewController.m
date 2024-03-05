@@ -91,8 +91,4 @@
     }
 }
 
-- (BOOL)controllerOverlap{
-    return YES;
-}
-
 @end

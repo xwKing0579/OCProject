@@ -55,8 +55,8 @@
     NSMutableDictionary *objects = [NSMutableDictionary dictionary];
     if (obj1) [objects setValue:obj1 forKey:@"object1"];
     if (obj2) [objects setValue:obj2 forKey:@"object2"];
-    if (obj3) [objects setValue:obj2 forKey:@"object3"];
-    if (obj4) [objects setValue:obj2 forKey:@"object4"];
+    if (obj3) [objects setValue:obj3 forKey:@"object3"];
+    if (obj4) [objects setValue:obj4 forKey:@"object4"];
     [NSObject performTarget:@"MBProgressHUD_Class" action:action objects:objects];
 }
 

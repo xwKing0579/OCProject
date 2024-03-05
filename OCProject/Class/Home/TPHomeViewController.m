@@ -19,7 +19,8 @@
     // Do any additional setup after loading the view.
     self.data = @[@"TPRouterDemoViewController?title=路由演示demo",
                   @"TPMeditorDemoViewController?title=中间件demo",
-                  @"TPAnalysisDemoViewController?title=无痕埋点demo"];
+                  @"TPAnalysisDemoViewController?title=无痕埋点demo",
+    ];
 }
 
 - (NSString *)cellClass{

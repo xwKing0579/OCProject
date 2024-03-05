@@ -30,8 +30,7 @@
 
 + (NSString *)baseUrl{return @"";}
 
-+ (void)managerConfig{
-}
++ (void)managerConfig{}
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url
                             params:(id _Nullable)params
