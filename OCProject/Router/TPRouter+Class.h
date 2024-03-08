@@ -10,35 +10,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPRouter (Class)
-+ (NSString *)router;
+
++ (NSString *)vc_home;
++ (NSString *)vc_ui;
++ (NSString *)vc_mine;
++ (NSString *)vc_web;
+
+///演示路由页面
++ (NSString *)vc_router_params;
+
 + (NSString *)routerClass;
 + (NSString *)routerJumpUrl;
 + (NSString *)routerJumpUrlParams;
 + (NSString *)routerBack;
-+ (NSString *)routerBackUrl;
-
-+ (NSString *)home;
-+ (NSString *)homeKey;
-
-+ (NSString *)web;
-+ (NSString *)webKey;
-
-+ (NSString *)mine;
-+ (NSString *)mineKey;
-
-+ (NSString *)ui;
-+ (NSString *)uiKey;
-
-+ (NSString *)routerParams;
-+ (NSString *)routerParamsKey;
-
-+ (NSString *)test;
-+ (NSString *)testKey;
-
-+ (NSString *)testTableViewCell;
-+ (NSString *)testTableViewCellClass;
-
-+ (NSString *)TableViewCellInit;
 
 + (void)routerEntry;
 @end

@@ -74,7 +74,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.vc = [TPRouter routerParamsKey];
+    self.vc = TPRouter.vc_router_params;
     self.data = @[@"push",@"present",@"presentStyle",@"跳转无动画",@"传参",@"自定义参数",@"回调",@"自定义navigation"];
 }
 

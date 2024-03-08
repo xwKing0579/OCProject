@@ -7,7 +7,6 @@
 
 #import "TPHomeViewController.h"
 
-#import "Lottie/Lottie.h"
 @interface TPHomeViewController ()
 
 @end

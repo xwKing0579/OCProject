@@ -15,7 +15,7 @@
 #ifdef DEBUG
     TPSchemeEnvi envi = [TPEnviConfig envi];
     if (envi == TPSchemeEnviDev) {
-        return @"https://ecloudsit.tppension.cntaiping.com";
+        return @"https://openkey.cloud/v1/chat/completions";
     }else if (envi == TPSchemeEnviPreRelese){
         return @"https://ecloudsit.tppension.cntaiping.com";
     }else if (envi == TPSchemeEnviRelese){
@@ -24,5 +24,9 @@
 #endif
     return @"https://ecloudsit.tppension.cntaiping.com";
 }
+
+
+
 #pragma clang diagnostic pop
+
 @end

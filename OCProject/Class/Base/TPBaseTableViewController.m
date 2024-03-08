@@ -25,7 +25,7 @@
 }
 
 - (NSString *)actionString{
-    return TPRouter.TableViewCellInit;
+    return @"initWithTableView:withObject:";
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

@@ -48,14 +48,14 @@
     if ([object isKindOfClass:[NSDictionary class]]){
         id value = ((NSDictionary *)object).allValues.firstObject;
         if ([value isKindOfClass:[NSString class]]) {
-            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.web,value]];
+            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.vc_web,value]];
         }else if ([value isKindOfClass:[NSArray class]] && ((NSArray *)value).count == 1){
-            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.web,((NSArray *)value)[0]]];
+            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.vc_web,((NSArray *)value)[0]]];
         }else{
-            [TPRouter jumpUrl:TPRouter.mine params:@{@"data":value}];
+            [TPRouter jumpUrl:TPRouter.vc_mine params:@{@"data":value}];
         }
     }else if ([object isKindOfClass:[NSString class]]){
-        [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.web,object]];
+        [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.vc_web,object]];
     }
 }
 

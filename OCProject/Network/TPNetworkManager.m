@@ -6,8 +6,7 @@
 //
 
 #import "TPNetworkManager.h"
-#import <AFNetworking.h>
-#import "TPCryptoUtils.h"
+#import "TPNetworkCache.h"
 @implementation TPNetworkManager
 
 + (void)initialize{
@@ -19,6 +18,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [AFHTTPSessionManager manager];
+        [manager.requestSerializer setValue:@"Bearer sk-qVPt8HhyZ1QvcZJUn6HP7MIuaQGgOG8CFNhOrqhcdkfwPgLt" forHTTPHeaderField:@"Authorization"];
+        [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     });
     return manager;
 }

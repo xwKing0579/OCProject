@@ -32,7 +32,7 @@
 
 ///back
 - (void)backViewController{
-    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerBack];
+    [TPRouter performAction:TPRouter.routerBack];
 }
 
 ///hidden navbar

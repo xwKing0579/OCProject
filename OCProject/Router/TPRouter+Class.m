@@ -7,57 +7,43 @@
 
 #import "TPRouter+Class.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation TPRouter (Class)
+#pragma clang diagnostic pop
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 + (NSDictionary *)classValue{
-    return @{[self testKey] : [self test],
-             [self homeKey] : [self home],
-             [self webKey]  : [self web],
-             [self mineKey] : [self mine],
-             [self uiKey]   : [self ui],
-             [self routerParamsKey] :[self routerParams],
+    return @{
+        self.vc_home:@"TPHomeViewController",
+        self.vc_ui:@"TPUIViewController",
+        self.vc_mine:@"TPMineViewController",
+        self.vc_web:@"TPWebViewController",
+        self.vc_router_params:@"TPRouterParamsViewController",
     };
 }
 #pragma clang diagnostic pop
 
-///TPRouter
-+ (NSString *)router{return @"TPRouter";}
++ (BOOL)resolveClassMethod:(SEL)selector{
+    NSString *string = NSStringFromSelector(selector);
+    if ([string hasPrefix:@"vc_"]) {
+        Method method = class_getClassMethod([self class],@selector(viewControllerClassAbbreviatedString));
+        Class metacls = objc_getMetaClass(NSStringFromClass([self class]).UTF8String);
+        class_addMethod(metacls,selector,method_getImplementation(method),method_getTypeEncoding(method));
+        return YES;
+    }
+    return [super resolveClassMethod:selector];
+}
+
++ (NSString *)viewControllerClassAbbreviatedString{
+    return NSStringFromSelector(_cmd);
+}
+
 + (NSString *)routerClass{return @"TPRouter_Class";}
 + (NSString *)routerJumpUrl{return @"jumpUrl:";}
 + (NSString *)routerJumpUrlParams{return @"jumpUrl:params:";}
 + (NSString *)routerBack{return @"back";}
-+ (NSString *)routerBackUrl{return @"backUrl:";}
-
-///TPHomeViewController
-+ (NSString *)homeKey{return @"home";}
-+ (NSString *)home{return @"TPHomeViewController";}
-
-///TPWebViewController
-+ (NSString *)webKey{return @"web";}
-+ (NSString *)web{return @"TPWebViewController";}
-
-///TPUIViewController
-+ (NSString *)uiKey{return @"ui";}
-+ (NSString *)ui{return @"TPUIViewController";}
-
-///TPMineViewController
-+ (NSString *)mineKey{return @"mine";}
-+ (NSString *)mine{return @"TPMineViewController";}
-
-
-///TPRouterParamsViewController
-+ (NSString *)routerParamsKey{return @"routerParams";}
-+ (NSString *)routerParams{return @"TPRouterParamsViewController";}
-
-///TestViewController
-+ (NSString *)testKey{return @"test";}
-+ (NSString *)test{return @"TestViewController";}
-
-+ (NSString *)testTableViewCell{return @"TestTableViewCell";}
-+ (NSString *)testTableViewCellClass{return @"TestTableViewCell_Class";}
-
-+ (NSString *)TableViewCellInit{return @"initWithTableView:withObject:";}
 
 ///路由测试
 + (void)routerEntry{

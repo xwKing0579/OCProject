@@ -6,8 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TPNetworkCache.h"
-#import <UIKit/UIKit.h>
+#import <AFNetworking.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @class AFHTTPSessionManager;
