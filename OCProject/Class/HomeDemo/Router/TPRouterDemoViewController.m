@@ -76,6 +76,7 @@
     
     self.vc = TPRouter.vc_router_params;
     self.data = @[@"push",@"present",@"presentStyle",@"跳转无动画",@"传参",@"自定义参数",@"回调",@"自定义navigation"];
+    [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{
@@ -101,7 +102,7 @@
         case 2:{
             UIAlertController *alert = [UIAlertController alertStyle:UIAlertControllerStyleActionSheet title:@"presentStyle" message:@"" cancel:@"取消" cancelBlock:^(NSString * _Nonnull cancel) {
                 
-            } confirm:@[@"UIModalPresentationFullScreen",@"UIModalPresentationPageSheet",@"UIModalPresentationFormSheet",@"UIModalPresentationCurrentContext",@"UIModalPresentationCustom",@"UIModalPresentationOverFullScreen",@"UIModalPresentationOverCurrentContext",@"UIModalPresentationPopover",@"UIModalPresentationAutomatic"] confirmBlock:^(NSUInteger index) {
+            } confirms:@[@"UIModalPresentationFullScreen",@"UIModalPresentationPageSheet",@"UIModalPresentationFormSheet",@"UIModalPresentationCurrentContext",@"UIModalPresentationCustom",@"UIModalPresentationOverFullScreen",@"UIModalPresentationOverCurrentContext",@"UIModalPresentationPopover",@"UIModalPresentationAutomatic"] confirmBlock:^(NSUInteger index) {
                 NSInteger presentStyle = index;
                 if (index == 9) presentStyle = -2;
                 [customParams setValue:@1 forKey:@"present"];

@@ -45,7 +45,6 @@
 		F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872072B1DA1B2007E747F /* UIViewController+Category.m */; };
 		F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */; };
 		F86E34A72B60E9D4004B3C2F /* TPToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E34A62B60E9D4004B3C2F /* TPToastManager.m */; };
-		F86E34C32B610C56004B3C2F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E34C22B610C56004B3C2F /* loading.json */; };
 		F86E501E2B22F31B00B00781 /* TPRouter+Class.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E501D2B22F31B00B00781 /* TPRouter+Class.m */; };
 		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		F875EAE82B4E6D2900559A68 /* NSObject+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAE72B4E6D2900559A68 /* NSObject+Analysis.m */; };
@@ -53,6 +52,8 @@
 		F875EAEE2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */; };
 		F875EAF12B4E81F100559A68 /* TPAnalysisDemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */; };
 		F87C20E42B50D7D400EBC6C6 /* TPSafeObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */; };
+		F882868F2B9EA3AA00FC22F4 /* TPUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F882868E2B9EA3AA00FC22F4 /* TPUserDefaults.m */; };
+		F88286912B9EACAC00FC22F4 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F88286902B9EACAC00FC22F4 /* loading.json */; };
 		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
 		F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D22B3EA9020081B012 /* TPNetworkModel.m */; };
 		F88495DB2B3EA9030081B012 /* TPNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D42B3EA9020081B012 /* TPNetworkMonitor.m */; };
@@ -238,7 +239,6 @@
 		F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrashTableViewCell.m; sourceTree = "<group>"; };
 		F86E34A52B60E9D4004B3C2F /* TPToastManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPToastManager.h; sourceTree = "<group>"; };
 		F86E34A62B60E9D4004B3C2F /* TPToastManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPToastManager.m; sourceTree = "<group>"; };
-		F86E34C22B610C56004B3C2F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F86E501C2B22F31B00B00781 /* TPRouter+Class.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPRouter+Class.h"; sourceTree = "<group>"; };
 		F86E501D2B22F31B00B00781 /* TPRouter+Class.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TPRouter+Class.m"; sourceTree = "<group>"; };
 		F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
@@ -253,6 +253,9 @@
 		F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisDemoModel.m; sourceTree = "<group>"; };
 		F87C20E22B50D7D400EBC6C6 /* TPSafeObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSafeObjectManager.h; sourceTree = "<group>"; };
 		F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSafeObjectManager.m; sourceTree = "<group>"; };
+		F882868D2B9EA3AA00FC22F4 /* TPUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDefaults.h; sourceTree = "<group>"; };
+		F882868E2B9EA3AA00FC22F4 /* TPUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDefaults.m; sourceTree = "<group>"; };
+		F88286902B9EACAC00FC22F4 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
 		F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
 		F88495D22B3EA9020081B012 /* TPNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkModel.m; sourceTree = "<group>"; };
@@ -644,6 +647,22 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		F882868C2B9EA33500FC22F4 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				F882868D2B9EA3AA00FC22F4 /* TPUserDefaults.h */,
+				F882868E2B9EA3AA00FC22F4 /* TPUserDefaults.m */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		F88286922B9ECFBB00FC22F4 /* ConstKey */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ConstKey;
+			sourceTree = "<group>";
+		};
 		F88495AD2B3E55B40081B012 /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,9 +934,9 @@
 		F8D3431C2B20616E004AEE48 /* Toast */ = {
 			isa = PBXGroup;
 			children = (
+				F88286902B9EACAC00FC22F4 /* loading.json */,
 				F86E34A52B60E9D4004B3C2F /* TPToastManager.h */,
 				F86E34A62B60E9D4004B3C2F /* TPToastManager.m */,
-				F86E34C22B610C56004B3C2F /* loading.json */,
 				F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */,
 				F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */,
 			);
@@ -998,6 +1017,7 @@
 		F8EAC7E92B173504005522DE /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
+				F882868C2B9EA33500FC22F4 /* UserDefaults */,
 				F8A706692B54C1AD005BEC68 /* Crypto */,
 				F8611C9B2B4F8BC400636793 /* Safe */,
 				F8D343212B206805004AEE48 /* Envi */,
@@ -1042,6 +1062,7 @@
 		F8EAC8232B173528005522DE /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F88286922B9ECFBB00FC22F4 /* ConstKey */,
 				F8A706732B54FDA3005BEC68 /* UIDemo */,
 				F8B8B7632B47EC7C00F2DE66 /* HomeDemo */,
 				F8FCA33E2B4BF38500D110E8 /* UI */,
@@ -1275,11 +1296,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F88286912B9EACAC00FC22F4 /* loading.json in Resources */,
 				F8EAC7FA2B173504005522DE /* LaunchScreen.storyboard in Resources */,
 				F8EAC7F72B173504005522DE /* Assets.xcassets in Resources */,
 				F8430E8C2B26E2AD00DBE29F /* Assets.xcassets in Resources */,
 				F8EAC7F52B173504005522DE /* Main.storyboard in Resources */,
-				F86E34C32B610C56004B3C2F /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1416,6 +1437,7 @@
 				F8BB82F92B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m in Sources */,
 				F897673B2B391DBF00B9F845 /* TPUIHierarchyTableViewCell.m in Sources */,
 				F89E23812B4D456A00D34E24 /* TPMeditorDemoViewController.m in Sources */,
+				F882868F2B9EA3AA00FC22F4 /* TPUserDefaults.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
 				F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */,

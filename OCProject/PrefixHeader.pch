@@ -28,14 +28,10 @@
 #import "UIAlertController+Category.h"
 #import "UIViewController+Category.h"
 
-
 #import <YYModel.h>
 #import <Masonry.h>
 #import <SDWebImage.h>
 #import <MJRefresh.h>
-
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"\n%s ==> %d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__

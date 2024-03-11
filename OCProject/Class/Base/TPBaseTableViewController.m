@@ -16,8 +16,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.data = self.data ?: @[];
-    [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{

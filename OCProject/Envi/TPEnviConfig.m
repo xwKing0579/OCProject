@@ -40,7 +40,7 @@ NSString *const kTPEnviConfigNetworkKey = @"kTPEnviConfigNetworkKey";
 + (void)enviConfig:(void (^)(void))complation{
     UIAlertController *alert = [UIAlertController alertStyle:UIAlertControllerStyleActionSheet title:@"切换环境" message:nil cancel:@"取消" cancelBlock:^(NSString * _Nonnull cancel) {
         
-    } confirm:[self allEnvi] confirmBlock:^(NSUInteger index) {
+    } confirms:[self allEnvi] confirmBlock:^(NSUInteger index) {
         if ([self envi] != index){
             [self setEnvi:index];
             complation();

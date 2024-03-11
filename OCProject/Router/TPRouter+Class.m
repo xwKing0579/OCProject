@@ -43,7 +43,7 @@
 + (NSString *)routerClass{return @"TPRouter_Class";}
 + (NSString *)routerJumpUrl{return @"jumpUrl:";}
 + (NSString *)routerJumpUrlParams{return @"jumpUrl:params:";}
-+ (NSString *)routerBack{return @"back";}
+
 
 ///路由测试
 + (void)routerEntry{

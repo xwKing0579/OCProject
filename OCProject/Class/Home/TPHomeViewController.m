@@ -20,6 +20,7 @@
                   @"TPMeditorDemoViewController?title=中间件demo",
                   @"TPAnalysisDemoViewController?title=无痕埋点demo",
     ];
+    [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{

@@ -35,6 +35,7 @@
         }
         self.data = data;
     }
+    [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{

@@ -9,7 +9,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 @interface TPNetworkManager (Envi)
 
 @end

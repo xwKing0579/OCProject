@@ -21,6 +21,7 @@
                   @"TPEmptyDataViewController?title=emptyData演示demo",
                   @"TPCryptoViewController?title=加解密演示demo",
                   @"TPToastViewController?title=toast演示demo"];
+    [self.tableView reloadData];
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

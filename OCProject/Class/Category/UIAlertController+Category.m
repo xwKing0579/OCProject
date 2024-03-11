@@ -9,15 +9,15 @@
 
 @implementation UIAlertController (Category)
 
-+ (instancetype)alertTitle:(NSString *)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock)cancelBlock{
++ (instancetype)alertTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock _Nullable)cancelBlock{
     return [self alertTitle:title message:message cancel:cancel cancelBlock:cancelBlock confirm:nil confirmBlock:nil];
 }
 
-+ (instancetype)alertTitle:(NSString *)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock)cancelBlock confirm:(NSString *)confirm confirmBlock:(confirmBlock)confirmBlock{
-    return [self alertStyle:UIAlertControllerStyleAlert title:title message:message cancel:cancel cancelBlock:cancelBlock confirm:confirm ? @[confirm] : nil confirmBlock:confirmBlock];
++ (instancetype)alertTitle:(NSString * _Nullable)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock _Nullable)cancelBlock confirm:(NSString * _Nullable)confirm confirmBlock:(confirmBlock  _Nullable)confirmBlock{
+    return [self alertStyle:UIAlertControllerStyleAlert title:title message:message cancel:cancel cancelBlock:cancelBlock confirms:confirm ? @[confirm] : nil confirmBlock:confirmBlock];
 }
 
-+ (instancetype)alertStyle:(UIAlertControllerStyle)style title:(NSString *)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock)cancelBlock confirm:(NSArray <NSString *>*)confirm confirmBlock:(confirmBlock)confirmBlock{
++ (instancetype)alertStyle:(UIAlertControllerStyle)style title:(NSString * _Nullable)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock _Nullable)cancelBlock confirms:(NSArray <NSString *>* _Nullable)confirm confirmBlock:(confirmBlock _Nullable)confirmBlock{
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:style];
     
     if (cancel.length) {

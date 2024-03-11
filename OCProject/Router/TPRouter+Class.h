@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)routerClass;
 + (NSString *)routerJumpUrl;
 + (NSString *)routerJumpUrlParams;
-+ (NSString *)routerBack;
+
 
 + (void)routerEntry;
 @end

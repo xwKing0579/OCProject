@@ -35,7 +35,7 @@
 - (void)sortUserData{
     UIAlertController *alertController = [UIAlertController alertStyle:UIAlertControllerStyleActionSheet title:@"appList" message:nil cancel:@"取消" cancelBlock:^(NSString * _Nonnull cancel) {
         
-    } confirm:@[@"system",@"user",@"system&user"] confirmBlock:^(NSUInteger index) {
+    } confirms:@[@"system",@"user",@"system&user"] confirmBlock:^(NSUInteger index) {
         if (index == 0){
             self.data = [self.result filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"applicationType != %@",@"User"]];
         }else if (index == 1){

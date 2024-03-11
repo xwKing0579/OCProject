@@ -18,21 +18,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *image;
+    NSString *imageString;
     if (self.navigationController.childViewControllers.count > 1) {
-        image = [UIImage imageNamed:@"back"].original;
+        imageString = @"back";
     }else if (self.presentingViewController){
-        image = [UIImage imageNamed:@"close"].original;
+        imageString = @"close";
     }
-    if (image) self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:(UIBarButtonItemStyleDone) target:self action:@selector(backViewController)];
-    self.navigationItem.leftBarButtonItem.tintColor = UIColor.c000000;
+    if (imageString) {
+        UIImage *image = [UIImage imageNamed:imageString].original;
+        if ([self backButtonColor]) image = [image imageWithTintColor:[self backButtonColor]];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:(UIBarButtonItemStyleDone) target:self action:@selector(backViewController)];
+    }
+    self.fd_interactivePopDisabled = [self disableNavigationBar];
     self.fd_prefersNavigationBarHidden = [self hideNavigationBar];
     self.view.backgroundColor = UIColor.cffffff;
 }
 
 ///back
 - (void)backViewController{
-    [TPRouter performAction:TPRouter.routerBack];
+    [TPRouter back];
 }
 
 ///hidden navbar
@@ -40,4 +44,11 @@
     return NO;
 }
 
+- (BOOL)disableNavigationBar{
+    return NO;
+}
+
+- (UIColor *)backButtonColor{
+    return nil;
+}
 @end

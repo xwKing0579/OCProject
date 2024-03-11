@@ -28,7 +28,7 @@
     NSDictionary *colors = @{@"clear":UIColor.clearColor,@"white":UIColor.whiteColor,@"black":UIColor.blackColor};
     UIAlertController *alertController = [UIAlertController alertStyle:UIAlertControllerStyleActionSheet title:@"修改背景色" message:@"" cancel:@"取消" cancelBlock:^(NSString * _Nonnull cancel) {
         
-    } confirm:colors.allKeys confirmBlock:^(NSUInteger index) {
+    } confirms:colors.allKeys confirmBlock:^(NSUInteger index) {
         NSArray *values = colors.allValues;
         self.bgColor = values[index];
         [self leakObjectShotImage];

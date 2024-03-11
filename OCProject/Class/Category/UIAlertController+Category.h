@@ -13,9 +13,9 @@ typedef void (^cancelBlock)(NSString *cancel);
 
 @interface UIAlertController (Category)
 
-+ (instancetype)alertTitle:(NSString *)title message:( NSString * _Nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock)cancelBlock;
-+ (instancetype)alertTitle:(NSString *)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock)cancelBlock confirm:(NSString *)confirm confirmBlock:(confirmBlock)confirmBlock;
-+ (instancetype)alertStyle:(UIAlertControllerStyle)style title:(NSString *)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock)cancelBlock confirm:(NSArray <NSString *>*)confirm confirmBlock:(confirmBlock)confirmBlock;
++ (instancetype)alertTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock _Nullable)cancelBlock;
++ (instancetype)alertTitle:(NSString * _Nullable)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock _Nullable)cancelBlock confirm:(NSString * _Nullable)confirm confirmBlock:(confirmBlock  _Nullable)confirmBlock;
++ (instancetype)alertStyle:(UIAlertControllerStyle)style title:(NSString * _Nullable)title message:(NSString * __nullable)message cancel:(NSString *)cancel cancelBlock:(cancelBlock _Nullable)cancelBlock confirms:(NSArray <NSString *>* _Nullable)confirm confirmBlock:(confirmBlock _Nullable)confirmBlock;
 
 @end
 

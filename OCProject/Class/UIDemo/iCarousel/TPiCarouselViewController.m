@@ -32,8 +32,8 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
     if (!view){
-        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, iCarouselHeight)];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-30, iCarouselHeight)];
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIDevice.width, iCarouselHeight)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, UIDevice.width-30, iCarouselHeight)];
         [view addSubview:label];
         label.numberOfLines = 0;
         label.backgroundColor = [UIColor redColor];
@@ -83,7 +83,7 @@
 #pragma mark - setter/getter
 - (iCarousel *)iCarouselA{
     if (!_iCarouselA){
-        _iCarouselA = [[iCarousel alloc] initWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, iCarouselHeight)];
+        _iCarouselA = [[iCarousel alloc] initWithFrame:CGRectMake(0, 10, UIDevice.width, iCarouselHeight)];
         _iCarouselA.delegate = self;
         _iCarouselA.dataSource = self;
         _iCarouselA.pagingEnabled = YES;
@@ -96,7 +96,7 @@
 
 - (iCarousel *)iCarouselB{
     if (!_iCarouselB){
-        _iCarouselB = [[iCarousel alloc] initWithFrame:CGRectMake(0, 170, SCREEN_WIDTH, iCarouselHeight)];
+        _iCarouselB = [[iCarousel alloc] initWithFrame:CGRectMake(0, 170, UIDevice.width, iCarouselHeight)];
         _iCarouselB.delegate = self;
         _iCarouselB.dataSource = self;
         _iCarouselB.pagingEnabled = YES;

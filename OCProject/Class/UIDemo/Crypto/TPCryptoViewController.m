@@ -30,7 +30,7 @@
     NSArray *titles = @[@"base64",@"MD5",@"DES",@"AES",@"RSA"];
     UIAlertController *alertController = [UIAlertController alertStyle:UIAlertControllerStyleActionSheet title:@"选择加密方式" message:nil cancel:@"取消" cancelBlock:^(NSString * _Nonnull cancel) {
         
-    } confirm:titles confirmBlock:^(NSUInteger index) {
+    } confirms:titles confirmBlock:^(NSUInteger index) {
         self.cryptoBtn.tag = index;
         [self.cryptoBtn setTitle:titles[index] forState:UIControlStateNormal];
         switch (index) {

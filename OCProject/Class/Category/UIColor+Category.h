@@ -22,8 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)c1eb65f;
 + (UIColor *)cff5a00;
 
-+ (UIColor *)rgbString:(NSString *)cString;
 
++ (UIColor *)rgbString:(NSString *)cString;
 - (NSString *)hexStringWithAlpha:(BOOL)withAlpha;
 
 @end
