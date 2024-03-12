@@ -51,9 +51,13 @@
 		F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAEA2B4E770C00559A68 /* TPAnalysisClickViewController.m */; };
 		F875EAEE2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */; };
 		F875EAF12B4E81F100559A68 /* TPAnalysisDemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */; };
+		F8790B1B2B9FF30900A82F16 /* TPPopViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8790B1A2B9FF30900A82F16 /* TPPopViewsController.m */; };
 		F87C20E42B50D7D400EBC6C6 /* TPSafeObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */; };
 		F882868F2B9EA3AA00FC22F4 /* TPUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F882868E2B9EA3AA00FC22F4 /* TPUserDefaults.m */; };
 		F88286912B9EACAC00FC22F4 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F88286902B9EACAC00FC22F4 /* loading.json */; };
+		F88286992B9F470C00FC22F4 /* TPOperationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F88286982B9F470C00FC22F4 /* TPOperationModel.m */; };
+		F882869C2B9F47EA00FC22F4 /* TPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F882869B2B9F47EA00FC22F4 /* TPOperation.m */; };
+		F882869F2B9F48B200FC22F4 /* TPOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F882869E2B9F48B200FC22F4 /* TPOperationManager.m */; };
 		F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */; };
 		F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D22B3EA9020081B012 /* TPNetworkModel.m */; };
 		F88495DB2B3EA9030081B012 /* TPNetworkMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = F88495D42B3EA9020081B012 /* TPNetworkMonitor.m */; };
@@ -251,11 +255,19 @@
 		F875EAED2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisClickTableViewCell.m; sourceTree = "<group>"; };
 		F875EAEF2B4E81F100559A68 /* TPAnalysisDemoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnalysisDemoModel.h; sourceTree = "<group>"; };
 		F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisDemoModel.m; sourceTree = "<group>"; };
+		F8790B192B9FF30900A82F16 /* TPPopViewsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPPopViewsController.h; sourceTree = "<group>"; };
+		F8790B1A2B9FF30900A82F16 /* TPPopViewsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPopViewsController.m; sourceTree = "<group>"; };
 		F87C20E22B50D7D400EBC6C6 /* TPSafeObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSafeObjectManager.h; sourceTree = "<group>"; };
 		F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSafeObjectManager.m; sourceTree = "<group>"; };
 		F882868D2B9EA3AA00FC22F4 /* TPUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDefaults.h; sourceTree = "<group>"; };
 		F882868E2B9EA3AA00FC22F4 /* TPUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDefaults.m; sourceTree = "<group>"; };
 		F88286902B9EACAC00FC22F4 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		F88286972B9F470C00FC22F4 /* TPOperationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPOperationModel.h; sourceTree = "<group>"; };
+		F88286982B9F470C00FC22F4 /* TPOperationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPOperationModel.m; sourceTree = "<group>"; };
+		F882869A2B9F47EA00FC22F4 /* TPOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPOperation.h; sourceTree = "<group>"; };
+		F882869B2B9F47EA00FC22F4 /* TPOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPOperation.m; sourceTree = "<group>"; };
+		F882869D2B9F48B200FC22F4 /* TPOperationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPOperationManager.h; sourceTree = "<group>"; };
+		F882869E2B9F48B200FC22F4 /* TPOperationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPOperationManager.m; sourceTree = "<group>"; };
 		F8832B672B30477B0096D523 /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
 		F8832B682B30477B0096D523 /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
 		F88495D22B3EA9020081B012 /* TPNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNetworkModel.m; sourceTree = "<group>"; };
@@ -647,6 +659,15 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		F8790B182B9FF2AC00A82F16 /* PopViews */ = {
+			isa = PBXGroup;
+			children = (
+				F8790B192B9FF30900A82F16 /* TPPopViewsController.h */,
+				F8790B1A2B9FF30900A82F16 /* TPPopViewsController.m */,
+			);
+			path = PopViews;
+			sourceTree = "<group>";
+		};
 		F882868C2B9EA33500FC22F4 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +682,19 @@
 			children = (
 			);
 			path = ConstKey;
+			sourceTree = "<group>";
+		};
+		F88286962B9F46F300FC22F4 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				F88286972B9F470C00FC22F4 /* TPOperationModel.h */,
+				F88286982B9F470C00FC22F4 /* TPOperationModel.m */,
+				F882869A2B9F47EA00FC22F4 /* TPOperation.h */,
+				F882869B2B9F47EA00FC22F4 /* TPOperation.m */,
+				F882869D2B9F48B200FC22F4 /* TPOperationManager.h */,
+				F882869E2B9F48B200FC22F4 /* TPOperationManager.m */,
+			);
+			path = Operation;
 			sourceTree = "<group>";
 		};
 		F88495AD2B3E55B40081B012 /* Net */ = {
@@ -726,6 +760,7 @@
 		F8A706732B54FDA3005BEC68 /* UIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F8790B182B9FF2AC00A82F16 /* PopViews */,
 				F8F66D672B62028700A1E52A /* Toast */,
 				F8A706772B54FDFF005BEC68 /* Crypto */,
 				F8A706762B54FDEE005BEC68 /* ForbidShot */,
@@ -1017,6 +1052,7 @@
 		F8EAC7E92B173504005522DE /* OCProject */ = {
 			isa = PBXGroup;
 			children = (
+				F88286962B9F46F300FC22F4 /* Operation */,
 				F882868C2B9EA33500FC22F4 /* UserDefaults */,
 				F8A706692B54C1AD005BEC68 /* Crypto */,
 				F8611C9B2B4F8BC400636793 /* Safe */,
@@ -1399,9 +1435,11 @@
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
 				F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */,
 				F8A706722B54DBC0005BEC68 /* UITextView+Category.m in Sources */,
+				F88286992B9F470C00FC22F4 /* TPOperationModel.m in Sources */,
 				F88495DD2B3EA9030081B012 /* NSURLSessionConfiguration+FSAPM.m in Sources */,
 				F8AE19712B2C67FB009C12E2 /* NSString+Category.m in Sources */,
 				F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */,
+				F8790B1B2B9FF30900A82F16 /* TPPopViewsController.m in Sources */,
 				F822A10C2B3ACDFF00A3330C /* TPPoObjectViewController.m in Sources */,
 				F8E1B17D2B316FED0036928F /* fishhook.c in Sources */,
 				F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */,
@@ -1432,6 +1470,7 @@
 				F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */,
 				F88495E42B3EC0840081B012 /* TPNetworkMonitorTableViewCell.m in Sources */,
 				F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */,
+				F882869F2B9F48B200FC22F4 /* TPOperationManager.m in Sources */,
 				F81EBC822B90B5CF005F653A /* TPEmptyDataViewController.m in Sources */,
 				F8B8B7672B47ECE400F2DE66 /* TPBaseTableViewController.m in Sources */,
 				F8BB82F92B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m in Sources */,
@@ -1491,6 +1530,7 @@
 				F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */,
 				F80C53EE2B297A9E00C7FB38 /* NSDate+Category.m in Sources */,
 				F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */,
+				F882869C2B9F47EA00FC22F4 /* TPOperation.m in Sources */,
 				F8AF954B2B1EBA3C003059CB /* UIColor+Category.m in Sources */,
 				F8FCA3442B4BF40C00D110E8 /* TPUIViewController.m in Sources */,
 			);

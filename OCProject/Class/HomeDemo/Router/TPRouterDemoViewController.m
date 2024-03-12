@@ -75,7 +75,7 @@
     // Do any additional setup after loading the view.
     
     self.vc = TPRouter.vc_router_params;
-    self.data = @[@"push",@"present",@"presentStyle",@"跳转无动画",@"传参",@"自定义参数",@"回调",@"自定义navigation"];
+    self.data = @[@"push",@"present",@"presentStyle",@"跳转无动画",@"传参",@"自定义参数",@"回调",@"自定义navigation",@"页面去重"];
     [self.tableView reloadData];
 }
 
@@ -146,6 +146,12 @@
             //[customParams setValue:@"UINavigationController" forKey:@"navigationClass"];
             [TPRouter jumpUrl:url params:customParams];
             break;
+        }
+        case 8:{
+            ///多次跳转同一个页面会自动拦截
+            [TPRouter jumpUrl:self.vc params:customParams];
+            [TPRouter jumpUrl:self.vc params:customParams];
+            [TPRouter jumpUrl:self.vc params:customParams];
         }
         default:
             [TPRouter jumpUrl:self.vc params:customParams];

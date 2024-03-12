@@ -21,8 +21,14 @@
     for (NSNumber *num in [MLeaksMessenger leaks]) {
         NSString *ptr = [[NSString alloc] initWithFormat:@"0x%llx",num.unsignedLongLongValue];
         uintptr_t hex = strtoull(ptr.UTF8String, NULL, 0);
-        id obj = (__bridge id)(void *)hex;
-        if (obj) [data addObject:obj];
+        @try {
+            id obj = (__bridge id)(void *)hex;
+            if (obj) [data addObject:obj];
+        } @catch (NSException *exception) {
+            
+        } @finally {
+            
+        }
     }
     self.data = data;
     [self.tableView reloadData];

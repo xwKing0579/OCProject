@@ -18,10 +18,15 @@
     // Do any additional setup after loading the view.
     self.title = @"常见Click埋点场景";
     self.data = [TPAnalysisDemoModel data];
+    [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{
     return @"TPAnalysisClickTableViewCell_Class";
+}
+
+- (void)backViewController{
+    [TPRouter back];
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

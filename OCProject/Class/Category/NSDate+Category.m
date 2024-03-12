@@ -11,20 +11,28 @@
 
 + (NSString *)currentTime{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setDateFormat:[self yearToSecond]];
     return [formatter stringFromDate:[NSDate date]];
 }
 
 + (NSString *)timeFromDate:(NSDate *)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setDateFormat:[self yearToSecond]];
     return [formatter stringFromDate:date];
 }
 
 - (NSString *)toString{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setDateFormat:[self yearToSecond]];
     return [formatter stringFromDate:self];
+}
+
+- (NSString *)yearToSecond{
+    return [NSDate yearToSecond];
+}
+
++ (NSString *)yearToSecond{
+    return @"yyyy-MM-dd HH:mm:ss";
 }
 
 @end

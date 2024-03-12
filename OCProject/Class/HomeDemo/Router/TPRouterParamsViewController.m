@@ -27,7 +27,7 @@
     }
     [data addObject:@{@"back":@"点击返回上一页"}];
     [data addObject:@{@"noanimation":@"点击返回无动画"}];
-    [data addObject:@{@"home":@"点击返回home页面"}];
+    [data addObject:@{TPRouter.vc_home:@"点击返回home页面"}];
     [data addObject:@{@"index_2":@"点击返回我的页面"}];
     self.data = data;
     [self.tableView reloadData];
@@ -40,7 +40,7 @@
     if ([key isEqualToString:@"block"] || 
         [key isEqualToString:@"back"] ||
         [key isEqualToString:@"noanimation"] ||
-        [key isEqualToString:@"home"] ||
+        [key isEqualToString:TPRouter.vc_home] ||
         [key isEqualToString:@"index_2"]){
         cellClass = @"TPRouterParamsTableViewCell_Class";
     }
@@ -55,7 +55,7 @@
     }else if ([key isEqualToString:@"back"]){
         [TPRouter back];
     }else if ([key isEqualToString:@"noanimation"] ||
-              [key isEqualToString:@"home"] ||
+              [key isEqualToString:TPRouter.vc_home] ||
               [key isEqualToString:@"index_2"]){
         [TPRouter backUrl:key];
     }

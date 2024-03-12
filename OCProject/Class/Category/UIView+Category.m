@@ -76,6 +76,19 @@
     }
 }
 
+- (void)removeAllSubView{
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
+- (void)removeAllSubViewExcept:(NSArray *)views{
+    NSArray *arraySubViews = [NSArray arrayWithArray:self.subviews];
+    for (UIView *subview in arraySubViews) {
+        if (![views containsObject:subview]) {
+            [subview removeFromSuperview];
+        }
+    }
+}
+
 - (UIImage *)toImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];

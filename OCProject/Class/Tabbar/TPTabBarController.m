@@ -16,14 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    NSArray *vcs = @[TPRouter.vc_home,TPRouter.vc_ui,TPRouter.vc_mine];
-    NSArray *names = @[@"home",@"ui",@"mine"];
     
-    for (int i = 0; i < vcs.count; i++) {
+    NSArray *names = @[@"home",@"ui",@"mine"];
+    for (int i = 0; i < names.count; i++) {
         NSString *action = [NSString stringWithFormat:@"vc_%@",names[i]];
         NSString *vcName = [TPRouter performAction:action];
-        
         [self setUpViewControllersInNavClass:TPBaseNavigationController.class rootClass:NSClassFromString([TPRouter classValue][vcName]) tabBarName:names[i] tabBarImageName:names[i]];
     }
     

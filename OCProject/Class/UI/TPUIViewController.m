@@ -20,13 +20,8 @@
                   @"TPiCarouselViewController?title=iCarousel演示demo",
                   @"TPEmptyDataViewController?title=emptyData演示demo",
                   @"TPCryptoViewController?title=加解密演示demo",
-                  @"TPToastViewController?title=toast演示demo"];
+                  @"TPToastViewController?title=toast演示demo",
+                  @"TPPopViewsController?title=弹框优先级演示demo"];
     [self.tableView reloadData];
 }
-
-#pragma mark -- UITableViewDelegate,UITableViewDataSource
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [TPRouter jumpUrl:self.data[indexPath.row]];
-}
-
 @end
