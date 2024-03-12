@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIColor (Category)
 
 + (UIColor *)cffffff;
-+ (UIColor *)ccccccC;
++ (UIColor *)ccccccc;
 + (UIColor *)c1e1e1e;
 + (UIColor *)c333333;
 + (UIColor *)c505050;

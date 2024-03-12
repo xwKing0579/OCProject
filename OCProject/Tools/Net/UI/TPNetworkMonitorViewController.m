@@ -60,7 +60,7 @@
         _textField.placeholder = @"搜索内容";
         _textField.layer.cornerRadius = 6;
         _textField.layer.borderWidth = 0.5;
-        _textField.layer.borderColor = UIColor.ccccccC.CGColor;
+        _textField.layer.borderColor = UIColor.ccccccc.CGColor;
         _textField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
         _textField.leftViewMode = UITextFieldViewModeAlways;
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;

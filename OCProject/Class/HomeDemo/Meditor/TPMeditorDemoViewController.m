@@ -60,7 +60,7 @@
         _targetTextField.font = UIFont.font14;
         _targetTextField.layer.cornerRadius = 6;
         _targetTextField.layer.borderWidth = 0.5;
-        _targetTextField.layer.borderColor = UIColor.ccccccC.CGColor;
+        _targetTextField.layer.borderColor = UIColor.ccccccc.CGColor;
         _targetTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
         _targetTextField.leftViewMode = UITextFieldViewModeAlways;
         _targetTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -83,7 +83,7 @@
         _actionTextField.font = UIFont.font14;
         _actionTextField.layer.cornerRadius = 6;
         _actionTextField.layer.borderWidth = 0.5;
-        _actionTextField.layer.borderColor = UIColor.ccccccC.CGColor;
+        _actionTextField.layer.borderColor = UIColor.ccccccc.CGColor;
         _actionTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
         _actionTextField.leftViewMode = UITextFieldViewModeAlways;
         _actionTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -106,7 +106,7 @@
         _paramsTextField.font = UIFont.font14;
         _paramsTextField.layer.cornerRadius = 6;
         _paramsTextField.layer.borderWidth = 0.5;
-        _paramsTextField.layer.borderColor = UIColor.ccccccC.CGColor;
+        _paramsTextField.layer.borderColor = UIColor.ccccccc.CGColor;
         _paramsTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
         _paramsTextField.leftViewMode = UITextFieldViewModeAlways;
         _paramsTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
