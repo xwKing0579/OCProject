@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPOperationModel : NSObject
 
-@property (nonatomic, strong) UIView *subView;
-@property (nonatomic, strong) UIView *superView;
 @property (nonatomic, assign) NSOperationQueuePriority priority;
 @property (nonatomic, copy) void (^block)(NSOperation *operation, TPOperationModel *model);
 

@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TPOperationManager : NSObject
 
 + (void)addOperationModel:(TPOperationModel *)model;
-+ (void)removeOperationForView:(UIView *)view;
++ (void)removeOperationForModel:(TPOperationModel *)model;
 + (void)removeAllOperation;
+
 @end
 
 NS_ASSUME_NONNULL_END

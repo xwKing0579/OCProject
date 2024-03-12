@@ -25,9 +25,9 @@
 }
 
 + (void)addOperationModel:(TPOperationModel *)model{
-    if (!model.subView) return;
+    if (!model) return;
     TPOperationManager *manager = [TPOperationManager sharedManager];
-    NSString *key = [NSString stringWithFormat:@"%ld",(uintptr_t)model.subView];
+    NSString *key = [NSString stringWithFormat:@"%ld",(uintptr_t)model];
     
     TPOperation *operation = [[TPOperation alloc] init];
     operation.model = model;
@@ -36,26 +36,27 @@
     [manager.objectPtrs setValue:operation forKey:key];
 }
 
-+ (void)removeOperationForView:(UIView *)view{
-    if (!view) return;
++ (void)removeOperationForModel:(TPOperationModel *)model{
+    if (!model) return;
     TPOperationManager *manager = [TPOperationManager sharedManager];
-    NSString *key = [NSString stringWithFormat:@"%ld",(uintptr_t)view];
-    
-    if ([manager.objectPtrs valueForKey:key]){
-        TPOperation *operation = manager.objectPtrs[key];
-        operation.isExecuting ? operation.finished = YES : [operation cancel];
-        operation = nil;
-        [manager.objectPtrs removeObjectForKey:key];
-    }
+    NSString *key = [NSString stringWithFormat:@"%ld",(uintptr_t)model];
+    [self removeOperationForKey:key];
 }
 
 + (void)removeAllOperation{
     TPOperationManager *manager = [TPOperationManager sharedManager];
     for (NSString *key in manager.objectPtrs.allKeys) {
+        [self removeOperationForKey:key];
+    }
+}
+
++ (void)removeOperationForKey:(NSString *)key{
+    TPOperationManager *manager = [TPOperationManager sharedManager];
+    if ([manager.objectPtrs valueForKey:key]){
         TPOperation *operation = manager.objectPtrs[key];
         operation.isExecuting ? operation.finished = YES : [operation cancel];
-        operation = nil;
         [manager.objectPtrs removeObjectForKey:key];
+        operation = nil;
     }
 }
 

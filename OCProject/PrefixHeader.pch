@@ -39,5 +39,11 @@
 #define NSLog(...)
 #endif
 
+#define TPWeakObject(c) __weak __typeof__(c) WeakObject = c;
+#define TPStrongObjectElseReturn(c) __strong __typeof__(c) c = WeakObject; if(!c) return;
+#define TPWeakSelf __weak __typeof__(self) WeakSelf = self;
+#define TPStrongSelf __strong __typeof__(self) self = WeakSelf;
+#define TPStrongSelfElseReturn __strong __typeof__(self) self = WeakSelf; if(!self) return;
+
 #endif
 #endif /* PrefixHeader_pch */

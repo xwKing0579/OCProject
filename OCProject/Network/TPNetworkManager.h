@@ -11,8 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @class AFHTTPSessionManager;
 
-typedef void(^TPHTTPRequestSuccess)(id responseObject);
-typedef void(^TPHTTPRequestFailed)(int code, NSString *msg);
+typedef void(^TPHTTPRequestResult)(NSError *_Nullable error, id _Nullable result);
 typedef void(^TPHTTPRequestCache)(id responseCache);
 typedef void(^TPHTTPProgress)(NSProgress *progress);
 
@@ -22,25 +21,43 @@ typedef void(^TPHTTPProgress)(NSProgress *progress);
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url
                             params:(id _Nullable)params
-                           success:(TPHTTPRequestSuccess)success
-                           failure:(TPHTTPRequestFailed)failure;
+                            result:(TPHTTPRequestResult)result;
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url
                             params:(id _Nullable)params
-                           success:(TPHTTPRequestSuccess)success
-                           failure:(TPHTTPRequestFailed)failure
+                            result:(TPHTTPRequestResult)result
+                     responseCache:(TPHTTPRequestCache _Nullable)responseCache;
+
++ (__kindof NSURLSessionTask *)get:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                            result:(TPHTTPRequestResult)result;
+
++ (__kindof NSURLSessionTask *)get:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                            result:(TPHTTPRequestResult)result
                      responseCache:(TPHTTPRequestCache _Nullable)responseCache;
 
 + (__kindof NSURLSessionTask *)post:(NSString *)url
-                             params:(id _Nullable)params
-                            success:(TPHTTPRequestSuccess)success
-                            failure:(TPHTTPRequestFailed)failure;
+                            params:(id _Nullable)params
+                            result:(TPHTTPRequestResult)result;
 
 + (__kindof NSURLSessionTask *)post:(NSString *)url
-                             params:(id _Nullable)params
-                            success:(TPHTTPRequestSuccess)success
-                            failure:(TPHTTPRequestFailed)failure
-                      responseCache:(TPHTTPRequestCache _Nullable)responseCache;
+                            params:(id _Nullable)params
+                            result:(TPHTTPRequestResult)result
+                     responseCache:(TPHTTPRequestCache _Nullable)responseCache;
+
++ (__kindof NSURLSessionTask *)post:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                            result:(TPHTTPRequestResult)result;
+
++ (__kindof NSURLSessionTask *)post:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                            result:(TPHTTPRequestResult)result
+                     responseCache:(TPHTTPRequestCache _Nullable)responseCache;
 
 + (__kindof NSURLSessionTask *)uploadImagesWithURL:(NSString *)url
                                             params:(id _Nullable)params
@@ -50,18 +67,40 @@ typedef void(^TPHTTPProgress)(NSProgress *progress);
                                         imageScale:(CGFloat)imageScale
                                          imageType:(NSString *)imageType
                                           progress:(TPHTTPProgress)progress
-                                           success:(TPHTTPRequestSuccess)success
-                                           failure:(TPHTTPRequestFailed)failure;
+                                            result:(TPHTTPRequestResult)result;
+
++ (__kindof NSURLSessionTask *)uploadImagesWithURL:(NSString *)url
+                                            params:(id _Nullable)params
+                                              name:(NSString *)name
+                                            images:(NSArray<UIImage *> *)images
+                                         fileNames:(NSArray<NSString *> *)fileNames
+                                        imageScale:(CGFloat)imageScale
+                                         imageType:(NSString *)imageType
+                                          progress:(TPHTTPProgress)progress
+                                             model:(id _Nullable)model
+                                            result:(TPHTTPRequestResult)result;
 
 + (__kindof NSURLSessionTask *)downloadWithURL:(NSString *)url
                                        fileDir:(NSString *)fileDir
                                       progress:(TPHTTPProgress)progress
-                                       success:(void(^)(NSString *filePath))success
-                                       failure:(TPHTTPRequestFailed)failure;
+                                        result:(TPHTTPRequestResult)result;
+
++ (__kindof NSURLSessionTask *)downloadWithURL:(NSString *)url
+                                       fileDir:(NSString *)fileDir
+                                      progress:(TPHTTPProgress)progress
+                                         model:(id _Nullable)model
+                                        result:(TPHTTPRequestResult)result;
+
++ (AFHTTPSessionManager *)manager;
 
 + (NSString *)baseUrl;
 + (void)managerConfig;
-+ (AFHTTPSessionManager *)manager;
++ (NSString *)resultString;
++ (NSString *)messageString;
++ (NSString *)successCodeString;
++ (NSArray <NSString *>*)successCode;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

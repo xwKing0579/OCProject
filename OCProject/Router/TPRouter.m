@@ -52,12 +52,12 @@ static NSString *_lastJumpUrl = nil;
     //记录本次跳转路径，与下次对比去重
     NSString *jsonString = [url stringByAppendingString:[NSString stringWithFormat:@"%@",params]];
     if ([_lastJumpUrl isEqualToString:jsonString]) {
-        NSLog(@"url=%@,与上一次跳转链接相同，如果需要继续，您可以修改参数或者改变参数位置",jsonString);
+        NSLog(@"url = %@,与上一次跳转链接相同，如果需要继续，您可以修改参数或者改变参数位置",jsonString);
         return nil;
     }else{
         _lastJumpUrl = jsonString;
         [self cancelPreviousPerformRequestsWithTarget:self selector:@selector(multipleClicks) object:nil];
-        [self performSelector:@selector(multipleClicks) withObject:self afterDelay:0.3];
+        [self performSelector:@selector(multipleClicks) withObject:self afterDelay:0.1];
     }
     
     NSMutableDictionary *propertys = [NSMutableDictionary dictionaryWithDictionary:params];

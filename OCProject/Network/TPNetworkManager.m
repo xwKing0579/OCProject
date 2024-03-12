@@ -29,43 +29,67 @@
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url
                             params:(id _Nullable)params
-                           success:(TPHTTPRequestSuccess)success
-                           failure:(TPHTTPRequestFailed)failure{
-    return [self get:url params:params success:success failure:failure responseCache:nil];
+                            result:(TPHTTPRequestResult)result{
+    return [self get:url params:params result:result responseCache:nil];
 }
 
 + (__kindof NSURLSessionTask *)get:(NSString *)url
                             params:(id _Nullable)params
-                           success:(TPHTTPRequestSuccess)success
-                           failure:(TPHTTPRequestFailed)failure
+                            result:(TPHTTPRequestResult)result
+                     responseCache:(TPHTTPRequestCache _Nullable)responseCache{
+    return [self get:url params:params model:nil result:result responseCache:responseCache];
+}
+
++ (__kindof NSURLSessionTask *)get:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                            result:(TPHTTPRequestResult)result{
+    return [self get:url params:params model:model result:result responseCache:nil];
+}
+
++ (__kindof NSURLSessionTask *)get:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                            result:(TPHTTPRequestResult)result
                      responseCache:(TPHTTPRequestCache _Nullable)responseCache{
     responseCache == nil ? nil : responseCache([TPNetworkCache httpCacheForURL:url params:params]);
     return [self.manager GET:[self fullUrl:url] parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success ? success(responseObject) : nil;
-        responseCache == nil ? nil : [TPNetworkCache setHttpCache:responseObject URL:url params:params];
+        [self resultWithResponseObject:responseObject model:model result:result];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure ? failure((int)error.code,[self errorMessage:error]) : nil;
+        !result ?: result(error, nil);
     }];
 }
 
 + (__kindof NSURLSessionTask *)post:(NSString *)url
-                             params:(id _Nullable)params
-                            success:(TPHTTPRequestSuccess)success
-                            failure:(TPHTTPRequestFailed)failure{
-    return [self post:url params:params success:success failure:failure responseCache:nil];
+                            params:(id _Nullable)params
+                             result:(TPHTTPRequestResult)result{
+    return [self post:url params:params result:result responseCache:nil];
 }
 
 + (__kindof NSURLSessionTask *)post:(NSString *)url
-                             params:(id _Nullable)params
-                            success:(TPHTTPRequestSuccess)success
-                            failure:(TPHTTPRequestFailed)failure
+                            params:(id _Nullable)params
+                            result:(TPHTTPRequestResult)result
+                      responseCache:(TPHTTPRequestCache _Nullable)responseCache{
+    return [self post:url params:params model:nil result:result responseCache:responseCache];
+}
+
++ (__kindof NSURLSessionTask *)post:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                             result:(TPHTTPRequestResult)result{
+    return [self post:url params:params model:model result:result responseCache:nil];
+}
+
++ (__kindof NSURLSessionTask *)post:(NSString *)url
+                            params:(id _Nullable)params
+                             model:(id _Nullable)model
+                            result:(TPHTTPRequestResult)result
                       responseCache:(TPHTTPRequestCache _Nullable)responseCache{
     responseCache == nil ? nil : responseCache([TPNetworkCache httpCacheForURL:url params:params]);
-    return [self.manager POST:[self fullUrl:url] parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success ? success(responseObject) : nil;
-        responseCache == nil ? nil : [TPNetworkCache setHttpCache:responseObject URL:url params:params];
+    return [self.manager POST:url parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self resultWithResponseObject:responseObject model:model result:result];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure ? failure((int)error.code,[self errorMessage:error]) : nil;
+        !result ?: result(error, nil);
     }];
 }
 
@@ -77,8 +101,20 @@
                                         imageScale:(CGFloat)imageScale
                                          imageType:(NSString *)imageType
                                           progress:(TPHTTPProgress)progress
-                                           success:(TPHTTPRequestSuccess)success
-                                           failure:(TPHTTPRequestFailed)failure{
+                                            result:(TPHTTPRequestResult)result{
+    return [self uploadImagesWithURL:url params:params name:name images:images fileNames:fileNames imageScale:imageScale imageType:imageType progress:progress model:nil result:result];
+}
+
++ (__kindof NSURLSessionTask *)uploadImagesWithURL:(NSString *)url
+                                            params:(id _Nullable)params
+                                              name:(NSString *)name
+                                            images:(NSArray<UIImage *> *)images
+                                         fileNames:(NSArray<NSString *> *)fileNames
+                                        imageScale:(CGFloat)imageScale
+                                         imageType:(NSString *)imageType
+                                          progress:(TPHTTPProgress)progress
+                                             model:(id _Nullable)model
+                                            result:(TPHTTPRequestResult)result{
     return [self.manager POST:[self fullUrl:url] parameters:params headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         for (NSUInteger i = 0; i < images.count; i++) {
             // 图片经过等比压缩后得到的二进制文件
@@ -100,17 +136,24 @@
             progress ? progress(uploadProgress) : nil;
         });
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success ? success(responseObject) : nil;
+        [self resultWithResponseObject:responseObject model:model result:result];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure ? failure((int)error.code,[self errorMessage:error]) : nil;
+        !result ?: result(error, nil);
     }];
 }
 
 + (__kindof NSURLSessionTask *)downloadWithURL:(NSString *)url
                                        fileDir:(NSString *)fileDir
                                       progress:(TPHTTPProgress)progress
-                                       success:(void(^)(NSString *filePath))success
-                                       failure:(TPHTTPRequestFailed)failure{
+                                        result:(TPHTTPRequestResult)result{
+    return [self downloadWithURL:url fileDir:fileDir progress:progress model:nil result:result];
+}
+
++ (__kindof NSURLSessionTask *)downloadWithURL:(NSString *)url
+                                       fileDir:(NSString *)fileDir
+                                      progress:(TPHTTPProgress)progress
+                                         model:(id _Nullable)model
+                                        result:(TPHTTPRequestResult)result{
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self fullUrl:url]]];
     return [self.manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         dispatch_sync(dispatch_get_main_queue(), ^{
@@ -123,16 +166,48 @@
         NSString *filePath = [downloadDir stringByAppendingPathComponent:response.suggestedFilename];
         return [NSURL fileURLWithPath:filePath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        if (error) {
-            failure ? failure((int)error.code,[self errorMessage:error]) : nil;
-        }else{
-            success ? success(filePath.absoluteString) : nil;
-        }
+        result(error, filePath);
     }];
 }
 
-+ (NSString *)errorMessage:(NSError *)error{
-    return [error description];
++ (NSString *)resultString{
+    return @"data";
+}
+
++ (NSString *)messageString{
+    return @"msg";
+}
+
++ (NSString *)successCodeString{
+    return @"code";
+}
+
++ (NSArray <NSString *>*)successCode{
+    return @[@"0",@"200"];
+}
+
++ (void)resultWithResponseObject:(id)responseObject model:(id _Nullable)model result:(TPHTTPRequestResult)result{
+    NSError *error;
+    id resultData;
+    
+    if ([responseObject isKindOfClass:[NSDictionary class]]){
+        NSDictionary *obj = (NSDictionary *)responseObject;
+        NSString *code = [obj valueForKey:[self successCodeString]];
+        NSString *msg = [obj valueForKey:[self messageString]];
+        resultData = [obj valueForKey:[self resultString]];
+        if (![[self successCode] containsObject:code]){
+            error = [NSError errorWithDomain:[self baseUrl] code:[code intValue] userInfo:@{NSLocalizedDescriptionKey:msg}];
+        }
+        
+        if (!model) return;
+        
+        Class cls = [model class];
+        if ([model isKindOfClass:[NSString class]]){
+            cls = NSClassFromString(model);
+        }
+        resultData = [cls yy_modelWithJSON:resultData];
+    }
+    !result ?: result(error, resultData);
 }
 
 @end
