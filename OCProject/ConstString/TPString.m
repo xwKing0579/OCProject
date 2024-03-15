@@ -17,10 +17,12 @@
 + (NSString *)suffix_viewController{ return @"ViewController"; }
 + (NSString *)prefix_tableViewCell{ return @"tc_"; }
 + (NSString *)suffix_tableViewCell{ return @"TableViewCell"; }
+
 + (NSString *)vc_base_tabbar{ return @"TPBaseTabBarController"; }
 + (NSString *)vc_base_navigation{ return @"TPBaseNavigationController"; };
 + (NSString *)vc_pop_views{ return @"TPPopViewsController"; };
 + (NSString *)vc_i_carousel{ return @"TPiCarouselViewController"; };
++ (NSString *)vc_tabbar{ return @"TPTabBarController"; };
 
 + (NSSet *)routerSet{
     return [[NSSet alloc] initWithObjects:[self vc_home],[self vc_ui],[self vc_mine],[self vc_web], 
@@ -68,6 +70,10 @@
 @end
 
 @implementation NSString (SelectorName)
+
+- (Class)toClass{
+    return NSClassFromString(self);
+}
 
 - (NSString *)prefixCapital{
     if (self.length){

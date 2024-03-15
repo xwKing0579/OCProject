@@ -6,7 +6,6 @@
 //
 
 #import "SceneDelegate.h"
-#import "TPTabBarController.h"
 
 @interface SceneDelegate ()
 
@@ -24,9 +23,7 @@
         self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
         [self.window setWindowScene:windowScene];
         [self.window setBackgroundColor:[UIColor whiteColor]];
-        
-        TPTabBarController *tabbarController = [[TPTabBarController alloc] init];
-        [self.window setRootViewController:tabbarController];
+        [self.window setRootViewController:[TPString.vc_tabbar.toClass new]];
         [self.window makeKeyAndVisible];
     }
 }

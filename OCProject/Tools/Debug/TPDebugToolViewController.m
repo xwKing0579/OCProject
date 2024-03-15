@@ -178,7 +178,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         
         @{@"title":@"打印日志",@"image":@"log",@"url":TPString.vc_log},
         @{@"title":@"崩溃信息",@"image":@"crash",@"url":TPString.vc_crash},
-        @{@"title":@"卡顿检测",@"image":@"caton",@"url":TPString.tc_monitor},
+        @{@"title":@"卡顿检测",@"image":@"caton",@"url":TPString.vc_monitor},
         @{@"title":@"网络数据",@"image":@"network",@"url":TPString.vc_network_monitor},
     ];
     

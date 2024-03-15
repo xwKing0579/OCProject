@@ -39,10 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)vc_base_navigation;
 
 ///demo演示页面
++ (NSString *)vc_tabbar;
 + (NSString *)vc_home;
 + (NSString *)vc_ui;
 + (NSString *)vc_mine;
 + (NSString *)vc_web;
+
 + (NSString *)vc_router_demo;
 + (NSString *)vc_router_params;
 + (NSString *)vc_meditor_demo;
@@ -87,10 +89,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface NSString (SelectorName)
-///首字母大写
-- (NSString *)prefixCapital;
+
+- (Class)toClass;
 
 ///vc别名
 - (NSString *)abbr;
+
+///首字母大写
+- (NSString *)prefixCapital;
 @end
 NS_ASSUME_NONNULL_END
