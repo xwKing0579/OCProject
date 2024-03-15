@@ -32,7 +32,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [NSObject performTarget:[self cellClass] action:[self actionString] object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:[self cellClass].classString action:[self actionString] object:tableView object:self.data[indexPath.row]] ?: [UITableViewCell new];
 }
 
 #pragma mark -- setter

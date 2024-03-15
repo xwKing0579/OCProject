@@ -33,7 +33,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TPAppInfoModel *model = self.data[indexPath.section];
-    return [NSObject performTarget:@"TPAppInfoTableViewCell_Class" action:[self actionString] object:tableView object:model.item[indexPath.row]] ?: [UITableViewCell new];
+    return [NSObject performTarget:TPString.tc_app_info.classString action:[self actionString] object:tableView object:model.item[indexPath.row]] ?: [UITableViewCell new];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

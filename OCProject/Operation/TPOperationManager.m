@@ -38,7 +38,6 @@
 
 + (void)removeOperationForModel:(TPOperationModel *)model{
     if (!model) return;
-    TPOperationManager *manager = [TPOperationManager sharedManager];
     NSString *key = [NSString stringWithFormat:@"%ld",(uintptr_t)model];
     [self removeOperationForKey:key];
 }

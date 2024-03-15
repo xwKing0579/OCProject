@@ -28,12 +28,12 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPCrashTableViewCell_Class";
+    return TPString.tc_crash;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [TPRouter jumpUrl:@"TPPoObjectViewController" params:@{@"object":self.data[indexPath.row]}];
+    [TPRouter jumpUrl:TPString.vc_po_object params:@{@"object":self.data[indexPath.row]}];
 }
 
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath*)indexPath{

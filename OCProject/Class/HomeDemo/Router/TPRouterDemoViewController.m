@@ -74,13 +74,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.vc = TPRouter.vc_router_params;
+    self.vc = TPString.vc_router_params;
     self.data = @[@"push",@"present",@"presentStyle",@"跳转无动画",@"传参",@"自定义参数",@"回调",@"自定义navigation",@"页面去重"];
     [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{
-    return @"TPHomeTableViewCell_Class";
+    return TPString.tc_home;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

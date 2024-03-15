@@ -8,6 +8,8 @@
 #import "NSString+Category.h"
 
 @implementation NSString (Category)
+
+
 - (BOOL)isNumber{
     if (!self) return NO;
     NSScanner *scan = [NSScanner scannerWithString:self];

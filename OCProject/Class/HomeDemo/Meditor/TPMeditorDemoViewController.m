@@ -26,7 +26,7 @@
 
 - (void)setUpSubViews{
     self.titleLabel.text = @"中间件一般使用以下三个方法：\n+ (id)performTarget:action:\n+ (id)performAction:\n- (id)performAction:\n如果有参数添加object，超过2个参数使用objects，通过键(object1...n)值对添加到字典中";
-    self.targetTextField.text = @"MBProgressHUD_Class";
+    self.targetTextField.text = @"MBProgressHUD".classString;
     self.actionTextField.text = @"showText:";
     self.paramsTextField.text = @"参数是id类型，要尽量保持和接收类型一致";
     [self.performButton setTitle:@"点击执行方法" forState:UIControlStateNormal];
@@ -55,7 +55,7 @@
 - (UITextField *)targetTextField{
     if (!_targetTextField){
         _targetTextField = [[UITextField alloc] init];
-        _targetTextField.placeholder = @"输入类名称，类方法添加后缀_Class";
+        _targetTextField.placeholder = @"输入类名称，类方法添加后缀".classString;
         _targetTextField.textColor = UIColor.c000000;
         _targetTextField.font = UIFont.font14;
         _targetTextField.layer.cornerRadius = 6;

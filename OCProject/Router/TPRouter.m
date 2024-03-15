@@ -6,7 +6,6 @@
 //
 
 #import "TPRouter.h"
-#import <UIKit/UIKit.h>
 
 NSString *const kTPRouterPathURLName = @"native/";
 NSString *const kTPRouterPathJumpStyle = @"present";
@@ -188,7 +187,11 @@ static NSString *_lastJumpUrl = nil;
 }
 
 + (NSDictionary *)classValue {
-    return @{};
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [TPString.routerSet enumerateObjectsUsingBlock:^(NSString *obj, BOOL * _Nonnull stop) {
+        [dict setValue:obj forKey:obj.abbr];
+    }];
+    return dict;
 }
 
 @end

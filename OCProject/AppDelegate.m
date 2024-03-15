@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [NSObject performTarget:@"TPDebugTool_Class" action:@"start"];
+    [NSObject performTarget:TPString.tp_debug_tool.classString action:@"start"];
     
     [NSThread sleepForTimeInterval:1];
     if (@available(iOS 13.0, *)) {

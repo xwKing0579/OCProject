@@ -22,7 +22,7 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPAnalysisClickTableViewCell_Class";
+    return TPString.tc_analysis_click;
 }
 
 - (void)backViewController{

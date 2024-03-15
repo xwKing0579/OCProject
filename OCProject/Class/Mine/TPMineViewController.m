@@ -33,13 +33,14 @@
                 [data addObject:@{methodString:result}];
             }
         }
+        if (methods) free(methods);
         self.data = data;
     }
     [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{
-    return @"TPMineTableViewCell_Class";
+    return TPString.tc_mine;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
@@ -49,14 +50,14 @@
     if ([object isKindOfClass:[NSDictionary class]]){
         id value = ((NSDictionary *)object).allValues.firstObject;
         if ([value isKindOfClass:[NSString class]]) {
-            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.vc_web,value]];
+            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPString.vc_web,value]];
         }else if ([value isKindOfClass:[NSArray class]] && ((NSArray *)value).count == 1){
-            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.vc_web,((NSArray *)value)[0]]];
+            [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPString.vc_web,((NSArray *)value)[0]]];
         }else{
-            [TPRouter jumpUrl:TPRouter.vc_mine params:@{@"data":value}];
+            [TPRouter jumpUrl:TPString.vc_mine params:@{@"data":value}];
         }
     }else if ([object isKindOfClass:[NSString class]]){
-        [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPRouter.vc_web,object]];
+        [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?url=%@",TPString.vc_web,object]];
     }
 }
 

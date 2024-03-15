@@ -32,21 +32,21 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPFileTableViewCell_Class";
+    return TPString.tc_file;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TPFileModel *model = self.data[indexPath.row];
     if (model.isDirectory){
-        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:[NSString stringWithFormat:@"TPFileViewController?name=%@&path=%@",model.fileName,model.filePath]];
+        [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?name=%@&path=%@",TPString.vc_file,model.fileName,model.filePath]];
     }else{
         
         if (model.fileType == TPFileTypeJson){
             NSString *jsonString = [NSString stringWithContentsOfFile:model.filePath encoding:NSUTF8StringEncoding error:nil];
             NSData *jaonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
             NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:jaonData options:NSJSONReadingMutableContainers error:nil];
-            if (dic) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
+            if (dic) [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?fileName=%@",TPString.vc_file_data,model.fileName] params:@{@"dic":dic}];
         }else if (model.fileType == TPFileTypeVideo){
             AVPlayerViewController *player = [[AVPlayerViewController alloc] init];
             player.player = [[AVPlayer alloc] initWithURL:[NSURL fileURLWithPath:model.filePath]];
@@ -54,7 +54,7 @@
         }else{
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:model.filePath];
             if (dic) {
-                [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:[NSString stringWithFormat:@"TPFileDataViewController?fileName=%@",model.fileName] object:@{@"dic":dic}];
+                [TPRouter jumpUrl:[NSString stringWithFormat:@"%@?fileName=%@",TPString.vc_file_data,model.fileName] params:@{@"dic":dic}];
             }else{
                 UIDocumentInteractionController *doc = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:model.filePath]];
                 doc.delegate = self;

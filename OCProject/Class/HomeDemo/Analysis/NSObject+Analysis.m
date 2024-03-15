@@ -142,7 +142,7 @@ static NSMutableArray *_pagePathString;
     ///比如TPAnalysisClickTableViewCell类中有clickButton这个属性，我们根据superview找到cell，然后通过valueforkey找到model
     ///这里根据实际业务区分处理即可
     
-    Class class = NSClassFromString(@"TPAnalysisClickTableViewCell");
+    Class class = NSClassFromString(TPString.tc_analysis_click);
     if ([target isMemberOfClass:class] || [clickView isMemberOfClass:class]){
         UITableViewCell *cell = (UITableViewCell *)([target isMemberOfClass:class] ? target : clickView);
         

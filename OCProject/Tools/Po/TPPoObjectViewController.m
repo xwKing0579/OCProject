@@ -26,7 +26,7 @@
 }
 
 - (void)shotObjectImage{
-    if (self.object) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPShotObjectViewController" object:@{@"object":self.object}];
+    if (self.object) [TPRouter jumpUrl:TPString.vc_shot_object params:@{@"object":self.object}];
 }
 
 - (void)customPropertyList{
@@ -66,7 +66,7 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPPoObjectTableViewCell_Class";
+    return TPString.tc_po_object;
 }
 
 @end

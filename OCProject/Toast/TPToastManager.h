@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)showText:(NSString * _Nullable)text inView:(UIView *)view;
 
 ///特殊情况（比如自定义视图，文字图片混合，自定义时间，空白处可以响应等方法组合太多，不一一列举）
-+ (void)showLoadingInView:(UIView * _Nullable)view enable:(BOOL)enable;
 + (void)showText:(NSString * _Nullable)text inView:(UIView * _Nullable)view enable:(BOOL)enable;
 + (void)showText:(NSString * _Nullable)text inView:(UIView * _Nullable)view enable:(BOOL)enable afterDelay:(NSTimeInterval)afterDelay;
 

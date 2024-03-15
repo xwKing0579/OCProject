@@ -11,10 +11,11 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #ifdef __OBJC__
-
-#import "TPRouter+Class.h"
+#import "TPRouter.h"
+#import "TPString.h"
 #import "TPNetworkManager.h"
 #import "TPToastManager.h"
+#import "NSObject+Mediator.h"
 
 #import "UIColor+Category.h"
 #import "UIFont+Category.h"
@@ -44,6 +45,16 @@
 #define TPWeakSelf __weak __typeof__(self) WeakSelf = self;
 #define TPStrongSelf __strong __typeof__(self) self = WeakSelf;
 #define TPStrongSelfElseReturn __strong __typeof__(self) self = WeakSelf; if(!self) return;
+
+#define RESOLVE_CLASS_METHOD(_conditions, _selector) \
+if ( _conditions ) {\
+    Method method = class_getClassMethod([self class],_selector);\
+    Class metacls = objc_getMetaClass(NSStringFromClass([self class]).UTF8String);\
+    class_addMethod(metacls,selector,method_getImplementation(method),method_getTypeEncoding(method));\
+    return YES;\
+}\
+
+#define ROUTER_DEMO(vc, title) [NSString stringWithFormat:@"%@?title=%@",vc,title]
 
 #endif
 #endif /* PrefixHeader_pch */

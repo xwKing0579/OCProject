@@ -22,7 +22,7 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPDebugSwitchTableViewCell_Class";
+    return TPString.tc_debug_switch;
 }
 
 @end
@@ -40,7 +40,7 @@
 + (instancetype)initWithTableView:(UITableView *)tableView withObject:(NSDictionary *)obj{
     TPDebugSwitchTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = obj.allKeys.firstObject;
-    cell.targetName = [NSString stringWithFormat:@"%@_Class",obj.allValues.firstObject];
+    cell.targetName = [NSString stringWithFormat:@"%@",obj.allValues.firstObject].classString;
     cell.switchView.on = [[NSObject performTarget:cell.targetName action:@"isOn"] boolValue];
     return cell;
 }

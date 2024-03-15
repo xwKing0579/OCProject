@@ -28,13 +28,13 @@ static MBProgressHUD *_loadingHud;
 + (void)showText:(NSString *)text inView:(UIView *)view enable:(BOOL)enable afterDelay:(NSTimeInterval)afterDelay{
     if (!_textHud) _textHud = [MBProgressHUD new];
     MBProgressHUD *hud = _textHud;
-    hud.userInteractionEnabled = enable;
+    hud.userInteractionEnabled = !enable;
     hud.mode = MBProgressHUDModeText;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.color = [UIColor colorWithWhite:0.f alpha:0.7];
     hud.removeFromSuperViewOnHide = YES;
     hud.detailsLabel.text = text;
-    hud.detailsLabel.textColor = UIColor.cffffff;
+    hud.detailsLabel.textColor = UIColor.whiteColor;
     UIView *rootView = view ?: UIViewController.window;
     [rootView addSubview:hud];
     [hud showAnimated:YES];
@@ -52,7 +52,7 @@ static MBProgressHUD *_loadingHud;
 + (void)showLoadingInView:(UIView *)view enable:(BOOL)enable{
     if (!_loadingHud) _loadingHud = [MBProgressHUD new];
     MBProgressHUD *hud = _loadingHud;
-    hud.userInteractionEnabled = enable;
+    hud.userInteractionEnabled = !enable;
     hud.mode = MBProgressHUDModeCustomView;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.color = UIColor.clearColor;

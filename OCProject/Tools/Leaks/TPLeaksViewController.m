@@ -35,12 +35,12 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPLeaksTableViewCell_Class";
+    return TPString.tc_leaks;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":self.data[indexPath.row]}];
+    [TPRouter jumpUrl:TPString.vc_po_object params:@{@"object":self.data[indexPath.row]}];
 }
 
 @end

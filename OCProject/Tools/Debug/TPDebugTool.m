@@ -53,21 +53,21 @@
 }
 
 - (void)didTapUI:(UITapGestureRecognizer *)tapGesture{
-    id views = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewUIHierarchy:" object:UIViewController.window];
-    id vcs = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewControllers"];
+    id views = [NSObject performTarget:@"TPUIHierarchyManager".classString action:@"viewUIHierarchy:" object:UIViewController.window];
+    id vcs = [NSObject performTarget:@"TPUIHierarchyManager".classString action:@"viewControllers"];
         
-    NSString *vcString = @"TPUIHierarchyViewController";
+    NSString *vcString = TPString.vc_ui_hierarchy;
     BOOL showing = NO;
     for (UIViewController *vc in UIViewController.currentViewController.navigationController.childViewControllers){
         if ([vc isKindOfClass:NSClassFromString(vcString)]){
             showing = YES;
         }
     }
-    if (!showing && views && vcs) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:vcString object:@{@"views":views,@"vcs":vcs}];
+    if (!showing && views && vcs) [TPRouter jumpUrl:vcString params:@{@"views":views,@"vcs":vcs}];
 }
 
 - (void)didTapFPS:(UITapGestureRecognizer *)tapGesture{
-    NSString *vcString = @"TPDebugToolViewController";
+    NSString *vcString = TPString.vc_debug_tool;
     BOOL jump = YES;
     for (UIViewController *vc in UIViewController.currentViewController.navigationController.viewControllers) {
         if ([vc isKindOfClass:NSClassFromString(vcString)]){
@@ -75,7 +75,7 @@
             break;
         }
     }
-    if (jump) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrl object:@"TPDebugToolViewController/present?navigationClass=TPBaseNavigationController"];
+    if (jump) [TPRouter jumpUrl:[NSString stringWithFormat:@"%@/present?navigationClass=%@",TPString.vc_debug_tool,TPString.vc_base_navigation]];
 }
 
 - (void)dragable:(UIPanGestureRecognizer *)sender{
@@ -101,7 +101,7 @@
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(dragable:)];
         [_debugWindow addGestureRecognizer:pan];
         
-        id fps = [NSObject performTarget:@"FPSLabel_Class" action:@"new"];
+        id fps = [NSObject performTarget:@"FPSLabel".classString action:@"new"];
         if([fps isKindOfClass:[UILabel class]]) {
             UILabel *fpsLabel = (UILabel *)fps;
             fpsLabel.frame = _debugWindow.bounds;

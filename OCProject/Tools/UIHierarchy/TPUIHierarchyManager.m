@@ -11,15 +11,17 @@ NSString *const kTPUIHierarchyNotification = @"kTPUIHierarchyNotification";
 @implementation TPUIHierarchyManager
 
 + (void)start{
-    [[NSUserDefaults standardUserDefaults] setValue:@(YES) forKey:kTPUIHierarchyConfigKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [NSObject performTarget:@"TPDebugTool_Class" action:@"didChangeUIHierarchy"];
+    [self updateBoolValue:YES];
 }
 
 + (void)stop{
-    [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:kTPUIHierarchyConfigKey];
+    [self updateBoolValue:NO];
+}
+
++ (void)updateBoolValue:(BOOL)value{
+    [[NSUserDefaults standardUserDefaults] setValue:@(value) forKey:kTPUIHierarchyConfigKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [NSObject performTarget:@"TPDebugTool_Class" action:@"didChangeUIHierarchy"];
+    [NSObject performTarget:TPString.tp_debug_tool.classString action:@"didChangeUIHierarchy"];
 }
 
 + (BOOL)isOn{

@@ -13,12 +13,7 @@
 
 + (BOOL)resolveClassMethod:(SEL)selector{
     NSString *string = NSStringFromSelector(selector);
-    if ([string hasPrefix:@"font"] && [[string substringFromIndex:string.length-2] isNumber]) {
-        Method method = class_getClassMethod([self class],@selector(fontSelf));
-        Class metacls = objc_getMetaClass(NSStringFromClass([self class]).UTF8String);
-        class_addMethod(metacls,selector,method_getImplementation(method),method_getTypeEncoding(method));
-        return YES;
-    }
+    RESOLVE_CLASS_METHOD([string hasPrefix:@"font"] && [[string substringFromIndex:string.length-2] isNumber], @selector(fontSelf))
     return [super resolveClassMethod:selector];
 }
 

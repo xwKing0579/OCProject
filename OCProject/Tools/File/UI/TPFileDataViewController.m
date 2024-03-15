@@ -28,7 +28,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *key = self.dic.allKeys[indexPath.row];
     NSDictionary *dict = @{key:self.dic[key]};
-    return [NSObject performTarget:@"TPFileDataTableViewCell_Class" action:[self actionString] object:tableView object:dict] ?: [UITableViewCell new];
+    return [NSObject performTarget:TPString.tc_file_data.classString action:[self actionString] object:tableView object:dict] ?: [UITableViewCell new];
 }
 
 @end

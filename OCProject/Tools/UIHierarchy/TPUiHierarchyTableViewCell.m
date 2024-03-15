@@ -1,14 +1,14 @@
 //
-//  TPUIHierarchyTableViewCell.m
+//  TPUiHierarchyTableViewCell.m
 //  OCProject
 //
-//  Created by 王祥伟 on 2023/12/25.
+//  Created by 王祥伟 on 2024/3/14.
 //
 
-#import "TPUIHierarchyTableViewCell.h"
+#import "TPUiHierarchyTableViewCell.h"
 #import "TPUIHierarchyModel.h"
 
-@interface TPUIHierarchyTableViewCell ()
+@interface TPUiHierarchyTableViewCell ()
 @property (nonatomic, strong) TPUIHierarchyModel *model;
 @property (nonatomic, strong) UIButton *numBtn;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -16,10 +16,10 @@
 @property (nonatomic, strong) UIImageView *arrowImageView;
 @end
 
-@implementation TPUIHierarchyTableViewCell
+@implementation TPUiHierarchyTableViewCell
 
 + (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPUIHierarchyModel *)model{
-    TPUIHierarchyTableViewCell *cell = [self initWithTableView:tableView];
+    TPUiHierarchyTableViewCell *cell = [self initWithTableView:tableView];
     cell.model = model;
     
     [cell.numBtn setTitle:[NSString stringWithFormat:@"%d",model.deepLevel] forState:UIControlStateNormal];
@@ -64,14 +64,14 @@
 - (void)clickNumAction{
     id obj = (__bridge id)(void *)self.model.objectPtr;
     if (obj) {
-        id views = [NSObject performTarget:@"TPUIHierarchyManager_Class" action:@"viewUIHierarchy:" object:obj];
-        [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPUIHierarchyViewController" object:@{@"views":views}];
+        id views = [NSObject performTarget:@"TPUIHierarchyManager".classString action:@"viewUIHierarchy:" object:obj];
+        [TPRouter jumpUrl:TPString.vc_ui_hierarchy params:@{@"views":views}];
     }
 }
 
 - (void)didTapLabel:(UITapGestureRecognizer *)tapGesture{
     id obj = (__bridge id)(void *)self.model.objectPtr;
-    if (obj) [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPPoObjectViewController" object:@{@"object":obj}];
+    if (obj) [TPRouter jumpUrl:TPString.vc_po_object params:@{@"object":obj}];
 }
 
 - (UIButton *)numBtn{

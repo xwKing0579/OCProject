@@ -11,15 +11,8 @@
 @implementation UIColor (Category)
 #pragma clang diagnostic pop
 
-
 + (BOOL)resolveClassMethod:(SEL)selector{
-    NSString *string = NSStringFromSelector(selector);
-    if ([string hasPrefix:@"c"] && string.length == 7) {
-        Method method = class_getClassMethod([self class],@selector(colorSelf));
-        Class metacls = objc_getMetaClass(NSStringFromClass([self class]).UTF8String);
-        class_addMethod(metacls,selector,method_getImplementation(method),method_getTypeEncoding(method));
-        return YES;
-    }
+    RESOLVE_CLASS_METHOD([NSStringFromSelector(selector) hasPrefix:@"c"] && [NSStringFromSelector(selector) length] == 7, @selector(colorSelf))
     return [super resolveClassMethod:selector];
 }
 

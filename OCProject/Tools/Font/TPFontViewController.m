@@ -23,7 +23,7 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPFontTableViewCell_Class";
+    return TPString.tc_font;
 }
 
 @end

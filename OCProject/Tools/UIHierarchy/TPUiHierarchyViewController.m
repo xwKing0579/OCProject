@@ -1,20 +1,20 @@
 //
-//  TPUIHierarchyViewController.m
+//  TPUiHierarchyViewController.m
 //  OCProject
 //
-//  Created by 王祥伟 on 2023/12/25.
+//  Created by 王祥伟 on 2024/3/14.
 //
 
-#import "TPUIHierarchyViewController.h"
+#import "TPUiHierarchyViewController.h"
 #import "TPUIHierarchyManager.h"
-@interface TPUIHierarchyViewController ()
+@interface TPUiHierarchyViewController ()
 @property (nonatomic, strong) NSMutableArray <TPUIHierarchyModel *>*dataSource;//展示数据
 @property (nonatomic, strong) TPUIHierarchyModel *model;
 @property (nonatomic, assign) BOOL isOpen;
 @property (nonatomic, assign) BOOL isVcs;
 @end
 
-@implementation TPUIHierarchyViewController
+@implementation TPUiHierarchyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,7 +62,7 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPUIHierarchyTableViewCell_Class";
+    return TPString.tc_ui_hierarchy;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

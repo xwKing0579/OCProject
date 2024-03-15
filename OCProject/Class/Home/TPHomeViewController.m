@@ -16,15 +16,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.data = @[@"TPRouterDemoViewController?title=路由演示demo",
-                  @"TPMeditorDemoViewController?title=中间件demo",
-                  @"TPAnalysisDemoViewController?title=无痕埋点demo",
+
+    self.data = @[ROUTER_DEMO(TPString.vc_router_demo,@"路由演示demo"),
+                  ROUTER_DEMO(TPString.vc_meditor_demo,@"中间件demo"),
+                  ROUTER_DEMO(TPString.vc_analysis_demo,@"无痕埋点demo"),
     ];
     [self.tableView reloadData];
 }
 
 - (NSString *)cellClass{
-    return @"TPHomeTableViewCell_Class";
+    return TPString.tc_home;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource

@@ -35,7 +35,7 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPLogTableViewCell_Class";
+    return TPString.tc_log;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
@@ -44,7 +44,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPLogDetailViewController" object:@{@"model":self.data[indexPath.row]}];
+    [TPRouter jumpUrl:TPString.vc_log_detail params:@{@"model":self.data[indexPath.row]}];
 }
 
 @end

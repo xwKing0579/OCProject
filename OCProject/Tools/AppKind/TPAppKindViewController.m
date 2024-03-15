@@ -50,12 +50,12 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPAppKindTableViewCell_Class";
+    return TPString.tc_app_kind;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPAppDetailViewController" object:@{@"model":self.data[indexPath.row]}];
+    [TPRouter jumpUrl:TPString.vc_app_detail params:@{@"model":self.data[indexPath.row]}];
 }
 
 @end

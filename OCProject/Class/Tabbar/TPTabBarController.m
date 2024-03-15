@@ -7,7 +7,7 @@
 
 #import "TPTabBarController.h"
 #import "TPBaseNavigationController.h"
-#import "TPRouter+Class.h"
+
 @interface TPTabBarController ()
 
 @end
@@ -17,11 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *names = @[@"home",@"ui",@"mine"];
+    NSArray *names = @[TPString.vc_home,TPString.vc_ui,TPString.vc_mine];
     for (int i = 0; i < names.count; i++) {
-        NSString *action = [NSString stringWithFormat:@"vc_%@",names[i]];
-        NSString *vcName = [TPRouter performAction:action];
-        [self setUpViewControllersInNavClass:TPBaseNavigationController.class rootClass:NSClassFromString([TPRouter classValue][vcName]) tabBarName:names[i] tabBarImageName:names[i]];
+        NSString *vcName = names[i];
+        [self setUpViewControllersInNavClass:TPBaseNavigationController.class rootClass:NSClassFromString(vcName) tabBarName:vcName.abbr tabBarImageName:vcName.abbr];
     }
     
     if (@available (iOS 15.0, *)) {

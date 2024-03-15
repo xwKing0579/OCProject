@@ -31,7 +31,22 @@ static NSString *identifier = @"TPDebugToolViewCell";
 }
 
 - (void)clickSwitchAction{
-    [NSObject performTarget:TPRouter.routerClass action:TPRouter.routerJumpUrlParams object:@"TPDebugSwitchViewController"];
+    [TPRouter jumpUrl:TPString.vc_debug_switch];
+}
+
+///路由测试
++ (void)routerEntry{
+   __block UIAlertController *alertController = [UIAlertController alertTitle:@"路由测试" message:nil cancel:@"取消" cancelBlock:^(NSString * _Nonnull cancel) {
+       alertController = nil;
+    } confirm:@"跳转" confirmBlock:^(NSUInteger index) {
+        UITextField *textField = alertController.textFields.firstObject;
+        [TPRouter jumpUrl:textField.text];
+        alertController = nil;
+    }];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入url";
+    }];
+    [UIViewController.currentViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
@@ -56,7 +71,11 @@ static NSString *identifier = @"TPDebugToolViewCell";
         
         //self.block = block; //内存泄漏测试
     }
-    [NSObject performTarget:model.target ?: TPRouter.routerClass action:model.action ?: TPRouter.routerJumpUrl object:obj];
+    if (model.target){
+        [NSObject performTarget:model.target action:model.action object:obj];
+    }else{
+        [TPRouter jumpUrl:obj];
+    }
 }
 
 - (UICollectionView *)collectionView{
@@ -76,10 +95,6 @@ static NSString *identifier = @"TPDebugToolViewCell";
         [self.view addSubview:_collectionView];
     }
     return _collectionView;
-}
-
-- (BOOL)controllerRepeat{
-    return NO;
 }
 
 @end
@@ -143,7 +158,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
 @implementation TPDebugToolModel
 
 + (NSArray *)data{
-    NSString *envi = [NSString stringWithFormat:@"环境:%@",[NSObject performTarget:@"TPEnviConfig_Class" action:@"enviToSting"]];
+    NSString *envi = [NSString stringWithFormat:@"环境:%@",[NSObject performTarget:@"TPEnviConfig".classString action:@"enviToSting"]];
 
     NSMutableString *startTime = [NSMutableString stringWithString:@"启动时间:"];
     id value = [[NSUserDefaults standardUserDefaults] valueForKey:@"kTPStartupTimeKey"];
@@ -151,20 +166,20 @@ static NSString *identifier = @"TPDebugToolViewCell";
    
     NSArray *data = @[
         @{@"title":startTime,@"image":@"startup"},
-        @{@"title":@"路由",@"image":@"router",@"action":@"routerEntry"},
-        @{@"title":envi,@"image":@"setting",@"target":@"TPEnviConfig_Class",@"action":@"enviConfig:"},
+        @{@"title":@"路由",@"image":@"router",@"target":TPString.vc_debug_tool.classString,@"action":@"routerEntry"},
+        @{@"title":envi,@"image":@"setting",@"target":@"TPEnviConfig".classString,@"action":@"enviConfig:"},
         
-        @{@"title":@"app信息",@"image":@"appInfo",@"url":@"TPAppInfoViewController"},
-        @{@"title":@"app文件",@"image":@"file",@"url":@"TPFileViewController"},
-        @{@"title":@"UserDefaults",@"image":@"data",@"url":@"TPUserDefaultsController"},
-        @{@"title":@"可用字体",@"image":@"font",@"url":@"TPFontViewController"},
-        @{@"title":@"内存泄漏",@"image":@"leaks",@"url":@"TPLeaksViewController"},
-        @{@"title":@"本机app",@"image":@"app",@"url":@"TPAppKindViewController"},
+        @{@"title":@"app信息",@"image":@"appInfo",@"url":TPString.vc_app_info},
+        @{@"title":@"app文件",@"image":@"file",@"url":TPString.vc_file},
+        @{@"title":@"UserDefaults",@"image":@"data",@"url":TPString.vc_user_defaults},
+        @{@"title":@"可用字体",@"image":@"font",@"url":TPString.vc_font},
+        @{@"title":@"内存泄漏",@"image":@"leaks",@"url":TPString.vc_leaks},
+        @{@"title":@"本机app",@"image":@"app",@"url":TPString.vc_app_kind},
         
-        @{@"title":@"打印日志",@"image":@"log",@"url":@"TPLogViewController"},
-        @{@"title":@"崩溃信息",@"image":@"crash",@"url":@"TPCrashViewController"},
-        @{@"title":@"卡顿检测",@"image":@"caton",@"url":@"TPMonitorViewController"},
-        @{@"title":@"网络数据",@"image":@"network",@"url":@"TPNetworkMonitorViewController"},
+        @{@"title":@"打印日志",@"image":@"log",@"url":TPString.vc_log},
+        @{@"title":@"崩溃信息",@"image":@"crash",@"url":TPString.vc_crash},
+        @{@"title":@"卡顿检测",@"image":@"caton",@"url":TPString.tc_monitor},
+        @{@"title":@"网络数据",@"image":@"network",@"url":TPString.vc_network_monitor},
     ];
     
     return [NSArray yy_modelArrayWithClass:[self class] json:data];

@@ -24,7 +24,7 @@
 
 - (void)openURL{
 #ifdef DEBUG
-    NSObject *workspace = [NSObject performTarget:@"LSApplicationWorkspace_Class" action:@"defaultWorkspace"];
+    NSObject *workspace = [NSObject performTarget:@"LSApplicationWorkspace".classString action:@"defaultWorkspace"];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [workspace performSelector:NSSelectorFromString(@"openApplicationWithBundleID:") withObject:self.model.bundleIdentifier];
@@ -33,7 +33,7 @@
 }
 
 - (NSString *)cellClass{
-    return @"TPPoObjectTableViewCell_Class";
+    return TPString.tc_po_object;
 }
 
 @end

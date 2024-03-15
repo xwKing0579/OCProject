@@ -1,17 +1,17 @@
 //
-//  TPUserDefaultsController.m
+//  TPUserDefaultsViewController.m
 //  OCProject
 //
-//  Created by 王祥伟 on 2023/12/19.
+//  Created by 王祥伟 on 2024/3/15.
 //
 
-#import "TPUserDefaultsController.h"
+#import "TPUserDefaultsViewController.h"
 
-@interface TPUserDefaultsController ()
+@interface TPUserDefaultsViewController ()
 @property (nonatomic, strong) NSDictionary <NSString *, id>*dict;
 @end
 
-@implementation TPUserDefaultsController
+@implementation TPUserDefaultsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +35,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [NSObject performTarget:@"TPUserDefaultsTableViewCell_Class" action:@"initWithTableView:withKey:withValue:" objects:@{@"object1":tableView,@"object2":self.dict.allKeys[indexPath.row],@"object3":self.dict[self.dict.allKeys[indexPath.row]]}] ?: [UITableViewCell new];
+    return [NSObject performTarget:TPString.tc_user_defaults.classString action:@"initWithTableView:withKey:withValue:" objects:@{@"1":tableView,@"2":self.dict.allKeys[indexPath.row],@"3":self.dict[self.dict.allKeys[indexPath.row]]}] ?: [UITableViewCell new];
 }
+
 @end

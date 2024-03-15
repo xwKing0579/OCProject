@@ -26,7 +26,7 @@
 }
 
 - (void)clickDemoAction{
-    [TPRouter jumpUrl:@"TPAnalysisClickViewController"];
+    [TPRouter jumpUrl:TPString.vc_analysis_click];
 }
 
 #pragma mark - setter/getter
