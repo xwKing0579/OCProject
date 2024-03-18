@@ -6,6 +6,7 @@
 //
 
 #import "NSObject+Mediator.h"
+#import <UIKit/UIKit.h>
 
 NSString *const kNSObjectClassObjectName = @"_Class";
 
@@ -14,6 +15,10 @@ NSString *const kNSObjectClassObjectName = @"_Class";
 #define STRING_TYPE(_type, _method) if (strcmp(paramType, @encode(_type)) == 0) { _type param = _method; ACTION_SET_ARGUMENT }
 #define ACTION_TYPE(_type, _method) { _type param = [value _method]; ACTION_SET_ARGUMENT }
 #define ACTION_SET_ARGUMENT [invocation setArgument:&param atIndex:idx]; break;
+
+#define CASE_GET_TYPE(_typeChar, _type) case _typeChar: ACTION_GET_VALUE(_type)
+#define STRUCT_GET_TYPE(_type) if (strcmp(returnType, @encode(_type)) == 0) ACTION_GET_VALUE(_type)
+#define ACTION_GET_VALUE(_type) { _type result; [invocation getReturnValue:&result]; return @(result); }
 
 #define SAFE_PERFORM_SELECTOR SEL sel = NSSelectorFromString(action);\
 return [self respondsToSelector:sel] ? [NSObject safePerformTarget:self selector:sel objects:objects] : nil;\
@@ -84,10 +89,8 @@ if(object2) [objects setValue:object2 forKey:@"2"];\
     SEL selector = NSSelectorFromString(action);
     if ([targetObject respondsToSelector:selector]) {
         return [self safePerformTarget:targetObject selector:selector objects:objects];
-    }else{
-        [self noTarget:target action:action targetObject:targetObject];
-        return nil;
     }
+    return nil;
 }
 
 + (id)safePerformTarget:(id)target selector:(SEL)selector objects:(NSDictionary * __nullable)objects{
@@ -122,7 +125,7 @@ if(object2) [objects setValue:object2 forKey:@"2"];\
                             CASE_TYPE('L', unsigned long, unsignedLongValue)
                             CASE_TYPE('q', long long, longLongValue)
                             CASE_TYPE('Q', unsigned long long, unsignedLongLongValue)
-                            CASE_TYPE('f', double, floatValue)
+                            CASE_TYPE('f', float, floatValue)
                             CASE_TYPE('d', double, doubleValue)
                             CASE_TYPE('B', BOOL, boolValue)
                         default:
@@ -141,24 +144,28 @@ if(object2) [objects setValue:object2 forKey:@"2"];\
                             CASE_TYPE('L', unsigned long, longLongValue)
                             CASE_TYPE('q', long long, longLongValue)
                             CASE_TYPE('Q', unsigned long long, longLongValue)
-                            CASE_TYPE('f', double, floatValue)
+                            CASE_TYPE('f', float, floatValue)
                             CASE_TYPE('d', double, doubleValue)
                             CASE_TYPE('B', BOOL, boolValue)
+                            break;
                         case '{':{
                             STRING_TYPE(CGRect, CGRectFromString(value))
                             STRING_TYPE(CGSize, CGSizeFromString(value))
                             STRING_TYPE(CGPoint, CGPointFromString(value))
                             STRING_TYPE(CGVector, CGVectorFromString(value))
                             STRING_TYPE(CGAffineTransform, CGAffineTransformFromString(value))
+                            break;
                         }
                         case '*':
                         case '^':{
                             STRING_TYPE(UIOffset, UIOffsetFromString(value))
                             STRING_TYPE(UIEdgeInsets, UIEdgeInsetsFromString(value))
                             STRING_TYPE(NSDirectionalEdgeInsets, NSDirectionalEdgeInsetsFromString(value))
+                            break;
                         }
                         case ':': {
                             STRING_TYPE(SEL, NSSelectorFromString(value))
+                            break;
                         }
                         default:
                             break;
@@ -172,12 +179,14 @@ if(object2) [objects setValue:object2 forKey:@"2"];\
                             STRUCT_TYPE(CGPoint, CGPointValue)
                             STRUCT_TYPE(CGVector, CGVectorValue)
                             STRUCT_TYPE(CGAffineTransform, CGAffineTransformValue)
+                            break;
                         }
                         case '*':
                         case '^':{
                             STRUCT_TYPE(UIOffset, UIOffsetValue)
                             STRUCT_TYPE(UIEdgeInsets, UIEdgeInsetsValue)
                             STRUCT_TYPE(NSDirectionalEdgeInsets, directionalEdgeInsetsValue)
+                            break;
                         }
                         default:
                             break;
@@ -211,25 +220,32 @@ if(object2) [objects setValue:object2 forKey:@"2"];\
     }else{
         char type = returnType[0] == 'r' ? returnType[1] : returnType[0];
         switch (type) {
-            case 'c':
-            case 'C':
-            case 's':
-            case 'S':
-            case 'i':
-            case 'I':
-            case 'l':
-            case 'L':
-            case 'q':
-            case 'Q':
-            case 'f':
-            case 'd':
-            case 'B':
+                CASE_GET_TYPE('c', char)
+                CASE_GET_TYPE('C', unsigned char)
+                CASE_GET_TYPE('s', short)
+                CASE_GET_TYPE('S', unsigned short)
+                CASE_GET_TYPE('i', int)
+                CASE_GET_TYPE('I', unsigned int)
+                CASE_GET_TYPE('l', long)
+                CASE_GET_TYPE('L', unsigned long)
+                CASE_GET_TYPE('q', long long)
+                CASE_GET_TYPE('Q', unsigned long long)
+                CASE_GET_TYPE('f', float)
+                CASE_GET_TYPE('d', double)
+                CASE_GET_TYPE('B', BOOL)
+                break;
             case '{':
+                STRUCT_GET_TYPE(CGRect)
+                STRUCT_GET_TYPE(CGSize)
+                STRUCT_GET_TYPE(CGPoint)
+                STRUCT_GET_TYPE(CGVector)
+                break;
             case '*':
             case '^': {
-                char result;
-                [invocation getReturnValue:&result];
-                return @(result);
+                STRUCT_GET_TYPE(UIOffset)
+                STRUCT_GET_TYPE(UIEdgeInsets)
+                STRUCT_GET_TYPE(NSDirectionalEdgeInsets)
+                break;
             }
             case '#': {
                 Class result;
@@ -264,6 +280,7 @@ if(object2) [objects setValue:object2 forKey:@"2"];\
             target = [target stringByReplacingOccurrencesOfString:kNSObjectClassObjectName withString:@""];
         }
         NSLog(@"%@", [NSString stringWithFormat:@"target not found，请检查类<%@>是否存在",target]);
+        
     }
 }
 @end
