@@ -16,17 +16,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     self.data = @[ROUTER_DEMO(TPString.vc_router_demo,@"路由演示demo"),
                   ROUTER_DEMO(TPString.vc_meditor_demo,@"中间件demo"),
                   ROUTER_DEMO(TPString.vc_analysis_demo,@"无痕埋点demo"),
     ];
     [self.tableView reloadData];
-    [NSObject performTarget:@"TPHomeViewController" action:@"1"];
-}
-
-- (void)aaa{
-    NSLog(@"%@",self);
 }
 
 - (NSString *)cellClass{
