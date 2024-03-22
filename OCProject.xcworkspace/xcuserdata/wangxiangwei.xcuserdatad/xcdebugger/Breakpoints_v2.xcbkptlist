@@ -30,5 +30,51 @@
             endingLineNumber = "61">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F87312CD-F47F-470C-88B1-27517DC071B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../TPCodeAlignment.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "+codeAligmentProjectPath:ignoreDirNames:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F87312CD-F47F-470C-88B1-27517DC071B4 - ebd5bcce4f28527b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[TPCodeAlignment codeAligmentProjectPath:ignoreDirNames:]"
+                  moduleName = "OCProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangxiangwei/Desktop/TPCodeAlignment.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41">
+               </Location>
+               <Location
+                  uuid = "F87312CD-F47F-470C-88B1-27517DC071B4 - ebd5bcce4f28527b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[TPCodeAlignment codeAligmentProjectPath:ignoreDirNames:]"
+                  moduleName = "OCProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangxiangwei/Desktop/TPCodeAlignment.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

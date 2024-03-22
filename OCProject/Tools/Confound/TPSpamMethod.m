@@ -82,12 +82,17 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     
     NSMutableString *hmethodContent = [NSMutableString string];
     NSMutableString *mmethodContent = [NSMutableString string];
-    for (NSString *string in methods) {
+    for (int i = 0; i < methods.count; i++) {
+        NSString *string = methods[i];
         [hmethodContent appendString:string];
         [hmethodContent appendString:@";\n\n"];
         
         [mmethodContent appendString:string];
-        [mmethodContent appendString:@"{\n    return NSStringFromSelector(_cmd);\n}\n\n"];
+        if (i == methods.count - 1){
+            [mmethodContent appendString:@"{\n    return NSStringFromSelector(_cmd);\n}\n\n"];
+        }else{
+            [mmethodContent appendString:[NSString stringWithFormat:@"{\n    return [self %@];\n}\n\n",methods[i+1]]];
+        }
     }
     NSMutableString *hContent = [NSMutableString string];
     NSMutableString *mContent = [NSMutableString string];

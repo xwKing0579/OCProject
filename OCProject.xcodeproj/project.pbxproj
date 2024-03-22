@@ -126,7 +126,12 @@
 		F8EAC8112B173504005522DE /* OCProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8102B173504005522DE /* OCProjectUITests.m */; };
 		F8EAC8132B173504005522DE /* OCProjectUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */; };
 		F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8272B1735D5005522DE /* TPRouter.m */; };
-		F8F32AB92BAD684400E04097 /* TPCodeAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AB82BAD684400E04097 /* TPCodeAlignment.m */; };
+		F8F32ABC2BAD6E7D00E04097 /* TPModifyProjectName.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32ABB2BAD6E7D00E04097 /* TPModifyProjectName.m */; };
+		F8F32AC22BAD7B9A00E04097 /* TPConfoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AC12BAD7B9A00E04097 /* TPConfoundViewController.m */; };
+		F8F32AC52BAD7C1E00E04097 /* TPConfoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AC42BAD7C1E00E04097 /* TPConfoundTableViewCell.m */; };
+		F8F32AC82BAD7E8600E04097 /* TPSpamCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AC72BAD7E8600E04097 /* TPSpamCodeViewController.m */; };
+		F8F32ACB2BAD80BF00E04097 /* TPConfoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32ACA2BAD80BF00E04097 /* TPConfoundModel.m */; };
+		F8F32ACE2BAD82CD00E04097 /* TPSpamCodeModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32ACD2BAD82CD00E04097 /* TPSpamCodeModelViewController.m */; };
 		F8F4037D2B21B614008653CB /* TPDebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037C2B21B614008653CB /* TPDebugTool.m */; };
 		F8F403962B21B93D008653CB /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */; };
 		F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403812B21B93C008653CB /* UINavigationController+MemoryLeak.m */; };
@@ -405,8 +410,18 @@
 		F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCProjectUITestsLaunchTests.m; sourceTree = "<group>"; };
 		F8EAC8262B1735D5005522DE /* TPRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRouter.h; sourceTree = "<group>"; };
 		F8EAC8272B1735D5005522DE /* TPRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRouter.m; sourceTree = "<group>"; };
-		F8F32AB72BAD684400E04097 /* TPCodeAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPCodeAlignment.h; path = ../../../../TPCodeAlignment.h; sourceTree = "<group>"; };
-		F8F32AB82BAD684400E04097 /* TPCodeAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPCodeAlignment.m; path = ../../../../TPCodeAlignment.m; sourceTree = "<group>"; };
+		F8F32ABA2BAD6E7D00E04097 /* TPModifyProjectName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPModifyProjectName.h; sourceTree = "<group>"; };
+		F8F32ABB2BAD6E7D00E04097 /* TPModifyProjectName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPModifyProjectName.m; sourceTree = "<group>"; };
+		F8F32AC02BAD7B9A00E04097 /* TPConfoundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPConfoundViewController.h; sourceTree = "<group>"; };
+		F8F32AC12BAD7B9A00E04097 /* TPConfoundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPConfoundViewController.m; sourceTree = "<group>"; };
+		F8F32AC32BAD7C1E00E04097 /* TPConfoundTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPConfoundTableViewCell.h; sourceTree = "<group>"; };
+		F8F32AC42BAD7C1E00E04097 /* TPConfoundTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPConfoundTableViewCell.m; sourceTree = "<group>"; };
+		F8F32AC62BAD7E8600E04097 /* TPSpamCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamCodeViewController.h; sourceTree = "<group>"; };
+		F8F32AC72BAD7E8600E04097 /* TPSpamCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamCodeViewController.m; sourceTree = "<group>"; };
+		F8F32AC92BAD80BF00E04097 /* TPConfoundModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPConfoundModel.h; sourceTree = "<group>"; };
+		F8F32ACA2BAD80BF00E04097 /* TPConfoundModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPConfoundModel.m; sourceTree = "<group>"; };
+		F8F32ACC2BAD82CD00E04097 /* TPSpamCodeModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamCodeModelViewController.h; sourceTree = "<group>"; };
+		F8F32ACD2BAD82CD00E04097 /* TPSpamCodeModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamCodeModelViewController.m; sourceTree = "<group>"; };
 		F8F4037B2B21B614008653CB /* TPDebugTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugTool.h; sourceTree = "<group>"; };
 		F8F4037C2B21B614008653CB /* TPDebugTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugTool.m; sourceTree = "<group>"; };
 		F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
@@ -674,8 +689,18 @@
 			children = (
 				F86A80BE2BAC643A005D717D /* TPSpamMethod.h */,
 				F86A80BF2BAC643A005D717D /* TPSpamMethod.m */,
-				F8F32AB72BAD684400E04097 /* TPCodeAlignment.h */,
-				F8F32AB82BAD684400E04097 /* TPCodeAlignment.m */,
+				F8F32ABA2BAD6E7D00E04097 /* TPModifyProjectName.h */,
+				F8F32ABB2BAD6E7D00E04097 /* TPModifyProjectName.m */,
+				F8F32AC92BAD80BF00E04097 /* TPConfoundModel.h */,
+				F8F32ACA2BAD80BF00E04097 /* TPConfoundModel.m */,
+				F8F32AC02BAD7B9A00E04097 /* TPConfoundViewController.h */,
+				F8F32AC12BAD7B9A00E04097 /* TPConfoundViewController.m */,
+				F8F32AC32BAD7C1E00E04097 /* TPConfoundTableViewCell.h */,
+				F8F32AC42BAD7C1E00E04097 /* TPConfoundTableViewCell.m */,
+				F8F32AC62BAD7E8600E04097 /* TPSpamCodeViewController.h */,
+				F8F32AC72BAD7E8600E04097 /* TPSpamCodeViewController.m */,
+				F8F32ACC2BAD82CD00E04097 /* TPSpamCodeModelViewController.h */,
+				F8F32ACD2BAD82CD00E04097 /* TPSpamCodeModelViewController.m */,
 			);
 			path = Confound;
 			sourceTree = "<group>";
@@ -1454,7 +1479,9 @@
 				F8AF956E2B1F3BFF003059CB /* TPWebViewController.m in Sources */,
 				F8832B692B30477B0096D523 /* MBProgressHUD+Category.m in Sources */,
 				F8A82DD22B5139AD00E69051 /* TPMineModel.m in Sources */,
+				F8F32AC52BAD7C1E00E04097 /* TPConfoundTableViewCell.m in Sources */,
 				F8F4037D2B21B614008653CB /* TPDebugTool.m in Sources */,
+				F8F32ACE2BAD82CD00E04097 /* TPSpamCodeModelViewController.m in Sources */,
 				F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */,
 				F8F403AA2B21B97A008653CB /* NSArray+UnicodeReadable.m in Sources */,
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
@@ -1476,6 +1503,7 @@
 				F822A10C2B3ACDFF00A3330C /* TPPoObjectViewController.m in Sources */,
 				F8E1B17D2B316FED0036928F /* fishhook.c in Sources */,
 				F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */,
+				F8F32AC22BAD7B9A00E04097 /* TPConfoundViewController.m in Sources */,
 				F84368C02B327DA80055444B /* TPFontViewController.m in Sources */,
 				F8E1B18E2B318EE60036928F /* TPLogDetailViewController.m in Sources */,
 				F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */,
@@ -1484,6 +1512,8 @@
 				F8F403992B21B93D008653CB /* UIPageViewController+MemoryLeak.m in Sources */,
 				F88495DC2B3EA9030081B012 /* TPURLProtocol.m in Sources */,
 				F8E1B1842B3172810036928F /* TPLogViewController.m in Sources */,
+				F8F32AC82BAD7E8600E04097 /* TPSpamCodeViewController.m in Sources */,
+				F8F32ABC2BAD6E7D00E04097 /* TPModifyProjectName.m in Sources */,
 				F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */,
 				F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */,
 				F84368C72B3288AF0055444B /* TPFluencyMonitor.m in Sources */,
@@ -1536,6 +1566,7 @@
 				F8AE196E2B2C52AD009C12E2 /* TPFileTableViewCell.m in Sources */,
 				F8F403982B21B93D008653CB /* UIViewController+MemoryLeak.m in Sources */,
 				F8B8B7622B47EB4600F2DE66 /* TPHomeTableViewCell.m in Sources */,
+				F8F32ACB2BAD80BF00E04097 /* TPConfoundModel.m in Sources */,
 				F8A7066F2B54D279005BEC68 /* TPCryptoViewController.m in Sources */,
 				F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */,
 				F875EAE82B4E6D2900559A68 /* NSObject+Analysis.m in Sources */,
@@ -1563,7 +1594,6 @@
 				F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */,
 				F80C53EE2B297A9E00C7FB38 /* NSDate+Category.m in Sources */,
 				F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */,
-				F8F32AB92BAD684400E04097 /* TPCodeAlignment.m in Sources */,
 				F882869C2B9F47EA00FC22F4 /* TPOperation.m in Sources */,
 				F8CB1E882BA1341E001F734A /* NSObject+Mediator.m in Sources */,
 				F8AF954B2B1EBA3C003059CB /* UIColor+Category.m in Sources */,

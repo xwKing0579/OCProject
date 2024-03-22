@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)tc_router_params;
 + (NSString *)tc_analysis_click;
 + (NSString *)tc_network_monitor;
++ (NSString *)tc_confound;
 
 //viewController ===========================================================================
 ///基类
@@ -76,6 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)vc_ui_hierarchy;
 + (NSString *)vc_user_defaults;
 + (NSString *)vc_network_monitor;
++ (NSString *)vc_confound;
++ (NSString *)vc_spam_code;
++ (NSString *)vc_spam_code_model;
 
 ///其他类 ===========================================================================
 + (NSString *)tp_debug_tool;

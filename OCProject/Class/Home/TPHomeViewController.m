@@ -6,7 +6,7 @@
 //
 
 #import "TPHomeViewController.h"
-#import "TPCodeAlignment.h"
+
 @interface TPHomeViewController ()
 
 @end
@@ -21,8 +21,11 @@
                   ROUTER_DEMO(TPString.vc_analysis_demo,@"无痕埋点demo"),
     ];
     [self.tableView reloadData];
-    [TPCodeAlignment codeAligmentProjectPath:@"/Users/wangxiangwei/Desktop/OCProject" ignoreDirNames:@[@"Pods"]];
+    // /Users/wangxiangwei/Desktop/Mediator
+    
+   
 }
+
 
 - (NSString *)cellClass{
     return TPString.tc_home;
