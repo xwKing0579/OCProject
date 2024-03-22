@@ -16,8 +16,6 @@ NSString *const kSpamMethodPrefixName = @"tp_";
 + (void)spamCodeProjectPath:(NSString *)projectPath ignoreDirNames:(NSArray<NSString *> * __nullable)ignoreDirNames{
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
-   
-    
     for (NSString *filePath in files) {
         if ([ignoreDirNames containsObject:filePath]) continue;
         NSString *path = [projectPath stringByAppendingPathComponent:filePath];
@@ -31,6 +29,7 @@ NSString *const kSpamMethodPrefixName = @"tp_";
         NSString *fileName = filePath.lastPathComponent;
         if ([fileName hasSuffix:@".h"]) {
             if ([fileName containsString:@"+"]) continue;
+            if ([fileName isEqualToString:NSStringFromClass([self class])]) continue;
             NSString *headName = fileName.stringByDeletingPathExtension;
             NSString *mFileName = [headName stringByAppendingPathExtension:@"m"];
             if (![files containsObject:mFileName]) continue;
@@ -100,7 +99,7 @@ NSString *const kSpamMethodPrefixName = @"tp_";
         }else{
             [hContent appendString:hcomponent[i]];
         }
-        [hContent appendString:@"\n\n@end\n\n"];
+        [hContent appendString:@"@end"];
     }
     
     for (int i = 0; i < mcomponent.count-1; i++) {
@@ -112,7 +111,7 @@ NSString *const kSpamMethodPrefixName = @"tp_";
         }else{
             [mContent appendString:mcomponent[i]];
         }
-        [mContent appendString:@"\n\n@end\n\n"];
+        [mContent appendString:@"@end"];
     }
     
     [hContent appendString:hcomponent.lastObject];
@@ -120,8 +119,6 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     [hContent writeToFile:hfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     [mContent writeToFile:mfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
-
-
 
 + (NSArray *)randomMethodName:(NSString *)path count:(int)count{
     NSSet *words = [self customWordsInPath:path];
