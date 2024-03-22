@@ -43,6 +43,7 @@
 		F8611C9E2B4F8BE100636793 /* NSObject+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = F8611C9D2B4F8BE100636793 /* NSObject+Safe.m */; };
 		F86871FF2B1D798D007E747F /* TPBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86871FE2B1D798D007E747F /* TPBaseTableViewCell.m */; };
 		F86872082B1DA1B2007E747F /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F86872072B1DA1B2007E747F /* UIViewController+Category.m */; };
+		F86A80C02BAC643A005D717D /* TPSpamMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F86A80BF2BAC643A005D717D /* TPSpamMethod.m */; };
 		F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */; };
 		F86E34A72B60E9D4004B3C2F /* TPToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E34A62B60E9D4004B3C2F /* TPToastManager.m */; };
 		F86E505D2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F86E505B2B230E3700B00781 /* UINavigationController+FDFullscreenPopGesture.m */; };
@@ -240,6 +241,8 @@
 		F86872052B1D7A6B007E747F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F86872062B1DA1B2007E747F /* UIViewController+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
 		F86872072B1DA1B2007E747F /* UIViewController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
+		F86A80BE2BAC643A005D717D /* TPSpamMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamMethod.h; sourceTree = "<group>"; };
+		F86A80BF2BAC643A005D717D /* TPSpamMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamMethod.m; sourceTree = "<group>"; };
 		F86DA5032B2A92A800EB642D /* TPCrashTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrashTableViewCell.h; sourceTree = "<group>"; };
 		F86DA5042B2A92A800EB642D /* TPCrashTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrashTableViewCell.m; sourceTree = "<group>"; };
 		F86E34A52B60E9D4004B3C2F /* TPToastManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPToastManager.h; sourceTree = "<group>"; };
@@ -641,6 +644,7 @@
 		F868720A2B1DE0D8007E747F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F86A80BA2BAC4F38005D717D /* Confound */,
 				F88495AD2B3E55B40081B012 /* Net */,
 				F822A1092B3ACC0900A3330C /* Po */,
 				F89767352B39163700B9F845 /* UIHierarchy */,
@@ -660,6 +664,15 @@
 				F8F4037E2B21B925008653CB /* MLeaksFinder */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		F86A80BA2BAC4F38005D717D /* Confound */ = {
+			isa = PBXGroup;
+			children = (
+				F86A80BE2BAC643A005D717D /* TPSpamMethod.h */,
+				F86A80BF2BAC643A005D717D /* TPSpamMethod.m */,
+			);
+			path = Confound;
 			sourceTree = "<group>";
 		};
 		F8790B182B9FF2AC00A82F16 /* PopViews */ = {
@@ -1423,6 +1436,7 @@
 				F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */,
 				F8AE19642B2C2DC6009C12E2 /* TPFileManager.m in Sources */,
 				F8E1B1802B3170E10036928F /* TPLogManager.m in Sources */,
+				F86A80C02BAC643A005D717D /* TPSpamMethod.m in Sources */,
 				F8F4039C2B21B93D008653CB /* UITabBarController+MemoryLeak.m in Sources */,
 				F8FCA33D2B4BC10800D110E8 /* TPRouterParamsTableViewCell.m in Sources */,
 				F80C53EB2B29404300C7FB38 /* TPCrashCache.m in Sources */,

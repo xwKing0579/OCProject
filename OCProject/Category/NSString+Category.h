@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, NSDateFormatterType){
 + (NSString *)sizeString:(unsigned long long)fileSize;
 
 - (NSString *)toFormatter:(NSDateFormatterType)type;
+
+- (NSArray *)subStartStr:(NSString *)startStr endStr:endStr;
 @end
 
 NS_ASSUME_NONNULL_END

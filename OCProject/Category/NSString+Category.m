@@ -67,5 +67,24 @@
     return [formatter stringFromDate:date];
 }
 
+- (NSArray *)subStartStr:(NSString *)startStr endStr:endStr{
+    NSUInteger startLocation = 0;
+    NSUInteger endLocation = 0;
+
+    NSMutableArray *resultArray = [NSMutableArray array];
+    while (startLocation < self.length && endLocation < self.length) {
+        NSRange startRange = [self rangeOfString:startStr options:0 range:NSMakeRange(startLocation, self.length - startLocation)];
+        if (startRange.location == NSNotFound) break;
+        startLocation = startRange.location + startRange.length;
+        NSRange endRange = [self rangeOfString:endStr options:0 range:NSMakeRange(startLocation, self.length - startLocation)];
+        if (endRange.location == NSNotFound) break;
+        endLocation = endRange.location;
+        NSRange subRange = NSMakeRange(startLocation, endLocation - startLocation);
+        NSString *subString = [self substringWithRange:subRange];
+        [resultArray addObject:subString];
+        startLocation = endLocation + endRange.length;
+    }
+    return resultArray;
+}
 
 @end
