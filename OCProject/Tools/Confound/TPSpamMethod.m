@@ -29,8 +29,8 @@ NSString *const kSpamMethodPrefixName = @"tp_";
         NSString *fileName = filePath.lastPathComponent;
         if ([fileName hasSuffix:@".h"]) {
             if ([fileName containsString:@"+"]) continue;
-            if ([fileName isEqualToString:NSStringFromClass([self class])]) continue;
             NSString *headName = fileName.stringByDeletingPathExtension;
+            if ([headName isEqualToString:NSStringFromClass([self class])]) continue;
             NSString *mFileName = [headName stringByAppendingPathExtension:@"m"];
             if (![files containsObject:mFileName]) continue;
             
@@ -75,6 +75,7 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     NSString *mfilePath = [NSString stringWithFormat:@"%@.m",filePath];
     NSMutableString *hfileContent = [NSMutableString stringWithContentsOfFile:hfilePath encoding:NSUTF8StringEncoding error:&error];
     NSMutableString *mfileContent = [NSMutableString stringWithContentsOfFile:mfilePath encoding:NSUTF8StringEncoding error:&error];
+    if (error) return;
     NSArray *hcomponent = [hfileContent componentsSeparatedByString:@"@end"];
     NSArray *mcomponent = [mfileContent componentsSeparatedByString:@"@end"];
     if (hcomponent.count < 2 || mcomponent.count < 2) return;
@@ -83,7 +84,7 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     NSMutableString *mmethodContent = [NSMutableString string];
     for (NSString *string in methods) {
         [hmethodContent appendString:string];
-        [hmethodContent appendString:@";\n"];
+        [hmethodContent appendString:@";\n\n"];
         
         [mmethodContent appendString:string];
         [mmethodContent appendString:@"{\n    return NSStringFromSelector(_cmd);\n}\n\n"];
@@ -97,9 +98,10 @@ NSString *const kSpamMethodPrefixName = @"tp_";
             [hContent appendString:@"\n\n"];
             [hContent appendString:hmethodContent];
         }else{
-            [hContent appendString:hcomponent[i]];
+            [hContent appendString:hString];
+            [hContent appendString:@"\n\n"];
         }
-        [hContent appendString:@"@end"];
+        [hContent appendString:@"@end\n\n"];
     }
     
     for (int i = 0; i < mcomponent.count-1; i++) {
@@ -109,13 +111,14 @@ NSString *const kSpamMethodPrefixName = @"tp_";
             [mContent appendString:@"\n\n"];
             [mContent appendString:mmethodContent];
         }else{
-            [mContent appendString:mcomponent[i]];
+            [mContent appendString:mString];
+            [mContent appendString:@"\n\n"];
         }
-        [mContent appendString:@"@end"];
+        [mContent appendString:@"@end\n\n"];
     }
     
-    [hContent appendString:hcomponent.lastObject];
-    [mContent appendString:mcomponent.lastObject];
+    [hContent appendString:[hcomponent.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
+    [mContent appendString:[mcomponent.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
     [hContent writeToFile:hfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     [mContent writeToFile:mfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }

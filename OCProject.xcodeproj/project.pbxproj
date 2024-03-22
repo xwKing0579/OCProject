@@ -126,6 +126,7 @@
 		F8EAC8112B173504005522DE /* OCProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8102B173504005522DE /* OCProjectUITests.m */; };
 		F8EAC8132B173504005522DE /* OCProjectUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */; };
 		F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8272B1735D5005522DE /* TPRouter.m */; };
+		F8F32AB92BAD684400E04097 /* TPCodeAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AB82BAD684400E04097 /* TPCodeAlignment.m */; };
 		F8F4037D2B21B614008653CB /* TPDebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037C2B21B614008653CB /* TPDebugTool.m */; };
 		F8F403962B21B93D008653CB /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */; };
 		F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F403812B21B93C008653CB /* UINavigationController+MemoryLeak.m */; };
@@ -404,6 +405,8 @@
 		F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCProjectUITestsLaunchTests.m; sourceTree = "<group>"; };
 		F8EAC8262B1735D5005522DE /* TPRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRouter.h; sourceTree = "<group>"; };
 		F8EAC8272B1735D5005522DE /* TPRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRouter.m; sourceTree = "<group>"; };
+		F8F32AB72BAD684400E04097 /* TPCodeAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPCodeAlignment.h; path = ../../../../TPCodeAlignment.h; sourceTree = "<group>"; };
+		F8F32AB82BAD684400E04097 /* TPCodeAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPCodeAlignment.m; path = ../../../../TPCodeAlignment.m; sourceTree = "<group>"; };
 		F8F4037B2B21B614008653CB /* TPDebugTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugTool.h; sourceTree = "<group>"; };
 		F8F4037C2B21B614008653CB /* TPDebugTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugTool.m; sourceTree = "<group>"; };
 		F8F4037F2B21B93C008653CB /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 			children = (
 				F86A80BE2BAC643A005D717D /* TPSpamMethod.h */,
 				F86A80BF2BAC643A005D717D /* TPSpamMethod.m */,
+				F8F32AB72BAD684400E04097 /* TPCodeAlignment.h */,
+				F8F32AB82BAD684400E04097 /* TPCodeAlignment.m */,
 			);
 			path = Confound;
 			sourceTree = "<group>";
@@ -1558,6 +1563,7 @@
 				F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */,
 				F80C53EE2B297A9E00C7FB38 /* NSDate+Category.m in Sources */,
 				F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */,
+				F8F32AB92BAD684400E04097 /* TPCodeAlignment.m in Sources */,
 				F882869C2B9F47EA00FC22F4 /* TPOperation.m in Sources */,
 				F8CB1E882BA1341E001F734A /* NSObject+Mediator.m in Sources */,
 				F8AF954B2B1EBA3C003059CB /* UIColor+Category.m in Sources */,
