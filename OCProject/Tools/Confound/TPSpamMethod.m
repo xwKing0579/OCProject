@@ -29,19 +29,17 @@ NSString *const kSpamMethodPrefixName = @"tp_";
         }
         
         NSString *fileName = filePath.lastPathComponent;
-        if ([fileName hasSuffix:@"TPSpamMethodTest.h"]) {
+        if ([fileName hasSuffix:@".h"]) {
+            if ([fileName containsString:@"+"]) continue;
             NSString *headName = fileName.stringByDeletingPathExtension;
             NSString *mFileName = [headName stringByAppendingPathExtension:@"m"];
             if (![files containsObject:mFileName]) continue;
             
             NSString *mfile = [path stringByReplacingOccurrencesOfString:@".h" withString:@".m"];
             NSSet *mehods = [self alreadyMethodRename:headName];
-            int count = (int)MAX(1, mehods.count);
+            int count = (int)MAX(1, MIN(20, mehods.count));
             NSArray *customMethods = [self randomMethodName:mfile count:count];
-            for (NSString *method in customMethods) {
-                [self createSpamMethod:method toFilePath:path];
-                [self createSpamMethod:method toFilePath:mfile];
-            }
+            [self createSpamMethods:customMethods toFilePath:[path stringByReplacingOccurrencesOfString:@".h" withString:@""]];
         }
     }
 }
@@ -72,17 +70,55 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     return set;
 }
 
-+ (void)createSpamMethod:(NSString *)method toFilePath:(NSString *)filePath{
++ (void)createSpamMethods:(NSArray *)methods toFilePath:(NSString *)filePath{
     NSError *error = nil;
-    NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    NSArray *component = [fileContent componentsSeparatedByString:@"@end"];
-    if (component.count != 2) return;
-    NSString *trimmedString = [component.firstObject stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    NSString *newContent = [NSString stringWithFormat:@"%@\n\n%@;\n\n@end%@",trimmedString,method,component.lastObject];
-    if ([filePath hasSuffix:@".m"]){
-        newContent = [NSString stringWithFormat:@"%@\n\n%@{\n    return NSStringFromSelector(_cmd);\n}\n\n@end%@",trimmedString,method,component.lastObject];
+    NSString *hfilePath = [NSString stringWithFormat:@"%@.h",filePath];
+    NSString *mfilePath = [NSString stringWithFormat:@"%@.m",filePath];
+    NSMutableString *hfileContent = [NSMutableString stringWithContentsOfFile:hfilePath encoding:NSUTF8StringEncoding error:&error];
+    NSMutableString *mfileContent = [NSMutableString stringWithContentsOfFile:mfilePath encoding:NSUTF8StringEncoding error:&error];
+    NSArray *hcomponent = [hfileContent componentsSeparatedByString:@"@end"];
+    NSArray *mcomponent = [mfileContent componentsSeparatedByString:@"@end"];
+    if (hcomponent.count < 2 || mcomponent.count < 2) return;
+    
+    NSMutableString *hmethodContent = [NSMutableString string];
+    NSMutableString *mmethodContent = [NSMutableString string];
+    for (NSString *string in methods) {
+        [hmethodContent appendString:string];
+        [hmethodContent appendString:@";\n"];
+        
+        [mmethodContent appendString:string];
+        [mmethodContent appendString:@"{\n    return NSStringFromSelector(_cmd);\n}\n\n"];
     }
-    [newContent writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSMutableString *hContent = [NSMutableString string];
+    NSMutableString *mContent = [NSMutableString string];
+    for (int i = 0; i < hcomponent.count-1; i++) {
+        NSString *hString = [hcomponent[i] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        if ([hString containsString:@"@interface"]){
+            [hContent appendString:hString];
+            [hContent appendString:@"\n\n"];
+            [hContent appendString:hmethodContent];
+        }else{
+            [hContent appendString:hcomponent[i]];
+        }
+        [hContent appendString:@"\n\n@end\n\n"];
+    }
+    
+    for (int i = 0; i < mcomponent.count-1; i++) {
+        NSString *mString = [mcomponent[i] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        if ([mString containsString:@"@implementation"]){
+            [mContent appendString:mString];
+            [mContent appendString:@"\n\n"];
+            [mContent appendString:mmethodContent];
+        }else{
+            [mContent appendString:mcomponent[i]];
+        }
+        [mContent appendString:@"\n\n@end\n\n"];
+    }
+    
+    [hContent appendString:hcomponent.lastObject];
+    [mContent appendString:mcomponent.lastObject];
+    [hContent writeToFile:hfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    [mContent writeToFile:mfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 

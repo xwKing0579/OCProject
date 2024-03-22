@@ -21,10 +21,7 @@
                   ROUTER_DEMO(TPString.vc_analysis_demo,@"无痕埋点demo"),
     ];
     [self.tableView reloadData];
-    [TPSpamMethod spamCodeProjectPath:@"/Users/wangxiangwei/Desktop/OCProject"];
-  
-    
-    
+//    [TPSpamMethod spamCodeProjectPath:@"/Users/wangxiangwei/Desktop/OCProject" ignoreDirNames:@"Pods"];
 }
 
 - (NSString *)cellClass{
