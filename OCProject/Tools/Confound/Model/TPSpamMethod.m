@@ -6,7 +6,7 @@
 //
 
 #import "TPSpamMethod.h"
-NSString *const kSpamMethodPrefixName = @"tp_";
+#import "TPConfoundSetting.h"
 @implementation TPSpamMethod
 
 + (void)spamCodeProjectPath:(NSString *)projectPath{
@@ -35,38 +35,19 @@ NSString *const kSpamMethodPrefixName = @"tp_";
             if (![files containsObject:mFileName]) continue;
             
             NSString *mfile = [path stringByReplacingOccurrencesOfString:@".h" withString:@".m"];
-            NSSet *mehods = [self alreadyMethodRename:headName];
-            int count = (int)MAX(1, MIN(20, mehods.count));
+            NSArray *mehods = [self alreadyMethodRename:mfile];
+            int count = (int)(MIN(20, mehods.count) + arc4random()%4);
             NSArray *customMethods = [self randomMethodName:mfile count:count];
             [self createSpamMethods:customMethods toFilePath:[path stringByReplacingOccurrencesOfString:@".h" withString:@""]];
         }
     }
 }
 
-+ (NSSet *)alreadyMethodRename:(NSString *)className{
-    NSMutableSet *set = [NSMutableSet set];
-    NSArray *component = [className componentsSeparatedByString:@"+"];
-    NSString *classString = [component.firstObject stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    Class cls = NSClassFromString(classString);
-    if (!cls) return set;
-    
-    unsigned int classCount;
-    Class metacls = objc_getMetaClass(classString.UTF8String);
-    Method *methods = class_copyMethodList(metacls, &classCount);
-    for (int i = 0; i < classCount; i++) {
-        NSString *methodString = [NSString stringWithUTF8String:sel_getName(method_getName(methods[i]))];
-        [set addObject:methodString];
-    }
-    if (methods) free(methods);
-    
-    unsigned int instanceCount;
-    Method *instanceMethods = class_copyMethodList(cls, &instanceCount);
-    for (int i = 0; i < instanceCount; i++) {
-        NSString *methodString = [NSString stringWithUTF8String:sel_getName(method_getName(instanceMethods[i]))];
-        [set addObject:methodString];
-    }
-    if (instanceMethods) free(instanceMethods);
-    return set;
++ (NSArray *)alreadyMethodRename:(NSString *)path{
+    NSError *error = nil;
+    NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    NSArray *contain = [fileContent subStartStr:@"(void)" endStr:@";"];
+    return contain;
 }
 
 + (void)createSpamMethods:(NSArray *)methods toFilePath:(NSString *)filePath{
@@ -91,14 +72,25 @@ NSString *const kSpamMethodPrefixName = @"tp_";
         if (i == methods.count - 1){
             [mmethodContent appendString:@"{\n    return NSStringFromSelector(_cmd);\n}\n\n"];
         }else{
-            [mmethodContent appendString:[NSString stringWithFormat:@"{\n    return [self %@];\n}\n\n",methods[i+1]]];
+            NSString *methodString = methods[i+1];
+            NSString *separat = @" (NSString *)";
+            NSString *com1 = [string componentsSeparatedByString:separat].firstObject;
+            NSString *com2 = [methodString componentsSeparatedByString:separat].firstObject;
+            if ([com1 isEqualToString:com2]){
+                NSRange range = [methodString rangeOfString:@" (NSString *)"];
+                NSString *result = [methodString substringWithRange:NSMakeRange(range.location+range.length, methodString.length-range.location-range.length)];
+                [mmethodContent appendString:[NSString stringWithFormat:@"{\n    return [self %@];\n}\n\n",result]];
+            }else{
+                [mmethodContent appendString:@"{\n    return NSStringFromSelector(_cmd);\n}\n\n"];
+            }
         }
     }
     NSMutableString *hContent = [NSMutableString string];
     NSMutableString *mContent = [NSMutableString string];
     for (int i = 0; i < hcomponent.count-1; i++) {
         NSString *hString = [hcomponent[i] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-        if ([hString containsString:@"@interface"]){
+        NSString *noSpace = [hString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([hString containsString:@"@interface"] && ![noSpace containsString:@"//@interface"]){
             [hContent appendString:hString];
             [hContent appendString:@"\n\n"];
             [hContent appendString:hmethodContent];
@@ -111,7 +103,8 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     
     for (int i = 0; i < mcomponent.count-1; i++) {
         NSString *mString = [mcomponent[i] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-        if ([mString containsString:@"@implementation"]){
+        NSString *noSpace = [mString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([mString containsString:@"@implementation"] && ![noSpace containsString:@"//@implementation"]){
             [mContent appendString:mString];
             [mContent appendString:@"\n\n"];
             [mContent appendString:mmethodContent];
@@ -124,6 +117,7 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     
     [hContent appendString:[hcomponent.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
     [mContent appendString:[mcomponent.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
+    
     [hContent writeToFile:hfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     [mContent writeToFile:mfilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
@@ -132,29 +126,34 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     NSSet *words = [self customWordsInPath:path];
     NSArray *wordsValue = words.allObjects;
     
-    int lenth = arc4random()%3+3;
+    NSSet *result = [self combinedWords:wordsValue minLen:2 maxLen:5 count:count];
+    NSMutableArray *mehods = [NSMutableArray array];
+    for (NSString *string in result.allObjects) {
+        NSString *methodString = [NSString stringWithFormat:@"%@ (NSString *)%@%@",self.randomMethodType,self.methodPrefix,string];
+        [mehods addObject:methodString];
+    }
+    return mehods;
+}
+
++ (NSSet *)combinedWords:(NSArray *)words minLen:(int)minLen maxLen:(int)maxLen count:(int)count{
     NSMutableSet *indexs = [NSMutableSet set];
     NSMutableSet *result = [NSMutableSet set];
     while (result.count < count) {
+        int lenth = arc4random()%abs(maxLen - minLen) + minLen;
         while (indexs.count < lenth) {
             [indexs addObject:[NSNumber numberWithInt:arc4random()%words.count]];
         }
         NSString *methodString = @"";
         for (int i = 0; i < indexs.count;i++) {
             int index = [indexs.allObjects[i] intValue];
-            NSString *wordString = wordsValue[index];
+            NSString *wordString = words[index];
             if (i != 0) wordString = [wordString capitalizedString];
             methodString = [methodString stringByAppendingString:wordString];
         }
         [result addObject:methodString];
         [indexs removeAllObjects];
     }
-    NSMutableArray *mehods = [NSMutableArray array];
-    for (NSString *string in result.allObjects) {
-        NSString *methodString = [NSString stringWithFormat:@"%@ (NSString *)%@",self.randomMethodType,string];
-        [mehods addObject:methodString];
-    }
-    return mehods;
+    return result;
 }
 
 + (NSSet *)customWordsInPath:(NSString *)path{
@@ -181,11 +180,12 @@ NSString *const kSpamMethodPrefixName = @"tp_";
     for (NSString *word in sortedWords) {
         if ([predicate evaluateWithObject:word] && word.length > 2 && word.length < 10) [result addObject:[word lowercaseString]];
     }
-    NSSet *supple = [NSSet setWithArray:@[@"copy",@"alloc",@"with",@"value",@"manager",@"viewContoller",@"model",@"string",@"array",@"dictionary",@"mute",@"object",@"text",@"title",@"content",@"textView",@"textFiled",@"font",@"color",@"navigation",@"tabbar",@"device",@"toast",@"alert",@"router",@"path",@"file",@"height",@"size",@"window",@"delegate",@"protocol",@"empty",@"cache",@"refresh",@"image",@"word",@"setting",@"safe"]];
+    NSSet *supple = [self randomWords];
     for (NSString *string in [supple allObjects]) {
         if (![result containsObject:string]) [result addObject:string];
     }
     [result removeObject:@"void"];
+    [result removeObject:@"init"];
     return result;
 }
 
@@ -194,6 +194,11 @@ NSString *const kSpamMethodPrefixName = @"tp_";
 }
 
 + (NSString *)methodPrefix{
-    return kSpamMethodPrefixName;
+    NSString *methodPrefix = TPConfoundSetting.sharedManager.spamSet.spamMethodPrefix;
+    return methodPrefix ?: @"";
+}
+
++ (NSSet *)randomWords{
+    return [NSSet setWithArray:@[@"copy",@"alloc",@"with",@"value",@"manager",@"model",@"string",@"array",@"dictionary",@"mute",@"object",@"text",@"title",@"content",@"textView",@"textFiled",@"font",@"color",@"navigation",@"tabbar",@"device",@"toast",@"alert",@"router",@"path",@"file",@"height",@"size",@"window",@"delegate",@"protocol",@"empty",@"cache",@"refresh",@"image",@"word",@"setting",@"safe",@"reference", @"memory", @"process", @"concurrent", @"parallel", @"database", @"record", @"encryption",@"mine",@"home",@"demo",@"replace",@"runtime",@"hook",@"remove"]];
 }
 @end

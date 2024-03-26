@@ -7,11 +7,13 @@
 
 #import "TPConfoundTableViewCell.h"
 #import "TPConfoundModel.h"
+#import "TPConfoundSetting.h"
 @interface TPConfoundTableViewCell ()
 @property (nonatomic, strong) UIButton *selectBtn;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UIImageView *arrowImageView;
+@property (nonatomic, strong) TPConfoundModel *model;
 @end
 
 @implementation TPConfoundTableViewCell
@@ -21,6 +23,7 @@
     cell.titleLabel.text = obj.title;
     cell.arrowImageView.hidden = !obj.setting;
     cell.selectBtn.selected = obj.selecte;
+    cell.model = obj;
     return cell;
 }
 
@@ -51,6 +54,28 @@
 
 - (void)clickSelectAction:(UIButton *)sender{
     sender.selected = !sender.selected;
+    self.model.selecte = sender.selected;
+    
+    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
+    TPSpamCodeSetting *codeSet = set.spamSet;
+    TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
+    
+    switch (self.model.idStr.intValue) {
+        case 1:
+            set.isSpam = sender.selected;
+            break;
+        case 21:
+            codeSet.isSpamInOldCode = sender.selected;
+            break;
+        case 22:
+            codeSet.isSpamInNewDir = sender.selected;
+            break;
+        case 23:
+            codeSet.isSpamMethodPrefix = sender.selected;
+            break;
+        default:
+            break;
+    }
 }
 
 - (UIButton *)selectBtn{

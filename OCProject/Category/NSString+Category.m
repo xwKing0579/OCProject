@@ -17,6 +17,10 @@
     return [scan scanInt:&val] && [scan isAtEnd];
 }
 
+- (NSString *)whitespace{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
 + (NSString *)sizeString:(unsigned long long)fileSize{
     NSString *sizeString = @"0";
     if (fileSize >= pow(10, 9)) { // size >= 1GB
@@ -39,32 +43,6 @@
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:returnValue options:NSJSONWritingPrettyPrinted error:nil];
     return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-}
-
-- (NSString *)toFormatter:(NSDateFormatterType)type{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    
-    NSString *format;
-    switch (type) {
-        case NSDateFormatterYearMonthDay:
-            format = @"yyyy-MM-dd";
-            break;
-        case NSDateFormatterYearToMinute:
-            format = @"yyyy-MM-dd HH:mm";
-            break;
-        case NSDateFormatterYearToSecond:
-            format = @"yyyy-MM-dd HH:mm:ss";
-            break;
-        case NSDateFormatterHourMinuteSecond:
-            format = @"HH:mm:ss";
-            break;
-        default:
-            format = @"yyyy-MM-dd HH:mm:ss";
-            break;
-    }
-    
-    NSDate *date = [formatter dateFromString:self];
-    return [formatter stringFromDate:date];
 }
 
 - (NSArray *)subStartStr:(NSString *)startStr endStr:endStr{

@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPConfoundModel : NSObject
-
+@property (nonatomic, copy) NSString *idStr;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, assign) BOOL setting;

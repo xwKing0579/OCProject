@@ -34,6 +34,8 @@
 #import <SDWebImage.h>
 #import <MJRefresh.h>
 
+#define safeString(string) string.length ? string : @""
+
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"\n%s ==> %d行\n%@",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__PRETTY_FUNCTION__
 #else

@@ -64,7 +64,7 @@
     
     CGFloat progress = fps / 60.0;
     self.textColor = [UIColor colorWithHue:0.27 * (progress - 0.2) saturation:1 brightness:0.9 alpha:1];
-    self.text = [NSString stringWithFormat:@"PFS:%d",(int)round(fps)];
+    self.text = [NSString stringWithFormat:@"FPS:%d",(int)round(fps)];
 }
 
 - (void)dealloc {

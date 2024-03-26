@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)currentTime;
 + (NSString *)timeFromDate:(NSDate *)date;
++ (NSString *)currentTimeFormatterString:(NSString *)formatterString;
 
 - (NSString *)toString;
 

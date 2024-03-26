@@ -21,6 +21,9 @@
 		F81EBC822B90B5CF005F653A /* TPEmptyDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F81EBC802B90B5CF005F653A /* TPEmptyDataViewController.m */; };
 		F822A10C2B3ACDFF00A3330C /* TPPoObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F822A10B2B3ACDFF00A3330C /* TPPoObjectViewController.m */; };
 		F822A10F2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F822A10E2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m */; };
+		F8247FAB2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8247FAA2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m */; };
+		F8247FAF2BB1685300F41D04 /* TPSpamCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8247FAE2BB1685300F41D04 /* TPSpamCodeModel.m */; };
+		F8247FB22BB18C8000F41D04 /* TPConfoundSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = F8247FB12BB18C8000F41D04 /* TPConfoundSetting.m */; };
 		F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF32B351B3100496557 /* TPAppKindModel.m */; };
 		F83AAFF72B351DC100496557 /* TPAppKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF62B351DC100496557 /* TPAppKindViewController.m */; };
 		F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF92B351E2C00496557 /* TPAppKindTableViewCell.m */; };
@@ -102,7 +105,8 @@
 		F8B8B76A2B47ED6A00F2DE66 /* TPRouterDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B8B7692B47ED6A00F2DE66 /* TPRouterDemoViewController.m */; };
 		F8BB82F92B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BB82F82B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m */; };
 		F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BB9CCC2B3D571000FF1418 /* TPDebugSwitchViewController.m */; };
-		F8CB1E882BA1341E001F734A /* NSObject+Mediator.m in Sources */ = {isa = PBXBuildFile; fileRef = F8CB1E872BA1341E001F734A /* NSObject+Mediator.m */; };
+		F8C048202BB259C20057978D /* TPSpamCodePrefixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C0481F2BB259C20057978D /* TPSpamCodePrefixViewController.m */; };
+		F8C04BBF2BB2B39A0057978D /* NSObject+Mediator.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C04BBE2BB2B39A0057978D /* NSObject+Mediator.m */; };
 		F8D343182B201E94004AEE48 /* TPBaseSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343172B201E94004AEE48 /* TPBaseSettings.m */; };
 		F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D3431A2B203ED0004AEE48 /* TPSettingLocation.m */; };
 		F8D343242B20682D004AEE48 /* TPNetworkManager+Envi.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D343232B20682D004AEE48 /* TPNetworkManager+Envi.m */; };
@@ -126,7 +130,6 @@
 		F8EAC8112B173504005522DE /* OCProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8102B173504005522DE /* OCProjectUITests.m */; };
 		F8EAC8132B173504005522DE /* OCProjectUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */; };
 		F8EAC8282B1735D5005522DE /* TPRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAC8272B1735D5005522DE /* TPRouter.m */; };
-		F8F32ABC2BAD6E7D00E04097 /* TPModifyProjectName.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32ABB2BAD6E7D00E04097 /* TPModifyProjectName.m */; };
 		F8F32AC22BAD7B9A00E04097 /* TPConfoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AC12BAD7B9A00E04097 /* TPConfoundViewController.m */; };
 		F8F32AC52BAD7C1E00E04097 /* TPConfoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AC42BAD7C1E00E04097 /* TPConfoundTableViewCell.m */; };
 		F8F32AC82BAD7E8600E04097 /* TPSpamCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F32AC72BAD7E8600E04097 /* TPSpamCodeViewController.m */; };
@@ -203,6 +206,12 @@
 		F822A10B2B3ACDFF00A3330C /* TPPoObjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPoObjectViewController.m; sourceTree = "<group>"; };
 		F822A10D2B3ADE2E00A3330C /* TPPoObjectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPPoObjectTableViewCell.h; sourceTree = "<group>"; };
 		F822A10E2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPoObjectTableViewCell.m; sourceTree = "<group>"; };
+		F8247FA92BB1663000F41D04 /* TPSpamCodeModelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamCodeModelTableViewCell.h; sourceTree = "<group>"; };
+		F8247FAA2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamCodeModelTableViewCell.m; sourceTree = "<group>"; };
+		F8247FAD2BB1685300F41D04 /* TPSpamCodeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamCodeModel.h; sourceTree = "<group>"; };
+		F8247FAE2BB1685300F41D04 /* TPSpamCodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamCodeModel.m; sourceTree = "<group>"; };
+		F8247FB02BB18C8000F41D04 /* TPConfoundSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPConfoundSetting.h; sourceTree = "<group>"; };
+		F8247FB12BB18C8000F41D04 /* TPConfoundSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPConfoundSetting.m; sourceTree = "<group>"; };
 		F83AAFF22B351B3100496557 /* TPAppKindModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppKindModel.h; sourceTree = "<group>"; };
 		F83AAFF32B351B3100496557 /* TPAppKindModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppKindModel.m; sourceTree = "<group>"; };
 		F83AAFF52B351DC100496557 /* TPAppKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppKindViewController.h; sourceTree = "<group>"; };
@@ -364,8 +373,10 @@
 		F8BB82F82B4E34FF0001AEB3 /* TPAnalysisDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnalysisDemoViewController.m; sourceTree = "<group>"; };
 		F8BB9CCB2B3D571000FF1418 /* TPDebugSwitchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDebugSwitchViewController.h; sourceTree = "<group>"; };
 		F8BB9CCC2B3D571000FF1418 /* TPDebugSwitchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDebugSwitchViewController.m; sourceTree = "<group>"; };
-		F8CB1E862BA1341E001F734A /* NSObject+Mediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Mediator.h"; sourceTree = "<group>"; };
-		F8CB1E872BA1341E001F734A /* NSObject+Mediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Mediator.m"; sourceTree = "<group>"; };
+		F8C0481E2BB259C20057978D /* TPSpamCodePrefixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamCodePrefixViewController.h; sourceTree = "<group>"; };
+		F8C0481F2BB259C20057978D /* TPSpamCodePrefixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamCodePrefixViewController.m; sourceTree = "<group>"; };
+		F8C04BBD2BB2B39A0057978D /* NSObject+Mediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Mediator.h"; sourceTree = "<group>"; };
+		F8C04BBE2BB2B39A0057978D /* NSObject+Mediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Mediator.m"; sourceTree = "<group>"; };
 		F8D343162B201E94004AEE48 /* TPBaseSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseSettings.h; sourceTree = "<group>"; };
 		F8D343172B201E94004AEE48 /* TPBaseSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseSettings.m; sourceTree = "<group>"; };
 		F8D343192B203ED0004AEE48 /* TPSettingLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSettingLocation.h; sourceTree = "<group>"; };
@@ -410,8 +421,6 @@
 		F8EAC8122B173504005522DE /* OCProjectUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCProjectUITestsLaunchTests.m; sourceTree = "<group>"; };
 		F8EAC8262B1735D5005522DE /* TPRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRouter.h; sourceTree = "<group>"; };
 		F8EAC8272B1735D5005522DE /* TPRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRouter.m; sourceTree = "<group>"; };
-		F8F32ABA2BAD6E7D00E04097 /* TPModifyProjectName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPModifyProjectName.h; sourceTree = "<group>"; };
-		F8F32ABB2BAD6E7D00E04097 /* TPModifyProjectName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPModifyProjectName.m; sourceTree = "<group>"; };
 		F8F32AC02BAD7B9A00E04097 /* TPConfoundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPConfoundViewController.h; sourceTree = "<group>"; };
 		F8F32AC12BAD7B9A00E04097 /* TPConfoundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPConfoundViewController.m; sourceTree = "<group>"; };
 		F8F32AC32BAD7C1E00E04097 /* TPConfoundTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPConfoundTableViewCell.h; sourceTree = "<group>"; };
@@ -575,6 +584,21 @@
 			path = Po;
 			sourceTree = "<group>";
 		};
+		F8247FAC2BB1683500F41D04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8F32AC92BAD80BF00E04097 /* TPConfoundModel.h */,
+				F8F32ACA2BAD80BF00E04097 /* TPConfoundModel.m */,
+				F86A80BE2BAC643A005D717D /* TPSpamMethod.h */,
+				F86A80BF2BAC643A005D717D /* TPSpamMethod.m */,
+				F8247FAD2BB1685300F41D04 /* TPSpamCodeModel.h */,
+				F8247FAE2BB1685300F41D04 /* TPSpamCodeModel.m */,
+				F8247FB02BB18C8000F41D04 /* TPConfoundSetting.h */,
+				F8247FB12BB18C8000F41D04 /* TPConfoundSetting.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F83AAFF12B351AF100496557 /* AppKind */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,12 +711,7 @@
 		F86A80BA2BAC4F38005D717D /* Confound */ = {
 			isa = PBXGroup;
 			children = (
-				F86A80BE2BAC643A005D717D /* TPSpamMethod.h */,
-				F86A80BF2BAC643A005D717D /* TPSpamMethod.m */,
-				F8F32ABA2BAD6E7D00E04097 /* TPModifyProjectName.h */,
-				F8F32ABB2BAD6E7D00E04097 /* TPModifyProjectName.m */,
-				F8F32AC92BAD80BF00E04097 /* TPConfoundModel.h */,
-				F8F32ACA2BAD80BF00E04097 /* TPConfoundModel.m */,
+				F8247FAC2BB1683500F41D04 /* Model */,
 				F8F32AC02BAD7B9A00E04097 /* TPConfoundViewController.h */,
 				F8F32AC12BAD7B9A00E04097 /* TPConfoundViewController.m */,
 				F8F32AC32BAD7C1E00E04097 /* TPConfoundTableViewCell.h */,
@@ -701,6 +720,10 @@
 				F8F32AC72BAD7E8600E04097 /* TPSpamCodeViewController.m */,
 				F8F32ACC2BAD82CD00E04097 /* TPSpamCodeModelViewController.h */,
 				F8F32ACD2BAD82CD00E04097 /* TPSpamCodeModelViewController.m */,
+				F8C0481E2BB259C20057978D /* TPSpamCodePrefixViewController.h */,
+				F8C0481F2BB259C20057978D /* TPSpamCodePrefixViewController.m */,
+				F8247FA92BB1663000F41D04 /* TPSpamCodeModelTableViewCell.h */,
+				F8247FAA2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m */,
 			);
 			path = Confound;
 			sourceTree = "<group>";
@@ -1006,8 +1029,8 @@
 		F8CB1E892BA19B41001F734A /* Meditor */ = {
 			isa = PBXGroup;
 			children = (
-				F8CB1E862BA1341E001F734A /* NSObject+Mediator.h */,
-				F8CB1E872BA1341E001F734A /* NSObject+Mediator.m */,
+				F8C04BBD2BB2B39A0057978D /* NSObject+Mediator.h */,
+				F8C04BBE2BB2B39A0057978D /* NSObject+Mediator.m */,
 			);
 			path = Meditor;
 			sourceTree = "<group>";
@@ -1461,6 +1484,7 @@
 			files = (
 				F89E237D2B4CD85E00D34E24 /* TPiCarouselViewController.m in Sources */,
 				F8E1B18A2B317E100036928F /* TPLogTableViewCell.m in Sources */,
+				F8C048202BB259C20057978D /* TPSpamCodePrefixViewController.m in Sources */,
 				F875EAF12B4E81F100559A68 /* TPAnalysisDemoModel.m in Sources */,
 				F8FCA3372B4B83DA00D110E8 /* TPRouterParamsViewController.m in Sources */,
 				F8F403972B21B93D008653CB /* UINavigationController+MemoryLeak.m in Sources */,
@@ -1504,6 +1528,7 @@
 				F8E1B17D2B316FED0036928F /* fishhook.c in Sources */,
 				F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */,
 				F8F32AC22BAD7B9A00E04097 /* TPConfoundViewController.m in Sources */,
+				F8247FAF2BB1685300F41D04 /* TPSpamCodeModel.m in Sources */,
 				F84368C02B327DA80055444B /* TPFontViewController.m in Sources */,
 				F8E1B18E2B318EE60036928F /* TPLogDetailViewController.m in Sources */,
 				F8AE196B2B2C51D8009C12E2 /* TPFileViewController.m in Sources */,
@@ -1513,7 +1538,6 @@
 				F88495DC2B3EA9030081B012 /* TPURLProtocol.m in Sources */,
 				F8E1B1842B3172810036928F /* TPLogViewController.m in Sources */,
 				F8F32AC82BAD7E8600E04097 /* TPSpamCodeViewController.m in Sources */,
-				F8F32ABC2BAD6E7D00E04097 /* TPModifyProjectName.m in Sources */,
 				F84368DB2B32BE050055444B /* TPMonitorCache.m in Sources */,
 				F88495DA2B3EA9030081B012 /* TPNetworkModel.m in Sources */,
 				F84368C72B3288AF0055444B /* TPFluencyMonitor.m in Sources */,
@@ -1545,6 +1569,7 @@
 				F88495E12B3EBEEB0081B012 /* TPNetworkMonitorViewController.m in Sources */,
 				F81BEC902B28537400DAA26F /* TPCrashManager.m in Sources */,
 				F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */,
+				F8C04BBF2BB2B39A0057978D /* NSObject+Mediator.m in Sources */,
 				F8F403B22B21BE14008653CB /* UIView+Category.m in Sources */,
 				F8AF954E2B1EBC68003059CB /* UIFont+Category.m in Sources */,
 				F8D343272B20686C004AEE48 /* TPEnviConfig.m in Sources */,
@@ -1555,6 +1580,7 @@
 				F81BEC942B285AB200DAA26F /* TPAppInfoManager.m in Sources */,
 				F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */,
 				F81BEC8D2B28525D00DAA26F /* TPCrashModel.m in Sources */,
+				F8247FB22BB18C8000F41D04 /* TPConfoundSetting.m in Sources */,
 				F875EAEE2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m in Sources */,
 				F8B5D9092BA2FA4B009CBF51 /* TPUiHierarchyTableViewCell.m in Sources */,
 				F822A10F2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m in Sources */,
@@ -1589,13 +1615,13 @@
 				F8EAC7EF2B173504005522DE /* SceneDelegate.m in Sources */,
 				F8AE19672B2C3E7F009C12E2 /* TPFileModel.m in Sources */,
 				F89C833F2B3BBE7200638E43 /* TPShotObjectViewController.m in Sources */,
+				F8247FAB2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m in Sources */,
 				F8AE197A2B2C80F2009C12E2 /* TPFileDataTableViewCell.m in Sources */,
 				F83AB0042B3562AA00496557 /* TPLeaksViewController.m in Sources */,
 				F875EAEB2B4E770C00559A68 /* TPAnalysisClickViewController.m in Sources */,
 				F80C53EE2B297A9E00C7FB38 /* NSDate+Category.m in Sources */,
 				F8BB9CCD2B3D571000FF1418 /* TPDebugSwitchViewController.m in Sources */,
 				F882869C2B9F47EA00FC22F4 /* TPOperation.m in Sources */,
-				F8CB1E882BA1341E001F734A /* NSObject+Mediator.m in Sources */,
 				F8AF954B2B1EBA3C003059CB /* UIColor+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,8 @@
 //
 
 #import "TPSpamCodeViewController.h"
-#import "TPConfoundModel.h"
+#import "TPSpamCodeModel.h"
+
 @interface TPSpamCodeViewController ()
 
 @end
@@ -16,14 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.data = [self data];
+    self.title = @"垃圾代码配置";
+    self.data = [TPSpamCodeModel data_code];
     [self.tableView reloadData];
-}
-
-- (NSArray *)data{
-    NSArray *data = @[@{@"title":@"在原文件中添加垃圾方法",@"setting":@0,@"selecte":@0},
-                      @{@"title":@"新建.h、.m文件并添加垃圾方法",@"setting":@1,@"selecte":@0,@"url":TPString.vc_spam_code_model}];
-    return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
 - (NSString *)cellClass{

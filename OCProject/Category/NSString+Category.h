@@ -18,12 +18,12 @@ typedef NS_ENUM(NSInteger, NSDateFormatterType){
 @interface NSString (Category)
 ///是否是纯数字
 - (BOOL)isNumber;
+
+- (NSString *)whitespace;
 ///数据转字符串
 + (NSString *)convertJsonFromData:(NSData *)data;
 ///文件大小转换K
 + (NSString *)sizeString:(unsigned long long)fileSize;
-
-- (NSString *)toFormatter:(NSDateFormatterType)type;
 
 - (NSArray *)subStartStr:(NSString *)startStr endStr:endStr;
 @end

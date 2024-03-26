@@ -8,13 +8,16 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-FOUNDATION_EXTERN NSString *const kSpamMethodPrefixName;
 
 @interface TPSpamMethod : NSObject
 
 + (void)spamCodeProjectPath:(NSString *)projectPath;
 + (void)spamCodeProjectPath:(NSString *)projectPath ignoreDirNames:(NSArray<NSString *> * __nullable)ignoreDirNames;
 
++ (NSSet *)randomWords;
++ (NSSet *)combinedWords:(NSArray *)words minLen:(int)minLen maxLen:(int)maxLen count:(int)count;
 @end
+
+
 
 NS_ASSUME_NONNULL_END

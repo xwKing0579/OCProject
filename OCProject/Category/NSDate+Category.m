@@ -10,8 +10,12 @@
 @implementation NSDate (Category)
 
 + (NSString *)currentTime{
+    return [self currentTimeFormatterString:[self yearToSecond]];
+}
+
++ (NSString *)currentTimeFormatterString:(NSString *)formatterString{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:[self yearToSecond]];
+    [formatter setDateFormat:formatterString];
     return [formatter stringFromDate:[NSDate date]];
 }
 

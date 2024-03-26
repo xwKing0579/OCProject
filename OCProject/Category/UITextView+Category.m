@@ -11,9 +11,18 @@ static NSArray *propertyList;
 static const void *WZBPlaceholderViewKey = &WZBPlaceholderViewKey;
 @interface UITextView ()
 @property (nonatomic, strong) UITextView *placeView;
+@property (nonatomic, assign) BOOL isObserve;
 @end
 
 @implementation UITextView (Category)
+
+- (BOOL)isObserve{
+    return [objc_getAssociatedObject(self, _cmd) intValue];
+}
+
+- (void)setIsObserve:(BOOL)isObserve{
+    objc_setAssociatedObject(self, @selector(isObserve), @(isObserve), OBJC_ASSOCIATION_ASSIGN);
+}
 
 - (NSString *)placeholder{
     return objc_getAssociatedObject(self, _cmd);
@@ -50,6 +59,7 @@ static const void *WZBPlaceholderViewKey = &WZBPlaceholderViewKey;
             [self placeViewPropertyChangeForKeyPath:property];
             [self addObserver:self forKeyPath:property options:NSKeyValueObservingOptionNew context:nil];
         }
+        self.isObserve = YES;
     }
     return placeView;
 }
@@ -71,13 +81,9 @@ static const void *WZBPlaceholderViewKey = &WZBPlaceholderViewKey;
 }
 
 - (void)dealloc{
-    for (NSString *property in propertyList) {
-        @try {
+    if (self.isObserve){
+        for (NSString *property in propertyList) {
             [self removeObserver:self forKeyPath:property];
-        } @catch (NSException *exception) {
-            
-        } @finally {
-            
         }
     }
 }
