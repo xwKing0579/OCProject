@@ -17,9 +17,15 @@
         manager.spamSet = [TPSpamCodeSetting new];
         manager.spamSet.isSpamInNewDir = YES;
         manager.spamSet.isSpamInOldCode = YES;
-        manager.spamSet.isSpamMethodPrefix = YES;
+        manager.spamSet.isSpamMethod = YES;
+        manager.spamSet.isSpamOldWords = YES;
+        manager.spamSet.projectWords = [NSMutableDictionary dictionary];
         manager.spamSet.spamFileSet = [TPSpamCodeFileSetting new];
         manager.spamSet.spamFileSet.spamFileNum = 100;
+        manager.spamSet.spamWordSet = [TPSpamCodeWordSetting new];
+        manager.spamSet.spamWordSet.minLength = 3;
+        manager.spamSet.spamWordSet.maxLength = 10;
+        manager.spamSet.spamWordSet.frequency = 10;
     });
     return manager;
 }
@@ -34,7 +40,27 @@
 @implementation TPSpamCodeSetting
 
 - (NSString *)spamMethodPrefix{
-    return _spamMethodPrefix ?: [NSString stringWithFormat:@"%@_",[TPString.prefix_app lowercaseString]];
+    return self.isSpamMethod ? safeString(_spamMethodPrefix) : @"";
+}
+
+- (NSArray *)combinedWords{
+    NSArray *words = self.projectWords.allKeys;
+    TPSpamCodeWordSetting *set = self.spamWordSet;
+    NSMutableArray *result = [NSMutableArray array];
+    for (NSString *word in words) {
+        if (word.length < set.minLength) continue;
+        if (word.length > set.maxLength) continue;
+        if ([set.blackList containsObject:word]) continue;
+        if ([self.projectWords[word] intValue] < set.frequency) continue;
+        [result addObject:word];
+    }
+    
+    NSArray *addArr = @[@"mark",@"switch",@"for",@"nteger",@"string",@"static",@"cgrect",@"rect",@"array",@"image",@"label",@"integer",@"created",@"height",@"view",@"index",@"all",@"and",@"basic",@"copy",@"right",@"the",@"float",@"error",@"data",@"const",@"lazy",@"date",@"result",@"button",@"int",@"rights",@"weak",@"strong",@"value",@"width",@"bool",@"urlString",@"methods",@"matches",@"manager",@"object",@"plugin",@"source",@"time",@"item",@"selected",@"except",@"param",@"name",@"path",@"token",@"navigation",@"configure",@"file",@"count"];
+    while (result.count < addArr.count) {
+        NSString *string = addArr[arc4random()%addArr.count];
+        if (![result containsObject:string]) [result addObject:string];
+    }
+    return result;
 }
 
 @end
@@ -65,5 +91,16 @@
     return [NSString stringWithFormat:@"//\n//  file.m\n//  %@\n//\n//  Created by %@ on date.\n//\n\n#import \"file.h\"\n\n@implementation file\n\n@end",self.projectName,self.author];
 }
 
+- (NSString *)spamFileDesContent{
+    return [NSString stringWithFormat:@"//\n//  file.m\n//  %@\n//\n//  Created by %@ on date.\n//\n\n#import <Foundation/Foundation.h>\n\n",self.projectName,self.author];
+}
+
 @end
 
+@implementation TPSpamCodeWordSetting
+
+- (NSArray *)blackList{
+    return _blackList ?: @[@"void",@"init",@"else",@"if",@"interface",@"implementation"];
+}
+
+@end

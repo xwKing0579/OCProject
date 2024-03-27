@@ -64,14 +64,17 @@
         case 1:
             set.isSpam = sender.selected;
             break;
-        case 21:
+        case 11:
             codeSet.isSpamInOldCode = sender.selected;
             break;
-        case 22:
+        case 12:
             codeSet.isSpamInNewDir = sender.selected;
             break;
-        case 23:
-            codeSet.isSpamMethodPrefix = sender.selected;
+        case 13:
+            codeSet.isSpamMethod = sender.selected;
+            break;
+        case 14:
+            codeSet.isSpamOldWords = sender.selected;
             break;
         default:
             break;

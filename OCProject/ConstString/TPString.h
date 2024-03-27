@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)tc_network_monitor;
 + (NSString *)tc_confound;
 + (NSString *)tc_spam_code_model;
++ (NSString *)tc_confound_label;
 
 //viewController ===========================================================================
 ///基类
@@ -81,7 +82,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)vc_confound;
 + (NSString *)vc_spam_code;
 + (NSString *)vc_spam_code_model;
-+ (NSString *)vc_spam_code_prefix;
++ (NSString *)vc_spam_code_method;
++ (NSString *)vc_spam_code_word;
 
 ///其他类 ===========================================================================
 + (NSString *)tp_debug_tool;

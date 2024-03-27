@@ -6,7 +6,7 @@
 //
 
 #import "TPSpamCodeModelViewController.h"
-#import "TPSpamCodeModel.h"
+#import "TPConfoundModel.h"
 #import "TPConfoundSetting.h"
 #import <iCarousel.h>
 @interface TPSpamCodeModelViewController ()<iCarouselDelegate,iCarouselDataSource>
@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     self.title = @".h.m文件模版";
     
-    self.data = [TPSpamCodeModel data_file];
+    self.data = [TPConfoundModel data_file];
     [self.view addSubview:self.iCarousel];
     [self.iCarousel reloadData];
     [self.tableView reloadData];

@@ -6,7 +6,7 @@
 //
 
 #import "TPSpamCodeViewController.h"
-#import "TPSpamCodeModel.h"
+#import "TPConfoundModel.h"
 
 @interface TPSpamCodeViewController ()
 
@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"垃圾代码配置";
-    self.data = [TPSpamCodeModel data_code];
+    self.data = [TPConfoundModel data_code];
     [self.tableView reloadData];
 }
 

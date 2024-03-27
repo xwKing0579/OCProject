@@ -36,7 +36,7 @@
             
             NSString *mfile = [path stringByReplacingOccurrencesOfString:@".h" withString:@".m"];
             NSArray *mehods = [self alreadyMethodRename:mfile];
-            int count = (int)(MIN(20, mehods.count) + arc4random()%4);
+            int count = (int)(MIN(20, mehods.count) + arc4random()%5 + 1);
             NSArray *customMethods = [self randomMethodName:mfile count:count];
             [self createSpamMethods:customMethods toFilePath:[path stringByReplacingOccurrencesOfString:@".h" withString:@""]];
         }
@@ -81,7 +81,14 @@
                 NSString *result = [methodString substringWithRange:NSMakeRange(range.location+range.length, methodString.length-range.location-range.length)];
                 [mmethodContent appendString:[NSString stringWithFormat:@"{\n    return [self %@];\n}\n\n",result]];
             }else{
-                [mmethodContent appendString:@"{\n    return NSStringFromSelector(_cmd);\n}\n\n"];
+                NSString *randomString = @"NSStringFromSelector(_cmd)";
+                int random = arc4random()%3;
+                if (random == 2){
+                    NSString *uuidString = [[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+                    [uuidString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%u",arc4random()%10] withString:@""];
+                    randomString = [NSString stringWithFormat:@"@\"%@\"",[uuidString lowercaseString]];
+                }
+                [mmethodContent appendString:[NSString stringWithFormat:@"{\n    return %@;\n}\n\n",randomString]];
             }
         }
     }
@@ -123,8 +130,7 @@
 }
 
 + (NSArray *)randomMethodName:(NSString *)path count:(int)count{
-    NSSet *words = [self customWordsInPath:path];
-    NSArray *wordsValue = words.allObjects;
+    NSArray *wordsValue = [self randomWords];
     
     NSSet *result = [self combinedWords:wordsValue minLen:2 maxLen:5 count:count];
     NSMutableArray *mehods = [NSMutableArray array];
@@ -180,8 +186,8 @@
     for (NSString *word in sortedWords) {
         if ([predicate evaluateWithObject:word] && word.length > 2 && word.length < 10) [result addObject:[word lowercaseString]];
     }
-    NSSet *supple = [self randomWords];
-    for (NSString *string in [supple allObjects]) {
+   
+    for (NSString *string in [self randomWords]) {
         if (![result containsObject:string]) [result addObject:string];
     }
     [result removeObject:@"void"];
@@ -198,7 +204,48 @@
     return methodPrefix ?: @"";
 }
 
-+ (NSSet *)randomWords{
-    return [NSSet setWithArray:@[@"copy",@"alloc",@"with",@"value",@"manager",@"model",@"string",@"array",@"dictionary",@"mute",@"object",@"text",@"title",@"content",@"textView",@"textFiled",@"font",@"color",@"navigation",@"tabbar",@"device",@"toast",@"alert",@"router",@"path",@"file",@"height",@"size",@"window",@"delegate",@"protocol",@"empty",@"cache",@"refresh",@"image",@"word",@"setting",@"safe",@"reference", @"memory", @"process", @"concurrent", @"parallel", @"database", @"record", @"encryption",@"mine",@"home",@"demo",@"replace",@"runtime",@"hook",@"remove"]];
++ (NSArray *)randomWords{
+    return TPConfoundSetting.sharedManager.spamSet.combinedWords;
 }
+
++ (void)getWordsProjectPath:(NSString *)projectPath ignoreDirNames:(NSArray<NSString *> * __nullable)ignoreDirNames{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
+    NSMutableDictionary *wordCounts = TPConfoundSetting.sharedManager.spamSet.projectWords;
+    for (NSString *filePath in files) {
+        if ([ignoreDirNames containsObject:filePath]) continue;
+        NSString *path = [projectPath stringByAppendingPathComponent:filePath];
+        
+        BOOL isDirectory;
+        if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
+            [self getWordsProjectPath:path ignoreDirNames:ignoreDirNames];
+            continue;
+        }
+        
+        NSString *fileName = filePath.lastPathComponent;
+        if ([fileName hasSuffix:@".m"]) {
+            NSError *error = nil;
+            NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+            NSArray *words = [fileContent componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            for (NSString *word in words) {
+                if (word.length > 0) {
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[A-Za-z]+$"];
+                    if ([predicate evaluateWithObject:word]){
+                        NSString *key = [word lowercaseString];
+                        if ([key hasPrefix:@"ui"]) key = [key stringByReplacingOccurrencesOfString:@"ui" withString:@""];
+                        if ([key hasPrefix:@"ns"]) key = [key stringByReplacingOccurrencesOfString:@"ns" withString:@""];
+                        if (key.length == 0) continue;
+                        NSNumber *count = wordCounts[key];
+                        if (count) {
+                            wordCounts[key] = @(count.intValue + 1);
+                        }else{
+                            wordCounts[key] = @1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @end

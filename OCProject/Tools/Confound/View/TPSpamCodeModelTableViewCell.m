@@ -6,18 +6,18 @@
 //
 
 #import "TPSpamCodeModelTableViewCell.h"
-#import "TPSpamCodeModel.h"
+#import "TPConfoundModel.h"
 #import "TPConfoundSetting.h"
 @interface TPSpamCodeModelTableViewCell ()
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UITextField *textFiled;
 @property (nonatomic, strong) UIView *lineView;
-@property (nonatomic, strong) TPSpamCodeModel *model;
+@property (nonatomic, strong) TPConfoundModel *model;
 @end
 
 @implementation TPSpamCodeModelTableViewCell
 
-+ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPSpamCodeModel *)obj{
++ (instancetype)initWithTableView:(UITableView *)tableView withObject:(TPConfoundModel *)obj{
     TPSpamCodeModelTableViewCell *cell = [self initWithTableView:tableView];
     cell.titleLabel.text = obj.title;
     cell.textFiled.text = obj.content;
@@ -30,7 +30,7 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
         make.left.mas_equalTo(15);
-        make.width.mas_equalTo(74);
+        make.width.mas_equalTo(88);
     }];
     [self.textFiled mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.titleLabel.mas_right).offset(8);
@@ -47,17 +47,38 @@
 - (void)textFieldDidChange:(UITextField *)textField{
     TPSpamCodeSetting *codeSet = TPConfoundSetting.sharedManager.spamSet;
     TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
+    TPSpamCodeWordSetting *wordSet = codeSet.spamWordSet;
     NSString *text = textField.text.whitespace;
-    if ([self.model.idStr isEqualToString:@"31"]){
-        fileSet.projectName = text;
-    }else if ([self.model.idStr isEqualToString:@"32"]){
-        fileSet.author = text;
-    }else if ([self.model.idStr isEqualToString:@"33"]){
-        fileSet.spamFileNum = text.intValue;
-    }else if ([self.model.idStr isEqualToString:@"34"]){
-        fileSet.spamClassPrefix = text;
-    }else if ([self.model.idStr isEqualToString:@"24"]){
-        codeSet.spamMethodPrefix = text;
+    switch (self.model.idStr.intValue) {
+        case 121:
+            fileSet.projectName = text;
+            break;
+        case 122:
+            fileSet.author = text;
+            break;
+        case 123:
+            fileSet.spamFileNum = text.intValue;
+            break;
+        case 124:
+            fileSet.spamClassPrefix = text;
+            break;
+        case 131:
+            codeSet.spamMethodPrefix = text;
+            break;
+        case 141:
+            wordSet.frequency = text.intValue;
+            break;
+        case 142:
+            wordSet.minLength = text.intValue;
+            break;
+        case 143:
+            wordSet.maxLength = text.intValue;
+            break;
+        case 144:
+            wordSet.blackList = [text componentsSeparatedByString:@","];
+            break;
+        default:
+            break;
     }
     self.model.content = text;
 }

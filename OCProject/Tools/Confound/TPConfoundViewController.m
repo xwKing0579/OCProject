@@ -7,10 +7,9 @@
 
 #import "TPConfoundViewController.h"
 #import "TPConfoundModel.h"
-#import "TPConfoundSetting.h"
 #import "TPSpamMethod.h"
 
-@interface TPConfoundViewController ()
+@interface TPConfoundViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) UITextView *textView;
 @end
 
@@ -40,7 +39,12 @@
     TPConfoundSetting *set = TPConfoundSetting.sharedManager;
     TPSpamCodeSetting *codeSet = set.spamSet;
     TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
+    [TPToastManager showLoading];
     if (set.isSpam) {
+        NSArray *ignoreDirNames = @[@"Pods"];
+        if (codeSet.isSpamOldWords){
+            [TPSpamMethod getWordsProjectPath:path ignoreDirNames:ignoreDirNames];
+        }
         NSString *dirPath;
         if (set.spamSet.isSpamInNewDir){
             dirPath = [path stringByAppendingPathComponent:set.spamSet.spamFileSet.dirName];
@@ -49,11 +53,13 @@
                 [fm createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:&error];
                 if (error){
                     [TPToastManager showText:@"创建文件夹失败"];
+                    [TPToastManager hideLoading];
                     return;
                 }
             }
             
-            NSSet *result = [TPSpamMethod combinedWords:[TPSpamMethod randomWords].allObjects minLen:2 maxLen:3 count:fileSet.spamFileNum];
+            NSSet *result = [TPSpamMethod combinedWords:codeSet.combinedWords minLen:2 maxLen:3 count:fileSet.spamFileNum];
+            NSString *importFile = @"";
             for (NSString *name in result.allObjects) {
                 NSArray *classArr = @[@"NSObject",@"UIView",@"UIViewController",@"UIButton",@"UILabel",@"UITextView",@"UITextField",@"UIImageView"];
                 NSString *classString = classArr[arc4random()%classArr.count];
@@ -63,7 +69,8 @@
                 }
                 
                 NSString *nameString = [name stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[name substringToIndex:1] uppercaseString]];
-                NSString *fileName = [NSString stringWithFormat:@"%@%@%@",codeSet.isSpamMethodPrefix ? safeString(fileSet.spamClassPrefix) : @"",nameString,className];
+                NSString *fileName = [NSString stringWithFormat:@"%@%@%@",codeSet.isSpamMethod ? safeString(fileSet.spamClassPrefix) : @"",nameString,className];
+                importFile = [importFile stringByAppendingString:[NSString stringWithFormat:@"#import \"%@.h\"\n",fileName]];
                 NSString *filePathHead = [dirPath stringByAppendingPathComponent:fileName];
                 NSArray *files = @[[filePathHead stringByAppendingString:@".h"],[filePathHead stringByAppendingString:@".m"]];
                 
@@ -84,20 +91,38 @@
                     [string writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
                 }
             }
+            NSString *importPath = [dirPath stringByAppendingPathComponent:fileSet.dirName];
+            importPath = [importPath stringByAppendingString:@".h"];
+            if ([fm fileExistsAtPath:importPath]){
+                NSError *error = nil;
+                NSMutableString *content = [NSMutableString stringWithContentsOfFile:importPath encoding:NSUTF8StringEncoding error:&error];
+                importFile = [content stringByAppendingString:importFile];
+            }else{
+                importFile = [fileSet.spamFileDesContent stringByAppendingString:importFile];
+            }
+            [importFile writeToFile:importPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
         }
         
         NSString *projectPath = codeSet.isSpamInOldCode ? path : dirPath;
-        [TPSpamMethod spamCodeProjectPath:projectPath ignoreDirNames:@[@"Pods"]];
+        [TPSpamMethod spamCodeProjectPath:projectPath ignoreDirNames:ignoreDirNames];
     }
+    [TPToastManager hideLoading];
 }
 
 - (NSArray *)data{
-    NSArray *data = @[@{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code}];
+    NSArray *data = @[
+    @{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},
+    @{@"idStr":@"2",@"title":@"修改工程名",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
 - (NSString *)cellClass{
     return TPString.tc_confound;
+}
+#pragma mark -- UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView{
+    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
+    set.path = textView.text.whitespace;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
@@ -117,6 +142,7 @@
     textView.layer.borderWidth = 0.5;
     textView.placeholder = @"输入文件夹绝对路径";
     textView.contentInset = UIEdgeInsetsMake(15, 15, 15, 15);
+    textView.delegate = self;
     [view addSubview:textView];
     self.textView = textView;
     

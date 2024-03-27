@@ -23,7 +23,6 @@
     [self.tableView reloadData];
 }
 
-
 - (NSString *)cellClass{
     return TPString.tc_home;
 }

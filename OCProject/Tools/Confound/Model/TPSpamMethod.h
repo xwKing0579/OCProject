@@ -14,8 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)spamCodeProjectPath:(NSString *)projectPath;
 + (void)spamCodeProjectPath:(NSString *)projectPath ignoreDirNames:(NSArray<NSString *> * __nullable)ignoreDirNames;
 
-+ (NSSet *)randomWords;
++ (void)getWordsProjectPath:(NSString *)projectPath ignoreDirNames:(NSArray<NSString *> * __nullable)ignoreDirNames;
+
 + (NSSet *)combinedWords:(NSArray *)words minLen:(int)minLen maxLen:(int)maxLen count:(int)count;
+
 @end
 
 
