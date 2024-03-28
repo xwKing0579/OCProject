@@ -15,7 +15,8 @@
     dispatch_once(&onceToken, ^{
         manager = [self new];
         manager.isSpam = YES;
-        manager.isModify = YES;
+        manager.isModifyProject = YES;
+        manager.isModifyClass = YES;
         
         TPSpamCodeSetting *spamSet = [TPSpamCodeSetting new];
         manager.spamSet = spamSet;
@@ -30,7 +31,7 @@
         spamFileSet.spamFileNum = 100;
         
         TPSpamCodeWordSetting *spamWordSet = [TPSpamCodeWordSetting new];
-        spamSet.spamWordSet = [TPSpamCodeWordSetting new];
+        spamSet.spamWordSet = spamWordSet;
         spamWordSet.minLength = 3;
         spamWordSet.maxLength = 10;
         spamWordSet.frequency = 10;

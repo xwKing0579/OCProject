@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TPConfoundSetting : NSObject
 
 @property (nonatomic, assign) BOOL isSpam;
-@property (nonatomic, assign) BOOL isModify;
+@property (nonatomic, assign) BOOL isModifyProject;
+@property (nonatomic, assign) BOOL isModifyClass;
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic, strong) TPSpamCodeSetting *spamSet;
 @property (nonatomic, strong) TPModifyProjectSetting *modifySet;
@@ -53,10 +54,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface TPModifyProjectSetting : NSObject
+@property (nonatomic, assign) BOOL isModifyPrefixOther;
 @property (nonatomic, copy) NSString *oldName;
 @property (nonatomic, copy) NSString *modifyName;
 @property (nonatomic, copy) NSString *oldPrefix;
 @property (nonatomic, copy) NSString *modifyPrefix;
 @end
+
 
 NS_ASSUME_NONNULL_END

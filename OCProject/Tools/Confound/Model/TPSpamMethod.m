@@ -162,39 +162,6 @@
     return result;
 }
 
-+ (NSSet *)customWordsInPath:(NSString *)path{
-    NSError *error = nil;
-    NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-    NSArray *words = [fileContent componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSMutableDictionary *wordCounts = [NSMutableDictionary dictionary];
-    for (NSString *word in words) {
-        if (word.length > 0) {
-            NSNumber *count = wordCounts[word];
-            if (count) {
-                wordCounts[word] = @(count.intValue + 1);
-            } else {
-                wordCounts[word] = @1;
-            }
-        }
-    }
-    NSArray *sortedWords = [wordCounts keysSortedByValueUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [obj2 compare:obj1];
-    }];
-
-    NSMutableSet *result = [NSMutableSet set];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[A-Za-z]+$"];
-    for (NSString *word in sortedWords) {
-        if ([predicate evaluateWithObject:word] && word.length > 2 && word.length < 10) [result addObject:[word lowercaseString]];
-    }
-   
-    for (NSString *string in [self randomWords]) {
-        if (![result containsObject:string]) [result addObject:string];
-    }
-    [result removeObject:@"void"];
-    [result removeObject:@"init"];
-    return result;
-}
-
 + (NSString *)randomMethodType{
     return  arc4random() % 2 == 1 ? @"-" : @"+";
 }
@@ -226,7 +193,7 @@
         if ([fileName hasSuffix:@".m"]) {
             NSError *error = nil;
             NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-            NSArray *words = [fileContent componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSArray *words = [fileContent filterString];
             for (NSString *word in words) {
                 if (word.length > 0) {
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^[A-Za-z]+$"];

@@ -16,7 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"方法/类前缀";
+    self.title = @"新增方法名前缀";
     self.data = [TPConfoundModel data_code_method];
     [self.tableView reloadData];
 }

@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = @"马甲包工具";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"开始" style:(UIBarButtonItemStyleDone) target:self action:@selector(startConfoundAction)];
-    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/Mediator";
+    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/YaoGuang";
     self.data = [TPConfoundModel data];
     [self.tableView reloadData];
 }
@@ -29,7 +29,10 @@
     TPConfoundSetting *set = TPConfoundSetting.sharedManager;
     TPSpamCodeSetting *codeSet = set.spamSet;
     TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
-    TPModifyProjectSetting *modify = set.modifySet;
+    TPModifyProjectSetting *modifySet = set.modifySet;
+    
+    modifySet.oldPrefix = @"TP";
+    modifySet.modifyPrefix = @"YG";
     
     NSString *path = set.path;
     if (!path.length) {
@@ -42,8 +45,13 @@
         return;
     }
     
-    if (set.isModify && (!modify.oldName.length || !modify.modifyName.length)){
+    if (set.isModifyProject && (!modifySet.oldName.length || !modifySet.modifyName.length)){
         [TPToastManager showText:@"请填写修改项目名称的内容"];
+        return;
+    }
+    
+    if (set.isModifyClass && (!modifySet.oldPrefix.length || !modifySet.modifyPrefix.length)){
+        [TPToastManager showText:@"请填写修改类名称前缀的内容"];
         return;
     }
     [TPToastManager showLoading];
@@ -117,8 +125,12 @@
     }
     
     //修改项目名称
-    if (set.isModify){
-        [TPModifyProjectName modifyProjectName:path oldName:modify.oldName newName:modify.modifyName];
+    if (set.isModifyProject){
+        [TPModifyProjectName modifyProjectName:path oldName:modifySet.oldName newName:modifySet.modifyName];
+    }
+    
+    if (set.isModifyClass){
+        [TPModifyProjectName modifyFilePrefix:path otherPrefix:modifySet.isModifyPrefixOther oldPrefix:modifySet.oldPrefix newPrefix:modifySet.modifyPrefix];
     }
     
     [TPToastManager hideLoading];

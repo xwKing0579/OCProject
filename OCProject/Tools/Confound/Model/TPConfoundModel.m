@@ -12,8 +12,8 @@
 + (NSArray *)data{
     NSArray *data = @[
     @{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},
-    @{@"idStr":@"2",@"title":@"修改工程名(`Podfile`被修改后需要`pod install`)",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isModify),@"url":TPString.vc_modify_project},
-    @{@"idStr":@"3",@"title":@"修改'.h、.m、.swift'文件前缀",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},];
+    @{@"idStr":@"2",@"title":@"修改工程名(`Podfile`被修改后需要`pod install`)",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isModifyProject),@"url":TPString.vc_modify_project},
+    @{@"idStr":@"3",@"title":@"修改文件前缀(包含内容)",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_modify_class},];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
@@ -31,7 +31,7 @@
     TPSpamCodeSetting *setting = TPConfoundSetting.sharedManager.spamSet;
     NSArray *data = @[@{@"idStr":@"11",@"title":@"在原文件中添加垃圾方法",@"setting":@0,@"selecte":@(setting.isSpamInOldCode)},
                       @{@"idStr":@"12",@"title":@"新建.h、.m文件并添加垃圾方法",@"setting":@1,@"selecte":@(setting.isSpamInNewDir),@"url":TPString.vc_spam_code_model},
-                      @{@"idStr":@"13",@"title":@"方法名配置",@"setting":@1,@"selecte":@(setting.isSpamMethod),@"url":TPString.vc_spam_code_method},
+                      @{@"idStr":@"13",@"title":@"新增方法名配置",@"setting":@1,@"selecte":@(setting.isSpamMethod),@"url":TPString.vc_spam_code_method},
                       @{@"idStr":@"14",@"title":@"取项目中单词来命名'类名|方法名'",@"setting":@1,@"selecte":@(setting.isSpamOldWords),@"url":TPString.vc_spam_code_word}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
@@ -57,8 +57,17 @@
 
 + (NSArray *)data_modify_project{
     TPModifyProjectSetting *modifySet = TPConfoundSetting.sharedManager.modifySet;
-    NSArray *data = @[@{@"idStr":@"21",@"title":@"老项目名",@"content":safeString(modifySet.oldName)},
+    NSArray *data = @[@{@"idStr":@"21",@"title":@"旧项目名",@"content":safeString(modifySet.oldName)},
                       @{@"idStr":@"22",@"title":@"新项目名",@"content":safeString(modifySet.modifyName)}];
+    return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
+}
+
++ (NSArray *)data_modify_class{
+    TPModifyProjectSetting *modifySet = TPConfoundSetting.sharedManager.modifySet;
+    NSArray *data = @[
+    @{@"idStr":@"30",@"title":@"替换其他命名前缀(类名之外)",@"setting":@0,@"selecte":@(modifySet.isModifyPrefixOther)},
+                      @{@"idStr":@"31",@"title":@"旧类名前缀",@"content":safeString(modifySet.oldPrefix)},
+                      @{@"idStr":@"32",@"title":@"新类名前缀",@"content":safeString(modifySet.modifyPrefix)}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
@@ -82,7 +91,7 @@
             set.isSpam = selected;
             break;
         case 2:
-            set.isModify = selected;
+            set.isModifyProject = selected;
             break;
         case 11:
             codeSet.isSpamInOldCode = selected;
@@ -128,6 +137,14 @@
             break;
         case 22:
             modify.modifyName = text;
+            break;
+        case 30:
+            modify.isModifyPrefixOther = selected;
+        case 31:
+            modify.oldPrefix = text;
+            break;
+        case 32:
+            modify.modifyPrefix = text;
             break;
         default:
             break;

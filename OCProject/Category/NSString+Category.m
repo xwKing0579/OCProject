@@ -65,4 +65,7 @@
     return resultArray;
 }
 
+- (NSArray *)filterString{
+    return [self componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"@／ ：；（）¥「」,＂、[]{}#%-*+=_//|~＜＞$€^•'@#$%^&*()_+'/"""]];
+}
 @end

@@ -85,6 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)vc_spam_code_method;
 + (NSString *)vc_spam_code_word;
 + (NSString *)vc_modify_project;
++ (NSString *)vc_modify_class;
 
 ///其他类 ===========================================================================
 + (NSString *)tp_debug_tool;

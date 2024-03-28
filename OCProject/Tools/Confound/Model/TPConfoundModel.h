@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)data_code_method;
 + (NSArray *)data_code_word;
 + (NSArray *)data_modify_project;
++ (NSArray *)data_modify_class;
 
 + (void)editContent:(id)content idStr:(NSString *)idStr;
 
