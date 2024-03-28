@@ -9,6 +9,13 @@
 
 @implementation TPConfoundModel
 
++ (NSArray *)data{
+    NSArray *data = @[
+    @{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},
+    @{@"idStr":@"2",@"title":@"修改工程名",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isModify),@"url":TPString.vc_modify_project}];
+    return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
+}
+
 + (NSArray *)data_file{
     TPSpamCodeFileSetting *fileSet = TPConfoundSetting.sharedManager.spamSet.spamFileSet;
     NSString *spamFileNum = [NSString stringWithFormat:@"%d",fileSet.spamFileNum];
@@ -23,8 +30,8 @@
     TPSpamCodeSetting *setting = TPConfoundSetting.sharedManager.spamSet;
     NSArray *data = @[@{@"idStr":@"11",@"title":@"在原文件中添加垃圾方法",@"setting":@0,@"selecte":@(setting.isSpamInOldCode)},
                       @{@"idStr":@"12",@"title":@"新建.h、.m文件并添加垃圾方法",@"setting":@1,@"selecte":@(setting.isSpamInNewDir),@"url":TPString.vc_spam_code_model},
-                      @{@"idStr":@"13",@"title":@"方法名配置",@"setting":@1,@"selecte":@1,@"url":TPString.vc_spam_code_method},
-                      @{@"idStr":@"14",@"title":@"使用项目单词命名类|方法名",@"setting":@1,@"selecte":@1,@"url":TPString.vc_spam_code_word}];
+                      @{@"idStr":@"13",@"title":@"方法名配置",@"setting":@1,@"selecte":@(setting.isSpamMethod),@"url":TPString.vc_spam_code_method},
+                      @{@"idStr":@"14",@"title":@"使用项目单词命名类|方法名",@"setting":@1,@"selecte":@(setting.isSpamOldWords),@"url":TPString.vc_spam_code_word}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
@@ -47,4 +54,82 @@
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
++ (NSArray *)data_modify_project{
+    TPModifyProjectSetting *modifySet = TPConfoundSetting.sharedManager.modifySet;
+    NSArray *data = @[@{@"idStr":@"21",@"title":@"老项目名",@"content":safeString(modifySet.oldName)},
+                      @{@"idStr":@"22",@"title":@"新项目名",@"content":safeString(modifySet.modifyName)}];
+    return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
+}
+
++ (void)editContent:(id)content idStr:(NSString *)idStr{
+    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
+    TPSpamCodeSetting *codeSet = set.spamSet;
+    TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
+    TPSpamCodeWordSetting *wordSet = codeSet.spamWordSet;
+    TPModifyProjectSetting *modify = set.modifySet;
+    
+    NSString *text;
+    BOOL selected = NO;
+    if ([content isKindOfClass:[NSString class]]){
+        text = content;
+    }else if ([content isKindOfClass:[NSNumber class]]){
+        selected = [(NSNumber *)content intValue];
+    }
+    
+    switch (idStr.intValue) {
+        case 1:
+            set.isSpam = selected;
+            break;
+        case 2:
+            set.isModify = selected;
+            break;
+        case 11:
+            codeSet.isSpamInOldCode = selected;
+            break;
+        case 12:
+            codeSet.isSpamInNewDir = selected;
+            break;
+        case 13:
+            codeSet.isSpamMethod = selected;
+            break;
+        case 14:
+            codeSet.isSpamOldWords = selected;
+            break;
+        case 121:
+            fileSet.projectName = text;
+            break;
+        case 122:
+            fileSet.author = text;
+            break;
+        case 123:
+            fileSet.spamFileNum = text.intValue;
+            break;
+        case 124:
+            fileSet.spamClassPrefix = text;
+            break;
+        case 131:
+            codeSet.spamMethodPrefix = text;
+            break;
+        case 141:
+            wordSet.frequency = text.intValue;
+            break;
+        case 142:
+            wordSet.minLength = text.intValue;
+            break;
+        case 143:
+            wordSet.maxLength = text.intValue;
+            break;
+        case 144:
+            wordSet.blackList = [text componentsSeparatedByString:@","];
+            break;
+        case 21:
+            modify.oldName = text;
+            break;
+        case 22:
+            modify.modifyName = text;
+            break;
+        default:
+            break;
+    }
+}
 @end

@@ -17,10 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL setting;
 @property (nonatomic, assign) BOOL selecte;
 
++ (NSArray *)data;
 + (NSArray *)data_file;
 + (NSArray *)data_code;
 + (NSArray *)data_code_method;
 + (NSArray *)data_code_word;
++ (NSArray *)data_modify_project;
+
++ (void)editContent:(id)content idStr:(NSString *)idStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

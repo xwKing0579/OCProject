@@ -55,30 +55,7 @@
 - (void)clickSelectAction:(UIButton *)sender{
     sender.selected = !sender.selected;
     self.model.selecte = sender.selected;
-    
-    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
-    TPSpamCodeSetting *codeSet = set.spamSet;
-    TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
-    
-    switch (self.model.idStr.intValue) {
-        case 1:
-            set.isSpam = sender.selected;
-            break;
-        case 11:
-            codeSet.isSpamInOldCode = sender.selected;
-            break;
-        case 12:
-            codeSet.isSpamInNewDir = sender.selected;
-            break;
-        case 13:
-            codeSet.isSpamMethod = sender.selected;
-            break;
-        case 14:
-            codeSet.isSpamOldWords = sender.selected;
-            break;
-        default:
-            break;
-    }
+    [TPConfoundModel editContent:@(sender.selected) idStr:self.model.idStr];
 }
 
 - (UIButton *)selectBtn{

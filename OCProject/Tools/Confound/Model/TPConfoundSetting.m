@@ -14,24 +14,35 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [self new];
-        manager.spamSet = [TPSpamCodeSetting new];
-        manager.spamSet.isSpamInNewDir = YES;
-        manager.spamSet.isSpamInOldCode = YES;
-        manager.spamSet.isSpamMethod = YES;
-        manager.spamSet.isSpamOldWords = YES;
-        manager.spamSet.projectWords = [NSMutableDictionary dictionary];
-        manager.spamSet.spamFileSet = [TPSpamCodeFileSetting new];
-        manager.spamSet.spamFileSet.spamFileNum = 100;
-        manager.spamSet.spamWordSet = [TPSpamCodeWordSetting new];
-        manager.spamSet.spamWordSet.minLength = 3;
-        manager.spamSet.spamWordSet.maxLength = 10;
-        manager.spamSet.spamWordSet.frequency = 10;
+        manager.isSpam = YES;
+        manager.isModify = YES;
+        
+        TPSpamCodeSetting *spamSet = [TPSpamCodeSetting new];
+        manager.spamSet = spamSet;
+        spamSet.isSpamInNewDir = YES;
+        spamSet.isSpamInOldCode = NO;
+        spamSet.isSpamMethod = YES;
+        spamSet.isSpamOldWords = YES;
+        spamSet.projectWords = [NSMutableDictionary dictionary];
+        
+        TPSpamCodeFileSetting *spamFileSet = [TPSpamCodeFileSetting new];
+        spamSet.spamFileSet = spamFileSet;
+        spamFileSet.spamFileNum = 100;
+        
+        TPSpamCodeWordSetting *spamWordSet = [TPSpamCodeWordSetting new];
+        spamSet.spamWordSet = [TPSpamCodeWordSetting new];
+        spamWordSet.minLength = 3;
+        spamWordSet.maxLength = 10;
+        spamWordSet.frequency = 10;
+        
+        TPModifyProjectSetting *modifySet = [TPModifyProjectSetting new];
+        manager.modifySet = modifySet;
+        
+        manager.path = @"/Users/wangxiangwei/Desktop/Mediator";
+        manager.modifySet.oldName = @"Mediator";
+        manager.modifySet.modifyName = @"TPMediator";
     });
     return manager;
-}
-
-- (BOOL)isSpam{
-    return self.spamSet.isSpamInOldCode || self.spamSet.isSpamInNewDir;
 }
 
 @end
@@ -102,5 +113,10 @@
 - (NSArray *)blackList{
     return _blackList ?: @[@"void",@"init",@"else",@"if",@"interface",@"implementation"];
 }
+
+@end
+
+
+@implementation TPModifyProjectSetting
 
 @end

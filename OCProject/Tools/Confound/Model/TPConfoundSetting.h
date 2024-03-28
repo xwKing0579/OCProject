@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class TPSpamCodeSetting,TPSpamCodeFileSetting,TPSpamCodeWordSetting;
+@class TPSpamCodeSetting,TPSpamCodeFileSetting,TPSpamCodeWordSetting,TPModifyProjectSetting;
 
 @interface TPConfoundSetting : NSObject
 
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isModify;
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic, strong) TPSpamCodeSetting *spamSet;
-
+@property (nonatomic, strong) TPModifyProjectSetting *modifySet;
 + (instancetype)sharedManager;
 @end
 
@@ -50,6 +50,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int maxLength;
 @property (nonatomic, assign) int frequency;
 @property (nonatomic, copy) NSArray *blackList;
+@end
+
+@interface TPModifyProjectSetting : NSObject
+@property (nonatomic, copy) NSString *oldName;
+@property (nonatomic, copy) NSString *modifyName;
 @end
 
 NS_ASSUME_NONNULL_END

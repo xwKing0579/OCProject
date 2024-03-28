@@ -45,41 +45,8 @@
 }
 
 - (void)textFieldDidChange:(UITextField *)textField{
-    TPSpamCodeSetting *codeSet = TPConfoundSetting.sharedManager.spamSet;
-    TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
-    TPSpamCodeWordSetting *wordSet = codeSet.spamWordSet;
     NSString *text = textField.text.whitespace;
-    switch (self.model.idStr.intValue) {
-        case 121:
-            fileSet.projectName = text;
-            break;
-        case 122:
-            fileSet.author = text;
-            break;
-        case 123:
-            fileSet.spamFileNum = text.intValue;
-            break;
-        case 124:
-            fileSet.spamClassPrefix = text;
-            break;
-        case 131:
-            codeSet.spamMethodPrefix = text;
-            break;
-        case 141:
-            wordSet.frequency = text.intValue;
-            break;
-        case 142:
-            wordSet.minLength = text.intValue;
-            break;
-        case 143:
-            wordSet.maxLength = text.intValue;
-            break;
-        case 144:
-            wordSet.blackList = [text componentsSeparatedByString:@","];
-            break;
-        default:
-            break;
-    }
+    [TPConfoundModel editContent:text idStr:self.model.idStr];
     self.model.content = text;
 }
 
@@ -101,6 +68,10 @@
         _textFiled.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
         _textFiled.leftViewMode = UITextFieldViewModeAlways;
         _textFiled.clearButtonMode = UITextFieldViewModeWhileEditing;
+        UIImageView *rightView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+        rightView.image = [UIImage imageNamed:@"edit"];
+        _textFiled.rightView = rightView;
+        _textFiled.rightViewMode = UITextFieldViewModeAlways;
         [_textFiled addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     }
     return _textFiled;

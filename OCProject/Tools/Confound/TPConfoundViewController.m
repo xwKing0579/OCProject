@@ -8,7 +8,7 @@
 #import "TPConfoundViewController.h"
 #import "TPConfoundModel.h"
 #import "TPSpamMethod.h"
-
+#import "TPModifyProjectName.h"
 @interface TPConfoundViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) UITextView *textView;
 @end
@@ -20,12 +20,17 @@
     // Do any additional setup after loading the view.
     self.title = @"马甲包工具";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"开始" style:(UIBarButtonItemStyleDone) target:self action:@selector(startConfoundAction)];
-    self.data = [self data];
+    self.data = [TPConfoundModel data];
     [self.tableView reloadData];
 }
 
 - (void)startConfoundAction{
-    NSString *path = self.textView.text.whitespace;
+    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
+    TPSpamCodeSetting *codeSet = set.spamSet;
+    TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
+    TPModifyProjectSetting *modify = set.modifySet;
+    
+    NSString *path = set.path;
     if (!path.length) {
         [TPToastManager showText:@"请输入绝对路径"];
         return;
@@ -36,10 +41,13 @@
         return;
     }
     
-    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
-    TPSpamCodeSetting *codeSet = set.spamSet;
-    TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
+    if (set.isModify && (!modify.oldName.length || !modify.modifyName.length)){
+        [TPToastManager showText:@"请填写修改项目名称的内容"];
+        return;
+    }
     [TPToastManager showLoading];
+    
+    ///垃圾代码
     if (set.isSpam) {
         NSArray *ignoreDirNames = @[@"Pods"];
         if (codeSet.isSpamOldWords){
@@ -106,23 +114,25 @@
         NSString *projectPath = codeSet.isSpamInOldCode ? path : dirPath;
         [TPSpamMethod spamCodeProjectPath:projectPath ignoreDirNames:ignoreDirNames];
     }
+    
+    //修改项目名称
+    if (set.isModify){
+        [TPModifyProjectName modifyProjectName:path oldName:modify.oldName newName:modify.modifyName];
+    }
+    
     [TPToastManager hideLoading];
-}
-
-- (NSArray *)data{
-    NSArray *data = @[
-    @{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},
-    @{@"idStr":@"2",@"title":@"修改工程名",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code}];
-    return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
 - (NSString *)cellClass{
     return TPString.tc_confound;
 }
+
 #pragma mark -- UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)textView{
+    NSString *path = textView.text.whitespace;
+    
     TPConfoundSetting *set = TPConfoundSetting.sharedManager;
-    set.path = textView.text.whitespace;
+    set.path = path;
 }
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
