@@ -10,7 +10,7 @@
 @implementation TPModifyProjectName
 
 + (void)modifyProjectName:(NSString *)projectPath oldName:(NSString *)oldName newName:(NSString *)newName{
-    [self modifyFilesClassName:projectPath oldName:oldName newName:newName];
+    [self modifyFilesClassName:projectPath oldName:[oldName stringByAppendingString:@"-Swift.h"] newName:[newName stringByAppendingString:@"-Swift.h"]];
     
     NSFileManager *fm = [NSFileManager defaultManager];
     BOOL isDirectory;
@@ -26,7 +26,7 @@
     if ([fm fileExistsAtPath:xcodeprojFilePath isDirectory:&isDirectory] && isDirectory) {
         NSString *projectPbxprojFilePath = [xcodeprojFilePath stringByAppendingPathComponent:@"project.pbxproj"];
         if ([fm fileExistsAtPath:projectPbxprojFilePath]) {
-            [self resetBridgingHeaderFileName:projectPbxprojFilePath oldName:oldName newName:newName];
+            [self resetBridgingHeaderFileName:projectPbxprojFilePath oldName:[oldName stringByAppendingString:@"-Bridging-Header"] newName:[newName stringByAppendingString:@"-Bridging-Header"]];
             [self resetEntitlementsFileName:projectPbxprojFilePath oldName:oldName newName:newName];
             [self replaceProjectFileContent:projectPbxprojFilePath oldName:oldName newName:newName];
         }
@@ -44,7 +44,7 @@
     if ([fm fileExistsAtPath:xcworkspaceFilePath isDirectory:&isDirectory] && isDirectory) {
         NSString *contentsXcworkspacedataFilePath = [xcworkspaceFilePath stringByAppendingPathComponent:@"contents.xcworkspacedata"];
         if ([fm fileExistsAtPath:contentsXcworkspacedataFilePath]) {
-            [self replacePodfileContent:contentsXcworkspacedataFilePath oldString:oldName newString:newName];
+            [self replaceProjectFileContent:contentsXcworkspacedataFilePath oldName:oldName newName:newName];
         }
         NSString *xcuserdataFilePath = [xcworkspaceFilePath stringByAppendingPathComponent:@"xcuserdata"];
         if ([fm fileExistsAtPath:xcuserdataFilePath]) {
@@ -58,6 +58,10 @@
     }
 }
 
++ (void)modifyFilePrefix:(NSString *)projectPath oldPrefix:(NSString *)oldPrefix newPrefix:(NSString *)newPrefix{
+    
+}
+
 + (void)modifyFilesClassName:(NSString *)projectPath oldName:(NSString *)oldName newName:(NSString *)newName{
     // 文件内容 Const > DDConst (h,m,swift,xib,storyboard)
     NSFileManager *fm = [NSFileManager defaultManager];
@@ -69,7 +73,7 @@
             [self modifyFilesClassName:path oldName:oldName newName:newName];
             continue;
         }
-        if ([path containsString:@"Pods"]) continue;
+      
         NSString *fileName = filePath.lastPathComponent;
         if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".pch"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"]) {
             
@@ -154,6 +158,7 @@
     NSError *error;
     [[NSFileManager defaultManager] moveItemAtPath:oldPath toPath:newPath error:&error];
     if (error) {
+        printf("修改文件名称失败。\n  oldPath=%s\n  newPath=%s\n  ERROR:%s\n", oldPath.UTF8String, newPath.UTF8String, error.localizedDescription.UTF8String);
         abort();
     }
 }
@@ -183,6 +188,10 @@
     NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regularExpression options:0 error:nil];
     NSArray<NSTextCheckingResult *> *matches = [expression matchesInString:fileContent options:0 range:NSMakeRange(0, fileContent.length)];
     [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *string = [fileContent substringWithRange:NSMakeRange(obj.range.location+obj.range.length, 2)];
+        if ([string containsString:@".h"] || [string containsString:@".m"] || [string containsString:@".swift"]){
+            return;
+        }
         [fileContent replaceCharactersInRange:obj.range withString:newName];
     }];
     

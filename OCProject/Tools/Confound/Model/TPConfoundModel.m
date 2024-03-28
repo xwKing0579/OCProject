@@ -12,7 +12,8 @@
 + (NSArray *)data{
     NSArray *data = @[
     @{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},
-    @{@"idStr":@"2",@"title":@"修改工程名",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isModify),@"url":TPString.vc_modify_project}];
+    @{@"idStr":@"2",@"title":@"修改工程名(`Podfile`被修改后需要`pod install`)",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isModify),@"url":TPString.vc_modify_project},
+    @{@"idStr":@"3",@"title":@"修改'.h、.m、.swift'文件前缀",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
@@ -31,7 +32,7 @@
     NSArray *data = @[@{@"idStr":@"11",@"title":@"在原文件中添加垃圾方法",@"setting":@0,@"selecte":@(setting.isSpamInOldCode)},
                       @{@"idStr":@"12",@"title":@"新建.h、.m文件并添加垃圾方法",@"setting":@1,@"selecte":@(setting.isSpamInNewDir),@"url":TPString.vc_spam_code_model},
                       @{@"idStr":@"13",@"title":@"方法名配置",@"setting":@1,@"selecte":@(setting.isSpamMethod),@"url":TPString.vc_spam_code_method},
-                      @{@"idStr":@"14",@"title":@"使用项目单词命名类|方法名",@"setting":@1,@"selecte":@(setting.isSpamOldWords),@"url":TPString.vc_spam_code_word}];
+                      @{@"idStr":@"14",@"title":@"取项目中单词来命名'类名|方法名'",@"setting":@1,@"selecte":@(setting.isSpamOldWords),@"url":TPString.vc_spam_code_word}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 

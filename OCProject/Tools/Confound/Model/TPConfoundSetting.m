@@ -37,10 +37,6 @@
         
         TPModifyProjectSetting *modifySet = [TPModifyProjectSetting new];
         manager.modifySet = modifySet;
-        
-        manager.path = @"/Users/wangxiangwei/Desktop/Mediator";
-        manager.modifySet.oldName = @"Mediator";
-        manager.modifySet.modifyName = @"TPMediator";
     });
     return manager;
 }

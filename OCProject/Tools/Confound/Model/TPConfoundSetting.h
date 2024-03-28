@@ -55,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TPModifyProjectSetting : NSObject
 @property (nonatomic, copy) NSString *oldName;
 @property (nonatomic, copy) NSString *modifyName;
+@property (nonatomic, copy) NSString *oldPrefix;
+@property (nonatomic, copy) NSString *modifyPrefix;
 @end
 
 NS_ASSUME_NONNULL_END

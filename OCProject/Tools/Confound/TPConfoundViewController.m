@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = @"马甲包工具";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"开始" style:(UIBarButtonItemStyleDone) target:self action:@selector(startConfoundAction)];
+    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/Mediator";
     self.data = [TPConfoundModel data];
     [self.tableView reloadData];
 }
@@ -153,6 +154,7 @@
     textView.placeholder = @"输入文件夹绝对路径";
     textView.contentInset = UIEdgeInsetsMake(15, 15, 15, 15);
     textView.delegate = self;
+    textView.text = TPConfoundSetting.sharedManager.path;
     [view addSubview:textView];
     self.textView = textView;
     
