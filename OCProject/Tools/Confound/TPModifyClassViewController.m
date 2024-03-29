@@ -7,7 +7,7 @@
 
 #import "TPModifyClassViewController.h"
 #import "TPConfoundModel.h"
-#import "TPModifyProjectName.h"
+#import "TPModifyProject.h"
 @interface TPModifyClassViewController ()
 
 @end

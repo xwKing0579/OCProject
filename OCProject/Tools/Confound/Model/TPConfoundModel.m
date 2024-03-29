@@ -10,10 +10,12 @@
 @implementation TPConfoundModel
 
 + (NSArray *)data{
+    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
     NSArray *data = @[
-    @{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_spam_code},
-    @{@"idStr":@"2",@"title":@"修改工程名(`Podfile`被修改后需要`pod install`)",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isModifyProject),@"url":TPString.vc_modify_project},
-    @{@"idStr":@"3",@"title":@"修改文件前缀(包含内容)",@"setting":@1,@"selecte":@(TPConfoundSetting.sharedManager.isSpam),@"url":TPString.vc_modify_class},];
+    @{@"idStr":@"1",@"title":@"添加垃圾代码",@"setting":@1,@"selecte":@(set.isSpam),@"url":TPString.vc_spam_code},
+    @{@"idStr":@"2",@"title":@"修改工程名(`Podfile`被修改后需要`pod install`)",@"setting":@1,@"selecte":@(set.isModifyProject),@"url":TPString.vc_modify_project},
+    @{@"idStr":@"3",@"title":@"修改文件名前缀(包含类名之外)",@"setting":@1,@"selecte":@(set.isSpam),@"url":TPString.vc_modify_class},
+    @{@"idStr":@"4",@"title":@"删除注释",@"setting":@0,@"selecte":@(set.isClearComment)}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
@@ -28,11 +30,17 @@
 }
 
 + (NSArray *)data_code{
-    TPSpamCodeSetting *setting = TPConfoundSetting.sharedManager.spamSet;
-    NSArray *data = @[@{@"idStr":@"11",@"title":@"在原文件中添加垃圾方法",@"setting":@0,@"selecte":@(setting.isSpamInOldCode)},
-                      @{@"idStr":@"12",@"title":@"新建.h、.m文件并添加垃圾方法",@"setting":@1,@"selecte":@(setting.isSpamInNewDir),@"url":TPString.vc_spam_code_model},
-                      @{@"idStr":@"13",@"title":@"新增方法名配置",@"setting":@1,@"selecte":@(setting.isSpamMethod),@"url":TPString.vc_spam_code_method},
-                      @{@"idStr":@"14",@"title":@"取项目中单词来命名'类名|方法名'",@"setting":@1,@"selecte":@(setting.isSpamOldWords),@"url":TPString.vc_spam_code_word}];
+    TPConfoundSetting *set = TPConfoundSetting.sharedManager;
+    TPSpamCodeSetting *codeSet = set.spamSet;
+    TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
+    NSString *spamCodeDirName = @"新建.h、.m文件并添加垃圾方法";
+    if (fileSet.dirName.length){
+        spamCodeDirName = [NSString stringWithFormat:@"新建.h、.m文件并添加垃圾方法(生成的文件存放在%@目录下,需要手动拖拽到项目中)",[set.path stringByAppendingPathComponent:fileSet.dirName]];
+    }
+    NSArray *data = @[@{@"idStr":@"11",@"title":@"在原文件中添加垃圾方法",@"setting":@0,@"selecte":@(codeSet.isSpamInOldCode)},
+                      @{@"idStr":@"12",@"title":spamCodeDirName,@"setting":@1,@"selecte":@(codeSet.isSpamInNewDir),@"url":TPString.vc_spam_code_model},
+                      @{@"idStr":@"13",@"title":@"新增方法名配置",@"setting":@1,@"selecte":@(codeSet.isSpamMethod),@"url":TPString.vc_spam_code_method},
+                      @{@"idStr":@"14",@"title":@"取项目中单词来命名'类名|方法名'",@"setting":@1,@"selecte":@(codeSet.isSpamOldWords),@"url":TPString.vc_spam_code_word}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
 }
 
@@ -65,7 +73,7 @@
 + (NSArray *)data_modify_class{
     TPModifyProjectSetting *modifySet = TPConfoundSetting.sharedManager.modifySet;
     NSArray *data = @[
-    @{@"idStr":@"30",@"title":@"替换其他命名前缀(类名之外)",@"setting":@0,@"selecte":@(modifySet.isModifyPrefixOther)},
+    @{@"idStr":@"30",@"title":@"替换其他命名前缀(类名之外相同前缀code)",@"setting":@0,@"selecte":@(modifySet.isModifyPrefixOther)},
                       @{@"idStr":@"31",@"title":@"旧类名前缀",@"content":safeString(modifySet.oldPrefix)},
                       @{@"idStr":@"32",@"title":@"新类名前缀",@"content":safeString(modifySet.modifyPrefix)}];
     return [NSArray yy_modelArrayWithClass:[TPConfoundModel class] json:data];
@@ -92,6 +100,12 @@
             break;
         case 2:
             set.isModifyProject = selected;
+            break;
+        case 3:
+            set.isModifyClass = selected;
+            break;
+        case 4:
+            set.isClearComment = selected;
             break;
         case 11:
             codeSet.isSpamInOldCode = selected;

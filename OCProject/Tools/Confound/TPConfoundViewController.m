@@ -8,7 +8,7 @@
 #import "TPConfoundViewController.h"
 #import "TPConfoundModel.h"
 #import "TPSpamMethod.h"
-#import "TPModifyProjectName.h"
+#import "TPModifyProject.h"
 @interface TPConfoundViewController ()<UITextViewDelegate>
 @property (nonatomic, strong) UITextView *textView;
 @end
@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = @"马甲包工具";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"开始" style:(UIBarButtonItemStyleDone) target:self action:@selector(startConfoundAction)];
-    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/YaoGuang";
+    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/QuShou";
     self.data = [TPConfoundModel data];
     [self.tableView reloadData];
 }
@@ -32,7 +32,7 @@
     TPModifyProjectSetting *modifySet = set.modifySet;
     
     modifySet.oldPrefix = @"TP";
-    modifySet.modifyPrefix = @"YG";
+    modifySet.modifyPrefix = @"QS";
     
     NSString *path = set.path;
     if (!path.length) {
@@ -56,9 +56,9 @@
     }
     [TPToastManager showLoading];
     
+    NSArray *ignoreDirNames = @[@"Pods"];
     ///垃圾代码
     if (set.isSpam) {
-        NSArray *ignoreDirNames = @[@"Pods"];
         if (codeSet.isSpamOldWords){
             [TPSpamMethod getWordsProjectPath:path ignoreDirNames:ignoreDirNames];
         }
@@ -126,11 +126,17 @@
     
     //修改项目名称
     if (set.isModifyProject){
-        [TPModifyProjectName modifyProjectName:path oldName:modifySet.oldName newName:modifySet.modifyName];
+        [TPModifyProject modifyProjectName:path oldName:modifySet.oldName newName:modifySet.modifyName];
     }
     
+    ///修改文件前缀
     if (set.isModifyClass){
-        [TPModifyProjectName modifyFilePrefix:path otherPrefix:modifySet.isModifyPrefixOther oldPrefix:modifySet.oldPrefix newPrefix:modifySet.modifyPrefix];
+        [TPModifyProject modifyFilePrefix:path otherPrefix:modifySet.isModifyPrefixOther oldPrefix:modifySet.oldPrefix newPrefix:modifySet.modifyPrefix];
+    }
+    
+    //删除注释
+    if (set.isClearComment){
+        [TPModifyProject clearCodeComment:path ignoreDirNames:ignoreDirNames];
     }
     
     [TPToastManager hideLoading];

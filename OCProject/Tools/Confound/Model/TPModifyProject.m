@@ -1,13 +1,13 @@
 //
-//  TPModifyProjectName.m
+//  TPModifyProject.m
 //  OCProject
 //
-//  Created by 王祥伟 on 2024/3/27.
+//  Created by 王祥伟 on 2024/3/29.
 //
 
-#import "TPModifyProjectName.h"
+#import "TPModifyProject.h"
 
-@implementation TPModifyProjectName
+@implementation TPModifyProject
 
 + (void)modifyProjectName:(NSString *)projectPath oldName:(NSString *)oldName newName:(NSString *)newName{
     [self modifyFilesClassName:projectPath oldName:[oldName stringByAppendingString:@"-Swift.h"] newName:[newName stringByAppendingString:@"-Swift.h"]];
@@ -69,7 +69,6 @@ static NSMutableSet *_filePathSet;
     _filePathSet = [NSMutableSet set];
     [self modifyClassDict:projectPath otherPrefix:otherPrefix oldPrefix:oldPrefix newPrefix:newPrefix];
     [self modifyClassNamePrefix:projectPath classReplaceDict:_fileNameDict];
-    
     for (NSString *filePath in _filePathSet.allObjects) {
         NSString *fileName = filePath.lastPathComponent;
         NSString *fileString = filePath.stringByDeletingLastPathComponent;
@@ -128,10 +127,6 @@ static NSMutableSet *_filePathSet;
             if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".pch"]) {
                 NSError *error = nil;
                 NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-                if ([fileName hasSuffix:@".pch"]){
-                    NSLog(@"%@",fileContent);
-                    NSLog(@"%@",fileContent);
-                }
                 NSArray *words = [fileContent filterString];
                 for (NSString *word in words) {
                     if ([word hasPrefix:oldPrefix]) {
@@ -191,7 +186,7 @@ static NSMutableSet *_filePathSet;
             NSError *error = nil;
             NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
             if (error) {
-                printf("打开文件 %s 失败：%s\n", path.UTF8String, error.localizedDescription.UTF8String);
+                NSLog(@"打开文件 %s 失败：%s\n", path.UTF8String, error.localizedDescription.UTF8String);
                 abort();
             }
             
@@ -201,7 +196,7 @@ static NSMutableSet *_filePathSet;
             error = nil;
             [fileContent writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
             if (error) {
-                printf("保存文件 %s 失败：%s\n", path.UTF8String, error.localizedDescription.UTF8String);
+                NSLog(@"保存文件 %s 失败：%s\n", path.UTF8String, error.localizedDescription.UTF8String);
                 abort();
             }
         }
@@ -267,9 +262,14 @@ static NSMutableSet *_filePathSet;
 
 + (void)renameFile:(NSString *)oldPath newPath:(NSString *)newPath{
     NSError *error;
-    [[NSFileManager defaultManager] moveItemAtPath:oldPath toPath:newPath error:&error];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if ([fm fileExistsAtPath:oldPath] && [fm fileExistsAtPath:newPath]){
+        [fm removeItemAtPath:newPath error:nil];
+    }
+    
+    [fm moveItemAtPath:oldPath toPath:newPath error:&error];
     if (error) {
-        printf("修改文件名称失败。\n  oldPath=%s\n  newPath=%s\n  ERROR:%s\n", oldPath.UTF8String, newPath.UTF8String, error.localizedDescription.UTF8String);
+        NSLog(@"修改文件名称失败。\n  oldPath=%s\n  newPath=%s\n  ERROR:%s\n", oldPath.UTF8String, newPath.UTF8String, error.localizedDescription.UTF8String);
         if (error.code != 516) abort();
     }
 }
@@ -309,4 +309,25 @@ static NSMutableSet *_filePathSet;
     [fileContent writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
++ (void)clearCodeComment:(NSString *)projectPath ignoreDirNames:(NSArray<NSString *> * __nullable)ignoreDirNames{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
+    BOOL isDirectory;
+    for (NSString *fileName in files) {
+        if ([ignoreDirNames containsObject:fileName]) continue;
+        NSString *filePath = [projectPath stringByAppendingPathComponent:fileName];
+        if ([fm fileExistsAtPath:filePath isDirectory:&isDirectory] && isDirectory) {
+            [self clearCodeComment:filePath ignoreDirNames:ignoreDirNames];
+            continue;
+        }
+        if (![fileName hasSuffix:@".h"] && ![fileName hasSuffix:@".m"] && ![fileName hasSuffix:@".mm"] && ![fileName hasSuffix:@".swift"]) continue;
+        NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+        NSDictionary *replaceDict = @{@"([^:/])//.*":@"\\1",@"^//.*":@" ",@"/\\*{1,2}[\\s\\S]*?\\*/":@" ",@"^\\s*\\n":@" "};
+        for (NSString *key in replaceDict) {
+            [self regularReplacement:key oldString:fileContent newString:replaceDict[key]];
+        }
+        
+        [fileContent writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    }
+}
 @end

@@ -31,12 +31,12 @@
     [self.contentView addSubviews:@[self.selectBtn,self.titleLabel,self.lineView,self.arrowImageView]];
     [self.selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
-        make.top.mas_equalTo(15);
+        make.centerY.mas_equalTo(0);
         make.width.height.mas_equalTo(30);
-        make.bottom.mas_equalTo(-15);
     }];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(0);
+        make.top.mas_equalTo(15);
+        make.bottom.mas_equalTo(-15);
         make.left.mas_equalTo(self.selectBtn.mas_right).offset(10);
         make.right.mas_equalTo(self.arrowImageView.mas_left).offset(-10);
     }];

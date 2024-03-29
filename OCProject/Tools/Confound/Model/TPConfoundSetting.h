@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSpam;
 @property (nonatomic, assign) BOOL isModifyProject;
 @property (nonatomic, assign) BOOL isModifyClass;
+@property (nonatomic, assign) BOOL isClearComment;
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic, strong) TPSpamCodeSetting *spamSet;
 @property (nonatomic, strong) TPModifyProjectSetting *modifySet;

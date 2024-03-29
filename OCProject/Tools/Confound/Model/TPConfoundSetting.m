@@ -17,6 +17,7 @@
         manager.isSpam = YES;
         manager.isModifyProject = YES;
         manager.isModifyClass = YES;
+        manager.isClearComment = NO;
         
         TPSpamCodeSetting *spamSet = [TPSpamCodeSetting new];
         manager.spamSet = spamSet;
