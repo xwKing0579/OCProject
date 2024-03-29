@@ -263,9 +263,7 @@ static NSMutableSet *_filePathSet;
 + (void)renameFile:(NSString *)oldPath newPath:(NSString *)newPath{
     NSError *error;
     NSFileManager *fm = [NSFileManager defaultManager];
-    if ([fm fileExistsAtPath:oldPath] && [fm fileExistsAtPath:newPath]){
-        [fm removeItemAtPath:newPath error:nil];
-    }
+    if ([fm fileExistsAtPath:newPath]) return;
     
     [fm moveItemAtPath:oldPath toPath:newPath error:&error];
     if (error) {
