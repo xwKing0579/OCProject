@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = @"马甲包工具";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"开始" style:(UIBarButtonItemStyleDone) target:self action:@selector(startConfoundAction)];
-    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/QuShou";
+    
     self.data = [TPConfoundModel data];
     [self.tableView reloadData];
 }
@@ -30,9 +30,6 @@
     TPSpamCodeSetting *codeSet = set.spamSet;
     TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
     TPModifyProjectSetting *modifySet = set.modifySet;
-    
-    modifySet.oldPrefix = @"QS";
-    modifySet.modifyPrefix = @"TP";
     
     NSString *path = set.path;
     if (!path.length) {

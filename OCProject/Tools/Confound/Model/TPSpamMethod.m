@@ -35,19 +35,15 @@
             if (![files containsObject:mFileName]) continue;
             
             NSString *mfile = [path stringByReplacingOccurrencesOfString:@".h" withString:@".m"];
-            NSArray *mehods = [self alreadyMethodRename:mfile];
+            NSError *error = nil;
+            NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+            [fileContent stringByReplacingOccurrencesOfString:@" " withString:@""];
+            NSArray *mehods = [fileContent regexPattern:@"@(void)\\s+([^:\\r\\n]+);"];
             int count = (int)(MIN(20, mehods.count) + arc4random()%5 + 1);
             NSArray *customMethods = [self randomMethodName:mfile count:count];
             [self createSpamMethods:customMethods toFilePath:[path stringByReplacingOccurrencesOfString:@".h" withString:@""]];
         }
     }
-}
-
-+ (NSArray *)alreadyMethodRename:(NSString *)path{
-    NSError *error = nil;
-    NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-    NSArray *contain = [fileContent subStartStr:@"(void)" endStr:@";"];
-    return contain;
 }
 
 + (void)createSpamMethods:(NSArray *)methods toFilePath:(NSString *)filePath{

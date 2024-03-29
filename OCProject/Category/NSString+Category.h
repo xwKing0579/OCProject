@@ -25,8 +25,6 @@ typedef NS_ENUM(NSInteger, NSDateFormatterType){
 ///文件大小转换K
 + (NSString *)sizeString:(unsigned long long)fileSize;
 
-- (NSArray *)subStartStr:(NSString *)startStr endStr:endStr;
-
 - (NSArray *)filterString;
 
 - (NSArray *)regexPattern:(NSString *)regexString;
