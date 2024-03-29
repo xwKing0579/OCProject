@@ -80,11 +80,11 @@ static NSMutableSet *_filePathSet;
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
     BOOL isDirectory;
-    NSLog(@"%@",files);
+
     for (NSString *filePath in files) {
         if ([filePath isEqualToString:@"Pods"]) continue;
         NSString *path = [projectPath stringByAppendingPathComponent:filePath];
-        NSLog(@"%@",path);
+     
         if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
             [self modifyClassDict:path otherPrefix:otherPrefix oldPrefix:oldPrefix newPrefix:newPrefix];
             continue;
@@ -130,13 +130,8 @@ static NSMutableSet *_filePathSet;
                 NSError *error = nil;
                 NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
                 NSArray *words = [fileContent filterString];
-                for (NSString *word in words) {
-                    if ([word hasPrefix:oldPrefix]) {
-                        NSMutableString *matchString = word.mutableCopy;
-                        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^a-zA-Z]"
-                                                                                               options:NSRegularExpressionCaseInsensitive
-                                                                                                 error:nil];
-                        [regex replaceMatchesInString:matchString options:0 range:NSMakeRange(0, matchString.length) withTemplate:@""];
+                for (NSString *matchString in words) {
+                    if ([matchString hasPrefix:oldPrefix]) {
                         NSString *newClassName = [matchString stringByReplacingOccurrencesOfString:oldPrefix withString:newPrefix];
                         [_fileNameDict setValue:newClassName forKey:matchString];
                     }

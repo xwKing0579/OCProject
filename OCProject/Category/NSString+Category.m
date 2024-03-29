@@ -46,7 +46,7 @@
 }
 
 - (NSArray *)filterString{
-    return [self componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"@／ ：；（）¥「」,＂、[]{}#%-*+=_//|~＜＞$€^•'@#$%^&*()_+'/"""]];
+    return [self componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"@／ .：；（）¥「」,＂、[]{}#%-*+=_//|~＜＞$€^•'@#$%^&*()_+'/"""]];
 }
 
 - (NSArray *)regexPattern:(NSString *)regexString{
