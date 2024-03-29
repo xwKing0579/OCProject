@@ -28,6 +28,8 @@ typedef NS_ENUM(NSInteger, NSDateFormatterType){
 - (NSArray *)subStartStr:(NSString *)startStr endStr:endStr;
 
 - (NSArray *)filterString;
+
+- (NSArray *)regexPattern:(NSString *)regexString;
 @end
 
 NS_ASSUME_NONNULL_END

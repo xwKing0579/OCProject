@@ -80,14 +80,16 @@ static NSMutableSet *_filePathSet;
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
     BOOL isDirectory;
+    NSLog(@"%@",files);
     for (NSString *filePath in files) {
         if ([filePath isEqualToString:@"Pods"]) continue;
         NSString *path = [projectPath stringByAppendingPathComponent:filePath];
+        NSLog(@"%@",path);
         if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
             [self modifyClassDict:path otherPrefix:otherPrefix oldPrefix:oldPrefix newPrefix:newPrefix];
             continue;
         }
-        
+    
         NSString *fileName = filePath.lastPathComponent;
         if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".pch"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"] || [fileName hasSuffix:@".xcodeproj"]) {
             NSArray *classNames = [fileName.stringByDeletingPathExtension componentsSeparatedByString:@"+"];
@@ -103,7 +105,7 @@ static NSMutableSet *_filePathSet;
                 NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
                 
                 ///其他类
-                NSArray *fileNames = [fileContent subStartStr:@"@interface" endStr:@":"];
+                NSArray *fileNames = [fileContent regexPattern:@"@interface\\s+([^:\\r\\n]+):"];
                 for (NSString *string in fileNames) {
                     NSString *className = string.whitespace;
                     if ([className hasPrefix:oldPrefix]){
@@ -113,7 +115,7 @@ static NSMutableSet *_filePathSet;
                 }
                 
                 ///其他类别
-                NSArray *categoryFileNames = [fileContent subStartStr:@"@interface" endStr:@"("];
+                NSArray *categoryFileNames = [fileContent regexPattern:@"@interface\\s+([^:\\r\\n]+)("];
                 for (NSString *string in categoryFileNames) {
                     NSString *className = string.whitespace;
                     if ([className hasPrefix:oldPrefix]){
@@ -123,7 +125,7 @@ static NSMutableSet *_filePathSet;
                 }
             }
             
-            if (!otherPrefix) return;
+            if (!otherPrefix) continue;
             if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".pch"]) {
                 NSError *error = nil;
                 NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];

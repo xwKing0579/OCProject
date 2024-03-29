@@ -68,4 +68,18 @@
 - (NSArray *)filterString{
     return [self componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"@／ ：；（）¥「」,＂、[]{}#%-*+=_//|~＜＞$€^•'@#$%^&*()_+'/"""]];
 }
+
+- (NSArray *)regexPattern:(NSString *)regexString{
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:&error];
+    NSArray *matches = [regex matchesInString:self options:0 range:NSMakeRange(0, self.length)];
+    NSMutableArray *result = [NSMutableArray array];
+    for (NSTextCheckingResult *match in matches) {
+        NSRange matchRange = [match rangeAtIndex:1];
+        NSString *matchedString = [self substringWithRange:matchRange];
+        [result addObject:matchedString];
+    }
+    return result;
+}
+
 @end

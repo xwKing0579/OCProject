@@ -31,8 +31,8 @@
     TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
     TPModifyProjectSetting *modifySet = set.modifySet;
     
-    modifySet.oldPrefix = @"TP";
-    modifySet.modifyPrefix = @"QS";
+    modifySet.oldPrefix = @"QS";
+    modifySet.modifyPrefix = @"TP";
     
     NSString *path = set.path;
     if (!path.length) {
