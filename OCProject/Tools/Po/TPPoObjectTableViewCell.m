@@ -90,7 +90,7 @@
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.font = UIFont.font14;
         _contentLabel.textColor = UIColor.c000000;
-        _contentLabel.numberOfLines = 0;
+        _contentLabel.numberOfLines = 100;
     }
     return _contentLabel;
 }

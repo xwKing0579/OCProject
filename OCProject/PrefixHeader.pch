@@ -56,7 +56,7 @@ if ( _conditions ) {\
     return YES;\
 }\
 
-#define ROUTER_DEMO(vc, title) [NSString stringWithFormat:@"%@?title=%@",vc,title]
+#define ROUTER_DEMO(vc, title) [NSString stringWithFormat:@"%@/present?title=%@",vc,title]
 
 #endif
 #endif /* PrefixHeader_pch */
