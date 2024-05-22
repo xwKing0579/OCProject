@@ -7,7 +7,7 @@
 
 #import "TPNetworkMonitorViewController.h"
 #import "TPNetworkMonitor.h"
-@interface TPNetworkMonitorViewController ()
+@interface TPNetworkMonitorViewController ()<UITextFieldDelegate>
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) NSArray *dataSource;
 @end
@@ -51,7 +51,13 @@
 
 #pragma mark -- UITableViewDelegate,UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.view endEditing:YES];
     [TPRouter jumpUrl:TPString.vc_po_object params:@{@"object":self.data[indexPath.row]}];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (UITextField *)textField{
@@ -64,6 +70,8 @@
         _textField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
         _textField.leftViewMode = UITextFieldViewModeAlways;
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _textField.returnKeyType = UIReturnKeyDone;
+        _textField.delegate = self;
         [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [self.view addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {

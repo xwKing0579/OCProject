@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *httpMethod;
 @property (nonatomic, copy) NSString *mimeType;
 
+@property (nonatomic, copy) NSString *requestParams;
 @property (nonatomic, assign) NSInteger statusCode;
 @property (nonatomic, strong) NSString *data;
 

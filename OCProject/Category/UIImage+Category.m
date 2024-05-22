@@ -9,7 +9,7 @@
 
 @implementation UIImage (Category)
 - (UIImage *)original{
-    return [self imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
+    return [self imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 + (UIImage *)createImageWithColor:(UIColor *)color{

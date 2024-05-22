@@ -57,6 +57,7 @@
 		F875EAF12B4E81F100559A68 /* TPAnalysisDemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F875EAF02B4E81F100559A68 /* TPAnalysisDemoModel.m */; };
 		F8790B1B2B9FF30900A82F16 /* TPPopViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8790B1A2B9FF30900A82F16 /* TPPopViewsController.m */; };
 		F87C20E42B50D7D400EBC6C6 /* TPSafeObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */; };
+		F87FC7592BFC808100AE401D /* Translation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F87FC7582BFC808100AE401D /* Translation.framework */; };
 		F882868F2B9EA3AA00FC22F4 /* TPUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = F882868E2B9EA3AA00FC22F4 /* TPUserDefaults.m */; };
 		F88286912B9EACAC00FC22F4 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F88286902B9EACAC00FC22F4 /* loading.json */; };
 		F88286992B9F470C00FC22F4 /* TPOperationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F88286982B9F470C00FC22F4 /* TPOperationModel.m */; };
@@ -282,6 +283,7 @@
 		F8790B1A2B9FF30900A82F16 /* TPPopViewsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPopViewsController.m; sourceTree = "<group>"; };
 		F87C20E22B50D7D400EBC6C6 /* TPSafeObjectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSafeObjectManager.h; sourceTree = "<group>"; };
 		F87C20E32B50D7D400EBC6C6 /* TPSafeObjectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSafeObjectManager.m; sourceTree = "<group>"; };
+		F87FC7582BFC808100AE401D /* Translation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Translation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/Translation.framework; sourceTree = DEVELOPER_DIR; };
 		F882868D2B9EA3AA00FC22F4 /* TPUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserDefaults.h; sourceTree = "<group>"; };
 		F882868E2B9EA3AA00FC22F4 /* TPUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserDefaults.m; sourceTree = "<group>"; };
 		F88286902B9EACAC00FC22F4 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F87FC7592BFC808100AE401D /* Translation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +531,7 @@
 		B6A257A40181CDC63B40C232 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F87FC7582BFC808100AE401D /* Translation.framework */,
 				AE130E999BE1F64B82CCB9BB /* libPods-OCProject.a */,
 			);
 			name = Frameworks;

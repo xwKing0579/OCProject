@@ -80,16 +80,16 @@ static NSMutableSet *_filePathSet;
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
     BOOL isDirectory;
-
+    
     for (NSString *filePath in files) {
         if ([filePath isEqualToString:@"Pods"]) continue;
         NSString *path = [projectPath stringByAppendingPathComponent:filePath];
-     
+        
         if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
             [self modifyClassDict:path otherPrefix:otherPrefix oldPrefix:oldPrefix newPrefix:newPrefix];
             continue;
         }
-    
+        
         NSString *fileName = filePath.lastPathComponent;
         if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".pch"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"] || [fileName hasSuffix:@".xcodeproj"]) {
             NSArray *classNames = [fileName.stringByDeletingPathExtension componentsSeparatedByString:@"+"];
@@ -325,4 +325,68 @@ static NSMutableSet *_filePathSet;
         [fileContent writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }
 }
+
+static NSMutableSet *_searchResultSet;
++ (void)searchProjectName:(NSString *)projectPath keyWord:(NSString *)keyWord{
+    _searchResultSet = [NSMutableSet set];
+    [self searchProjectPath:projectPath keyWord:keyWord];
+   
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *fileDir = [NSString stringWithFormat:@"/Users/wangxiangwei/Desktop/翻译/%@",projectPath.lastPathComponent];
+    NSString *fileStrings = [NSString stringWithFormat:@"%@.strings",fileDir];
+    [fm createDirectoryAtPath:fileDir withIntermediateDirectories:YES attributes:nil error:nil];
+    NSMutableString *mutableString = [NSMutableString string];
+    for (NSString *str in _searchResultSet.allObjects) {
+        //[mutableString appendFormat:@"\"%@\" = \"%@\";\n",str,str];
+        [mutableString appendFormat:@"%@\n",str];
+    }
+    
+    NSError *error;
+    [mutableString writeToFile:fileStrings atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    NSLog(@"%@",error);
+}
+
++ (void)searchProjectPath:(NSString *)projectPath keyWord:(NSString *)keyWord{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
+    BOOL isDirectory;
+    
+    for (NSString *filePath in files) {
+        if ([filePath isEqualToString:@"Pods"]) continue;
+        NSString *path = [projectPath stringByAppendingPathComponent:filePath];
+        
+        if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
+            [self searchProjectPath:path keyWord:keyWord];
+            continue;
+        }
+        
+        NSString *fileName = filePath.lastPathComponent;
+        if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"]) {
+            NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+            NSArray *logStrings = [fileContent regexPattern:@"NSLog\\(([^)]+)\\);"];
+           
+            for (NSString *logString in logStrings) {
+                fileContent = [fileContent stringByReplacingOccurrencesOfString:logString withString:@""].mutableCopy;
+            }
+            
+            NSArray *stringNames = [fileContent regexPattern:@"@\"((?:\\.|[^\\\"])*)\""];
+            for (NSString *string in stringNames) {
+                if ([self containsChinese:string]){
+                    [_searchResultSet addObject:string];
+                }
+            }
+        }
+    }
+}
+
++ (BOOL)containsChinese:(NSString *)string {
+    for (int i = 0; i < string.length; i++) {
+        unichar c = [string characterAtIndex:i];
+        if ((c >= 0x4E00) && (c <= 0x9FFF)) {
+            return YES; // 包含中文
+        }
+    }
+    return NO; // 不包含中文
+}
+
 @end

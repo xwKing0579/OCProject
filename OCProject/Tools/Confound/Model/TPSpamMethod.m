@@ -39,7 +39,7 @@
             NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
             [fileContent stringByReplacingOccurrencesOfString:@" " withString:@""];
             NSArray *mehods = [fileContent regexPattern:@"@(void)\\s+([^:\\r\\n]+);"];
-            int count = (int)(MIN(20, mehods.count) + arc4random()%5 + 1);
+            int count = (int)(MIN(50, mehods.count) + arc4random()%5 + 10);
             NSArray *customMethods = [self randomMethodName:mfile count:count];
             [self createSpamMethods:customMethods toFilePath:[path stringByReplacingOccurrencesOfString:@".h" withString:@""]];
         }

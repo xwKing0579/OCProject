@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = @"马甲包工具";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"开始" style:(UIBarButtonItemStyleDone) target:self action:@selector(startConfoundAction)];
-    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/Social";
+    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/ybliveios";
     self.data = [TPConfoundModel data];
     [self.tableView reloadData];
 }
@@ -30,8 +30,8 @@
     TPSpamCodeSetting *codeSet = set.spamSet;
     TPSpamCodeFileSetting *fileSet = codeSet.spamFileSet;
     TPModifyProjectSetting *modifySet = set.modifySet;
-    modifySet.oldName = @"TiaoPiChat";
-    modifySet.modifyName = @"SCodeProject";
+//    modifySet.oldName = @"TiaoPiChat";
+//    modifySet.modifyName = @"SCodeProject";
     NSString *path = set.path;
     if (!path.length) {
         [TPToastManager showText:@"请输入绝对路径"];
@@ -55,6 +55,8 @@
     [TPToastManager showLoading];
     
     NSArray *ignoreDirNames = @[@"Pods",@"pch"];
+    
+    return;
     ///垃圾代码
     if (set.isSpam) {
         if (codeSet.isSpamOldWords){

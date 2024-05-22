@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///删除注释
 + (void)clearCodeComment:(NSString *)projectPath ignoreDirNames:(NSArray<NSString *> * __nullable)ignoreDirNames;
 
+//搜索关键字
++ (void)searchProjectName:(NSString *)projectPath keyWord:(NSString *)keyWord;
+
 @end
 
 NS_ASSUME_NONNULL_END
