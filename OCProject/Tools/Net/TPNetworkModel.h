@@ -11,8 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPNetworkModel : NSObject
 
-
+@property (nonatomic, copy) NSString *host;
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *path;
+@property (nonatomic, copy) NSString *pathString;
 @property (nonatomic, copy) NSData *httpBody;
 @property (nonatomic, copy) NSString *httpMethod;
 @property (nonatomic, copy) NSString *mimeType;

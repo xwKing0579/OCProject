@@ -36,11 +36,16 @@ NSString *const kTPURLProtocolKey = @"kTPURLProtocolKey";
     NSHTTPURLResponse *response = (NSHTTPURLResponse *)self.response;
     
     TPNetworkModel *model = [TPNetworkModel new];
+    model.host = request.URL.host;
     model.url = request.URL.absoluteString;
+  
     model.httpBody = request.HTTPBody;
     model.httpMethod = request.HTTPMethod;
     model.resquestHeaderFields = request.allHTTPHeaderFields;
     model.startTime = self.startDate.toString;
+    
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithString:model.url];
+    model.path = urlComponents.path;
     
     NSDictionary *params = [self requstParams:request];
     NSMutableString *result = [NSMutableString string];
@@ -64,6 +69,8 @@ NSString *const kTPURLProtocolKey = @"kTPURLProtocolKey";
     
     model.totalDuration = [self.endDate timeIntervalSince1970] - [self.startDate timeIntervalSince1970];
     if (!networkData) networkData = [NSMutableArray array];
+    NSInteger max = 1000;
+    if (networkData.count > max) networkData = [NSMutableArray arrayWithArray:[networkData subarrayWithRange:NSMakeRange(0, max-1)]];
     [networkData insertObject:model atIndex:0];
 }
 
@@ -111,7 +118,11 @@ NSString *const kTPURLProtocolKey = @"kTPURLProtocolKey";
     return parameters;
 }
 
-+ (NSArray <TPNetworkModel *>*)data{
++ (void)removeNetData{
+    [networkData removeAllObjects];
+}
+
++ (NSArray <TPNetworkModel *>*)dataList{
     return networkData ?: @[];
 }
 

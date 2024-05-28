@@ -26,7 +26,11 @@
     }else if ([value isKindOfClass:[NSDictionary class]]){
         NSDictionary *dic = (NSDictionary *)value;
         [dic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            [text appendString:[NSString stringWithFormat:@"key:%@,value:%@",key,obj]];
+            if ([key isEqualToString:dic.allKeys.lastObject]){
+                [text appendString:[NSString stringWithFormat:@"%@ = %@",key,obj]];
+            }else{
+                [text appendString:[NSString stringWithFormat:@"%@ = %@\n",key,obj]];
+            }
         }];
     }else if ([value isKindOfClass:[NSArray class]]){
         NSArray *array = (NSArray *)value;

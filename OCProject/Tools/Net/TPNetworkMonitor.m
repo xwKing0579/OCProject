@@ -40,6 +40,11 @@ NSString *const kTPNetworkConfigKey = @"kTPNetworkConfigKey";
 }
 
 + (NSArray <TPNetworkModel *>*)data{
-    return [NSObject performTarget:@"TPURLProtocol".classString action:@"data"];
+    return [NSObject performTarget:@"TPURLProtocol".classString action:@"dataList"];
 }
+
++ (void)removeNetData{
+    [NSObject performTarget:@"TPURLProtocol".classString action:@"removeNetData"];
+}
+
 @end

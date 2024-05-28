@@ -174,7 +174,7 @@ static NSString *identifier = @"TPDebugToolViewCell";
         @{@"title":@"UserDefaults",@"image":@"data",@"url":TPString.vc_user_defaults},
         @{@"title":@"可用字体",@"image":@"font",@"url":TPString.vc_font},
         @{@"title":@"内存泄漏",@"image":@"leaks",@"url":TPString.vc_leaks},
-        @{@"title":@"本机app",@"image":@"app",@"url":TPString.vc_app_kind},
+        //@{@"title":@"本机app",@"image":@"app",@"url":TPString.vc_app_kind},
         @{@"title":@"审核",@"image":@"confound",@"url":TPString.vc_confound},
         
         @{@"title":@"打印日志",@"image":@"log",@"url":TPString.vc_log},

@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPNetworkMonitor : NSObject
 
-
 + (NSArray <TPNetworkModel *>*)data;
++ (void)removeNetData;
 
 @end
 

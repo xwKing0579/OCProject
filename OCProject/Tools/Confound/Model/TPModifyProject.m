@@ -336,9 +336,14 @@ static NSMutableSet *_searchResultSet;
     NSString *fileStrings = [NSString stringWithFormat:@"%@.strings",fileDir];
     [fm createDirectoryAtPath:fileDir withIntermediateDirectories:YES attributes:nil error:nil];
     NSMutableString *mutableString = [NSMutableString string];
-    for (NSString *str in _searchResultSet.allObjects) {
+    NSArray *allObjects = _searchResultSet.allObjects;
+    for (NSString *str in allObjects) {
         //[mutableString appendFormat:@"\"%@\" = \"%@\";\n",str,str];
-        [mutableString appendFormat:@"%@\n",str];
+        if ([str isEqualToString:allObjects.lastObject]){
+            [mutableString appendFormat:@"%@",str];
+        }else{
+            [mutableString appendFormat:@"%@\n",str];
+        }
     }
     
     NSError *error;
