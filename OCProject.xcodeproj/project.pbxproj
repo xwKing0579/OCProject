@@ -26,10 +26,6 @@
 		F82470B62BB6D11C002000BE /* TPModifyProject.m in Sources */ = {isa = PBXBuildFile; fileRef = F82470B12BB6D11B002000BE /* TPModifyProject.m */; };
 		F82470B72BB6D11C002000BE /* TPConfoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F82470B32BB6D11C002000BE /* TPConfoundModel.m */; };
 		F8247FAB2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8247FAA2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m */; };
-		F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF32B351B3100496557 /* TPAppKindModel.m */; };
-		F83AAFF72B351DC100496557 /* TPAppKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF62B351DC100496557 /* TPAppKindViewController.m */; };
-		F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFF92B351E2C00496557 /* TPAppKindTableViewCell.m */; };
-		F83AB0002B35356200496557 /* TPAppDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AAFFF2B35356200496557 /* TPAppDetailViewController.m */; };
 		F83AB0042B3562AA00496557 /* TPLeaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AB0032B3562AA00496557 /* TPLeaksViewController.m */; };
 		F83AB02A2B356AAA00496557 /* TPLeaksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AB0292B356AAA00496557 /* TPLeaksTableViewCell.m */; };
 		F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8430E862B26B43600DBE29F /* UIDevice+Category.m */; };
@@ -221,14 +217,6 @@
 		F82470B32BB6D11C002000BE /* TPConfoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPConfoundModel.m; sourceTree = "<group>"; };
 		F8247FA92BB1663000F41D04 /* TPSpamCodeModelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamCodeModelTableViewCell.h; sourceTree = "<group>"; };
 		F8247FAA2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamCodeModelTableViewCell.m; sourceTree = "<group>"; };
-		F83AAFF22B351B3100496557 /* TPAppKindModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppKindModel.h; sourceTree = "<group>"; };
-		F83AAFF32B351B3100496557 /* TPAppKindModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppKindModel.m; sourceTree = "<group>"; };
-		F83AAFF52B351DC100496557 /* TPAppKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppKindViewController.h; sourceTree = "<group>"; };
-		F83AAFF62B351DC100496557 /* TPAppKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppKindViewController.m; sourceTree = "<group>"; };
-		F83AAFF82B351E2C00496557 /* TPAppKindTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppKindTableViewCell.h; sourceTree = "<group>"; };
-		F83AAFF92B351E2C00496557 /* TPAppKindTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppKindTableViewCell.m; sourceTree = "<group>"; };
-		F83AAFFE2B35356200496557 /* TPAppDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppDetailViewController.h; sourceTree = "<group>"; };
-		F83AAFFF2B35356200496557 /* TPAppDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppDetailViewController.m; sourceTree = "<group>"; };
 		F83AB0022B3562AA00496557 /* TPLeaksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLeaksViewController.h; sourceTree = "<group>"; };
 		F83AB0032B3562AA00496557 /* TPLeaksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLeaksViewController.m; sourceTree = "<group>"; };
 		F83AB0282B356AAA00496557 /* TPLeaksTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLeaksTableViewCell.h; sourceTree = "<group>"; };
@@ -615,21 +603,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F83AAFF12B351AF100496557 /* AppKind */ = {
-			isa = PBXGroup;
-			children = (
-				F83AAFF22B351B3100496557 /* TPAppKindModel.h */,
-				F83AAFF32B351B3100496557 /* TPAppKindModel.m */,
-				F83AAFF52B351DC100496557 /* TPAppKindViewController.h */,
-				F83AAFF62B351DC100496557 /* TPAppKindViewController.m */,
-				F83AAFF82B351E2C00496557 /* TPAppKindTableViewCell.h */,
-				F83AAFF92B351E2C00496557 /* TPAppKindTableViewCell.m */,
-				F83AAFFE2B35356200496557 /* TPAppDetailViewController.h */,
-				F83AAFFF2B35356200496557 /* TPAppDetailViewController.m */,
-			);
-			path = AppKind;
-			sourceTree = "<group>";
-		};
 		F83AB0012B35629200496557 /* Leaks */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,7 +680,6 @@
 				F822A1092B3ACC0900A3330C /* Po */,
 				F89767352B39163700B9F845 /* UIHierarchy */,
 				F83AB0012B35629200496557 /* Leaks */,
-				F83AAFF12B351AF100496557 /* AppKind */,
 				F84368E22B32E7570055444B /* Startup */,
 				F84368C42B3287F90055444B /* Monitor */,
 				F84368BD2B327D980055444B /* Font */,
@@ -1543,7 +1515,6 @@
 				F86DA5052B2A92A800EB642D /* TPCrashTableViewCell.m in Sources */,
 				F8F403AA2B21B97A008653CB /* NSArray+UnicodeReadable.m in Sources */,
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
-				F83AB0002B35356200496557 /* TPAppDetailViewController.m in Sources */,
 				F8611C9E2B4F8BE100636793 /* NSObject+Safe.m in Sources */,
 				F87C20E42B50D7D400EBC6C6 /* TPSafeObjectManager.m in Sources */,
 				F84368CA2B3289B60055444B /* TPThreadTrace.m in Sources */,
@@ -1561,7 +1532,6 @@
 				F822A10C2B3ACDFF00A3330C /* TPPoObjectViewController.m in Sources */,
 				F8E1B17D2B316FED0036928F /* fishhook.c in Sources */,
 				F8F63C142BB50A27007935C1 /* TPModifyProjectViewController.m in Sources */,
-				F83AAFF42B351B3100496557 /* TPAppKindModel.m in Sources */,
 				F8F32AC22BAD7B9A00E04097 /* TPConfoundViewController.m in Sources */,
 				F84368C02B327DA80055444B /* TPFontViewController.m in Sources */,
 				F8E1B18E2B318EE60036928F /* TPLogDetailViewController.m in Sources */,
@@ -1600,7 +1570,6 @@
 				F8871F7F2C056D0100A6177C /* TPNetworkMonitor.m in Sources */,
 				F8D3431B2B203ED0004AEE48 /* TPSettingLocation.m in Sources */,
 				F84368D82B32BD050055444B /* TPMonitorModel.m in Sources */,
-				F83AAFFA2B351E2C00496557 /* TPAppKindTableViewCell.m in Sources */,
 				F81BEC902B28537400DAA26F /* TPCrashManager.m in Sources */,
 				F8F4039D2B21B93D008653CB /* UITouch+MemoryLeak.m in Sources */,
 				F8C04BBF2BB2B39A0057978D /* NSObject+Mediator.m in Sources */,
@@ -1610,7 +1579,6 @@
 				F8B5D90C2BA30ACD009CBF51 /* TPString.m in Sources */,
 				F8A82DD82B5160D200E69051 /* TPMineTableViewCell.m in Sources */,
 				F81BEC9F2B286E3A00DAA26F /* TPAppInfoModel.m in Sources */,
-				F83AAFF72B351DC100496557 /* TPAppKindViewController.m in Sources */,
 				F81BEC942B285AB200DAA26F /* TPAppInfoManager.m in Sources */,
 				F8F4039E2B21B93D008653CB /* NSObject+MemoryLeak.m in Sources */,
 				F81BEC8D2B28525D00DAA26F /* TPCrashModel.m in Sources */,

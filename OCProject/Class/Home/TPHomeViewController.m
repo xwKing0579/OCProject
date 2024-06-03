@@ -22,6 +22,10 @@
                   ROUTER_DEMO(TPString.vc_analysis_demo,@"无痕埋点demo"),
     ];
     [self.tableView reloadData];
+ 
+
+    //[TPModifyProject searchProjectName:@"/Users/wangxiangwei/Desktop/未命名文件夹" keyWord:@""];
+
 }
 
 - (NSString *)cellClass{

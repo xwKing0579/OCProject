@@ -26,10 +26,7 @@
 }
 
 + (CGFloat)navBarHeight{
-    NSSet *set = [UIApplication sharedApplication].connectedScenes;
-    UIWindowScene *windowScene = [set anyObject];
-    UIStatusBarManager *statusBarManager = windowScene.statusBarManager;
-    return statusBarManager.statusBarFrame.size.height;
+    return 44;
 }
 
 + (CGFloat)tabbarHeight{

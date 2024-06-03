@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 //搜索关键字
 + (void)searchProjectName:(NSString *)projectPath keyWord:(NSString *)keyWord;
 
++ (void)papapa;
 @end
 
 NS_ASSUME_NONNULL_END

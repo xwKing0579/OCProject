@@ -366,7 +366,7 @@ static NSMutableSet *_searchResultSet;
         }
         
         NSString *fileName = filePath.lastPathComponent;
-        if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"]) {
+        if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"] || [fileName hasSuffix:@".plist"]) {
             NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
             NSArray *logStrings = [fileContent regexPattern:@"NSLog\\(([^)]+)\\);"];
            
@@ -374,10 +374,10 @@ static NSMutableSet *_searchResultSet;
                 fileContent = [fileContent stringByReplacingOccurrencesOfString:logString withString:@""].mutableCopy;
             }
             
-            NSArray *stringNames = [fileContent regexPattern:@"@\"((?:\\.|[^\\\"])*)\""];
+            NSArray *stringNames = [fileContent regexPattern:@">(.*?)<"];
             for (NSString *string in stringNames) {
                 if ([self containsChinese:string]){
-                    [_searchResultSet addObject:string];
+                    [_searchResultSet addObject:[NSString stringWithFormat:@">%@<",string]];
                 }
             }
         }
@@ -394,4 +394,79 @@ static NSMutableSet *_searchResultSet;
     return NO; // 不包含中文
 }
 
++ (void)papapa{
+    NSString *filePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/strings_z.xml";
+    NSMutableString *zfileContent = [NSMutableString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    
+    NSString *efilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/strings_e.xml";
+    NSMutableString *efileContent = [NSMutableString stringWithContentsOfFile:efilePath encoding:NSUTF8StringEncoding error:nil];
+    
+    NSArray *stringNames = [zfileContent regexPattern:@">(.*?)</string>"];
+    NSArray *ostringNames = [efileContent regexPattern:@">(.*?)</string>"];
+    
+    NSMutableArray *string1 = [NSMutableArray array];
+    NSMutableSet *set = [NSMutableSet set];
+    if (stringNames.count == ostringNames.count){
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        for (int i = 0; i < stringNames.count; i++) {
+            NSString *key = stringNames[i];
+            NSString *value = ostringNames[i];
+            [dic setValue:value forKey:key];
+            [string1 addObject:key];
+            [set addObject:value];
+        }
+        NSLog(@"%ld == %ld",dic.allKeys.count,set.allObjects.count);
+      
+        NSString *ifilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/Info.strings";
+        NSMutableString *ifileContent = [NSMutableString stringWithContentsOfFile:ifilePath encoding:NSUTF8StringEncoding error:nil];
+        NSArray *arr = [ifileContent componentsSeparatedByString:@";"];
+        
+        NSMutableArray *string2 = [NSMutableArray array];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        for (NSString *string in arr) {
+            NSString *new = string.whitespace;
+            NSArray *value = [new componentsSeparatedByString:@" = "];
+            NSString *h = value.firstObject;
+            NSString *s = value.lastObject;
+            NSString *k = [h.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            NSString *v = [s.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+ 
+            [dict setValue:v forKey:k];
+            [string2 addObject:k];
+        }
+        
+      
+        NSMutableDictionary *result = [NSMutableDictionary dictionary];
+        for (NSString *key in dic) {
+            if ([dict valueForKey:key]){
+                NSString *aaaa = [NSString stringWithFormat:@"\"%@\" = \"%@\"",key,dict[key]];
+                NSString *bbbb = [NSString stringWithFormat:@"\"%@\" = \"%@\"",key,dic[key]];
+                NSLog(@"===>>> %@",aaaa);
+                ifileContent = [ifileContent stringByReplacingOccurrencesOfString:aaaa withString:bbbb].mutableCopy;
+            }
+        }
+        
+        [ifileContent writeToFile:@"/Users/wangxiangwei/Desktop/未命名文件夹/newInfo.strings" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        
+    }
+
+}
+
++ (BOOL)containsKoreanCharacters:(NSString *)string {
+    if (!string) return NO;
+      
+    // 使用 NSRegularExpression 来检查 Unicode 范围内的韩文
+    // 这里我们主要检查 Hangul Syllables 范围 AC00-D7AF
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[\uAC00-\uD7AF]+" options:NSRegularExpressionCaseInsensitive error:&error];
+    if (error) {
+        NSLog(@"Regex compilation error: %@", error);
+        return NO;
+    }
+      
+    // 检查是否匹配  
+    NSTextCheckingResult *match = [regex firstMatchInString:string options:0 range:NSMakeRange(0, [string length])];
+    return match != nil;
+}
+  
 @end

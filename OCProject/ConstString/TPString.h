@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)tc_crash;
 + (NSString *)tc_monitor;
 + (NSString *)tc_po_object;
-+ (NSString *)tc_app_kind;
 + (NSString *)tc_app_info;
 + (NSString *)tc_file;
 + (NSString *)tc_file_data;
@@ -69,7 +68,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)vc_leaks;
 + (NSString *)vc_crash;
 + (NSString *)vc_monitor;
-+ (NSString *)vc_app_kind;
 + (NSString *)vc_app_info;
 + (NSString *)vc_app_detail;
 + (NSString *)vc_po_object;
