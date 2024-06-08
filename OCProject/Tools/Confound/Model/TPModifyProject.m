@@ -366,7 +366,7 @@ static NSMutableSet *_searchResultSet;
         }
         
         NSString *fileName = filePath.lastPathComponent;
-        if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"] || [fileName hasSuffix:@".plist"]) {
+//        if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"] || [fileName hasSuffix:@".plist"]) {
             NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
             NSArray *logStrings = [fileContent regexPattern:@"NSLog\\(([^)]+)\\);"];
            
@@ -374,13 +374,16 @@ static NSMutableSet *_searchResultSet;
                 fileContent = [fileContent stringByReplacingOccurrencesOfString:logString withString:@""].mutableCopy;
             }
             
-            NSArray *stringNames = [fileContent regexPattern:@">(.*?)<"];
-            for (NSString *string in stringNames) {
-                if ([self containsChinese:string]){
-                    [_searchResultSet addObject:[NSString stringWithFormat:@">%@<",string]];
-                }
+            if ([fileContent containsString:keyWord]){
+                NSLog(@"%@",path);
             }
-        }
+//            NSArray *stringNames = [fileContent regexPattern:@">(.*?)<"];
+//            for (NSString *string in stringNames) {
+//                if ([self containsChinese:string]){
+//                    [_searchResultSet addObject:[NSString stringWithFormat:@">%@<",string]];
+//                }
+//            }
+//        }
     }
 }
 

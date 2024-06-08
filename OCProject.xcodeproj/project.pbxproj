@@ -26,6 +26,9 @@
 		F82470B62BB6D11C002000BE /* TPModifyProject.m in Sources */ = {isa = PBXBuildFile; fileRef = F82470B12BB6D11B002000BE /* TPModifyProject.m */; };
 		F82470B72BB6D11C002000BE /* TPConfoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F82470B32BB6D11C002000BE /* TPConfoundModel.m */; };
 		F8247FAB2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8247FAA2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m */; };
+		F8304E1B2C0F12A40060899D /* TPJsonObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8304E152C0F12A30060899D /* TPJsonObjectTableViewCell.m */; };
+		F8304E1C2C0F12A40060899D /* TPJsonObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8304E192C0F12A30060899D /* TPJsonObjectViewController.m */; };
+		F8304E1D2C0F12A40060899D /* TPJsonObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F8304E1A2C0F12A30060899D /* TPJsonObjectModel.m */; };
 		F83AB0042B3562AA00496557 /* TPLeaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AB0032B3562AA00496557 /* TPLeaksViewController.m */; };
 		F83AB02A2B356AAA00496557 /* TPLeaksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F83AB0292B356AAA00496557 /* TPLeaksTableViewCell.m */; };
 		F8430E872B26B43600DBE29F /* UIDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8430E862B26B43600DBE29F /* UIDevice+Category.m */; };
@@ -217,6 +220,12 @@
 		F82470B32BB6D11C002000BE /* TPConfoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPConfoundModel.m; sourceTree = "<group>"; };
 		F8247FA92BB1663000F41D04 /* TPSpamCodeModelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSpamCodeModelTableViewCell.h; sourceTree = "<group>"; };
 		F8247FAA2BB1663000F41D04 /* TPSpamCodeModelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSpamCodeModelTableViewCell.m; sourceTree = "<group>"; };
+		F8304E152C0F12A30060899D /* TPJsonObjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPJsonObjectTableViewCell.m; sourceTree = "<group>"; };
+		F8304E162C0F12A30060899D /* TPJsonObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPJsonObjectViewController.h; sourceTree = "<group>"; };
+		F8304E172C0F12A30060899D /* TPJsonObjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPJsonObjectTableViewCell.h; sourceTree = "<group>"; };
+		F8304E182C0F12A30060899D /* TPJsonObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPJsonObjectModel.h; sourceTree = "<group>"; };
+		F8304E192C0F12A30060899D /* TPJsonObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPJsonObjectViewController.m; sourceTree = "<group>"; };
+		F8304E1A2C0F12A30060899D /* TPJsonObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPJsonObjectModel.m; sourceTree = "<group>"; };
 		F83AB0022B3562AA00496557 /* TPLeaksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLeaksViewController.h; sourceTree = "<group>"; };
 		F83AB0032B3562AA00496557 /* TPLeaksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLeaksViewController.m; sourceTree = "<group>"; };
 		F83AB0282B356AAA00496557 /* TPLeaksTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLeaksTableViewCell.h; sourceTree = "<group>"; };
@@ -584,6 +593,12 @@
 				F822A10E2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m */,
 				F89C833D2B3BBE7200638E43 /* TPShotObjectViewController.h */,
 				F89C833E2B3BBE7200638E43 /* TPShotObjectViewController.m */,
+				F8304E182C0F12A30060899D /* TPJsonObjectModel.h */,
+				F8304E1A2C0F12A30060899D /* TPJsonObjectModel.m */,
+				F8304E172C0F12A30060899D /* TPJsonObjectTableViewCell.h */,
+				F8304E152C0F12A30060899D /* TPJsonObjectTableViewCell.m */,
+				F8304E162C0F12A30060899D /* TPJsonObjectViewController.h */,
+				F8304E192C0F12A30060899D /* TPJsonObjectViewController.m */,
 			);
 			path = Po;
 			sourceTree = "<group>";
@@ -1524,6 +1539,7 @@
 				F8AF95632B1F04D2003059CB /* TPNetworkCache.m in Sources */,
 				F8F4039A2B21B93D008653CB /* UIApplication+MemoryLeak.m in Sources */,
 				F8A706722B54DBC0005BEC68 /* UITextView+Category.m in Sources */,
+				F8304E1B2C0F12A40060899D /* TPJsonObjectTableViewCell.m in Sources */,
 				F88286992B9F470C00FC22F4 /* TPOperationModel.m in Sources */,
 				F8AE19712B2C67FB009C12E2 /* NSString+Category.m in Sources */,
 				F8F4039F2B21B93D008653CB /* UISplitViewController+MemoryLeak.m in Sources */,
@@ -1585,6 +1601,7 @@
 				F875EAEE2B4E77C300559A68 /* TPAnalysisClickTableViewCell.m in Sources */,
 				F8B5D9092BA2FA4B009CBF51 /* TPUiHierarchyTableViewCell.m in Sources */,
 				F822A10F2B3ADE2E00A3330C /* TPPoObjectTableViewCell.m in Sources */,
+				F8304E1D2C0F12A40060899D /* TPJsonObjectModel.m in Sources */,
 				F8F403B52B21C1C1008653CB /* TPDebugToolViewController.m in Sources */,
 				F81BEC9C2B2860F800DAA26F /* TPAppInfoViewController.m in Sources */,
 				F8E191502BA433F20083E321 /* TPUserDefaultsViewController.m in Sources */,
@@ -1610,6 +1627,7 @@
 				F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */,
 				F84368C32B327E3D0055444B /* TPFontTableViewCell.m in Sources */,
 				F84368E52B32E78B0055444B /* TPStartupTime.m in Sources */,
+				F8304E1C2C0F12A40060899D /* TPJsonObjectViewController.m in Sources */,
 				F84368CD2B328B750055444B /* TPMonitorViewController.m in Sources */,
 				F8F66D6C2B6202BB00A1E52A /* TPToastViewController.m in Sources */,
 				F8EAC7EF2B173504005522DE /* SceneDelegate.m in Sources */,

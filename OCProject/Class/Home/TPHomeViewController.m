@@ -24,7 +24,7 @@
     [self.tableView reloadData];
  
 
-    //[TPModifyProject searchProjectName:@"/Users/wangxiangwei/Desktop/未命名文件夹" keyWord:@""];
+    //[TPModifyProject searchProjectName:@"/Users/wangxiangwei/Desktop/fxtp" keyWord:@"该文件内容自动生成，手动修改无效"];
 
 }
 

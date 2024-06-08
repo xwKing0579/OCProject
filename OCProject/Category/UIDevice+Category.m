@@ -30,10 +30,6 @@
 }
 
 + (CGFloat)tabbarHeight{
-    UIViewController *rootVC = UIViewController.rootViewController;
-    if ([rootVC isKindOfClass:[UITabBarController class]]){
-        return ((UITabBarController *)rootVC).tabBar.frame.size.height;
-    }
     return 49.0;
 }
 

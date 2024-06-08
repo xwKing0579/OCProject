@@ -6,7 +6,7 @@
 //
 
 #import "TPPoObjectViewController.h"
-
+#import "TPJsonObjectModel.h"
 @interface TPPoObjectViewController ()
 @end
 
@@ -19,10 +19,16 @@
     if ([NSStringFromClass([self.object class]) hasPrefix:@"UI"] || 
         [NSStringFromClass([self.object class]) hasPrefix:@"_UI"]){
         self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc]initWithTitle:@"shotImage" style:(UIBarButtonItemStyleDone) target:self action:@selector(shotObjectImage)],[[UIBarButtonItem alloc]initWithTitle:@"custom" style:(UIBarButtonItemStyleDone) target:self action:@selector(customPropertyList)]];
+    }else{
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"去解析" style:(UIBarButtonItemStyleDone) target:self action:@selector(toJsonText)];
     }
    
     self.data = self.object.propertyList;
     [self.tableView reloadData];
+}
+
+- (void)toJsonText{
+    [TPJsonObjectModel toJson:nil];
 }
 
 - (void)shotObjectImage{
