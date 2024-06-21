@@ -397,61 +397,166 @@ static NSMutableSet *_searchResultSet;
     return NO; // 不包含中文
 }
 
-+ (void)papapa{
-    NSString *filePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/strings_z.xml";
-    NSMutableString *zfileContent = [NSMutableString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
++ (void)replaceZZZ{
+    NSString *filePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/0000.strings";
+    NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *d1 = [self jiexiplist:fileContent];
     
-    NSString *efilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/strings_e.xml";
-    NSMutableString *efileContent = [NSMutableString stringWithContentsOfFile:efilePath encoding:NSUTF8StringEncoding error:nil];
+    NSString *rfilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/result.strings";
+    NSMutableString *rfileContent = [NSMutableString stringWithContentsOfFile:rfilePath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *d2 = [self jiexiplist:rfileContent];
     
-    NSArray *stringNames = [zfileContent regexPattern:@">(.*?)</string>"];
-    NSArray *ostringNames = [efileContent regexPattern:@">(.*?)</string>"];
     
-    NSMutableArray *string1 = [NSMutableArray array];
-    NSMutableSet *set = [NSMutableSet set];
-    if (stringNames.count == ostringNames.count){
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        for (int i = 0; i < stringNames.count; i++) {
-            NSString *key = stringNames[i];
-            NSString *value = ostringNames[i];
-            [dic setValue:value forKey:key];
-            [string1 addObject:key];
-            [set addObject:value];
-        }
-        NSLog(@"%ld == %ld",dic.allKeys.count,set.allObjects.count);
-      
-        NSString *ifilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/Info.strings";
-        NSMutableString *ifileContent = [NSMutableString stringWithContentsOfFile:ifilePath encoding:NSUTF8StringEncoding error:nil];
-        NSArray *arr = [ifileContent componentsSeparatedByString:@";"];
-        
-        NSMutableArray *string2 = [NSMutableArray array];
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        for (NSString *string in arr) {
-            NSString *new = string.whitespace;
-            NSArray *value = [new componentsSeparatedByString:@" = "];
-            NSString *h = value.firstObject;
-            NSString *s = value.lastObject;
-            NSString *k = [h.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-            NSString *v = [s.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
- 
-            [dict setValue:v forKey:k];
-            [string2 addObject:k];
-        }
-        
-      
-        NSMutableDictionary *result = [NSMutableDictionary dictionary];
-        for (NSString *key in dic) {
-            if ([dict valueForKey:key]){
-                NSString *aaaa = [NSString stringWithFormat:@"\"%@\" = \"%@\"",key,dict[key]];
-                NSString *bbbb = [NSString stringWithFormat:@"\"%@\" = \"%@\"",key,dic[key]];
-                NSLog(@"===>>> %@",aaaa);
-                ifileContent = [ifileContent stringByReplacingOccurrencesOfString:aaaa withString:bbbb].mutableCopy;
-            }
-        }
-        
-        [ifileContent writeToFile:@"/Users/wangxiangwei/Desktop/未命名文件夹/newInfo.strings" atomically:YES encoding:NSUTF8StringEncoding error:nil];
-        
+//    NSMutableArray *no = [NSMutableArray array];
+//    for (NSString *key in d1.allKeys) {
+//        if (![d2 valueForKey:key]){
+//            [no addObject:key];
+//        }
+//    }
+  
+    NSMutableString *ifileContent = [NSMutableString string];
+    for (NSString *akey in d2.allKeys) {
+        NSString *value = d2[akey];
+        if ([d1 valueForKey:akey]) value = d1[akey];
+        [ifileContent appendFormat:@"%@", [NSString stringWithFormat:@"\"%@\" = \"%@\"",akey,value]];
+        [ifileContent appendString:@";\n"];
     }
+    [ifileContent writeToFile:@"/Users/wangxiangwei/Desktop/未命名文件夹/result0612.strings" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+
++ (NSDictionary *)jiexiplist:(NSString *)fileContent{
+    NSArray *d1 = [fileContent componentsSeparatedByString:@"\";"];
+    NSMutableDictionary *rd1 = [NSMutableDictionary dictionary];
+    for (NSString *string in d1) {
+        NSArray *r1 = [string componentsSeparatedByString:@"\" = \""];
+        if (r1.count != 2) continue;;
+        
+        NSString *Key = r1.firstObject;
+        NSString *value = r1.lastObject;
+        
+        NSString *a = [Key.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        a = [a stringByReplacingOccurrencesOfString:@";" withString:@""];
+        
+        NSString *b = [value.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        b = [b stringByReplacingOccurrencesOfString:@";" withString:@""];
+        if ([rd1 valueForKey:a]){
+            NSLog(@"重复===>>>%@---%@",value,Key);
+        }else{
+            [rd1 setValue:b forKey:a];
+        }
+    }
+    NSLog(@"键值对===>>>%ld",rd1.allKeys.count);
+    return rd1;
+}
+
++ (void)papapa{
+    NSString *filePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/bnl/strings2.xml";
+    NSString *zfileContent = [[NSAttributedString alloc] initWithFileURL:[NSURL fileURLWithPath:filePath] options:@{NSDocumentTypeDocumentAttribute: NSPlainTextDocumentType} documentAttributes:nil error:nil].string;
+    
+    NSString *efilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/cnm/strings2.xml";
+    NSMutableString *efileContent = [[NSAttributedString alloc] initWithFileURL:[NSURL fileURLWithPath:efilePath] options:@{NSDocumentTypeDocumentAttribute: NSPlainTextDocumentType} documentAttributes:nil error:nil].string;
+    
+    NSArray *zName = [zfileContent regexPattern:@"<string name=\"([^\"]+)\">"];
+    NSArray *eName = [efileContent regexPattern:@"<string name=\"([^\"]+)\">"];
+    
+    NSArray *zstringNames = [zfileContent regexPattern:@">(.*?)</string>"];
+    NSArray *estringNames = [efileContent regexPattern:@">(.*?)</string>"];
+    
+   
+    if (zstringNames.count == estringNames.count && zName.count == zstringNames.count){
+        if ([zName isEqualToArray:eName]){
+            NSMutableDictionary *cnmDic = [NSMutableDictionary dictionary];
+            
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            for (int i = 0; i < zstringNames.count; i++ ) {
+                NSString *key = zstringNames[i];
+                NSString *value = estringNames[i];
+                if ([cnmDic valueForKey:key]){
+                    NSSet *set = dic[key];
+                    NSMutableSet *muteSet = [NSMutableSet setWithArray:set.allObjects?:@[]];
+                    [muteSet addObject:value];
+                    [muteSet addObject:cnmDic[key]];
+                    [dic setValue:muteSet.allObjects forKey:key];
+                }else{
+                    [cnmDic setValue:value forKey:key];
+                }
+            }
+      
+            NSMutableArray *arr =[NSMutableArray array];
+            for (NSString *Key in cnmDic.allKeys) {
+                if ([Key containsString:@"%"]){
+                    [arr addObject:[NSString stringWithFormat:@"%@ = %@",Key,cnmDic[Key]]];
+                }
+            }
+            NSLog(@"%@",arr);
+
+           
+            if (zstringNames.count >= cnmDic.allKeys.count){
+                NSString *ifilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/0612.strings";
+                NSMutableString *ifileContent = [NSMutableString string];
+                for (NSString *key in cnmDic) {
+                    
+                    NSString *keykey = [key stringByReplacingOccurrencesOfString:@"\"" withString:@"”"];
+                    keykey = [keykey stringByReplacingOccurrencesOfString:@"%1$s" withString:@"%|"];
+                    keykey = [keykey stringByReplacingOccurrencesOfString:@"%2$s" withString:@"%|"];
+                    keykey = [keykey stringByReplacingOccurrencesOfString:@"%3$s" withString:@"%|"];
+                    keykey = [keykey stringByReplacingOccurrencesOfString:@"%4$s" withString:@"%|"];
+                    keykey = [keykey stringByReplacingOccurrencesOfString:@"&#160" withString:@""];
+                    NSString *string = [cnmDic valueForKey:key];
+                    NSString *result = [string stringByReplacingOccurrencesOfString:@"\"" withString:@"”"];
+                    result = [result stringByReplacingOccurrencesOfString:@"%1$s" withString:@"%|"];
+                    result = [result stringByReplacingOccurrencesOfString:@"%2$s" withString:@"%|"];
+                    result = [result stringByReplacingOccurrencesOfString:@"%3$s" withString:@"%|"];
+                    result = [result stringByReplacingOccurrencesOfString:@"%4$s" withString:@"%|"];
+                    result = [result stringByReplacingOccurrencesOfString:@"&#160" withString:@""];
+                    if ([key containsString:@"房间为计时房间，每分钟需要支付%1$s%2$s"]){
+                        NSLog(@"%@---%@",keykey,result);
+                    }
+                    [ifileContent appendFormat:[NSString stringWithFormat:@"\"%@\" = \"%@\"",keykey,result]];
+                    [ifileContent appendString:@";\n"];
+                }
+                [ifileContent writeToFile:@"/Users/wangxiangwei/Desktop/未命名文件夹/0612.strings" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            }
+            NSLog(@"%ld---%ld",zstringNames.count,cnmDic.allKeys.count);
+        }
+    }
+
+    
+        
+    
+//    NSMutableArray *string1 = [NSMutableArray array];
+//    NSMutableSet *set = [NSMutableSet set];
+//    if (stringNames.count == ostringNames.count){
+//        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//        for (int i = 0; i < stringNames.count; i++) {
+//            NSString *key = stringNames[i];
+//            NSString *value = ostringNames[i];
+//            [dic setValue:value forKey:key];
+//            [string1 addObject:key];
+//            [set addObject:value];
+//        }
+//        NSLog(@"%ld == %ld",dic.allKeys.count,set.allObjects.count);
+//      
+//        NSString *ifilePath = @"/Users/wangxiangwei/Desktop/未命名文件夹/Info.strings";
+//        NSMutableString *ifileContent = [NSMutableString stringWithContentsOfFile:ifilePath encoding:NSUTF8StringEncoding error:nil];
+//        NSArray *arr = [ifileContent componentsSeparatedByString:@";"];
+//        
+//        NSMutableArray *string2 = [NSMutableArray array];
+//        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//        for (NSString *string in arr) {
+//            NSString *new = string.whitespace;
+//            NSArray *value = [new componentsSeparatedByString:@" = "];
+//            NSString *h = value.firstObject;
+//            NSString *s = value.lastObject;
+//            NSString *k = [h.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+//            NSString *v = [s.whitespace stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+// 
+//            [dict setValue:v forKey:k];
+//            [string2 addObject:k];
+//        }
+//        
+//      
+      
 
 }
 
@@ -471,5 +576,179 @@ static NSMutableSet *_searchResultSet;
     NSTextCheckingResult *match = [regex firstMatchInString:string options:0 range:NSMakeRange(0, [string length])];
     return match != nil;
 }
+
+static NSMutableSet *_file2Name;
+static NSMutableSet *_filePath2Set;
++ (void)modify2FilePrefix:(NSString *)projectPath newPrefix:(NSString *)newPrefix{
+    _file2Name = [NSMutableSet set];
+    _filePath2Set = [NSMutableSet set];
+    [self modify2ClassDict:projectPath newPrefix:newPrefix];
+    [self modify2ClassNamePrefix:projectPath];
+    for (NSString *filePath in _filePath2Set.allObjects) {
+        NSString *fileName = [filePath.lastPathComponent stringByReplacingOccurrencesOfString:@".h" withString:@""];
+        NSString *fileString = filePath.stringByDeletingLastPathComponent;
+        NSString *h = [fileString stringByAppendingPathComponent:[NSString stringWithFormat:@"LSQ%@.h",fileName]];
+        NSString *mfilePath = [filePath stringByReplacingOccurrencesOfString:@".h" withString:@".m"];
+        NSString *m = [fileString stringByAppendingPathComponent:[NSString stringWithFormat:@"LSQ%@.m",fileName]];
+        [self renameFile:filePath newPath:h];
+        [self renameFile:mfilePath newPath:m];
+        
+        NSString *xib = [filePath stringByReplacingOccurrencesOfString:@".h" withString:@".xib"];
+        NSMutableString *xfileContent = [NSMutableString stringWithContentsOfFile:xib encoding:NSUTF8StringEncoding error:nil];
+        
+        if (xfileContent.length){
+            NSString *nxib = [fileString stringByAppendingPathComponent:[NSString stringWithFormat:@"LSQ%@.xib",fileName]];
+            [self renameFile:xib newPath:nxib];
+        }
+    }
+
+}
+
++ (void)modify2ClassDict:(NSString *)projectPath newPrefix:(NSString *)newPrefix{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
+    BOOL isDirectory;
+    
+    for (NSString *filePath in files) {
+        if ([filePath isEqualToString:@"Pods"]) continue;
+        if ([filePath isEqualToString:@"meiyan"]) continue;
+        if ([filePath isEqualToString:@"DGBackgroudDownloadManagers"]) continue;
+        NSString *path = [projectPath stringByAppendingPathComponent:filePath];
+        
+        if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
+            [self modify2ClassDict:path newPrefix:newPrefix];
+            continue;
+        }
+        
+        NSString *fileName = filePath.lastPathComponent;
+        if ([fileName hasSuffix:@".h"] && ![fileName containsString:@"+"]){
+            NSString *mfile = [path stringByReplacingOccurrencesOfString:@".h" withString:@".m"];
+            NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:mfile encoding:NSUTF8StringEncoding error:nil];
+            if (fileContent.length){
+                NSMutableString *hfileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+                NSArray *fileNames = [hfileContent regexPattern:@"@interface\\s+([^:\\r\\n]+):"];
+                for (NSString *class in fileNames) {
+                    [_file2Name addObject:class.whitespace];
+                }
+                [_filePath2Set addObject:path.whitespace];
+            }
+            
+        }
+    }
+}
+
++ (void)modify2ClassNamePrefix:(NSString *)projectPath{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray<NSString *> *files = [fm contentsOfDirectoryAtPath:projectPath error:nil];
+    BOOL isDirectory;
+    for (NSString *filePath in files) {
+        if ([filePath isEqualToString:@"Pods"]) continue;
+        if ([filePath isEqualToString:@"meiyan"]) continue;
+        if ([filePath isEqualToString:@"DGBackgroudDownloadManagers"]) continue;
+        NSString *path = [projectPath stringByAppendingPathComponent:filePath];
+        if ([fm fileExistsAtPath:path isDirectory:&isDirectory] && isDirectory) {
+            [self modify2ClassNamePrefix:path];
+            continue;
+        }
+       
+        NSString *fileName = filePath.lastPathComponent;
+        if ([fileName hasSuffix:@".h"] || [fileName hasSuffix:@".m"] || [fileName hasSuffix:@".pch"] || [fileName hasSuffix:@".swift"] || [fileName hasSuffix:@".xib"] || [fileName hasSuffix:@".storyboard"]) {
+            NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+            if (fileContent.length){
+                for (NSString *class in _file2Name.allObjects) {
+                    NSString *newClass = [NSString stringWithFormat:@"LSQ%@",class];
+                    fileContent = replaceIndependentWord(fileContent, class, newClass);
+                }
+                [fileContent writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            }
+        }
+        
+        if ([fileName isEqualToString:@"project.pbxproj"]){
+            NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+            for (NSString *class in _file2Name.allObjects) {
+                NSString *h = [NSString stringWithFormat:@"%@.h",class];
+                NSString *m = [NSString stringWithFormat:@"%@.m",class];
+                NSString *x = [NSString stringWithFormat:@"%@.xib",class];
+                NSString *newh = [NSString stringWithFormat:@"LSQ%@.h",class];
+                NSString *newm = [NSString stringWithFormat:@"LSQ%@.m",class];
+                NSString *xewm = [NSString stringWithFormat:@"LSQ%@.xib",class];
+                fileContent = replaceIndependentWord(fileContent, h, newh);
+                fileContent = replaceIndependentWord(fileContent, m, newm);
+                fileContent = replaceIndependentWord(fileContent, x, xewm);
+            }
+            [fileContent writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        }
+    }
+}
+
+NSMutableString *replaceIndependentWord(NSString *string, NSString *target, NSString *replacement) {
+    NSMutableString *mutableString = [string mutableCopy];
+    NSRange range = NSMakeRange(0, mutableString.length);
+      
+    while (range.location != NSNotFound) {
+        range = [mutableString rangeOfString:target options:NSLiteralSearch range:range];
+          
+        if (range.location != NSNotFound) {
+            // 检查前面是否是单词边界（例如空格、标点符号等）
+            BOOL isStartOfWord = (range.location == 0 || ![[NSCharacterSet letterCharacterSet] characterIsMember:[mutableString characterAtIndex:range.location - 1]]);
+              
+            // 检查后面是否是单词边界
+            BOOL isEndOfWord = (range.location + target.length == mutableString.length || ![[NSCharacterSet letterCharacterSet] characterIsMember:[mutableString characterAtIndex:range.location + target.length]]);
+              
+            if (isStartOfWord && isEndOfWord) {
+                // 替换独立出现的 target
+                [mutableString replaceCharactersInRange:range withString:replacement];
+                // 更新搜索范围，避免替换到已经替换过的地方
+                range = NSMakeRange(range.location + replacement.length, mutableString.length - (range.location + replacement.length));
+            } else {
+                // 移动搜索范围以跳过当前的 target
+                range = NSMakeRange(range.location + target.length, mutableString.length - (range.location + target.length));
+            }
+        }
+    }
+      
+    return mutableString;
+}
+
++ (void)replaceImagesInDirectory:(NSString *)directory toProjectPath:(NSString *)projectPath{
+    NSArray *images = [self getImagesInDirectory:directory];
+   
+    NSMutableArray *temp = [NSMutableArray array];
+    for (NSString *path in images) {
+        NSString *name = path.lastPathComponent;
+        if ([temp containsObject:name]){
+            
+        }else{
+            [temp addObject:name];
+        }
+    }
+    
   
+}
+
++ (NSArray *)getImagesInDirectory:(NSString *)directory{
+    NSMutableArray<NSString *> *imageFiles = [NSMutableArray array];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *enumerator = [fileManager enumeratorAtPath:directory];
+    
+    NSString *fileName;
+    while ((fileName = [enumerator nextObject]) != nil) {
+        if ([fileName containsString:@"pod"]) continue;
+        if ([fileName containsString:@"百度语音"]) continue;
+        if ([fileName containsString:@"TUIKit"]) continue;
+        if ([fileName containsString:@"美狐SDK"]) continue;
+        if ([fileName containsString:@"腾讯地图"]) continue;
+        
+        NSString *filePath = [directory stringByAppendingPathComponent:fileName];
+        if ([[filePath pathExtension] isEqualToString:@"png"] ||
+            [[filePath pathExtension] isEqualToString:@"jpg"] ||
+            [[filePath pathExtension] isEqualToString:@"jpeg"]) {
+            [imageFiles addObject:filePath];
+        }
+    }
+    
+    return imageFiles;
+}
+
+
 @end

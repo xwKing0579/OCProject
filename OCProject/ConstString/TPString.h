@@ -59,6 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)vc_crypto;
 + (NSString *)vc_toast;
 + (NSString *)vc_pop_views;
++ (NSString *)vc_card_item;
 
 ///debug工具页面
 + (NSString *)vc_log;

@@ -25,6 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)searchProjectName:(NSString *)projectPath keyWord:(NSString *)keyWord;
 
 + (void)papapa;
++ (void)replaceZZZ;
+
++ (void)modify2FilePrefix:(NSString *)projectPath newPrefix:(NSString *)newPrefix;
+//图片
++ (void)replaceImagesInDirectory:(NSString *)directory toProjectPath:(NSString *)projectPath;
+
 @end
 
 NS_ASSUME_NONNULL_END

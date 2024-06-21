@@ -22,7 +22,8 @@
                   ROUTER_DEMO(TPString.vc_empty_data,@"emptyData演示demo"),
                   ROUTER_DEMO(TPString.vc_crypto,@"加解密演示demo"),
                   ROUTER_DEMO(TPString.vc_toast,@"toast演示demo"),
-                  ROUTER_DEMO(TPString.vc_pop_views,@"弹框优先级演示demo")];
+                  ROUTER_DEMO(TPString.vc_pop_views,@"弹框优先级演示demo"),
+                  ROUTER_DEMO(TPString.vc_card_item,@"演示demo")];
     [self.tableView reloadData];
 }
 

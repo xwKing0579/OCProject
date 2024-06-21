@@ -18,7 +18,7 @@
 }
 
 - (NSString *)whitespace{
-    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 + (NSString *)sizeString:(unsigned long long)fileSize{

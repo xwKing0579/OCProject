@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
     self.title = @"马甲包工具";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"开始" style:(UIBarButtonItemStyleDone) target:self action:@selector(startConfoundAction)];
-    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/YaoGuang";
+    TPConfoundSetting.sharedManager.path = @"/Users/wangxiangwei/Desktop/uasa";
     self.data = [TPConfoundModel data];
     [self.tableView reloadData];
 }

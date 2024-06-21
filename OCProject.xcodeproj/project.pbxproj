@@ -74,6 +74,9 @@
 		F89C833F2B3BBE7200638E43 /* TPShotObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89C833E2B3BBE7200638E43 /* TPShotObjectViewController.m */; };
 		F89E237D2B4CD85E00D34E24 /* TPiCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E237C2B4CD85E00D34E24 /* TPiCarouselViewController.m */; };
 		F89E23812B4D456A00D34E24 /* TPMeditorDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E23802B4D456A00D34E24 /* TPMeditorDemoViewController.m */; };
+		F89E863E2C22A8F400F9A547 /* YGCardContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E863D2C22A8F400F9A547 /* YGCardContainerView.m */; };
+		F89E86412C22A9B600F9A547 /* YGCardItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E86402C22A9B600F9A547 /* YGCardItemView.m */; };
+		F89E86442C22AC3E00F9A547 /* TPCardItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89E86432C22AC3E00F9A547 /* TPCardItemViewController.m */; };
 		F8A7066C2B54C1E1005BEC68 /* TPCryptoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A7066B2B54C1E1005BEC68 /* TPCryptoUtils.m */; };
 		F8A7066F2B54D279005BEC68 /* TPCryptoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A7066E2B54D279005BEC68 /* TPCryptoViewController.m */; };
 		F8A706722B54DBC0005BEC68 /* UITextView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A706712B54DBC0005BEC68 /* UITextView+Category.m */; };
@@ -314,6 +317,12 @@
 		F89E237C2B4CD85E00D34E24 /* TPiCarouselViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPiCarouselViewController.m; sourceTree = "<group>"; };
 		F89E237F2B4D456A00D34E24 /* TPMeditorDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMeditorDemoViewController.h; sourceTree = "<group>"; };
 		F89E23802B4D456A00D34E24 /* TPMeditorDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMeditorDemoViewController.m; sourceTree = "<group>"; };
+		F89E863C2C22A8F400F9A547 /* YGCardContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGCardContainerView.h; sourceTree = "<group>"; };
+		F89E863D2C22A8F400F9A547 /* YGCardContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGCardContainerView.m; sourceTree = "<group>"; };
+		F89E863F2C22A9B600F9A547 /* YGCardItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGCardItemView.h; sourceTree = "<group>"; };
+		F89E86402C22A9B600F9A547 /* YGCardItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGCardItemView.m; sourceTree = "<group>"; };
+		F89E86422C22AC3E00F9A547 /* TPCardItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCardItemViewController.h; sourceTree = "<group>"; };
+		F89E86432C22AC3E00F9A547 /* TPCardItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCardItemViewController.m; sourceTree = "<group>"; };
 		F8A7066A2B54C1E1005BEC68 /* TPCryptoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCryptoUtils.h; sourceTree = "<group>"; };
 		F8A7066B2B54C1E1005BEC68 /* TPCryptoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCryptoUtils.m; sourceTree = "<group>"; };
 		F8A7066D2B54D279005BEC68 /* TPCryptoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCryptoViewController.h; sourceTree = "<group>"; };
@@ -825,6 +834,19 @@
 			path = Meditor;
 			sourceTree = "<group>";
 		};
+		F89E863B2C22A8CB00F9A547 /* DragCard */ = {
+			isa = PBXGroup;
+			children = (
+				F89E863C2C22A8F400F9A547 /* YGCardContainerView.h */,
+				F89E863D2C22A8F400F9A547 /* YGCardContainerView.m */,
+				F89E863F2C22A9B600F9A547 /* YGCardItemView.h */,
+				F89E86402C22A9B600F9A547 /* YGCardItemView.m */,
+				F89E86422C22AC3E00F9A547 /* TPCardItemViewController.h */,
+				F89E86432C22AC3E00F9A547 /* TPCardItemViewController.m */,
+			);
+			path = DragCard;
+			sourceTree = "<group>";
+		};
 		F8A706692B54C1AD005BEC68 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
@@ -837,6 +859,7 @@
 		F8A706732B54FDA3005BEC68 /* UIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F89E863B2C22A8CB00F9A547 /* DragCard */,
 				F8790B182B9FF2AC00A82F16 /* PopViews */,
 				F8F66D672B62028700A1E52A /* Toast */,
 				F8A706772B54FDFF005BEC68 /* Crypto */,
@@ -1515,6 +1538,7 @@
 				F8871F7B2C056D0100A6177C /* TPNetworkMonitorTableViewCell.m in Sources */,
 				F8F403AF2B21BD39008653CB /* FPSLabel.m in Sources */,
 				F8F403A92B21B97A008653CB /* NSDictionary+UnicodeReadable.m in Sources */,
+				F89E86442C22AC3E00F9A547 /* TPCardItemViewController.m in Sources */,
 				F8F403962B21B93D008653CB /* UIView+MemoryLeak.m in Sources */,
 				F8D343242B20682D004AEE48 /* TPNetworkManager+Envi.m in Sources */,
 				F82470B62BB6D11C002000BE /* TPModifyProject.m in Sources */,
@@ -1532,6 +1556,7 @@
 				F8AF95512B1EBC73003059CB /* UIImage+Category.m in Sources */,
 				F8611C9E2B4F8BE100636793 /* NSObject+Safe.m in Sources */,
 				F87C20E42B50D7D400EBC6C6 /* TPSafeObjectManager.m in Sources */,
+				F89E86412C22A9B600F9A547 /* YGCardItemView.m in Sources */,
 				F84368CA2B3289B60055444B /* TPThreadTrace.m in Sources */,
 				F8AF95442B1EB407003059CB /* TPBaseNavigationController.m in Sources */,
 				F86E34A72B60E9D4004B3C2F /* TPToastManager.m in Sources */,
@@ -1625,6 +1650,7 @@
 				F8E1B1722B3132C10036928F /* TPUserDefaultsTableViewCell.m in Sources */,
 				F8EAC7FD2B173504005522DE /* main.m in Sources */,
 				F8AF95662B1F053F003059CB /* TPNetworkManager.m in Sources */,
+				F89E863E2C22A8F400F9A547 /* YGCardContainerView.m in Sources */,
 				F84368C32B327E3D0055444B /* TPFontTableViewCell.m in Sources */,
 				F84368E52B32E78B0055444B /* TPStartupTime.m in Sources */,
 				F8304E1C2C0F12A40060899D /* TPJsonObjectViewController.m in Sources */,
