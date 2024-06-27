@@ -26,7 +26,7 @@
 
     //[TPModifyProject searchProjectName:@"/Users/wangxiangwei/Desktop/fxtp" keyWord:@"该文件内容自动生成，手动修改无效"];
     //[TPModifyProject modify2FilePrefix:@"/Users/wangxiangwei/Desktop/uasa_Live" newPrefix:@""];
-    //[TPModifyProject replaceImagesInDirectory:@"/Users/wangxiangwei/Desktop/ybliveios" toProjectPath:@""];
+    [TPModifyProject replaceImagesInDirectory:@"/Users/wangxiangwei/Desktop/test" toDirectory:@"/Users/wangxiangwei/Desktop/test"];
 }
 
 - (NSString *)cellClass{

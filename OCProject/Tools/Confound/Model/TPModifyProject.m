@@ -6,7 +6,7 @@
 //
 
 #import "TPModifyProject.h"
-
+#import "TPTinyPngManger.h"
 @implementation TPModifyProject
 
 + (void)modifyProjectName:(NSString *)projectPath oldName:(NSString *)oldName newName:(NSString *)newName{
@@ -710,35 +710,51 @@ NSMutableString *replaceIndependentWord(NSString *string, NSString *target, NSSt
     return mutableString;
 }
 
-+ (void)replaceImagesInDirectory:(NSString *)directory toProjectPath:(NSString *)projectPath{
-    NSArray *images = [self getImagesInDirectory:directory];
++ (void)replaceImagesInDirectory:(NSString *)directory toDirectory:(NSString *)directory{
+    NSMutableArray *images = [self getImagesInDirectory:directory];
    
+    //重名 不做处理
+    NSLog(@"%ld",images.count);
     NSMutableArray *temp = [NSMutableArray array];
-    for (NSString *path in images) {
-        NSString *name = path.lastPathComponent;
+    NSMutableSet *set = [NSMutableSet set];
+    for (NSString *string in images) {
+        NSString *name = string.lastPathComponent;
         if ([temp containsObject:name]){
-            
+            [set addObject:name];
         }else{
             [temp addObject:name];
         }
     }
     
-  
+    //移除重名图片
+    [images removeObjectsInArray:set.allObjects];
+    
+    NSString *wfilePath = @"/Users/wangxiangwei/Desktop/test";
+    for (NSString *filePath in images) {
+        NSData *imageData = [NSData dataWithContentsOfFile:filePath];
+        if (imageData){
+            NSError *error = nil;
+            NSString *fileName = [directory stringByAppendingPathComponent:filePath.lastPathComponent];
+            BOOL success = [imageData writeToFile:fileName options:NSDataWritingAtomic error:&error];
+            if (!success){
+                NSLog(@"拷贝图片时出错：%@\n图片路径：%@",error.localizedDescription,filePath);
+            }
+        }else{
+            NSLog(@"图片读取失败");
+        }
+    }
+    
+    
 }
 
-+ (NSArray *)getImagesInDirectory:(NSString *)directory{
++ (NSMutableArray *)getImagesInDirectory:(NSString *)directory{
     NSMutableArray<NSString *> *imageFiles = [NSMutableArray array];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSDirectoryEnumerator *enumerator = [fileManager enumeratorAtPath:directory];
     
     NSString *fileName;
     while ((fileName = [enumerator nextObject]) != nil) {
-        if ([fileName containsString:@"pod"]) continue;
-        if ([fileName containsString:@"百度语音"]) continue;
-        if ([fileName containsString:@"TUIKit"]) continue;
-        if ([fileName containsString:@"美狐SDK"]) continue;
-        if ([fileName containsString:@"腾讯地图"]) continue;
-        
+        if ([fileName containsString:@"Pods"]) continue;
         NSString *filePath = [directory stringByAppendingPathComponent:fileName];
         if ([[filePath pathExtension] isEqualToString:@"png"] ||
             [[filePath pathExtension] isEqualToString:@"jpg"] ||
@@ -746,7 +762,6 @@ NSMutableString *replaceIndependentWord(NSString *string, NSString *target, NSSt
             [imageFiles addObject:filePath];
         }
     }
-    
     return imageFiles;
 }
 

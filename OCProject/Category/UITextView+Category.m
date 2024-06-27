@@ -30,6 +30,7 @@ static const void *WZBPlaceholderViewKey = &WZBPlaceholderViewKey;
 
 - (void)setPlaceholder:(NSString *)placeholder{
     self.placeView.text = placeholder;
+    [self textViewTextChange];
     objc_setAssociatedObject(self, @selector(placeholder), placeholder, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 

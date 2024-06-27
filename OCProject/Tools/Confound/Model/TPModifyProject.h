@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)modify2FilePrefix:(NSString *)projectPath newPrefix:(NSString *)newPrefix;
 //图片
-+ (void)replaceImagesInDirectory:(NSString *)directory toProjectPath:(NSString *)projectPath;
++ (void)replaceImagesInDirectory:(NSString *)directory toDirectory:(NSString *)directory;
 
 @end
 
